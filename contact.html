@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Contact — Olamide Andrew</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet"/>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: { gold: '#C9A84C', dark: '#0E0E0E', cream: '#F5F0E8' },
+          fontFamily: { display: ['Playfair Display', 'serif'], body: ['DM Sans', 'sans-serif'] }
+        }
+      }
+    }
+  </script>
+  <style>
+    body { background-color: #0E0E0E; color: #F5F0E8; font-family: 'DM Sans', sans-serif; }
+    .gold-text { color: #C9A84C; }
+    .nav-link { position: relative; color: #F5F0E8; font-size: 0.85rem; letter-spacing: 0.05em; text-decoration: none; transition: color 0.3s; }
+    .nav-link::after { content: ''; position: absolute; bottom: -2px; left: 0; width: 0; height: 1px; background: #C9A84C; transition: width 0.3s; }
+    .nav-link:hover { color: #C9A84C; }
+    .nav-link:hover::after { width: 100%; }
+    .section-label { font-size: 0.7rem; letter-spacing: 0.2em; color: #C9A84C; text-transform: uppercase; font-weight: 500; }
+    .form-field { width: 100%; background: transparent; border: none; border-bottom: 1px solid rgba(245,240,232,0.2); padding: 12px 0; color: #F5F0E8; font-family: 'DM Sans', sans-serif; font-size: 0.9rem; outline: none; transition: border-color 0.3s; }
+    .form-field::placeholder { color: rgba(245,240,232,0.35); font-size: 0.85rem; }
+    .form-field:focus { border-color: #C9A84C; }
+    .form-field option { background: #1a1a1a; }
+    .btn-gold { background: #C9A84C; color: #0E0E0E; font-weight: 600; padding: 1rem 2.5rem; border-radius: 2px; letter-spacing: 0.05em; transition: background 0.3s, transform 0.2s; cursor: pointer; border: none; font-family: 'DM Sans', sans-serif; font-size: 0.9rem; display: inline-block; }
+    .btn-gold:hover { background: #E2C97A; transform: translateY(-1px); }
+    .info-card { border: 1px solid rgba(201,168,76,0.2); padding: 1.5rem; transition: border-color 0.3s; }
+    .info-card:hover { border-color: rgba(201,168,76,0.5); }
+    @keyframes fadeUp { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+    .fade-up { animation: fadeUp 0.7s ease forwards; }
+    .delay-1 { animation-delay: 0.2s; opacity: 0; }
+    .delay-2 { animation-delay: 0.4s; opacity: 0; }
+    .success-msg { display: none; background: rgba(201,168,76,0.1); border: 1px solid rgba(201,168,76,0.4); color: #C9A84C; padding: 1rem 1.5rem; font-size: 0.85rem; border-radius: 2px; margin-top: 1.5rem; }
+    textarea.form-field { resize: none; min-height: 100px; }
+  </style>
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav class="fixed top-0 w-full z-50 flex items-center justify-between px-8 py-5" style="background: rgba(14,14,14,0.95); backdrop-filter: blur(10px); border-bottom: 1px solid rgba(201,168,76,0.15);">
+    <a href="index.html" class="text-xs font-display font-bold tracking-widest uppercase text-gold">Olamide Andrew</a>
+    <div class="flex gap-10">
+      <a href="contact.html" class="nav-link" style="color:#C9A84C;">Contact</a>
+      <a href="about.html" class="nav-link">About</a>
+      <a href="work.html" class="nav-link">Work</a>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <section class="pt-36 pb-12 px-8" style="background: radial-gradient(ellipse at 30% 0%, rgba(201,168,76,0.08) 0%, transparent 60%);">
+    <div class="max-w-5xl mx-auto">
+      <span class="section-label fade-up">Get In Touch</span>
+      <h1 class="font-display font-black text-5xl md:text-7xl mt-4 leading-tight fade-up delay-1">
+        Let's build<br/>something <span class="italic gold-text">great.</span>
+      </h1>
+      <p class="text-cream/50 text-sm mt-5 max-w-md leading-relaxed fade-up delay-2">
+        Whether you have a project ready to go, an idea to explore, or just want to say hello — my inbox is always open.
+      </p>
+    </div>
+  </section>
+
+  <!-- MAIN CONTENT -->
+  <section class="py-16 px-8">
+    <div class="max-w-5xl mx-auto grid grid-cols-1 md:grid-cols-5 gap-16">
+
+      <!-- FORM (left 3) -->
+      <div class="md:col-span-3">
+        <form id="contactForm" onsubmit="handleSubmit(event)">
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-8">
+            <div>
+              <label class="text-xs tracking-widest uppercase text-cream/40 block mb-2">Your Name</label>
+              <input type="text" class="form-field" placeholder="Jane Doe" required />
+            </div>
+            <div>
+              <label class="text-xs tracking-widest uppercase text-cream/40 block mb-2">Email Address</label>
+              <input type="email" class="form-field" placeholder="jane@company.com" required />
+            </div>
+          </div>
+          <div class="mt-8">
+            <label class="text-xs tracking-widest uppercase text-cream/40 block mb-2">Project Type</label>
+            <select class="form-field" required>
+              <option value="" disabled selected>Select a service...</option>
+              <option value="brand">Brand Identity</option>
+              <option value="campaign">Campaign Design</option>
+              <option value="ui">UI Direction</option>
+              <option value="system">Brand System</option>
+              <option value="other">Other</option>
+            </select>
+          </div>
+          <div class="mt-8">
+            <label class="text-xs tracking-widest uppercase text-cream/40 block mb-2">Budget Range</label>
+            <select class="form-field">
+              <option value="" disabled selected>Select budget range...</option>
+              <option>$1,000 – $3,000</option>
+              <option>$3,000 – $7,000</option>
+              <option>$7,000 – $15,000</option>
+              <option>$15,000+</option>
+            </select>
+          </div>
+          <div class="mt-8">
+            <label class="text-xs tracking-widest uppercase text-cream/40 block mb-2">Tell Me About Your Project</label>
+            <textarea class="form-field" placeholder="Describe your project, goals, timeline..." required></textarea>
+          </div>
+          <div class="mt-10">
+            <button type="submit" class="btn-gold">Send Message &rarr;</button>
+          </div>
+          <div class="success-msg" id="successMsg">
+            ✓ &nbsp;Message sent! I'll get back to you within 24–48 hours.
+          </div>
+        </form>
+      </div>
+
+      <!-- INFO (right 2) -->
+      <div class="md:col-span-2 space-y-5">
+
+        <div class="info-card">
+          <div class="text-xs tracking-widest uppercase text-cream/40 mb-2">Email</div>
+          <a href="mailto:hello@olamidrandrew.com" class="text-sm hover:text-gold transition-colors">hello@olamidrandrew.com</a>
+        </div>
+
+        <div class="info-card">
+          <div class="text-xs tracking-widest uppercase text-cream/40 mb-2">Location</div>
+          <p class="text-sm text-cream/70">Cancela</p>
+          <p class="text-xs text-cream/40 mt-1">Available for remote work worldwide</p>
+        </div>
+
+        <div class="info-card">
+          <div class="text-xs tracking-widest uppercase text-cream/40 mb-2">Availability</div>
+          <div class="flex items-center gap-2">
+            <div style="width:8px; height:8px; border-radius:50%; background:#4ade80; animation: pulse 2s infinite;"></div>
+            <p class="text-sm text-cream/70">Currently available</p>
+          </div>
+          <p class="text-xs text-cream/40 mt-2">Typically reply within 24 hours</p>
+        </div>
+
+        <div class="info-card">
+          <div class="text-xs tracking-widest uppercase text-cream/40 mb-3">Social</div>
+          <div class="flex flex-col gap-2">
+            <a href="#" class="text-sm text-cream/60 hover:text-gold transition-colors flex items-center gap-2">
+              <span style="width:16px; height:1px; background:#C9A84C; display:inline-block;"></span> Behance
+            </a>
+            <a href="#" class="text-sm text-cream/60 hover:text-gold transition-colors flex items-center gap-2">
+              <span style="width:16px; height:1px; background:#C9A84C; display:inline-block;"></span> LinkedIn
+            </a>
+            <a href="#" class="text-sm text-cream/60 hover:text-gold transition-colors flex items-center gap-2">
+              <span style="width:16px; height:1px; background:#C9A84C; display:inline-block;"></span> Twitter / X
+            </a>
+          </div>
+        </div>
+
+        <!-- Quote -->
+        <div class="pt-4">
+          <div style="width:28px; height:2px; background:#C9A84C; margin-bottom:12px;"></div>
+          <p class="font-display italic text-lg text-cream/50 leading-relaxed">"Good design is good business."</p>
+          <p class="text-xs text-cream/30 mt-2">— Thomas Watson Jr.</p>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="py-12 px-8 mt-8" style="background:#0E0E0E; border-top: 1px solid rgba(201,168,76,0.15);">
+    <div class="max-w-5xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-10">
+      <div>
+        <div class="font-display font-bold text-sm tracking-widest uppercase gold-text">Olamide Andrew</div>
+        <p class="text-cream/40 text-xs mt-2">Strategic Brand Designer, based in Cancela.</p>
+      </div>
+      <div class="flex gap-8">
+        <div class="flex flex-col gap-2">
+          <a href="work.html" class="nav-link text-xs">Work</a>
+          <a href="about.html" class="nav-link text-xs">About</a>
+          <a href="contact.html" class="nav-link text-xs">Contact</a>
+        </div>
+        <div>
+          <a href="mailto:hello@olamidrandrew.com" class="text-cream/50 text-xs hover:text-gold transition-colors">hello@olamidrandrew.com</a>
+        </div>
+      </div>
+      <div class="flex gap-3 items-start justify-end">
+        <a href="#" class="w-9 h-9 rounded-full border border-cream/20 flex items-center justify-center hover:border-gold hover:text-gold transition-colors text-xs text-cream/60">Tw</a>
+        <a href="#" class="w-9 h-9 rounded-full border border-cream/20 flex items-center justify-center hover:border-gold hover:text-gold transition-colors text-xs text-cream/60">Be</a>
+        <a href="#" class="w-9 h-9 rounded-full border border-cream/20 flex items-center justify-center hover:border-gold hover:text-gold transition-colors text-xs text-cream/60">In</a>
+      </div>
+    </div>
+    <div class="max-w-5xl mx-auto mt-8 pt-6 border-t border-cream/10">
+      <p class="text-cream/30 text-xs text-center">© 2025, Olamide Andrew. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <style>
+    @keyframes pulse { 0%, 100% { opacity: 1; } 50% { opacity: 0.4; } }
+  </style>
+  <script>
+    function handleSubmit(e) {
+      e.preventDefault();
+      document.getElementById('successMsg').style.display = 'block';
+      e.target.reset();
+      setTimeout(() => { document.getElementById('successMsg').style.display = 'none'; }, 5000);
+    }
+  </script>
+</body>
+</html>

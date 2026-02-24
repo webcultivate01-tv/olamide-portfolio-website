@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Olamide Andrew — Strategic Brand Designer</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet"/>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: { gold: '#B8912A', 'gold-light': '#D4A93C', dark: '#0F0F0D', 'dark-2': '#181815' },
+          fontFamily: { display: ['Playfair Display','serif'], body: ['DM Sans','sans-serif'] }
+        }
+      }
+    }
+  </script>
+  <style>
+    body{font-family:'DM Sans',sans-serif;}
+    .fade-in{opacity:0;transform:translateY(20px);animation:fadeUp 0.8s forwards;}
+    @keyframes fadeUp{to{opacity:1;transform:none;}}
+    .d1{animation-delay:.1s}.d2{animation-delay:.25s}.d3{animation-delay:.4s}.d4{animation-delay:.55s}
+    .work-img{transition:transform .4s ease;}
+    .work-card:hover .work-img{transform:scale(1.05);}
+    .nav-a:hover{color:#B8912A;}
+  </style>
+</head>
+<body class="bg-[#0F0F0D] text-white">
+
+  <!-- NAV -->
+  <nav class="flex items-center justify-between px-8 md:px-20 py-5 border-b border-white/10">
+    <a href="index.html" class="px-5 py-2 border border-[#B8912A] text-[#B8912A] text-xs tracking-[0.2em] uppercase font-medium">Olamide Andrew</a>
+    <div class="flex gap-8 text-sm text-white/70">
+      <a href="contact.html" class="nav-a transition-colors">Contact</a>
+      <a href="about.html" class="nav-a transition-colors">About</a>
+      <a href="work.html" class="nav-a transition-colors">Work</a>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <section class="flex flex-col items-center justify-center text-center px-6 py-32 min-h-[88vh]">
+    <p class="fade-in d1 text-[10px] tracking-[0.35em] text-white/40 uppercase mb-7">Strategic Brand Designer</p>
+    <h1 class="fade-in d2 font-display text-5xl md:text-7xl font-bold leading-[1.1] mb-7 max-w-3xl">Building brands that<br/>connect and convert.</h1>
+    <p class="fade-in d3 text-white/55 max-w-md mb-12 leading-relaxed text-base">Strategic brand systems and campaign design for businesses that believe every visual decision should serve a purpose.</p>
+    <div class="fade-in d4 flex flex-wrap gap-4 justify-center">
+      <a href="work.html" class="bg-[#B8912A] hover:bg-[#D4A93C] text-white px-8 py-3 text-sm font-medium transition-colors flex items-center gap-2">View Selected Work <span>›</span></a>
+      <a href="contact.html" class="border border-white text-white hover:bg-white hover:text-[#0F0F0D] px-8 py-3 text-sm font-medium transition-all">Let's Talk</a>
+    </div>
+    <div class="fade-in d4 mt-14 flex flex-col items-center gap-4">
+      <span class="w-2 h-2 rounded-full bg-[#B8912A]"></span>
+      <p class="text-white/50 text-sm">Helping ambitious brands turn <span class="text-[#B8912A] italic font-medium">strategy into tangible results.</span></p>
+    </div>
+  </section>
+
+  <!-- MY APPROACH -->
+  <section class="bg-[#F5F3EE] text-[#0F0F0D] py-20 px-8 md:px-20">
+    <p class="text-[10px] tracking-[0.3em] text-[#B8912A] uppercase font-medium mb-12">My Approach</p>
+    <div class="grid md:grid-cols-3 gap-10">
+      <div class="border-l-2 border-[#B8912A] pl-6">
+        <p class="text-5xl font-display font-bold text-[#B8912A]/20 mb-3">01</p>
+        <h3 class="font-display text-xl font-bold mb-3">Strategy First</h3>
+        <p class="text-sm text-black/60 leading-relaxed">Define goals, there's purpose. I start with your audience, your goals, and the story you need to tell.</p>
+      </div>
+      <div class="border-l-2 border-[#B8912A] pl-6">
+        <p class="text-5xl font-display font-bold text-[#B8912A]/20 mb-3">02</p>
+        <h3 class="font-display text-xl font-bold mb-3">Systems That Scale</h3>
+        <p class="text-sm text-black/60 leading-relaxed">A logo is just the beginning. I build cohesive brand systems that grow with you and scale across every touchpoint.</p>
+      </div>
+      <div class="border-l-2 border-[#B8912A] pl-6">
+        <p class="text-5xl font-display font-bold text-[#B8912A]/20 mb-3">03</p>
+        <h3 class="font-display text-xl font-bold mb-3">Stories That Stick</h3>
+        <p class="text-sm text-black/60 leading-relaxed">Design should make people feel something. I craft narratives that resonate and drive action.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- SELECTED WORK -->
+  <section class="bg-[#181815] py-20 px-8 md:px-20">
+    <p class="text-[10px] tracking-[0.3em] text-white/40 uppercase text-center mb-14">Selected Work</p>
+    <div class="grid md:grid-cols-2 gap-8">
+      <div class="work-card overflow-hidden">
+        <div class="h-56 bg-gradient-to-br from-slate-700 to-slate-900 flex items-center justify-center overflow-hidden work-img">
+          <div class="text-center"><p class="font-display text-3xl font-bold">Nova Tech</p><p class="text-white/40 text-sm mt-1">SAAS Rebrand</p></div>
+        </div>
+        <div class="pt-5 pb-2 flex justify-between items-start">
+          <div>
+            <h4 class="font-display font-bold text-lg mb-1">Nova Tech Rebrand</h4>
+            <p class="text-white/50 text-sm mb-2">Repositioning a SAAS startup for Series A growth</p>
+            <span class="text-[10px] text-[#B8912A]/70 uppercase tracking-widest">Brand Identity</span>
+          </div>
+          <a href="work.html" class="text-[#B8912A] text-xs mt-1 hover:gap-3 flex items-center gap-1 transition-all">VIEW CASE →</a>
+        </div>
+      </div>
+      <div class="work-card overflow-hidden">
+        <div class="h-56 bg-gradient-to-br from-stone-700 to-stone-900 flex items-center justify-center overflow-hidden work-img">
+          <div class="text-center"><p class="font-display text-3xl font-bold">Harvest Market</p><p class="text-white/40 text-sm mt-1">Organic Grocer</p></div>
+        </div>
+        <div class="pt-5 pb-2 flex justify-between items-start">
+          <div>
+            <h4 class="font-display font-bold text-lg mb-1">Harvest Market</h4>
+            <p class="text-white/50 text-sm mb-2">Growing an organic grocer into a neighbourhood staple.</p>
+            <span class="text-[10px] text-[#B8912A]/70 uppercase tracking-widest">Brand System</span>
+          </div>
+          <a href="work.html" class="text-[#B8912A] text-xs mt-1 hover:gap-3 flex items-center gap-1 transition-all">VIEW CASE →</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="bg-[#F5F3EE] text-[#0F0F0D] py-24 px-6 text-center">
+    <h2 class="font-display text-4xl md:text-5xl font-bold mb-5">Clarity. Strategy. Design that converts.</h2>
+    <p class="text-black/55 mb-10 max-w-md mx-auto text-base leading-relaxed">Let's build a brand that works as hard as you do. Whatever you're building, I'd love to hear about it.</p>
+    <a href="contact.html" class="bg-[#B8912A] hover:bg-[#D4A93C] text-white inline-block px-12 py-4 text-sm font-medium transition-colors">Start a Conversation</a>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="bg-[#0F0F0D] border-t border-white/10 px-8 md:px-20 py-12">
+    <div class="flex flex-col md:flex-row justify-between gap-8 mb-8">
+      <div>
+        <p class="text-xs tracking-[0.2em] uppercase font-medium mb-2">Olamide Andrew</p>
+        <p class="text-white/40 text-sm">Strategic Brand Designer, based in Cancola.</p>
+      </div>
+      <div class="flex gap-8 text-sm text-white/60">
+        <a href="work.html" class="hover:text-[#B8912A] transition-colors">Work</a>
+        <a href="about.html" class="hover:text-[#B8912A] transition-colors">About</a>
+        <a href="contact.html" class="hover:text-[#B8912A] transition-colors">Contact</a>
+      </div>
+      <div class="flex items-center gap-3">
+        <a href="#" class="w-9 h-9 rounded-full border border-white/20 flex items-center justify-center text-white/50 hover:border-[#B8912A] hover:text-[#B8912A] transition-all text-xs">Be</a>
+        <a href="#" class="w-9 h-9 rounded-full border border-white/20 flex items-center justify-center text-white/50 hover:border-[#B8912A] hover:text-[#B8912A] transition-all text-xs">Ed</a>
+        <a href="#" class="w-9 h-9 rounded-full border border-white/20 flex items-center justify-center text-white/50 hover:border-[#B8912A] hover:text-[#B8912A] transition-all text-xs">In</a>
+      </div>
+    </div>
+    <div class="flex flex-col md:flex-row justify-between items-center pt-6 border-t border-white/10 gap-3">
+      <p class="text-white/30 text-xs">© 2023, Olamide Andrew. All rights reserved.</p>
+      <a href="mailto:hello@olamidrandrow.com" class="text-white/40 text-sm hover:text-[#B8912A] transition-colors flex items-center gap-2">✉ hello@olamidrandrow.com</a>
+    </div>
+  </footer>
+</body>
+</html>
