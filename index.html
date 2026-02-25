@@ -31,12 +31,37 @@
   <!-- NAV -->
   <nav class="flex items-center justify-between px-8 md:px-20 py-5 border-b border-white/10">
     <a href="index.html" class="px-5 py-2 border border-[#B8912A] text-[#B8912A] text-xs tracking-[0.2em] uppercase font-medium">Olamide Andrew</a>
-    <div class="flex gap-8 text-sm text-white/70">
-      <a href="contact.html" class="nav-a transition-colors">Contact</a>
+    <div class="hidden md:flex gap-8 text-sm text-white/70">
+      <a href="index.html" class="nav-a transition-colors text-[#B8912A]">Home</a>
       <a href="about.html" class="nav-a transition-colors">About</a>
+      <a href="services.html" class="nav-a transition-colors">Services</a>
       <a href="work.html" class="nav-a transition-colors">Work</a>
+      <a href="contact.html" class="nav-a transition-colors">Contact</a>
     </div>
+    <button type="button" class="md:hidden text-white/80 hover:text-[#B8912A] transition-colors" aria-label="Open menu" data-menu-toggle>
+      <svg xmlns="http://www.w3.org/2000/svg" class="w-7 h-7" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M4 7h16M4 12h16M4 17h16" />
+      </svg>
+    </button>
   </nav>
+  <div id="mobile-menu-backdrop" class="md:hidden fixed inset-0 bg-black/60 opacity-0 pointer-events-none transition-opacity duration-300 z-40"></div>
+  <aside id="mobile-menu" class="md:hidden fixed top-0 right-0 h-full w-72 max-w-[85vw] bg-[#181815] border-l border-[#B8912A]/40 transform translate-x-full transition-transform duration-300 ease-out z-50 p-8">
+    <div class="flex items-center justify-between mb-10">
+      <p class="text-xs tracking-[0.2em] uppercase text-[#B8912A]">Menu</p>
+      <button type="button" class="text-white/70 hover:text-[#B8912A] transition-colors" aria-label="Close menu" data-menu-close>
+        <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M6 6l12 12M18 6L6 18" />
+        </svg>
+      </button>
+    </div>
+    <nav class="flex flex-col gap-6 text-base text-white/85">
+      <a href="index.html" class="nav-a text-[#B8912A]">Home</a>
+      <a href="about.html" class="nav-a">About</a>
+      <a href="services.html" class="nav-a">Services</a>
+      <a href="work.html" class="nav-a">Work</a>
+      <a href="contact.html" class="nav-a">Contact</a>
+    </nav>
+  </aside>
 
   <!-- HERO -->
   <section class="flex flex-col items-center justify-center text-center px-6 py-32 min-h-[88vh]">
@@ -54,7 +79,7 @@
   </section>
 
   <!-- MY APPROACH -->
-  <section class="bg-[#F5F3EE] text-[#0F0F0D] py-20 px-8 md:px-20">
+  <section id="services" class="bg-[#F5F3EE] text-[#0F0F0D] py-20 px-8 md:px-20">
     <p class="text-[10px] tracking-[0.3em] text-[#B8912A] uppercase font-medium mb-12">My Approach</p>
     <div class="grid md:grid-cols-3 gap-10">
       <div class="border-l-2 border-[#B8912A] pl-6">
@@ -138,5 +163,35 @@
       <a href="mailto:hello@olamidrandrow.com" class="text-white/40 text-sm hover:text-[#B8912A] transition-colors flex items-center gap-2">✉ hello@olamidrandrow.com</a>
     </div>
   </footer>
+  <script>
+    (function () {
+      const menu = document.getElementById("mobile-menu");
+      const backdrop = document.getElementById("mobile-menu-backdrop");
+      const openBtn = document.querySelector("[data-menu-toggle]");
+      const closeBtn = document.querySelector("[data-menu-close]");
+      if (!menu || !backdrop || !openBtn || !closeBtn) return;
+
+      const closeMenu = () => {
+        menu.classList.add("translate-x-full");
+        backdrop.classList.add("opacity-0", "pointer-events-none");
+        document.body.style.overflow = "";
+      };
+
+      const openMenu = () => {
+        menu.classList.remove("translate-x-full");
+        backdrop.classList.remove("opacity-0", "pointer-events-none");
+        document.body.style.overflow = "hidden";
+      };
+
+      openBtn.addEventListener("click", openMenu);
+      closeBtn.addEventListener("click", closeMenu);
+      backdrop.addEventListener("click", closeMenu);
+      menu.querySelectorAll("a").forEach((link) => link.addEventListener("click", closeMenu));
+      document.addEventListener("keydown", (e) => {
+        if (e.key === "Escape") closeMenu();
+      });
+    })();
+  </script>
 </body>
 </html>
+
