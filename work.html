@@ -472,7 +472,9 @@
         openBtn.addEventListener("click", openMenu);
         closeBtn.addEventListener("click", closeMenu);
         backdrop.addEventListener("click", closeMenu);
-        menu.querySelectorAll("a").forEach((link) => link.addEventListener("click", closeMenu));
+        menu
+          .querySelectorAll("a")
+          .forEach((link) => link.addEventListener("click", closeMenu));
         document.addEventListener("keydown", (e) => {
           if (e.key === "Escape") closeMenu();
         });
