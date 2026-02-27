@@ -94,6 +94,9 @@
         transition: all 0.4s;
         position: relative;
         overflow: hidden;
+        cursor: pointer;
+        box-shadow: 0 4px 20px rgba(184, 145, 42, 0.15);
+        background: linear-gradient(135deg, rgba(184, 145, 42, 0.05), transparent);
       }
       .service-card::before {
         content: "";
@@ -107,8 +110,9 @@
         transition: transform 0.4s;
       }
       .service-card:hover {
-        border-color: rgba(184, 145, 42, 0.4);
-        transform: translateY(-8px);
+        border-color: rgba(184, 145, 42, 0.6);
+        transform: translateY(-12px);
+        box-shadow: 0 8px 30px rgba(184, 145, 42, 0.3);
       }
       .service-card:hover::before {
         transform: scaleX(1);
@@ -128,7 +132,7 @@
         transition: transform 0.3s;
       }
       .faq-item.active .faq-icon {
-        transform: rotate(45deg);
+        transform: rotate(90deg);
       }
       .stat-number {
         font-size: 3rem;
@@ -238,27 +242,21 @@
         >
       </nav>
     </aside>
-    <section
-      class="px-8 md:px-20 py-24 min-h-[70vh] flex flex-col justify-center relative overflow-hidden"
-    >
-      <div
-        class="absolute top-20 right-10 w-64 h-64 bg-[#B8912A]/5 rounded-full blur-3xl"
-      ></div>
-      <p
-        class="fade-in d1 text-[10px] tracking-[0.35em] text-[#B8912A] uppercase mb-5"
-      >
-        What I Do
-      </p>
-      <h1
-        class="fade-in d2 font-display text-5xl md:text-7xl font-bold mb-8 max-w-4xl"
-      >
-        Strategic design that drives
-        <span class="text-[#B8912A] italic">real results.</span>
-      </h1>
-      <p class="fade-in d3 text-white/60 max-w-2xl leading-relaxed text-lg">
-        I partner with ambitious brands to create cohesive visual systems that
-        don't just look good—they work.
-      </p>
+    <section class="relative px-8 md:px-20 py-24 min-h-[70vh] flex items-center overflow-hidden" style="background-image:url('https://images.unsplash.com/photo-1542744173-8e7e53415bb0?w=1920&q=80');background-size:cover;background-position:center;">
+      <div class="absolute inset-0 bg-[#0F0F0D]/90"></div>
+      <div class="absolute top-20 right-10 w-96 h-96 bg-[#B8912A]/10 rounded-full blur-3xl animate-pulse"></div>
+      <div class="absolute bottom-10 right-1/4 w-64 h-64 bg-[#D4A93C]/5 rounded-full blur-2xl"></div>
+      <svg class="absolute right-10 top-1/4 w-64 h-64 opacity-10" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+        <path fill="#B8912A" d="M45.3,-57.5C58.9,-49.1,70.5,-35.3,75.4,-19.2C80.3,-3.1,78.5,15.3,71.1,30.9C63.7,46.5,50.7,59.3,35.8,65.8C20.9,72.3,4.1,72.5,-12.8,69.8C-29.7,67.1,-46.7,61.5,-58.9,50.5C-71.1,39.5,-78.5,23.1,-79.8,6.3C-81.1,-10.5,-76.3,-27.7,-66.8,-41.2C-57.3,-54.7,-43.1,-64.5,-28.1,-72.3C-13.1,-80.1,2.7,-86,18.8,-84.8C34.9,-83.6,31.7,-65.9,45.3,-57.5Z" transform="translate(100 100)" />
+      </svg>
+      <svg class="absolute right-32 bottom-20 w-40 h-40 opacity-5" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+        <path fill="#D4A93C" d="M39.5,-65.3C48.9,-58.1,52.8,-42.3,59.4,-27.9C66,-13.5,75.3,-0.5,75.8,13.1C76.3,26.7,68,40.9,56.8,50.5C45.6,60.1,31.5,65.1,17.2,67.8C2.9,70.5,-11.6,70.9,-24.8,66.8C-38,62.7,-50,54.1,-59.3,42.8C-68.6,31.5,-75.2,17.5,-76.4,2.9C-77.6,-11.7,-73.4,-26.9,-64.8,-38.5C-56.2,-50.1,-43.2,-58.1,-29.8,-63.2C-16.4,-68.3,-2.6,-70.5,10.5,-68.8C23.6,-67.1,30.1,-72.5,39.5,-65.3Z" transform="translate(100 100)" />
+      </svg>
+      <div class="relative z-10 max-w-4xl">
+        <p class="fade-in d1 text-[10px] tracking-[0.35em] text-[#B8912A] uppercase mb-5">What I Do</p>
+        <h1 class="fade-in d2 font-display text-5xl md:text-7xl font-bold mb-8">Strategic design that drives <span class="text-[#B8912A] italic">real results.</span></h1>
+        <p class="fade-in d3 text-white/60 max-w-2xl leading-relaxed text-lg">I partner with ambitious brands to create cohesive visual systems that don't just look good—they work.</p>
+      </div>
     </section>
 
     <!-- STATS -->
@@ -291,7 +289,7 @@
         Core Services
       </p>
       <div class="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
-        <div class="service-card scroll-reveal magnetic">
+        <div class="service-card scroll-reveal magnetic" onclick="window.open('https://topmate.io/olamide_andrew', '_blank')">
           <div class="text-5xl mb-6">🎯</div>
           <h3 class="font-display text-2xl font-bold mb-4">Brand Strategy</h3>
           <p class="text-white/60 text-sm mb-6 leading-relaxed">
@@ -313,6 +311,7 @@
         <div
           class="service-card scroll-reveal magnetic"
           style="transition-delay: 0.1s"
+          onclick="window.open('https://topmate.io/olamide_andrew', '_blank')"
         >
           <div class="text-5xl mb-6">✨</div>
           <h3 class="font-display text-2xl font-bold mb-4">Visual Identity</h3>
@@ -334,6 +333,7 @@
         <div
           class="service-card scroll-reveal magnetic"
           style="transition-delay: 0.2s"
+          onclick="window.open('https://topmate.io/olamide_andrew', '_blank')"
         >
           <div class="text-5xl mb-6">🚀</div>
           <h3 class="font-display text-2xl font-bold mb-4">Campaign Design</h3>
@@ -355,173 +355,14 @@
       </div>
     </section>
 
-    <!-- TESTIMONIALS -->
-    <section class="bg-[#F5F3EE] text-[#0F0F0D] py-20 px-8 md:px-20">
-      <p
-        class="text-[10px] tracking-[0.3em] text-[#B8912A] uppercase mb-14 text-center scroll-reveal"
-      >
-        Client Testimonials
-      </p>
-      <div class="grid md:grid-cols-2 gap-8 max-w-5xl mx-auto">
-        <div class="bg-white p-8 border border-black/10 scroll-reveal">
-          <div class="flex gap-1 mb-4">
-            <span class="text-[#B8912A]">★</span
-            ><span class="text-[#B8912A]">★</span
-            ><span class="text-[#B8912A]">★</span
-            ><span class="text-[#B8912A]">★</span
-            ><span class="text-[#B8912A]">★</span>
-          </div>
-          <p class="text-black/70 italic mb-6 leading-relaxed">
-            "Olamide transformed our brand identity completely. The strategic
-            approach and attention to detail exceeded our expectations."
-          </p>
-          <div class="flex items-center gap-3">
-            <div
-              class="w-12 h-12 rounded-full bg-[#B8912A]/20 flex items-center justify-center font-bold text-[#B8912A]"
-            >
-              SM
-            </div>
-            <div>
-              <p class="font-bold text-sm">Sarah Mitchell</p>
-              <p class="text-xs text-black/50">CEO, Nova Tech</p>
-            </div>
-          </div>
-        </div>
-        <div
-          class="bg-white p-8 border border-black/10 scroll-reveal"
-          style="transition-delay: 0.1s"
-        >
-          <div class="flex gap-1 mb-4">
-            <span class="text-[#B8912A]">★</span
-            ><span class="text-[#B8912A]">★</span
-            ><span class="text-[#B8912A]">★</span
-            ><span class="text-[#B8912A]">★</span
-            ><span class="text-[#B8912A]">★</span>
-          </div>
-          <p class="text-black/70 italic mb-6 leading-relaxed">
-            "Working with Olamide was a game-changer. Our brand now truly
-            reflects who we are and resonates with our audience."
-          </p>
-          <div class="flex items-center gap-3">
-            <div
-              class="w-12 h-12 rounded-full bg-[#B8912A]/20 flex items-center justify-center font-bold text-[#B8912A]"
-            >
-              JD
-            </div>
-            <div>
-              <p class="font-bold text-sm">James Davis</p>
-              <p class="text-xs text-black/50">Founder, Harvest Market</p>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- FAQ -->
-    <section class="bg-[#0F0F0D] py-20 px-8 md:px-20">
-      <p
-        class="text-[10px] tracking-[0.3em] text-[#B8912A] uppercase mb-14 text-center scroll-reveal"
-      >
-        Frequently Asked Questions
-      </p>
-      <div class="max-w-3xl mx-auto space-y-4">
-        <div class="faq-item scroll-reveal" onclick="toggleFaq(this)">
-          <div class="flex justify-between items-center py-5 cursor-pointer">
-            <h3 class="font-display text-lg font-bold">
-              How long does a typical project take?
-            </h3>
-            <span class="faq-icon text-2xl text-[#B8912A]">+</span>
-          </div>
-          <div class="faq-answer pb-5">
-            <p class="text-white/60 leading-relaxed">
-              Most brand identity projects take 4-6 weeks from discovery to
-              final delivery. Timeline varies based on project scope and
-              complexity.
-            </p>
-          </div>
-        </div>
-        <div
-          class="faq-item scroll-reveal"
-          onclick="toggleFaq(this)"
-          style="transition-delay: 0.1s"
-        >
-          <div class="flex justify-between items-center py-5 cursor-pointer">
-            <h3 class="font-display text-lg font-bold">
-              What's included in your brand packages?
-            </h3>
-            <span class="faq-icon text-2xl text-[#B8912A]">+</span>
-          </div>
-          <div class="faq-answer pb-5">
-            <p class="text-white/60 leading-relaxed">
-              Full brand packages include strategy, logo design, color palette,
-              typography, brand guidelines, and marketing templates. Custom
-              packages available.
-            </p>
-          </div>
-        </div>
-        <div
-          class="faq-item scroll-reveal"
-          onclick="toggleFaq(this)"
-          style="transition-delay: 0.2s"
-        >
-          <div class="flex justify-between items-center py-5 cursor-pointer">
-            <h3 class="font-display text-lg font-bold">
-              Do you work with startups?
-            </h3>
-            <span class="faq-icon text-2xl text-[#B8912A]">+</span>
-          </div>
-          <div class="faq-answer pb-5">
-            <p class="text-white/60 leading-relaxed">
-              Absolutely! I love working with startups and early-stage
-              companies. I offer flexible packages tailored to different budgets
-              and growth stages.
-            </p>
-          </div>
-        </div>
-        <div
-          class="faq-item scroll-reveal"
-          onclick="toggleFaq(this)"
-          style="transition-delay: 0.3s"
-        >
-          <div class="flex justify-between items-center py-5 cursor-pointer">
-            <h3 class="font-display text-lg font-bold">
-              What's your design process?
-            </h3>
-            <span class="faq-icon text-2xl text-[#B8912A]">+</span>
-          </div>
-          <div class="faq-answer pb-5">
-            <p class="text-white/60 leading-relaxed">
-              My process includes: Discovery & Research → Strategy & Positioning
-              → Design & Execution → Delivery & Support. Each phase ensures
-              alignment with your goals.
-            </p>
-          </div>
-        </div>
-      </div>
-    </section>
-
     <!-- CTA -->
-    <section
-      class="bg-[#F5F3EE] text-[#0F0F0D] py-24 px-6 text-center relative overflow-hidden"
-    >
-      <div
-        class="absolute bottom-0 left-0 w-96 h-96 bg-[#B8912A]/5 rounded-full blur-3xl"
-      ></div>
-      <h2
-        class="font-display text-4xl md:text-5xl font-bold mb-5 relative z-10"
-      >
-        Ready to elevate your brand?
-      </h2>
-      <p
-        class="text-black/55 mb-10 max-w-md mx-auto text-base leading-relaxed relative z-10"
-      >
-        Let's discuss your project and see if we're a good fit.
-      </p>
-      <a
-        href="contact.html"
-        class="bg-[#B8912A] hover:bg-[#D4A93C] text-white inline-block px-12 py-4 text-sm font-medium transition-all hover:scale-105 relative z-10"
-        >Start a Conversation</a
-      >
+    <section class="relative py-32 px-6 text-center overflow-hidden" style="background-image:url('https://images.unsplash.com/photo-1557804506-669a67965ba0?w=1920&q=80');background-size:cover;background-position:center;background-attachment:fixed;">
+      <div class="absolute inset-0 bg-[#0F0F0D]/85"></div>
+      <div class="relative z-10">
+        <h2 class="font-display text-4xl md:text-5xl font-bold mb-5 text-white">Ready to elevate your brand?</h2>
+        <p class="text-white/70 mb-10 max-w-md mx-auto text-base leading-relaxed">Let's discuss your project and see if we're a good fit.</p>
+        <a href="contact.html" class="bg-[#B8912A] hover:bg-[#D4A93C] text-white inline-block px-12 py-4 text-sm font-medium transition-all hover:scale-105">Start a Conversation</a>
+      </div>
     </section>
 
     <footer

@@ -107,10 +107,13 @@
       .info-card {
         border: 1px solid rgba(201, 168, 76, 0.2);
         padding: 1.5rem;
-        transition: border-color 0.3s;
+        transition: all 0.3s;
+        background: rgba(201, 168, 76, 0.02);
       }
       .info-card:hover {
         border-color: rgba(201, 168, 76, 0.5);
+        transform: translateY(-4px);
+        box-shadow: 0 4px 20px rgba(201, 168, 76, 0.15);
       }
       @keyframes fadeUp {
         from {
@@ -250,30 +253,12 @@
     </aside>
 
     <!-- HERO -->
-    <section
-      class="pt-36 pb-12 px-8"
-      style="
-        background: radial-gradient(
-          ellipse at 30% 0%,
-          rgba(201, 168, 76, 0.08) 0%,
-          transparent 60%
-        );
-      "
-    >
-      <div class="max-w-5xl mx-auto">
+    <section class="relative pt-36 pb-12 px-8 overflow-hidden" style="background-image:url('https://images.unsplash.com/photo-1497366811353-6870744d04b2?w=1920&q=80');background-size:cover;background-position:center;">
+      <div class="absolute inset-0 bg-[#0E0E0E]/95"></div>
+      <div class="max-w-5xl mx-auto relative z-10">
         <span class="section-label fade-up">Get In Touch</span>
-        <h1
-          class="font-display font-black text-5xl md:text-7xl mt-4 leading-tight fade-up delay-1"
-        >
-          Let's build<br />something
-          <span class="italic gold-text">great.</span>
-        </h1>
-        <p
-          class="text-cream/50 text-sm mt-5 max-w-md leading-relaxed fade-up delay-2"
-        >
-          Whether you have a project ready to go, an idea to explore, or just
-          want to say hello — my inbox is always open.
-        </p>
+        <h1 class="font-display font-black text-5xl md:text-7xl mt-4 leading-tight fade-up delay-1">Let's build<br />something <span class="italic gold-text">great.</span></h1>
+        <p class="text-cream/50 text-sm mt-5 max-w-md leading-relaxed fade-up delay-2">Whether you have a project ready to go, an idea to explore, or just want to say hello — my inbox is always open.</p>
       </div>
     </section>
 
