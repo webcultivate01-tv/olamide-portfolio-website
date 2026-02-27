@@ -31,7 +31,7 @@
       .gold-text {
         color: #c9a84c;
       }
-      .nav-link {
+      .nav-a {
         position: relative;
         color: #f5f0e8;
         font-size: 0.85rem;
@@ -39,7 +39,7 @@
         text-decoration: none;
         transition: color 0.3s;
       }
-      .nav-link::after {
+      .nav-a::after {
         content: "";
         position: absolute;
         bottom: -2px;
@@ -49,10 +49,10 @@
         background: #c9a84c;
         transition: width 0.3s;
       }
-      .nav-link:hover {
+      .nav-a:hover {
         color: #c9a84c;
       }
-      .nav-link:hover::after {
+      .nav-a:hover::after {
         width: 100%;
       }
       .section-label {
@@ -152,29 +152,31 @@
   <body>
     <!-- NAV -->
     <nav
-      class="flex items-center justify-between px-8 md:px-20 py-5 border-b border-white/10"
+      class="relative flex items-center justify-between px-8 md:px-20 py-5 border-b border-white/10"
     >
       <a
         href="index.html"
         class="px-5 py-2 border border-[#B8912A] text-[#B8912A] text-xs tracking-[0.2em] uppercase font-medium"
         >Olamide Andrew</a
       >
-      <div class="hidden md:flex gap-8 text-sm text-white/70">
-        <a href="index.html" class="nav-link">Home</a>
-        <a href="about.html" class="nav-link">About</a>
-        <a href="services.html" class="nav-link">Services</a>
-        <a href="work.html" class="nav-link">Work</a>
-        <a href="contact.html" class="nav-link" style="color: #c9a84c"
+      <div
+        class="hidden md:flex items-center gap-8 text-sm text-white/70 absolute left-1/2 -translate-x-1/2"
+      >
+        <a href="index.html" class="nav-a transition-colors">Home</a>
+        <a href="about.html" class="nav-a transition-colors">About</a>
+        <a href="services.html" class="nav-a transition-colors">Services</a>
+        <a href="work.html" class="nav-a transition-colors">Work</a>
+        <a href="contact.html" class="nav-a transition-colors text-[#C9A84C]"
           >Contact</a
         >
-        <a
-          href="https://topmate.io/olamide_andrew"
-          target="_blank"
-          rel="noopener noreferrer"
-          class="px-4 py-2 border border-[#C9A84C] text-[#C9A84C] hover:bg-[#C9A84C] hover:text-[#0E0E0E] transition-all rounded-sm"
-          >Book Meeting</a
-        >
       </div>
+      <a
+        href="https://topmate.io/olamide_andrew"
+        target="_blank"
+        rel="noopener noreferrer"
+        class="hidden md:inline-flex px-4 py-2 border border-[#C9A84C] text-[#C9A84C] hover:bg-[#C9A84C] hover:text-[#0E0E0E] transition-all rounded-sm"
+        >Book Meeting</a
+      >
       <button
         type="button"
         class="md:hidden text-cream/80 hover:text-gold transition-colors"
@@ -230,11 +232,11 @@
         </button>
       </div>
       <nav class="flex flex-col gap-6 text-base text-cream/90">
-        <a href="index.html" class="nav-link">Home</a>
-        <a href="about.html" class="nav-link">About</a>
-        <a href="services.html" class="nav-link">Services</a>
-        <a href="work.html" class="nav-link">Work</a>
-        <a href="contact.html" class="nav-link" style="color: #c9a84c"
+        <a href="index.html" class="nav-a">Home</a>
+        <a href="about.html" class="nav-a">About</a>
+        <a href="services.html" class="nav-a">Services</a>
+        <a href="work.html" class="nav-a">Work</a>
+        <a href="contact.html" class="nav-a text-[#C9A84C]"
           >Contact</a
         >
         <a

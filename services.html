@@ -144,14 +144,16 @@
   </head>
   <body class="bg-[#0F0F0D] text-white">
     <nav
-      class="flex items-center justify-between px-8 md:px-20 py-5 border-b border-white/10"
+      class="relative flex items-center justify-between px-8 md:px-20 py-5 border-b border-white/10"
     >
       <a
         href="index.html"
         class="px-5 py-2 border border-[#B8912A] text-[#B8912A] text-xs tracking-[0.2em] uppercase font-medium"
         >Olamide Andrew</a
       >
-      <div class="hidden md:flex gap-8 text-sm text-white/70">
+      <div
+        class="hidden md:flex items-center gap-8 text-sm text-white/70 absolute left-1/2 -translate-x-1/2"
+      >
         <a href="index.html" class="nav-a transition-colors">Home</a>
         <a href="about.html" class="nav-a transition-colors">About</a>
         <a href="services.html" class="nav-a transition-colors text-[#B8912A]"
@@ -159,14 +161,14 @@
         >
         <a href="work.html" class="nav-a transition-colors">Work</a>
         <a href="contact.html" class="nav-a transition-colors">Contact</a>
-        <a
-          href="https://topmate.io/olamide_andrew"
-          target="_blank"
-          rel="noopener noreferrer"
-          class="px-4 py-2 border border-[#B8912A] text-[#B8912A] hover:bg-[#B8912A] hover:text-white transition-all rounded-sm"
-          >Book Meeting</a
-        >
       </div>
+      <a
+        href="https://topmate.io/olamide_andrew"
+        target="_blank"
+        rel="noopener noreferrer"
+        class="hidden md:inline-flex px-4 py-2 border border-[#B8912A] text-[#B8912A] hover:bg-[#B8912A] hover:text-white transition-all rounded-sm"
+        >Book Meeting</a
+      >
       <button
         type="button"
         class="md:hidden text-white/80 hover:text-[#B8912A] transition-colors"
