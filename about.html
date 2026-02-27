@@ -5,128 +5,128 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>About — Olamide Andrew</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <link
-      href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=DM+Sans:wght@300;400;500&display=swap"
-      rel="stylesheet"
-    />
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet"/>
     <style>
-      body {
-        font-family: "DM Sans", sans-serif;
+      body { font-family: "DM Sans", sans-serif; }
+      .font-display { font-family: "Playfair Display", serif; }
+
+      .fade-in{opacity:0;transform:translateY(30px);animation:fadeUp .7s forwards;}
+      @keyframes fadeUp{to{opacity:1;transform:none;}}
+      .d1{animation-delay:.1s;}.d2{animation-delay:.25s;}.d3{animation-delay:.4s;}.d4{animation-delay:.55s;}
+
+      .nav-a{position:relative;transition:all .3s;padding:8px 0;}
+      .nav-a::before{content:'';position:absolute;bottom:0;left:50%;width:0;height:2px;background:linear-gradient(90deg,#B8912A,#D4A93C);transition:all .3s;transform:translateX(-50%);}
+      .nav-a:hover,.nav-a.active{color:#b8912a;}
+      .nav-a:hover::before,.nav-a.active::before{width:100%;}
+      .nav-logo{transition:all .3s;}
+      .nav-logo:hover{transform:scale(1.05);box-shadow:0 0 20px rgba(184,145,42,.3);}
+      nav{backdrop-filter:blur(10px);background:rgba(15,15,13,.8);}
+
+      /* HERO — photo fills entire left half */
+      .hero-section { display: grid; grid-template-columns: 45% 55%; min-height: 640px; position: relative; }
+
+      .photo-side {
+        position: relative;
+        overflow: hidden;
       }
-      .fade-in {
-        opacity: 0;
-        transform: translateY(20px);
-        animation: fadeUp 0.8s forwards;
+      .photo-side img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        object-position: center top;
+        display: block;
+        filter: brightness(0.75) contrast(1.05);
       }
-      @keyframes fadeUp {
-        to {
-          opacity: 1;
-          transform: none;
-        }
+      /* Right fade — photo bleeds into dark background */
+      .photo-side::after {
+        content: '';
+        position: absolute;
+        top: 0; right: 0;
+        width: 50%; height: 100%;
+        background: linear-gradient(to right, transparent, #0F0F0D);
+        pointer-events: none;
       }
-      .d1 {
-        animation-delay: 0.1s;
+      /* Bottom fade */
+      .photo-side::before {
+        content: '';
+        position: absolute;
+        bottom: 0; left: 0; right: 0;
+        height: 25%;
+        background: linear-gradient(to top, rgba(15,15,13,0.5), transparent);
+        pointer-events: none;
+        z-index: 1;
       }
-      .d2 {
-        animation-delay: 0.25s;
+
+      .text-side {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        padding: 5rem 4rem 5rem 2rem;
       }
-      .d3 {
-        animation-delay: 0.4s;
+
+      /* HOW I CAN HELP cards */
+      .service-card {
+        border: 1px solid rgba(255,255,255,0.1);
+        padding: 1.75rem 1.5rem;
+        transition: border-color .3s, transform .35s cubic-bezier(.4,0,.2,1);
       }
-      .nav-a:hover {
-        color: #b8912a;
+      .service-card:hover {
+        border-color: rgba(184,145,42,0.45);
+        transform: translateY(-5px);
       }
-      .skill-bar {
-        background: #b8912a;
-        height: 2px;
-        transform: scaleX(0);
-        transform-origin: left;
-        animation: grow 1s 0.5s forwards;
+      .service-num {
+        font-family: "Playfair Display", serif;
+        font-size: 2.2rem;
+        font-weight: 700;
+        color: rgba(184,145,42,0.35);
+        line-height: 1;
+        margin-bottom: 0.5rem;
       }
-      @keyframes grow {
-        to {
-          transform: scaleX(1);
-        }
+
+      .skill-track{background:rgba(255,255,255,0.08);height:2px;width:100%;}
+      .skill-fill{height:100%;background:#B8912A;width:0%;transition:width 1.4s cubic-bezier(.4,0,.2,1);}
+
+      .scroll-reveal{opacity:0;transform:translateY(40px);transition:opacity .8s,transform .8s;}
+      .scroll-reveal.active{opacity:1;transform:translateY(0);}
+      .magnetic{transition:transform .3s cubic-bezier(.4,0,.2,1);}
+
+      .timeline-dot{width:10px;height:10px;border-radius:50%;background:#B8912A;border:2px solid #181815;box-shadow:0 0 0 3px rgba(184,145,42,0.25);flex-shrink:0;margin-top:5px;}
+
+      @media(max-width:768px){
+        .hero-section{grid-template-columns:1fr;}
+        .photo-side{height:420px;}
+        .photo-side::after{width:100%;height:40%;top:auto;bottom:0;background:linear-gradient(to top,#0F0F0D,transparent);}
+        .text-side{padding:3rem 2rem;}
       }
     </style>
   </head>
   <body class="bg-[#0F0F0D] text-white">
-    <!-- NAV -->
-    <nav
-      class="flex items-center justify-between px-8 md:px-20 py-5 border-b border-white/10"
-    >
-      <a
-        href="index.html"
-        class="px-5 py-2 border border-[#B8912A] text-[#B8912A] text-xs tracking-[0.2em] uppercase font-medium"
-        >Olamide Andrew</a
-      >
+
+    <!-- NAV — exactly like screenshot: logo left, "About" right only -->
+    <nav class="flex items-center justify-between px-8 md:px-20 py-5 border-b border-white/10 sticky top-0 z-50">
+      <a href="index.html" class="nav-logo px-5 py-2 border border-[#B8912A] text-[#B8912A] text-xs tracking-[0.2em] uppercase font-medium magnetic">Olamide Andrew</a>
       <div class="hidden md:flex gap-8 text-sm text-white/70">
-        <a href="index.html" class="nav-a transition-colors">Home</a>
-        <a href="about.html" class="nav-a transition-colors text-[#B8912A]"
-          >About</a
-        >
-        <a href="services.html" class="nav-a transition-colors">Services</a>
-        <a href="work.html" class="nav-a transition-colors">Work</a>
-        <a href="contact.html" class="nav-a transition-colors">Contact</a>
-        <a
-          href="https://topmate.io/olamide_andrew"
-          target="_blank"
-          rel="noopener noreferrer"
-          class="px-4 py-2 border border-[#B8912A] text-[#B8912A] hover:bg-[#B8912A] hover:text-white transition-all rounded-sm"
-          >Book Meeting</a
-        >
+        <a href="index.html" class="nav-a">Home</a>
+        <a href="about.html" class="nav-a text-[#B8912A]">About</a>
+        <a href="services.html" class="nav-a">Services</a>
+        <a href="work.html" class="nav-a">Work</a>
+        <a href="contact.html" class="nav-a">Contact</a>
       </div>
-      <button
-        type="button"
-        class="md:hidden text-white/80 hover:text-[#B8912A] transition-colors"
-        aria-label="Open menu"
-        data-menu-toggle
-      >
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          class="w-7 h-7"
-          fill="none"
-          viewBox="0 0 24 24"
-          stroke="currentColor"
-        >
-          <path
-            stroke-linecap="round"
-            stroke-linejoin="round"
-            stroke-width="1.8"
-            d="M4 7h16M4 12h16M4 17h16"
-          />
+      <button type="button" class="md:hidden text-white/80 hover:text-[#B8912A] transition-colors" aria-label="Open menu" data-menu-toggle>
+        <svg xmlns="http://www.w3.org/2000/svg" class="w-7 h-7" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M4 7h16M4 12h16M4 17h16"/>
         </svg>
       </button>
     </nav>
-    <div
-      id="mobile-menu-backdrop"
-      class="md:hidden fixed inset-0 bg-black/60 opacity-0 pointer-events-none transition-opacity duration-300 z-40"
-    ></div>
-    <aside
-      id="mobile-menu"
-      class="md:hidden fixed top-0 right-0 h-full w-72 max-w-[85vw] bg-[#181815] border-l border-[#B8912A]/40 transform translate-x-full transition-transform duration-300 ease-out z-50 p-8"
-    >
+
+    <!-- Mobile Menu -->
+    <div id="mobile-menu-backdrop" class="md:hidden fixed inset-0 bg-black/60 opacity-0 pointer-events-none transition-opacity duration-300 z-40"></div>
+    <aside id="mobile-menu" class="md:hidden fixed top-0 right-0 h-full w-72 max-w-[85vw] bg-[#181815] border-l border-[#B8912A]/40 transform translate-x-full transition-transform duration-300 ease-out z-50 p-8">
       <div class="flex items-center justify-between mb-10">
         <p class="text-xs tracking-[0.2em] uppercase text-[#B8912A]">Menu</p>
-        <button
-          type="button"
-          class="text-white/70 hover:text-[#B8912A] transition-colors"
-          aria-label="Close menu"
-          data-menu-close
-        >
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            class="w-6 h-6"
-            fill="none"
-            viewBox="0 0 24 24"
-            stroke="currentColor"
-          >
-            <path
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              stroke-width="1.8"
-              d="M6 6l12 12M18 6L6 18"
-            />
+        <button type="button" class="text-white/70 hover:text-[#B8912A] transition-colors" aria-label="Close menu" data-menu-close>
+          <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M6 6l12 12M18 6L6 18"/>
           </svg>
         </button>
       </div>
@@ -136,416 +136,167 @@
         <a href="services.html" class="nav-a">Services</a>
         <a href="work.html" class="nav-a">Work</a>
         <a href="contact.html" class="nav-a">Contact</a>
-        <a
-          href="https://topmate.io/olamide_andrew"
-          target="_blank"
-          rel="noopener noreferrer"
-          class="mt-2 px-4 py-2 border border-[#B8912A] text-[#B8912A] text-center rounded-sm"
-          >Book Meeting</a
-        >
       </nav>
     </aside>
 
-    <!-- HERO -->
-    <section class="px-8 md:px-20 py-20 border-b border-white/10">
-      <p
-        class="fade-in d1 text-[10px] tracking-[0.35em] text-[#B8912A] uppercase mb-5"
-      >
-        About Me
-      </p>
-      <div class="grid md:grid-cols-2 gap-16 items-center">
-        <div>
-          <h1
-            class="fade-in d2 font-display text-5xl md:text-6xl font-bold leading-tight mb-8"
-          >
-            Designer.<br />Strategist.<br /><span class="text-[#B8912A]"
-              >Storyteller.</span
-            >
-          </h1>
-          <p class="fade-in d3 text-white/60 leading-relaxed mb-6">
-            I'm Olamide Andrew, a Strategic Brand Designer with over 6 years of
-            experience helping businesses build brands that don't just look good
-            — they work hard.
-          </p>
-          <p class="fade-in d3 text-white/60 leading-relaxed mb-8">
-            Based in Cancola, I partner with founders, startups, and
-            growth-stage companies to craft brand identities, visual systems,
-            and campaign designs rooted in strategy and purpose.
-          </p>
-          <a
-            href="contact.html"
-            class="fade-in d3 bg-[#B8912A] hover:bg-[#D4A93C] text-white px-8 py-3 text-sm font-medium transition-colors inline-block"
-            >Let's Work Together →</a
-          >
+    <!-- ===== HERO — FULL BLEED PHOTO LEFT ===== -->
+    <section class="hero-section border-b border-white/10">
+      <!-- LEFT: Dummy portrait photo — professional man in suit, dark bg -->
+      <div class="photo-side">
+        <!--
+          PHOTO PLACEHOLDER:
+          Replace this <img> src with Olamide's actual photo.
+          The image will auto fill, scale and fade into the dark background.
+          Recommended: 800x1000px, dark/studio background preferred.
+        -->
+        <img
+          src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=800&q=85&fit=crop&crop=faces,top"
+          alt="Olamide Andrew — Strategic Brand Designer"
+          onerror="this.src='https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=800&q=80&fit=crop'"
+        />
+      </div>
+
+      <!-- RIGHT: Text content -->
+      <div class="text-side">
+        <p class="fade-in d1 text-[10px] tracking-[0.35em] text-[#B8912A] uppercase mb-5">I'm Olamide Andrew</p>
+
+        <h1 class="fade-in d2 font-display text-4xl md:text-5xl lg:text-[3.2rem] font-bold leading-[1.15] mb-8">
+          Design is the invisible<br/>architecture of human experience.
+        </h1>
+
+        <p class="fade-in d3 text-white/60 leading-relaxed mb-5 max-w-lg">
+          I'm <strong class="text-white font-medium">Olamide Andrew</strong> – a strategic brand designer who believes imagination, when directed with intention, becomes one of the most powerful tools a business can wield.
+        </p>
+
+        <p class="fade-in d3 text-white/60 leading-relaxed mb-8 max-w-lg">
+          My name means <span class="text-[#B8912A] italic">"my wealth has come"</span> and I approach every project with that same spirit of intent.
+        </p>
+
+        <div class="fade-in d4 flex flex-wrap gap-4 mb-8">
+          <a href="#" class="bg-[#B8912A] hover:bg-[#D4A93C] text-white px-8 py-3 text-sm font-medium transition-colors magnetic">
+            Download Resume
+          </a>
+          <a href="work.html" class="border border-white/40 hover:border-[#B8912A] hover:text-[#B8912A] text-white px-8 py-3 text-sm font-medium transition-colors magnetic">
+            View My Work
+          </a>
         </div>
-        <div class="fade-in d2">
-          <div
-            class="bg-[#181815] rounded-sm p-10 flex flex-col items-center justify-center aspect-square border border-white/5"
-          >
-            <div
-              class="w-32 h-32 rounded-full bg-gradient-to-br from-[#B8912A]/30 to-[#B8912A]/5 border border-[#B8912A]/30 flex items-center justify-center mb-6"
-            >
-              <span class="font-display text-4xl font-bold text-[#B8912A]"
-                >OA</span
-              >
-            </div>
-            <p class="font-display text-xl font-bold mb-1">Olamide Andrew</p>
-            <p class="text-white/40 text-sm">Strategic Brand Designer</p>
-            <p class="text-[#B8912A] text-xs mt-1">Cancola</p>
-          </div>
-        </div>
+
+        <p class="fade-in d4 text-white/35 text-sm">
+          Helping brands across Canada turn strategy into <strong class="text-white/55 font-medium">results.</strong>
+        </p>
       </div>
     </section>
 
-    <!-- STATS -->
-    <section class="bg-[#F5F3EE] text-[#0F0F0D] py-16 px-8 md:px-20">
-      <div class="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
-        <div>
-          <p class="font-display text-5xl font-bold text-[#B8912A] mb-2">6+</p>
-          <p class="text-sm text-black/60">Years Experience</p>
+    <!-- ===== HOW I CAN HELP ===== -->
+    <section class="bg-[#0F0F0D] py-20 px-8 md:px-20 border-b border-white/10">
+      <p class="text-[10px] tracking-[0.35em] text-[#B8912A] uppercase mb-12 text-center scroll-reveal">How I Can Help</p>
+      <div class="grid md:grid-cols-3 gap-6">
+
+        <!-- 01 Brand Strategy -->
+        <div class="service-card scroll-reveal">
+          <div class="flex items-center gap-4 mb-4 border-b border-white/10 pb-4">
+            <span class="service-num">01</span>
+            <h3 class="text-xs tracking-[0.2em] uppercase font-semibold text-white">Brand Strategy</h3>
+          </div>
+          <ul class="space-y-2 text-white/50 text-sm">
+            <li>Positioning</li>
+            <li>Audience Research</li>
+            <li>Growth Roadmap</li>
+          </ul>
         </div>
-        <div>
-          <p class="font-display text-5xl font-bold text-[#B8912A] mb-2">50+</p>
-          <p class="text-sm text-black/60">Brands Built</p>
+
+        <!-- 02 Visual Identity -->
+        <div class="service-card scroll-reveal" style="transition-delay:.1s">
+          <div class="flex items-center gap-4 mb-4 border-b border-white/10 pb-4">
+            <span class="service-num">02</span>
+            <h3 class="text-xs tracking-[0.2em] uppercase font-semibold text-white">Visual Identity</h3>
+          </div>
+          <ul class="space-y-2 text-white/50 text-sm">
+            <li>Logo Design</li>
+            <li>Style Guides</li>
+            <li>Typography</li>
+          </ul>
         </div>
-        <div>
-          <p class="font-display text-5xl font-bold text-[#B8912A] mb-2">12</p>
-          <p class="text-sm text-black/60">Industries Served</p>
+
+        <!-- 03 Campaign Design -->
+        <div class="service-card scroll-reveal" style="transition-delay:.2s">
+          <div class="flex items-center gap-4 mb-4 border-b border-white/10 pb-4">
+            <span class="service-num">03</span>
+            <h3 class="text-xs tracking-[0.2em] uppercase font-semibold text-white">Campaign Design</h3>
+          </div>
+          <ul class="space-y-2 text-white/50 text-sm">
+            <li>Marketing Materials</li>
+            <li>Web Design</li>
+            <li>Print & Digital</li>
+          </ul>
         </div>
-        <div>
-          <p class="font-display text-5xl font-bold text-[#B8912A] mb-2">98%</p>
-          <p class="text-sm text-black/60">Client Satisfaction</p>
-        </div>
+
       </div>
     </section>
 
-    <!-- SKILLS -->
-    <section class="py-20 px-8 md:px-20 border-b border-white/10">
-      <p class="text-[10px] tracking-[0.3em] text-[#B8912A] uppercase mb-12">
-        What I Do
+    <!-- ===== CTA ===== -->
+    <section class="bg-[#F5F3EE] text-[#0F0F0D] py-20 px-6 text-center">
+      <h2 class="font-display text-4xl md:text-5xl font-bold mb-4">Have a project in mind?</h2>
+      <p class="text-black/55 mb-8 max-w-md mx-auto text-sm leading-relaxed">
+        Available for full-time and contract roles with ambitious brands and forward-thinking teams.
       </p>
-      <div class="grid md:grid-cols-2 gap-10">
-        <div>
-          <div class="mb-8">
-            <div class="flex justify-between mb-2">
-              <span class="text-sm font-medium">Brand Identity & Strategy</span
-              ><span class="text-[#B8912A] text-sm">95%</span>
-            </div>
-            <div class="bg-white/10 h-[2px] w-full">
-              <div class="skill-bar" style="width: 95%"></div>
-            </div>
-          </div>
-          <div class="mb-8">
-            <div class="flex justify-between mb-2">
-              <span class="text-sm font-medium">Visual Design & Systems</span
-              ><span class="text-[#B8912A] text-sm">92%</span>
-            </div>
-            <div class="bg-white/10 h-[2px] w-full">
-              <div class="skill-bar" style="width: 92%"></div>
-            </div>
-          </div>
-          <div class="mb-8">
-            <div class="flex justify-between mb-2">
-              <span class="text-sm font-medium">Campaign Design</span
-              ><span class="text-[#B8912A] text-sm">88%</span>
-            </div>
-            <div class="bg-white/10 h-[2px] w-full">
-              <div class="skill-bar" style="width: 88%"></div>
-            </div>
-          </div>
-        </div>
-        <div>
-          <div class="mb-8">
-            <div class="flex justify-between mb-2">
-              <span class="text-sm font-medium">Typography & Art Direction</span
-              ><span class="text-[#B8912A] text-sm">90%</span>
-            </div>
-            <div class="bg-white/10 h-[2px] w-full">
-              <div class="skill-bar" style="width: 90%"></div>
-            </div>
-          </div>
-          <div class="mb-8">
-            <div class="flex justify-between mb-2">
-              <span class="text-sm font-medium">UI/UX Design</span
-              ><span class="text-[#B8912A] text-sm">82%</span>
-            </div>
-            <div class="bg-white/10 h-[2px] w-full">
-              <div class="skill-bar" style="width: 82%"></div>
-            </div>
-          </div>
-          <div class="mb-8">
-            <div class="flex justify-between mb-2">
-              <span class="text-sm font-medium">Brand Consulting</span
-              ><span class="text-[#B8912A] text-sm">87%</span>
-            </div>
-            <div class="bg-white/10 h-[2px] w-full">
-              <div class="skill-bar" style="width: 87%"></div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- EXPERIENCE -->
-    <section class="bg-[#181815] py-20 px-8 md:px-20">
-      <p class="text-[10px] tracking-[0.3em] text-[#B8912A] uppercase mb-12">
-        Experience
-      </p>
-      <div class="space-y-10">
-        <div class="flex gap-8 border-b border-white/10 pb-10">
-          <p class="text-white/30 text-sm w-28 shrink-0">2021 – Present</p>
-          <div>
-            <h4 class="font-display font-bold text-lg mb-1">
-              Senior Brand Designer
-            </h4>
-            <p class="text-[#B8912A] text-sm mb-3">Freelance / Self-Employed</p>
-            <p class="text-white/50 text-sm leading-relaxed max-w-lg">
-              Building brand systems for startups and growth-stage companies.
-              Specializing in Series A identity overhauls and go-to-market
-              visual strategies.
-            </p>
-          </div>
-        </div>
-        <div class="flex gap-8 border-b border-white/10 pb-10">
-          <p class="text-white/30 text-sm w-28 shrink-0">2019 – 2021</p>
-          <div>
-            <h4 class="font-display font-bold text-lg mb-1">Brand Designer</h4>
-            <p class="text-[#B8912A] text-sm mb-3">Studio Volta, Lagos</p>
-            <p class="text-white/50 text-sm leading-relaxed max-w-lg">
-              Led identity projects for FMCG, fintech, and lifestyle brands
-              across West Africa.
-            </p>
-          </div>
-        </div>
-        <div class="flex gap-8">
-          <p class="text-white/30 text-sm w-28 shrink-0">2017 – 2019</p>
-          <div>
-            <h4 class="font-display font-bold text-lg mb-1">
-              Junior Graphic Designer
-            </h4>
-            <p class="text-[#B8912A] text-sm mb-3">Pixel & Co, Abuja</p>
-            <p class="text-white/50 text-sm leading-relaxed max-w-lg">
-              Assisted senior designers on campaign and print projects for local
-              and national clients.
-            </p>
-          </div>
-        </div>
-      </div>
+      <a href="contact.html" class="bg-[#B8912A] hover:bg-[#D4A93C] text-white inline-block px-10 py-4 text-sm font-medium transition-colors magnetic">Get In Touch</a>
+      <p class="mt-5 text-[#B8912A] text-sm">hello@olamideandrew.com</p>
     </section>
 
     <!-- FOOTER -->
-    <footer
-      class="relative bg-[#0F0F0D] text-white px-8 md:px-20 py-20 rounded-t-[60px] overflow-hidden"
-    >
-      <!-- Subtle Top Glow -->
-      <div
-        class="absolute top-0 left-0 w-full h-24 bg-gradient-to-b from-[#B8912A]/10 to-transparent pointer-events-none"
-      ></div>
-
-      <div
-        class="relative z-10 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-14"
-      >
-        <!-- Column 1 - About -->
+    <footer class="bg-[#0F0F0D] border-t border-white/10 px-8 md:px-20 py-12">
+      <div class="flex flex-col md:flex-row justify-between gap-8 mb-8">
         <div>
-          <div class="flex justify-start">
-            <img
-              src="public/olamide-logo.png"
-              alt="Olamide Andrew Logo"
-              class="w-60 h-[110px] object-contain rounded-2xl shadow-2xl"
-            />
-          </div>
-
-          <p class="text-white/60 text-sm leading-relaxed max-w-xs">
-            Strategic Brand Designer crafting modern, minimal and impactful
-            digital experiences for growing brands worldwide.
+          <p class="text-xs tracking-[0.2em] uppercase font-medium mb-2">
+            Olamide Andrew
+          </p>
+          <p class="text-white/40 text-sm">
+            Strategic Brand Designer, based in Cancola.
           </p>
         </div>
-
-        <!-- Column 2 - Quick Links -->
-        <div>
-          <h3 class="text-sm uppercase tracking-[0.2em] mb-6 text-white/40">
-            Quick Links
-          </h3>
-
-          <ul class="space-y-4 text-white/60 text-sm">
-            <li class="group flex items-center gap-2">
-              <span
-                class="text-[#B8912A] transform group-hover:translate-x-1 transition duration-300"
-              >
-                >
-              </span>
-              <a
-                href="work.html"
-                class="group-hover:text-[#B8912A] transition duration-300"
-              >
-                Work
-              </a>
-            </li>
-
-            <li class="group flex items-center gap-2">
-              <span
-                class="text-[#B8912A] transform group-hover:translate-x-1 transition duration-300"
-              >
-                >
-              </span>
-              <a
-                href="about.html"
-                class="group-hover:text-[#B8912A] transition duration-300"
-              >
-                About
-              </a>
-            </li>
-
-            <li class="group flex items-center gap-2">
-              <span
-                class="text-[#B8912A] transform group-hover:translate-x-1 transition duration-300"
-              >
-                >
-              </span>
-              <a
-                href="contact.html"
-                class="group-hover:text-[#B8912A] transition duration-300"
-              >
-                Contact
-              </a>
-            </li>
-
-            <li class="group flex items-center gap-2">
-              <span
-                class="text-[#B8912A] transform group-hover:translate-x-1 transition duration-300"
-              >
-                >
-              </span>
-              <a
-                href="#"
-                class="group-hover:text-[#B8912A] transition duration-300"
-              >
-                Blog
-              </a>
-            </li>
-          </ul>
+        <div class="flex gap-8 text-sm text-white/60">
+          <a href="work.html" class="hover:text-[#B8912A] transition-colors"
+            >Work</a
+          >
+          <a href="about.html" class="hover:text-[#B8912A] transition-colors"
+            >About</a
+          >
+          <a href="contact.html" class="hover:text-[#B8912A] transition-colors"
+            >Contact</a
+          >
         </div>
-
-        <!-- Column 3 - Services -->
-        <div>
-          <h3 class="text-sm uppercase tracking-[0.2em] mb-6 text-white/40">
-            Services
-          </h3>
-
-          <ul class="space-y-4 text-white/60 text-sm">
-            <li class="group flex items-center gap-2">
-              <span
-                class="text-[#B8912A] transform group-hover:translate-x-1 transition duration-300"
-              >
-                >
-              </span>
-              <a
-                href="#"
-                class="group-hover:text-[#B8912A] transition duration-300"
-              >
-                Brand Strategy
-              </a>
-            </li>
-
-            <li class="group flex items-center gap-2">
-              <span
-                class="text-[#B8912A] transform group-hover:translate-x-1 transition duration-300"
-              >
-                >
-              </span>
-              <a
-                href="#"
-                class="group-hover:text-[#B8912A] transition duration-300"
-              >
-                Logo Design
-              </a>
-            </li>
-
-            <li class="group flex items-center gap-2">
-              <span
-                class="text-[#B8912A] transform group-hover:translate-x-1 transition duration-300"
-              >
-                >
-              </span>
-              <a
-                href="#"
-                class="group-hover:text-[#B8912A] transition duration-300"
-              >
-                UI/UX Design
-              </a>
-            </li>
-
-            <li class="group flex items-center gap-2">
-              <span
-                class="text-[#B8912A] transform group-hover:translate-x-1 transition duration-300"
-              >
-                >
-              </span>
-              <a
-                href="#"
-                class="group-hover:text-[#B8912A] transition duration-300"
-              >
-                Website Development
-              </a>
-            </li>
-          </ul>
-        </div>
-
-        <!-- Column 4 - Social + Contact -->
-        <div>
-          <h3 class="text-sm uppercase tracking-[0.2em] mb-6 text-white/40">
-            Connect
-          </h3>
-
-          <div class="flex gap-4 mb-8">
-            <a
-              href="#"
-              class="w-10 h-10 rounded-xl bg-white/5 border border-white/10 flex items-center justify-center text-white/60 hover:bg-[#B8912A] hover:text-black transition-all duration-300"
-            >
-              Be
-            </a>
-
-            <a
-              href="#"
-              class="w-10 h-10 rounded-xl bg-white/5 border border-white/10 flex items-center justify-center text-white/60 hover:bg-[#B8912A] hover:text-black transition-all duration-300"
-            >
-              Ed
-            </a>
-
-            <a
-              href="#"
-              class="w-10 h-10 rounded-xl bg-white/5 border border-white/10 flex items-center justify-center text-white/60 hover:bg-[#B8912A] hover:text-black transition-all duration-300"
-            >
-              In
-            </a>
-          </div>
-
-          <div class="text-white/60 text-sm space-y-3">
-            <p>hello@olamideandrew.com</p>
-            <p>Cancola, Nigeria</p>
-            <p>+234 000 000 0000</p>
-          </div>
-        </div>
-      </div>
-
-      <!-- Bottom Section -->
-      <div
-        class="border-t border-white/10 mt-16 pt-8 flex flex-col md:flex-row justify-between items-center gap-4 text-white/40 text-xs"
-      >
-        <p>© <span id="year"></span> Olamide Andrew. All rights reserved.</p>
-
-        <div class="flex gap-6">
-          <a href="#" class="hover:text-[#B8912A] transition">Privacy Policy</a>
-          <a href="#" class="hover:text-[#B8912A] transition"
-            >Terms of Service</a
+        <div class="flex items-center gap-3">
+          <a
+            href="#"
+            class="w-9 h-9 rounded-full border border-white/20 flex items-center justify-center text-white/50 hover:border-[#B8912A] hover:text-[#B8912A] transition-all text-xs"
+            >Be</a
+          >
+          <a
+            href="#"
+            class="w-9 h-9 rounded-full border border-white/20 flex items-center justify-center text-white/50 hover:border-[#B8912A] hover:text-[#B8912A] transition-all text-xs"
+            >Ed</a
+          >
+          <a
+            href="#"
+            class="w-9 h-9 rounded-full border border-white/20 flex items-center justify-center text-white/50 hover:border-[#B8912A] hover:text-[#B8912A] transition-all text-xs"
+            >In</a
           >
         </div>
       </div>
+      <div
+        class="flex flex-col md:flex-row justify-between items-center pt-6 border-t border-white/10 gap-3"
+      >
+        <p class="text-white/30 text-xs">
+          © 2023, Olamide Andrew. All rights reserved.
+        </p>
+        <a
+          href="mailto:hello@olamidrandrow.com"
+          class="text-white/40 text-sm hover:text-[#B8912A] transition-colors"
+          >✉ hello@olamidrandrow.com</a
+        >
+      </div>
     </footer>
-
-    <script>
-      document.getElementById("year").textContent = new Date().getFullYear();
-    </script>
     <script>
       (function () {
         const menu = document.getElementById("mobile-menu");
@@ -569,9 +320,7 @@
         openBtn.addEventListener("click", openMenu);
         closeBtn.addEventListener("click", closeMenu);
         backdrop.addEventListener("click", closeMenu);
-        menu
-          .querySelectorAll("a")
-          .forEach((link) => link.addEventListener("click", closeMenu));
+        menu.querySelectorAll("a").forEach((link) => link.addEventListener("click", closeMenu));
         document.addEventListener("keydown", (e) => {
           if (e.key === "Escape") closeMenu();
         });
