@@ -198,6 +198,108 @@
         background: rgba(184, 145, 42, 0.1);
         border-color: rgba(184, 145, 42, 0.6);
       }
+      .animated-text {
+        background: linear-gradient(90deg, #B8912A, #D4A93C, #B8912A);
+        background-size: 200% auto;
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+        animation: shimmer 3s linear infinite;
+      }
+      @keyframes shimmer {
+        to { background-position: 200% center; }
+      }
+      .lightbox {
+        display: none;
+        position: fixed;
+        inset: 0;
+        background: rgba(0,0,0,0.95);
+        z-index: 9999;
+        align-items: center;
+        justify-content: center;
+        padding: 2rem;
+      }
+      .lightbox.active { display: flex; }
+      .lightbox-content {
+        max-width: 1200px;
+        width: 100%;
+        background: #181815;
+        border: 1px solid rgba(184,145,42,0.2);
+        padding: 3rem;
+        position: relative;
+        animation: slideUp 0.4s ease-out;
+      }
+      @keyframes slideUp {
+        from { opacity: 0; transform: translateY(50px); }
+        to { opacity: 1; transform: translateY(0); }
+      }
+      .timeline-item {
+        position: relative;
+        padding-left: 3rem;
+        padding-bottom: 3rem;
+        border-left: 2px solid rgba(184,145,42,0.2);
+      }
+      .timeline-item::before {
+        content: '';
+        position: absolute;
+        left: -6px;
+        top: 0;
+        width: 10px;
+        height: 10px;
+        background: #B8912A;
+        border-radius: 50%;
+        box-shadow: 0 0 20px rgba(184,145,42,0.6);
+      }
+      .timeline-item.active::before {
+        animation: pulse 2s infinite;
+      }
+      @keyframes pulse {
+        0%, 100% { box-shadow: 0 0 20px rgba(184,145,42,0.6); }
+        50% { box-shadow: 0 0 40px rgba(184,145,42,1); }
+      }
+      .fixed-sidebar {
+        position: sticky;
+        top: 100px;
+        height: fit-content;
+      }
+      .sidebar-card {
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        padding: 1.5rem;
+        transition: all 0.4s;
+        position: relative;
+        overflow: hidden;
+        background: linear-gradient(135deg, rgba(184, 145, 42, 0.05), transparent);
+      }
+      .sidebar-card::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 2px;
+        background: linear-gradient(90deg, #b8912a, #d4a93c);
+        transform: scaleX(0);
+        transition: transform 0.4s;
+      }
+      .sidebar-card:hover {
+        border-color: rgba(184, 145, 42, 0.6);
+        transform: translateY(-4px);
+        box-shadow: 0 8px 30px rgba(184, 145, 42, 0.2);
+      }
+      .sidebar-card:hover::before {
+        transform: scaleX(1);
+      }
+      .slide-in-left {
+        opacity: 0;
+        transform: translateX(-100px);
+        animation: slideInLeft 0.8s forwards;
+      }
+      @keyframes slideInLeft {
+        to {
+          opacity: 1;
+          transform: translateX(0);
+        }
+      }
     </style>
   </head>
   <body class="bg-[#0F0F0D] text-white">
@@ -310,8 +412,8 @@
       <h1
         class="fade-in d1 font-display text-4xl md:text-6xl font-bold leading-tight max-w-3xl mx-auto relative z-10"
       >
-        A selection of brand systems<br />
-        <span class="text-white/60">and campaigns built with intention.</span>
+        A selection of <span class="animated-text">brand systems</span><br />
+        <span class="text-white/60">and campaigns built with</span> <span class="animated-text">intention</span>.
       </h1>
       <p
         class="fade-in d2 text-white/40 text-sm mt-6 max-w-md mx-auto relative z-10"
@@ -355,9 +457,45 @@
       </div>
     </section>
 
-    <!-- WORK GRID -->
+    <!-- WORK GRID WITH FIXED SIDEBAR -->
     <section class="px-8 md:px-20 py-16">
-      <div class="grid md:grid-cols-2 gap-x-8 gap-y-14" id="work-grid">
+      <div class="grid lg:grid-cols-12 gap-8">
+        <!-- Fixed Sidebar -->
+        <div class="lg:col-span-3">
+          <div class="fixed-sidebar space-y-6">
+            <!-- Stats Card -->
+            <div class="sidebar-card">
+              <div class="flex items-center gap-2 mb-4">
+                <div class="text-2xl">📊</div>
+                <h3 class="font-display text-xl font-bold text-[#B8912A]">Stats</h3>
+              </div>
+              <div class="space-y-4">
+                <div>
+                  <p class="text-3xl font-bold text-[#B8912A] font-display">26+</p>
+                  <p class="text-xs text-white/50 mt-1">Projects Completed</p>
+                </div>
+                <div>
+                  <p class="text-3xl font-bold text-[#B8912A] font-display">15+</p>
+                  <p class="text-xs text-white/50 mt-1">Happy Clients</p>
+                </div>
+                <div>
+                  <p class="text-3xl font-bold text-[#B8912A] font-display">3+</p>
+                  <p class="text-xs text-white/50 mt-1">Years Experience</p>
+                </div>
+              </div>
+            </div>
+
+            <!-- You're Here Card -->
+            <div class="sidebar-card bg-[#B8912A]/5">
+              <p class="text-xs text-white/60 mb-2">💡 You're here</p>
+              <p class="text-sm text-white/80 font-medium">Exploring creative work</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Projects Grid -->
+        <div class="lg:col-span-9">
+          <div class="grid md:grid-cols-2 gap-x-8 gap-y-14" id="work-grid">
         <!-- 1. NOVA TECH -->
         <div class="work-card scroll-reveal" data-cat="brand">
           <div class="card-img">
@@ -366,10 +504,10 @@
               alt="Nova Tech Rebrand"
             />
             <div class="card-overlay">
-              <a
-                href="#"
-                class="border-2 border-white text-white text-sm px-8 py-3 font-medium hover:bg-white hover:text-[#0F0F0D] transition-all"
-                >View Case Study →</a
+              <button
+                onclick="openLightbox('Nova Tech', 'Repositioning a SaaS startup for Series A growth with a bold, modern identity system.', 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=900&q=85&fit=crop')"
+                class="border-2 border-white text-white text-sm px-8 py-3 font-medium hover:bg-white hover:text-[#0F0F0D] transition-all cursor-pointer"
+                >View Case Study →</button
               >
             </div>
           </div>
@@ -397,10 +535,10 @@
               alt="Harvest Market Brand"
             />
             <div class="card-overlay">
-              <a
-                href="#"
-                class="border-2 border-white text-white text-sm px-8 py-3 font-medium hover:bg-white hover:text-[#0F0F0D] transition-all"
-                >View Case Study →</a
+              <button
+                onclick="openLightbox('Harvest Market', 'Growing an organic grocer into a neighborhood staple with warm, earthy branding.', 'https://images.unsplash.com/photo-1542838132-92c53300491e?w=900&q=85&fit=crop')"
+                class="border-2 border-white text-white text-sm px-8 py-3 font-medium hover:bg-white hover:text-[#0F0F0D] transition-all cursor-pointer"
+                >View Case Study →</button
               >
             </div>
           </div>
@@ -430,10 +568,10 @@
               alt="Lumina Wellness"
             />
             <div class="card-overlay">
-              <a
-                href="#"
-                class="border-2 border-white text-white text-sm px-8 py-3 font-medium hover:bg-white hover:text-[#0F0F0D] transition-all"
-                >View Case Study →</a
+              <button
+                onclick="openLightbox('Lumina Wellness', 'Creating a serene brand identity for a wellness startup focused on mindful living.', 'https://images.unsplash.com/photo-1512290923902-8a9f81dc236c?w=900&q=85&fit=crop')"
+                class="border-2 border-white text-white text-sm px-8 py-3 font-medium hover:bg-white hover:text-[#0F0F0D] transition-all cursor-pointer"
+                >View Case Study →</button
               >
             </div>
           </div>
@@ -463,10 +601,10 @@
               alt="Velle Finance Campaign"
             />
             <div class="card-overlay">
-              <a
-                href="#"
-                class="border-2 border-white text-white text-sm px-8 py-3 font-medium hover:bg-white hover:text-[#0F0F0D] transition-all"
-                >View Case Study →</a
+              <button
+                onclick="openLightbox('Velle Finance', 'Launch campaign for a fintech platform making investing accessible to everyone.', 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=900&q=85&fit=crop')"
+                class="border-2 border-white text-white text-sm px-8 py-3 font-medium hover:bg-white hover:text-[#0F0F0D] transition-all cursor-pointer"
+                >View Case Study →</button
               >
             </div>
           </div>
@@ -496,10 +634,10 @@
               alt="African Coffee"
             />
             <div class="card-overlay">
-              <a
-                href="#"
-                class="border-2 border-white text-white text-sm px-8 py-3 font-medium hover:bg-white hover:text-[#0F0F0D] transition-all"
-                >View Case Study →</a
+              <button
+                onclick="openLightbox('African Coffee Co.', 'Modern packaging design inspired by rich African heritage and coffee culture.', 'https://images.unsplash.com/photo-1559056199-641a0ac8b55e?w=900&q=85&fit=crop')"
+                class="border-2 border-white text-white text-sm px-8 py-3 font-medium hover:bg-white hover:text-[#0F0F0D] transition-all cursor-pointer"
+                >View Case Study →</button
               >
             </div>
           </div>
@@ -529,10 +667,10 @@
               alt="Urban Threads"
             />
             <div class="card-overlay">
-              <a
-                href="#"
-                class="border-2 border-white text-white text-sm px-8 py-3 font-medium hover:bg-white hover:text-[#0F0F0D] transition-all"
-                >View Case Study →</a
+              <button
+                onclick="openLightbox('Urban Threads', 'Streetwear brand identity that blends urban culture with sustainable fashion.', 'https://images.unsplash.com/photo-1441986300917-64674bd600d8?w=900&q=85&fit=crop')"
+                class="border-2 border-white text-white text-sm px-8 py-3 font-medium hover:bg-white hover:text-[#0F0F0D] transition-all cursor-pointer"
+                >View Case Study →</button
               >
             </div>
           </div>
@@ -550,7 +688,33 @@
           </div>
         </div>
       </div>
+        </div>
+      </div>
     </section>
+
+    <!-- LIGHTBOX -->
+    <div id="lightbox" class="lightbox">
+      <div class="lightbox-content">
+        <button onclick="closeLightbox()" class="absolute top-4 right-4 text-white/60 hover:text-[#B8912A] text-3xl">&times;</button>
+        <img id="lightbox-img" src="" alt="" class="w-full h-96 object-cover mb-6" />
+        <h2 id="lightbox-title" class="font-display text-3xl font-bold mb-4"></h2>
+        <p id="lightbox-desc" class="text-white/70 mb-6"></p>
+        <div class="grid grid-cols-3 gap-4 text-center">
+          <div class="border border-[#B8912A]/20 p-4">
+            <p class="text-[#B8912A] text-2xl font-bold">2024</p>
+            <p class="text-white/50 text-xs mt-1">Year</p>
+          </div>
+          <div class="border border-[#B8912A]/20 p-4">
+            <p class="text-[#B8912A] text-2xl font-bold">6 Weeks</p>
+            <p class="text-white/50 text-xs mt-1">Duration</p>
+          </div>
+          <div class="border border-[#B8912A]/20 p-4">
+            <p class="text-[#B8912A] text-2xl font-bold">Brand</p>
+            <p class="text-white/50 text-xs mt-1">Category</p>
+          </div>
+        </div>
+      </div>
+    </div>
 
     <!-- CTA -->
     <section
@@ -789,6 +953,23 @@
 
     <script>
       document.getElementById("year").textContent = new Date().getFullYear();
+
+      function openLightbox(title, desc, img) {
+        document.getElementById('lightbox-title').textContent = title;
+        document.getElementById('lightbox-desc').textContent = desc;
+        document.getElementById('lightbox-img').src = img;
+        document.getElementById('lightbox').classList.add('active');
+        document.body.style.overflow = 'hidden';
+      }
+
+      function closeLightbox() {
+        document.getElementById('lightbox').classList.remove('active');
+        document.body.style.overflow = '';
+      }
+
+      document.getElementById('lightbox').addEventListener('click', function(e) {
+        if (e.target === this) closeLightbox();
+      });
     </script>
     <script>
       function filterWork(cat) {
