@@ -510,58 +510,218 @@
     </section>
 
     <!-- FOOTER -->
-    <footer class="bg-[#0F0F0D] border-t border-white/10 px-8 md:px-20 py-12">
-      <div class="flex flex-col md:flex-row justify-between gap-8 mb-8">
+    <footer
+      class="relative bg-[#0F0F0D] text-white px-8 md:px-20 py-20 rounded-t-[60px] overflow-hidden"
+    >
+      <!-- Subtle Top Glow -->
+      <div
+        class="absolute top-0 left-0 w-full h-24 bg-gradient-to-b from-[#B8912A]/10 to-transparent pointer-events-none"
+      ></div>
+
+      <div
+        class="relative z-10 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-14"
+      >
+        <!-- Column 1 - About -->
         <div>
-          <p class="text-xs tracking-[0.2em] uppercase font-medium mb-2">
-            Olamide Andrew
-          </p>
-          <p class="text-white/40 text-sm">
-            Strategic Brand Designer, based in Cancola.
+          <div class="flex justify-start">
+            <img
+              src="public/olamide-logo.png"
+              alt="Olamide Andrew Logo"
+              class="w-60 h-[110px] object-contain rounded-2xl shadow-2xl"
+            />
+          </div>
+
+          <p class="text-white/60 text-sm leading-relaxed max-w-xs">
+            Strategic Brand Designer crafting modern, minimal and impactful
+            digital experiences for growing brands worldwide.
           </p>
         </div>
-        <div class="flex gap-8 text-sm text-white/60">
-          <a href="work.html" class="hover:text-[#B8912A] transition-colors"
-            >Work</a
-          >
-          <a href="about.html" class="hover:text-[#B8912A] transition-colors"
-            >About</a
-          >
-          <a href="contact.html" class="hover:text-[#B8912A] transition-colors"
-            >Contact</a
-          >
+
+        <!-- Column 2 - Quick Links -->
+        <div>
+          <h3 class="text-sm uppercase tracking-[0.2em] mb-6 text-white/40">
+            Quick Links
+          </h3>
+
+          <ul class="space-y-4 text-white/60 text-sm">
+            <li class="group flex items-center gap-2">
+              <span
+                class="text-[#B8912A] transform group-hover:translate-x-1 transition duration-300"
+              >
+                >
+              </span>
+              <a
+                href="work.html"
+                class="group-hover:text-[#B8912A] transition duration-300"
+              >
+                Work
+              </a>
+            </li>
+
+            <li class="group flex items-center gap-2">
+              <span
+                class="text-[#B8912A] transform group-hover:translate-x-1 transition duration-300"
+              >
+                >
+              </span>
+              <a
+                href="about.html"
+                class="group-hover:text-[#B8912A] transition duration-300"
+              >
+                About
+              </a>
+            </li>
+
+            <li class="group flex items-center gap-2">
+              <span
+                class="text-[#B8912A] transform group-hover:translate-x-1 transition duration-300"
+              >
+                >
+              </span>
+              <a
+                href="contact.html"
+                class="group-hover:text-[#B8912A] transition duration-300"
+              >
+                Contact
+              </a>
+            </li>
+
+            <li class="group flex items-center gap-2">
+              <span
+                class="text-[#B8912A] transform group-hover:translate-x-1 transition duration-300"
+              >
+                >
+              </span>
+              <a
+                href="#"
+                class="group-hover:text-[#B8912A] transition duration-300"
+              >
+                Blog
+              </a>
+            </li>
+          </ul>
         </div>
-        <div class="flex items-center gap-3">
-          <a
-            href="#"
-            class="w-9 h-9 rounded-full border border-white/20 flex items-center justify-center text-white/50 hover:border-[#B8912A] hover:text-[#B8912A] transition-all text-xs"
-            >Be</a
-          >
-          <a
-            href="#"
-            class="w-9 h-9 rounded-full border border-white/20 flex items-center justify-center text-white/50 hover:border-[#B8912A] hover:text-[#B8912A] transition-all text-xs"
-            >Ed</a
-          >
-          <a
-            href="#"
-            class="w-9 h-9 rounded-full border border-white/20 flex items-center justify-center text-white/50 hover:border-[#B8912A] hover:text-[#B8912A] transition-all text-xs"
-            >In</a
-          >
+
+        <!-- Column 3 - Services -->
+        <div>
+          <h3 class="text-sm uppercase tracking-[0.2em] mb-6 text-white/40">
+            Services
+          </h3>
+
+          <ul class="space-y-4 text-white/60 text-sm">
+            <li class="group flex items-center gap-2">
+              <span
+                class="text-[#B8912A] transform group-hover:translate-x-1 transition duration-300"
+              >
+                >
+              </span>
+              <a
+                href="#"
+                class="group-hover:text-[#B8912A] transition duration-300"
+              >
+                Brand Strategy
+              </a>
+            </li>
+
+            <li class="group flex items-center gap-2">
+              <span
+                class="text-[#B8912A] transform group-hover:translate-x-1 transition duration-300"
+              >
+                >
+              </span>
+              <a
+                href="#"
+                class="group-hover:text-[#B8912A] transition duration-300"
+              >
+                Logo Design
+              </a>
+            </li>
+
+            <li class="group flex items-center gap-2">
+              <span
+                class="text-[#B8912A] transform group-hover:translate-x-1 transition duration-300"
+              >
+                >
+              </span>
+              <a
+                href="#"
+                class="group-hover:text-[#B8912A] transition duration-300"
+              >
+                UI/UX Design
+              </a>
+            </li>
+
+            <li class="group flex items-center gap-2">
+              <span
+                class="text-[#B8912A] transform group-hover:translate-x-1 transition duration-300"
+              >
+                >
+              </span>
+              <a
+                href="#"
+                class="group-hover:text-[#B8912A] transition duration-300"
+              >
+                Website Development
+              </a>
+            </li>
+          </ul>
+        </div>
+
+        <!-- Column 4 - Social + Contact -->
+        <div>
+          <h3 class="text-sm uppercase tracking-[0.2em] mb-6 text-white/40">
+            Connect
+          </h3>
+
+          <div class="flex gap-4 mb-8">
+            <a
+              href="#"
+              class="w-10 h-10 rounded-xl bg-white/5 border border-white/10 flex items-center justify-center text-white/60 hover:bg-[#B8912A] hover:text-black transition-all duration-300"
+            >
+              Be
+            </a>
+
+            <a
+              href="#"
+              class="w-10 h-10 rounded-xl bg-white/5 border border-white/10 flex items-center justify-center text-white/60 hover:bg-[#B8912A] hover:text-black transition-all duration-300"
+            >
+              Ed
+            </a>
+
+            <a
+              href="#"
+              class="w-10 h-10 rounded-xl bg-white/5 border border-white/10 flex items-center justify-center text-white/60 hover:bg-[#B8912A] hover:text-black transition-all duration-300"
+            >
+              In
+            </a>
+          </div>
+
+          <div class="text-white/60 text-sm space-y-3">
+            <p>hello@olamideandrew.com</p>
+            <p>Cancola, Nigeria</p>
+            <p>+234 000 000 0000</p>
+          </div>
         </div>
       </div>
+
+      <!-- Bottom Section -->
       <div
-        class="flex flex-col md:flex-row justify-between items-center pt-6 border-t border-white/10 gap-3"
+        class="border-t border-white/10 mt-16 pt-8 flex flex-col md:flex-row justify-between items-center gap-4 text-white/40 text-xs"
       >
-        <p class="text-white/30 text-xs">
-          © 2023, Olamide Andrew. All rights reserved.
-        </p>
-        <a
-          href="mailto:hello@olamidrandrow.com"
-          class="text-white/40 text-sm hover:text-[#B8912A] transition-colors flex items-center gap-2"
-          >✉ hello@olamidrandrow.com</a
-        >
+        <p>© <span id="year"></span> Olamide Andrew. All rights reserved.</p>
+
+        <div class="flex gap-6">
+          <a href="#" class="hover:text-[#B8912A] transition">Privacy Policy</a>
+          <a href="#" class="hover:text-[#B8912A] transition"
+            >Terms of Service</a
+          >
+        </div>
       </div>
     </footer>
+
+    <script>
+      document.getElementById("year").textContent = new Date().getFullYear();
+    </script>
 
     <script>
       (function () {
