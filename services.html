@@ -28,29 +28,118 @@
       };
     </script>
     <style>
-      body{font-family:"DM Sans",sans-serif;}
-      .font-display{font-family:"Playfair Display",serif;}
-      .nav-a{position:relative;transition:color .3s;}
-      .nav-a::after{content:'';position:absolute;bottom:-4px;left:0;width:0;height:2px;background:#B8912A;transition:width .3s;}
-      .nav-a:hover{color:#B8912A;}
-      .nav-a:hover::after{width:100%;}
-      .fade-in{opacity:0;transform:translateY(30px);animation:fadeUp .6s forwards;}
-      @keyframes fadeUp{to{opacity:1;transform:none;}}
-      .d1{animation-delay:.1s}.d2{animation-delay:.2s}.d3{animation-delay:.3s}
-      .scroll-reveal{opacity:0;transform:translateY(40px);transition:opacity .8s,transform .8s;}
-      .scroll-reveal.active{opacity:1;transform:translateY(0);}
-      .magnetic{transition:transform .3s cubic-bezier(.4,0,.2,1);}
-      .service-card{border:1px solid rgba(255,255,255,0.1);padding:2rem;transition:all .4s;position:relative;overflow:hidden;}
-      .service-card::before{content:'';position:absolute;top:0;left:0;width:100%;height:3px;background:linear-gradient(90deg,#B8912A,#D4A93C);transform:scaleX(0);transition:transform .4s;}
-      .service-card:hover{border-color:rgba(184,145,42,0.4);transform:translateY(-8px);}
-      .service-card:hover::before{transform:scaleX(1);}
-      .faq-item{border-bottom:1px solid rgba(255,255,255,0.1);}
-      .faq-answer{max-height:0;overflow:hidden;transition:max-height .3s;}
-      .faq-item.active .faq-answer{max-height:500px;}
-      .faq-icon{transition:transform .3s;}
-      .faq-item.active .faq-icon{transform:rotate(45deg);}
-      .stat-number{font-size:3rem;font-weight:700;color:#B8912A;}
-      @media(max-width:768px){.stat-number{font-size:2rem;}}
+      body {
+        font-family: "DM Sans", sans-serif;
+      }
+      .font-display {
+        font-family: "Playfair Display", serif;
+      }
+      .nav-a {
+        position: relative;
+        transition: color 0.3s;
+      }
+      .nav-a::after {
+        content: "";
+        position: absolute;
+        bottom: -4px;
+        left: 0;
+        width: 0;
+        height: 2px;
+        background: #b8912a;
+        transition: width 0.3s;
+      }
+      .nav-a:hover {
+        color: #b8912a;
+      }
+      .nav-a:hover::after {
+        width: 100%;
+      }
+      .fade-in {
+        opacity: 0;
+        transform: translateY(30px);
+        animation: fadeUp 0.6s forwards;
+      }
+      @keyframes fadeUp {
+        to {
+          opacity: 1;
+          transform: none;
+        }
+      }
+      .d1 {
+        animation-delay: 0.1s;
+      }
+      .d2 {
+        animation-delay: 0.2s;
+      }
+      .d3 {
+        animation-delay: 0.3s;
+      }
+      .scroll-reveal {
+        opacity: 0;
+        transform: translateY(40px);
+        transition:
+          opacity 0.8s,
+          transform 0.8s;
+      }
+      .scroll-reveal.active {
+        opacity: 1;
+        transform: translateY(0);
+      }
+      .magnetic {
+        transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+      }
+      .service-card {
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        padding: 2rem;
+        transition: all 0.4s;
+        position: relative;
+        overflow: hidden;
+      }
+      .service-card::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 3px;
+        background: linear-gradient(90deg, #b8912a, #d4a93c);
+        transform: scaleX(0);
+        transition: transform 0.4s;
+      }
+      .service-card:hover {
+        border-color: rgba(184, 145, 42, 0.4);
+        transform: translateY(-8px);
+      }
+      .service-card:hover::before {
+        transform: scaleX(1);
+      }
+      .faq-item {
+        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+      }
+      .faq-answer {
+        max-height: 0;
+        overflow: hidden;
+        transition: max-height 0.3s;
+      }
+      .faq-item.active .faq-answer {
+        max-height: 500px;
+      }
+      .faq-icon {
+        transition: transform 0.3s;
+      }
+      .faq-item.active .faq-icon {
+        transform: rotate(45deg);
+      }
+      .stat-number {
+        font-size: 3rem;
+        font-weight: 700;
+        color: #b8912a;
+      }
+      @media (max-width: 768px) {
+        .stat-number {
+          font-size: 2rem;
+        }
+      }
     </style>
   </head>
   <body class="bg-[#0F0F0D] text-white">
@@ -147,11 +236,27 @@
         >
       </nav>
     </aside>
-    <section class="px-8 md:px-20 py-24 min-h-[70vh] flex flex-col justify-center relative overflow-hidden">
-      <div class="absolute top-20 right-10 w-64 h-64 bg-[#B8912A]/5 rounded-full blur-3xl"></div>
-      <p class="fade-in d1 text-[10px] tracking-[0.35em] text-[#B8912A] uppercase mb-5">What I Do</p>
-      <h1 class="fade-in d2 font-display text-5xl md:text-7xl font-bold mb-8 max-w-4xl">Strategic design that drives <span class="text-[#B8912A] italic">real results.</span></h1>
-      <p class="fade-in d3 text-white/60 max-w-2xl leading-relaxed text-lg">I partner with ambitious brands to create cohesive visual systems that don't just look good—they work.</p>
+    <section
+      class="px-8 md:px-20 py-24 min-h-[70vh] flex flex-col justify-center relative overflow-hidden"
+    >
+      <div
+        class="absolute top-20 right-10 w-64 h-64 bg-[#B8912A]/5 rounded-full blur-3xl"
+      ></div>
+      <p
+        class="fade-in d1 text-[10px] tracking-[0.35em] text-[#B8912A] uppercase mb-5"
+      >
+        What I Do
+      </p>
+      <h1
+        class="fade-in d2 font-display text-5xl md:text-7xl font-bold mb-8 max-w-4xl"
+      >
+        Strategic design that drives
+        <span class="text-[#B8912A] italic">real results.</span>
+      </h1>
+      <p class="fade-in d3 text-white/60 max-w-2xl leading-relaxed text-lg">
+        I partner with ambitious brands to create cohesive visual systems that
+        don't just look good—they work.
+      </p>
     </section>
 
     <!-- STATS -->
@@ -161,15 +266,15 @@
           <div class="stat-number font-display" data-target="50">0</div>
           <p class="text-white/50 text-sm mt-2">Projects Completed</p>
         </div>
-        <div class="text-center scroll-reveal" style="transition-delay:.1s">
+        <div class="text-center scroll-reveal" style="transition-delay: 0.1s">
           <div class="stat-number font-display" data-target="30">0</div>
           <p class="text-white/50 text-sm mt-2">Happy Clients</p>
         </div>
-        <div class="text-center scroll-reveal" style="transition-delay:.2s">
+        <div class="text-center scroll-reveal" style="transition-delay: 0.2s">
           <div class="stat-number font-display" data-target="5">0</div>
           <p class="text-white/50 text-sm mt-2">Years Experience</p>
         </div>
-        <div class="text-center scroll-reveal" style="transition-delay:.3s">
+        <div class="text-center scroll-reveal" style="transition-delay: 0.3s">
           <div class="stat-number font-display" data-target="100">0</div>
           <p class="text-white/50 text-sm mt-2">Satisfaction Rate</p>
         </div>
@@ -178,36 +283,71 @@
 
     <!-- SERVICES -->
     <section class="bg-[#0F0F0D] py-20 px-8 md:px-20">
-      <p class="text-[10px] tracking-[0.3em] text-[#B8912A] uppercase mb-14 text-center scroll-reveal">Core Services</p>
+      <p
+        class="text-[10px] tracking-[0.3em] text-[#B8912A] uppercase mb-14 text-center scroll-reveal"
+      >
+        Core Services
+      </p>
       <div class="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
         <div class="service-card scroll-reveal magnetic">
           <div class="text-5xl mb-6">🎯</div>
           <h3 class="font-display text-2xl font-bold mb-4">Brand Strategy</h3>
-          <p class="text-white/60 text-sm mb-6 leading-relaxed">Define who you are, what you stand for, and how you show up in the market.</p>
+          <p class="text-white/60 text-sm mb-6 leading-relaxed">
+            Define who you are, what you stand for, and how you show up in the
+            market.
+          </p>
           <ul class="space-y-2 text-white/50 text-sm">
-            <li class="flex items-center gap-2"><span class="text-[#B8912A]">→</span> Brand Positioning</li>
-            <li class="flex items-center gap-2"><span class="text-[#B8912A]">→</span> Audience Research</li>
-            <li class="flex items-center gap-2"><span class="text-[#B8912A]">→</span> Messaging Framework</li>
+            <li class="flex items-center gap-2">
+              <span class="text-[#B8912A]">→</span> Brand Positioning
+            </li>
+            <li class="flex items-center gap-2">
+              <span class="text-[#B8912A]">→</span> Audience Research
+            </li>
+            <li class="flex items-center gap-2">
+              <span class="text-[#B8912A]">→</span> Messaging Framework
+            </li>
           </ul>
         </div>
-        <div class="service-card scroll-reveal magnetic" style="transition-delay:.1s">
+        <div
+          class="service-card scroll-reveal magnetic"
+          style="transition-delay: 0.1s"
+        >
           <div class="text-5xl mb-6">✨</div>
           <h3 class="font-display text-2xl font-bold mb-4">Visual Identity</h3>
-          <p class="text-white/60 text-sm mb-6 leading-relaxed">Build a cohesive visual system that scales across every touchpoint.</p>
+          <p class="text-white/60 text-sm mb-6 leading-relaxed">
+            Build a cohesive visual system that scales across every touchpoint.
+          </p>
           <ul class="space-y-2 text-white/50 text-sm">
-            <li class="flex items-center gap-2"><span class="text-[#B8912A]">→</span> Logo Design</li>
-            <li class="flex items-center gap-2"><span class="text-[#B8912A]">→</span> Color & Typography</li>
-            <li class="flex items-center gap-2"><span class="text-[#B8912A]">→</span> Brand Guidelines</li>
+            <li class="flex items-center gap-2">
+              <span class="text-[#B8912A]">→</span> Logo Design
+            </li>
+            <li class="flex items-center gap-2">
+              <span class="text-[#B8912A]">→</span> Color & Typography
+            </li>
+            <li class="flex items-center gap-2">
+              <span class="text-[#B8912A]">→</span> Brand Guidelines
+            </li>
           </ul>
         </div>
-        <div class="service-card scroll-reveal magnetic" style="transition-delay:.2s">
+        <div
+          class="service-card scroll-reveal magnetic"
+          style="transition-delay: 0.2s"
+        >
           <div class="text-5xl mb-6">🚀</div>
           <h3 class="font-display text-2xl font-bold mb-4">Campaign Design</h3>
-          <p class="text-white/60 text-sm mb-6 leading-relaxed">Launch campaigns that capture attention and drive measurable action.</p>
+          <p class="text-white/60 text-sm mb-6 leading-relaxed">
+            Launch campaigns that capture attention and drive measurable action.
+          </p>
           <ul class="space-y-2 text-white/50 text-sm">
-            <li class="flex items-center gap-2"><span class="text-[#B8912A]">→</span> Marketing Materials</li>
-            <li class="flex items-center gap-2"><span class="text-[#B8912A]">→</span> Digital Assets</li>
-            <li class="flex items-center gap-2"><span class="text-[#B8912A]">→</span> Social Media</li>
+            <li class="flex items-center gap-2">
+              <span class="text-[#B8912A]">→</span> Marketing Materials
+            </li>
+            <li class="flex items-center gap-2">
+              <span class="text-[#B8912A]">→</span> Digital Assets
+            </li>
+            <li class="flex items-center gap-2">
+              <span class="text-[#B8912A]">→</span> Social Media
+            </li>
           </ul>
         </div>
       </div>
@@ -215,28 +355,57 @@
 
     <!-- TESTIMONIALS -->
     <section class="bg-[#F5F3EE] text-[#0F0F0D] py-20 px-8 md:px-20">
-      <p class="text-[10px] tracking-[0.3em] text-[#B8912A] uppercase mb-14 text-center scroll-reveal">Client Testimonials</p>
+      <p
+        class="text-[10px] tracking-[0.3em] text-[#B8912A] uppercase mb-14 text-center scroll-reveal"
+      >
+        Client Testimonials
+      </p>
       <div class="grid md:grid-cols-2 gap-8 max-w-5xl mx-auto">
         <div class="bg-white p-8 border border-black/10 scroll-reveal">
           <div class="flex gap-1 mb-4">
-            <span class="text-[#B8912A]">★</span><span class="text-[#B8912A]">★</span><span class="text-[#B8912A]">★</span><span class="text-[#B8912A]">★</span><span class="text-[#B8912A]">★</span>
+            <span class="text-[#B8912A]">★</span
+            ><span class="text-[#B8912A]">★</span
+            ><span class="text-[#B8912A]">★</span
+            ><span class="text-[#B8912A]">★</span
+            ><span class="text-[#B8912A]">★</span>
           </div>
-          <p class="text-black/70 italic mb-6 leading-relaxed">"Olamide transformed our brand identity completely. The strategic approach and attention to detail exceeded our expectations."</p>
+          <p class="text-black/70 italic mb-6 leading-relaxed">
+            "Olamide transformed our brand identity completely. The strategic
+            approach and attention to detail exceeded our expectations."
+          </p>
           <div class="flex items-center gap-3">
-            <div class="w-12 h-12 rounded-full bg-[#B8912A]/20 flex items-center justify-center font-bold text-[#B8912A]">SM</div>
+            <div
+              class="w-12 h-12 rounded-full bg-[#B8912A]/20 flex items-center justify-center font-bold text-[#B8912A]"
+            >
+              SM
+            </div>
             <div>
               <p class="font-bold text-sm">Sarah Mitchell</p>
               <p class="text-xs text-black/50">CEO, Nova Tech</p>
             </div>
           </div>
         </div>
-        <div class="bg-white p-8 border border-black/10 scroll-reveal" style="transition-delay:.1s">
+        <div
+          class="bg-white p-8 border border-black/10 scroll-reveal"
+          style="transition-delay: 0.1s"
+        >
           <div class="flex gap-1 mb-4">
-            <span class="text-[#B8912A]">★</span><span class="text-[#B8912A]">★</span><span class="text-[#B8912A]">★</span><span class="text-[#B8912A]">★</span><span class="text-[#B8912A]">★</span>
+            <span class="text-[#B8912A]">★</span
+            ><span class="text-[#B8912A]">★</span
+            ><span class="text-[#B8912A]">★</span
+            ><span class="text-[#B8912A]">★</span
+            ><span class="text-[#B8912A]">★</span>
           </div>
-          <p class="text-black/70 italic mb-6 leading-relaxed">"Working with Olamide was a game-changer. Our brand now truly reflects who we are and resonates with our audience."</p>
+          <p class="text-black/70 italic mb-6 leading-relaxed">
+            "Working with Olamide was a game-changer. Our brand now truly
+            reflects who we are and resonates with our audience."
+          </p>
           <div class="flex items-center gap-3">
-            <div class="w-12 h-12 rounded-full bg-[#B8912A]/20 flex items-center justify-center font-bold text-[#B8912A]">JD</div>
+            <div
+              class="w-12 h-12 rounded-full bg-[#B8912A]/20 flex items-center justify-center font-bold text-[#B8912A]"
+            >
+              JD
+            </div>
             <div>
               <p class="font-bold text-sm">James Davis</p>
               <p class="text-xs text-black/50">Founder, Harvest Market</p>
@@ -248,56 +417,327 @@
 
     <!-- FAQ -->
     <section class="bg-[#0F0F0D] py-20 px-8 md:px-20">
-      <p class="text-[10px] tracking-[0.3em] text-[#B8912A] uppercase mb-14 text-center scroll-reveal">Frequently Asked Questions</p>
+      <p
+        class="text-[10px] tracking-[0.3em] text-[#B8912A] uppercase mb-14 text-center scroll-reveal"
+      >
+        Frequently Asked Questions
+      </p>
       <div class="max-w-3xl mx-auto space-y-4">
         <div class="faq-item scroll-reveal" onclick="toggleFaq(this)">
           <div class="flex justify-between items-center py-5 cursor-pointer">
-            <h3 class="font-display text-lg font-bold">How long does a typical project take?</h3>
+            <h3 class="font-display text-lg font-bold">
+              How long does a typical project take?
+            </h3>
             <span class="faq-icon text-2xl text-[#B8912A]">+</span>
           </div>
           <div class="faq-answer pb-5">
-            <p class="text-white/60 leading-relaxed">Most brand identity projects take 4-6 weeks from discovery to final delivery. Timeline varies based on project scope and complexity.</p>
+            <p class="text-white/60 leading-relaxed">
+              Most brand identity projects take 4-6 weeks from discovery to
+              final delivery. Timeline varies based on project scope and
+              complexity.
+            </p>
           </div>
         </div>
-        <div class="faq-item scroll-reveal" onclick="toggleFaq(this)" style="transition-delay:.1s">
+        <div
+          class="faq-item scroll-reveal"
+          onclick="toggleFaq(this)"
+          style="transition-delay: 0.1s"
+        >
           <div class="flex justify-between items-center py-5 cursor-pointer">
-            <h3 class="font-display text-lg font-bold">What's included in your brand packages?</h3>
+            <h3 class="font-display text-lg font-bold">
+              What's included in your brand packages?
+            </h3>
             <span class="faq-icon text-2xl text-[#B8912A]">+</span>
           </div>
           <div class="faq-answer pb-5">
-            <p class="text-white/60 leading-relaxed">Full brand packages include strategy, logo design, color palette, typography, brand guidelines, and marketing templates. Custom packages available.</p>
+            <p class="text-white/60 leading-relaxed">
+              Full brand packages include strategy, logo design, color palette,
+              typography, brand guidelines, and marketing templates. Custom
+              packages available.
+            </p>
           </div>
         </div>
-        <div class="faq-item scroll-reveal" onclick="toggleFaq(this)" style="transition-delay:.2s">
+        <div
+          class="faq-item scroll-reveal"
+          onclick="toggleFaq(this)"
+          style="transition-delay: 0.2s"
+        >
           <div class="flex justify-between items-center py-5 cursor-pointer">
-            <h3 class="font-display text-lg font-bold">Do you work with startups?</h3>
+            <h3 class="font-display text-lg font-bold">
+              Do you work with startups?
+            </h3>
             <span class="faq-icon text-2xl text-[#B8912A]">+</span>
           </div>
           <div class="faq-answer pb-5">
-            <p class="text-white/60 leading-relaxed">Absolutely! I love working with startups and early-stage companies. I offer flexible packages tailored to different budgets and growth stages.</p>
+            <p class="text-white/60 leading-relaxed">
+              Absolutely! I love working with startups and early-stage
+              companies. I offer flexible packages tailored to different budgets
+              and growth stages.
+            </p>
           </div>
         </div>
-        <div class="faq-item scroll-reveal" onclick="toggleFaq(this)" style="transition-delay:.3s">
+        <div
+          class="faq-item scroll-reveal"
+          onclick="toggleFaq(this)"
+          style="transition-delay: 0.3s"
+        >
           <div class="flex justify-between items-center py-5 cursor-pointer">
-            <h3 class="font-display text-lg font-bold">What's your design process?</h3>
+            <h3 class="font-display text-lg font-bold">
+              What's your design process?
+            </h3>
             <span class="faq-icon text-2xl text-[#B8912A]">+</span>
           </div>
           <div class="faq-answer pb-5">
-            <p class="text-white/60 leading-relaxed">My process includes: Discovery & Research → Strategy & Positioning → Design & Execution → Delivery & Support. Each phase ensures alignment with your goals.</p>
+            <p class="text-white/60 leading-relaxed">
+              My process includes: Discovery & Research → Strategy & Positioning
+              → Design & Execution → Delivery & Support. Each phase ensures
+              alignment with your goals.
+            </p>
           </div>
         </div>
       </div>
     </section>
 
     <!-- CTA -->
-    <section class="bg-[#F5F3EE] text-[#0F0F0D] py-24 px-6 text-center relative overflow-hidden">
-      <div class="absolute bottom-0 left-0 w-96 h-96 bg-[#B8912A]/5 rounded-full blur-3xl"></div>
-      <h2 class="font-display text-4xl md:text-5xl font-bold mb-5 relative z-10">Ready to elevate your brand?</h2>
-      <p class="text-black/55 mb-10 max-w-md mx-auto text-base leading-relaxed relative z-10">Let's discuss your project and see if we're a good fit.</p>
-      <a href="contact.html" class="bg-[#B8912A] hover:bg-[#D4A93C] text-white inline-block px-12 py-4 text-sm font-medium transition-all hover:scale-105 relative z-10">Start a Conversation</a>
+    <section
+      class="bg-[#F5F3EE] text-[#0F0F0D] py-24 px-6 text-center relative overflow-hidden"
+    >
+      <div
+        class="absolute bottom-0 left-0 w-96 h-96 bg-[#B8912A]/5 rounded-full blur-3xl"
+      ></div>
+      <h2
+        class="font-display text-4xl md:text-5xl font-bold mb-5 relative z-10"
+      >
+        Ready to elevate your brand?
+      </h2>
+      <p
+        class="text-black/55 mb-10 max-w-md mx-auto text-base leading-relaxed relative z-10"
+      >
+        Let's discuss your project and see if we're a good fit.
+      </p>
+      <a
+        href="contact.html"
+        class="bg-[#B8912A] hover:bg-[#D4A93C] text-white inline-block px-12 py-4 text-sm font-medium transition-all hover:scale-105 relative z-10"
+        >Start a Conversation</a
+      >
     </section>
+
+    <footer
+      class="relative bg-[#0F0F0D] text-white px-8 md:px-20 py-20 rounded-t-[60px] overflow-hidden"
+    >
+      <!-- Subtle Top Glow -->
+      <div
+        class="absolute top-0 left-0 w-full h-24 bg-gradient-to-b from-[#B8912A]/10 to-transparent pointer-events-none"
+      ></div>
+
+      <div
+        class="relative z-10 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-14"
+      >
+        <!-- Column 1 - About -->
+        <div>
+          <div class="flex justify-start">
+            <img
+              src="public/olamide-logo.png"
+              alt="Olamide Andrew Logo"
+              class="w-60 h-[110px] object-contain rounded-2xl shadow-2xl"
+            />
+          </div>
+
+          <p class="text-white/60 text-sm leading-relaxed max-w-xs">
+            Strategic Brand Designer crafting modern, minimal and impactful
+            digital experiences for growing brands worldwide.
+          </p>
+        </div>
+
+        <!-- Column 2 - Quick Links -->
+        <div>
+          <h3 class="text-sm uppercase tracking-[0.2em] mb-6 text-white/40">
+            Quick Links
+          </h3>
+
+          <ul class="space-y-4 text-white/60 text-sm">
+            <li class="group flex items-center gap-2">
+              <span
+                class="text-[#B8912A] transform group-hover:translate-x-1 transition duration-300"
+              >
+                >
+              </span>
+              <a
+                href="work.html"
+                class="group-hover:text-[#B8912A] transition duration-300"
+              >
+                Work
+              </a>
+            </li>
+
+            <li class="group flex items-center gap-2">
+              <span
+                class="text-[#B8912A] transform group-hover:translate-x-1 transition duration-300"
+              >
+                >
+              </span>
+              <a
+                href="about.html"
+                class="group-hover:text-[#B8912A] transition duration-300"
+              >
+                About
+              </a>
+            </li>
+
+            <li class="group flex items-center gap-2">
+              <span
+                class="text-[#B8912A] transform group-hover:translate-x-1 transition duration-300"
+              >
+                >
+              </span>
+              <a
+                href="contact.html"
+                class="group-hover:text-[#B8912A] transition duration-300"
+              >
+                Contact
+              </a>
+            </li>
+
+            <li class="group flex items-center gap-2">
+              <span
+                class="text-[#B8912A] transform group-hover:translate-x-1 transition duration-300"
+              >
+                >
+              </span>
+              <a
+                href="#"
+                class="group-hover:text-[#B8912A] transition duration-300"
+              >
+                Blog
+              </a>
+            </li>
+          </ul>
+        </div>
+
+        <!-- Column 3 - Services -->
+        <div>
+          <h3 class="text-sm uppercase tracking-[0.2em] mb-6 text-white/40">
+            Services
+          </h3>
+
+          <ul class="space-y-4 text-white/60 text-sm">
+            <li class="group flex items-center gap-2">
+              <span
+                class="text-[#B8912A] transform group-hover:translate-x-1 transition duration-300"
+              >
+                >
+              </span>
+              <a
+                href="#"
+                class="group-hover:text-[#B8912A] transition duration-300"
+              >
+                Brand Strategy
+              </a>
+            </li>
+
+            <li class="group flex items-center gap-2">
+              <span
+                class="text-[#B8912A] transform group-hover:translate-x-1 transition duration-300"
+              >
+                >
+              </span>
+              <a
+                href="#"
+                class="group-hover:text-[#B8912A] transition duration-300"
+              >
+                Logo Design
+              </a>
+            </li>
+
+            <li class="group flex items-center gap-2">
+              <span
+                class="text-[#B8912A] transform group-hover:translate-x-1 transition duration-300"
+              >
+                >
+              </span>
+              <a
+                href="#"
+                class="group-hover:text-[#B8912A] transition duration-300"
+              >
+                UI/UX Design
+              </a>
+            </li>
+
+            <li class="group flex items-center gap-2">
+              <span
+                class="text-[#B8912A] transform group-hover:translate-x-1 transition duration-300"
+              >
+                >
+              </span>
+              <a
+                href="#"
+                class="group-hover:text-[#B8912A] transition duration-300"
+              >
+                Website Development
+              </a>
+            </li>
+          </ul>
+        </div>
+
+        <!-- Column 4 - Social + Contact -->
+        <div>
+          <h3 class="text-sm uppercase tracking-[0.2em] mb-6 text-white/40">
+            Connect
+          </h3>
+
+          <div class="flex gap-4 mb-8">
+            <a
+              href="#"
+              class="w-10 h-10 rounded-xl bg-white/5 border border-white/10 flex items-center justify-center text-white/60 hover:bg-[#B8912A] hover:text-black transition-all duration-300"
+            >
+              Be
+            </a>
+
+            <a
+              href="#"
+              class="w-10 h-10 rounded-xl bg-white/5 border border-white/10 flex items-center justify-center text-white/60 hover:bg-[#B8912A] hover:text-black transition-all duration-300"
+            >
+              Ed
+            </a>
+
+            <a
+              href="#"
+              class="w-10 h-10 rounded-xl bg-white/5 border border-white/10 flex items-center justify-center text-white/60 hover:bg-[#B8912A] hover:text-black transition-all duration-300"
+            >
+              In
+            </a>
+          </div>
+
+          <div class="text-white/60 text-sm space-y-3">
+            <p>hello@olamideandrew.com</p>
+            <p>Cancola, Nigeria</p>
+            <p>+234 000 000 0000</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Bottom Section -->
+      <div
+        class="border-t border-white/10 mt-16 pt-8 flex flex-col md:flex-row justify-between items-center gap-4 text-white/40 text-xs"
+      >
+        <p>© <span id="year"></span> Olamide Andrew. All rights reserved.</p>
+
+        <div class="flex gap-6">
+          <a href="#" class="hover:text-[#B8912A] transition">Privacy Policy</a>
+          <a href="#" class="hover:text-[#B8912A] transition"
+            >Terms of Service</a
+          >
+        </div>
+      </div>
+    </footer>
+
     <script>
-      function toggleFaq(el){el.classList.toggle('active');}
+      document.getElementById("year").textContent = new Date().getFullYear();
+    </script>
+    <script>
+      function toggleFaq(el) {
+        el.classList.toggle("active");
+      }
       (function () {
         const menu = document.getElementById("mobile-menu");
         const backdrop = document.getElementById("mobile-menu-backdrop");
@@ -328,53 +768,57 @@
         });
 
         // Scroll Reveal
-        const reveals = document.querySelectorAll('.scroll-reveal');
+        const reveals = document.querySelectorAll(".scroll-reveal");
         const revealOnScroll = () => {
-          reveals.forEach(el => {
+          reveals.forEach((el) => {
             const top = el.getBoundingClientRect().top;
-            if(top < window.innerHeight - 100) el.classList.add('active');
+            if (top < window.innerHeight - 100) el.classList.add("active");
           });
         };
-        window.addEventListener('scroll', revealOnScroll);
+        window.addEventListener("scroll", revealOnScroll);
         revealOnScroll();
 
         // Magnetic Effect
-        document.querySelectorAll('.magnetic').forEach(el => {
-          el.addEventListener('mousemove', e => {
+        document.querySelectorAll(".magnetic").forEach((el) => {
+          el.addEventListener("mousemove", (e) => {
             const rect = el.getBoundingClientRect();
             const x = (e.clientX - rect.left - rect.width / 2) / 10;
             const y = (e.clientY - rect.top - rect.height / 2) / 10;
             el.style.transform = `translate(${x}px, ${y}px)`;
           });
-          el.addEventListener('mouseleave', () => el.style.transform = 'translate(0, 0)');
+          el.addEventListener(
+            "mouseleave",
+            () => (el.style.transform = "translate(0, 0)"),
+          );
         });
 
         // Counter Animation
-        const counters = document.querySelectorAll('.stat-number');
+        const counters = document.querySelectorAll(".stat-number");
         let animated = false;
         const animateCounters = () => {
-          if(animated) return;
+          if (animated) return;
           const rect = counters[0].getBoundingClientRect();
-          if(rect.top < window.innerHeight - 100){
+          if (rect.top < window.innerHeight - 100) {
             animated = true;
-            counters.forEach(counter => {
-              const target = +counter.getAttribute('data-target');
+            counters.forEach((counter) => {
+              const target = +counter.getAttribute("data-target");
               const increment = target / 50;
               let current = 0;
               const updateCounter = () => {
                 current += increment;
-                if(current < target){
-                  counter.textContent = Math.ceil(current) + (target === 100 ? '%' : '+');
+                if (current < target) {
+                  counter.textContent =
+                    Math.ceil(current) + (target === 100 ? "%" : "+");
                   setTimeout(updateCounter, 30);
                 } else {
-                  counter.textContent = target + (target === 100 ? '%' : '+');
+                  counter.textContent = target + (target === 100 ? "%" : "+");
                 }
               };
               updateCounter();
             });
           }
         };
-        window.addEventListener('scroll', animateCounters);
+        window.addEventListener("scroll", animateCounters);
         animateCounters();
       })();
     </script>

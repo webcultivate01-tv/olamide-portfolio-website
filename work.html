@@ -5,44 +5,213 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Work — Olamide Andrew</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet"/>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=DM+Sans:wght@300;400;500&display=swap"
+      rel="stylesheet"
+    />
     <style>
-      body{font-family:"DM Sans",sans-serif;overflow-x:hidden;}
-      .font-display{font-family:"Playfair Display",serif;}
-      .fade-in{opacity:0;transform:translateY(30px);animation:fadeUp .6s forwards;}
-      @keyframes fadeUp{to{opacity:1;transform:none;}}
-      .d1{animation-delay:.1s;}.d2{animation-delay:.25s;}.d3{animation-delay:.4s;}
-      .nav-a{position:relative;transition:all .3s;padding:8px 0;}
-      .nav-a::before{content:'';position:absolute;bottom:0;left:50%;width:0;height:2px;background:linear-gradient(90deg,#B8912A,#D4A93C);transition:all .3s;transform:translateX(-50%);}
-      .nav-a:hover,.nav-a.active{color:#b8912a;}
-      .nav-a:hover::before,.nav-a.active::before{width:100%;}
-      .nav-logo{transition:all .3s;}
-      .nav-logo:hover{transform:scale(1.05);box-shadow:0 0 20px rgba(184,145,42,.3);}
-      nav{backdrop-filter:blur(10px);background:rgba(15,15,13,.95);position:sticky;top:0;z-index:50;}
-      .work-card{transition:transform .4s cubic-bezier(.4,0,.2,1);position:relative;overflow:hidden;}
-      .work-card:hover{transform:translateY(-8px);}
-      .card-img{position:relative;height:320px;overflow:hidden;margin-bottom:1.25rem;}
-      .card-img img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .6s cubic-bezier(.4,0,.2,1);}
-      .work-card:hover .card-img img{transform:scale(1.06);}
-      .card-overlay{position:absolute;inset:0;background:linear-gradient(to top,rgba(15,15,13,0.95),transparent 60%);display:flex;align-items:flex-end;justify-content:center;opacity:0;transition:opacity .3s;padding:2rem;}
-      .work-card:hover .card-overlay{opacity:1;}
-      .filter-btn{transition:all .3s;position:relative;}
-      .filter-btn.active{background:#b8912a;color:#fff;border-color:#b8912a;transform:translateY(-2px);}
-      .filter-btn:hover{border-color:#b8912a;color:#b8912a;}
-      .scroll-reveal{opacity:0;transform:translateY(40px);transition:opacity .8s,transform .8s;}
-      .scroll-reveal.active{opacity:1;transform:translateY(0);}
-      .grain{position:fixed;inset:0;pointer-events:none;opacity:.02;z-index:1;background:url('data:image/svg+xml,%3Csvg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg"%3E%3Cfilter id="n"%3E%3CfeTurbulence type="fractalNoise" baseFrequency=".9" numOctaves="4"/%3E%3C/filter%3E%3Crect width="100%25" height="100%25" filter="url(%23n)"/%3E%3C/svg%3E');animation:grain 8s steps(10) infinite;}
-      @keyframes grain{0%,100%{transform:translate(0,0)}10%{transform:translate(-5%,-10%)}20%{transform:translate(-15%,5%)}30%{transform:translate(7%,-25%)}40%{transform:translate(-5%,25%)}50%{transform:translate(-15%,10%)}60%{transform:translate(15%,0%)}70%{transform:translate(0%,15%)}80%{transform:translate(3%,35%)}90%{transform:translate(-10%,10%)}}
-      .category-badge{display:inline-block;padding:0.4rem 1rem;font-size:0.65rem;letter-spacing:0.15em;text-transform:uppercase;border:1px solid rgba(184,145,42,0.3);color:rgba(184,145,42,0.9);transition:all .3s;}
-      .work-card:hover .category-badge{background:rgba(184,145,42,0.1);border-color:rgba(184,145,42,0.6);}
+      body {
+        font-family: "DM Sans", sans-serif;
+        overflow-x: hidden;
+      }
+      .font-display {
+        font-family: "Playfair Display", serif;
+      }
+      .fade-in {
+        opacity: 0;
+        transform: translateY(30px);
+        animation: fadeUp 0.6s forwards;
+      }
+      @keyframes fadeUp {
+        to {
+          opacity: 1;
+          transform: none;
+        }
+      }
+      .d1 {
+        animation-delay: 0.1s;
+      }
+      .d2 {
+        animation-delay: 0.25s;
+      }
+      .d3 {
+        animation-delay: 0.4s;
+      }
+      .nav-a {
+        position: relative;
+        transition: all 0.3s;
+        padding: 8px 0;
+      }
+      .nav-a::before {
+        content: "";
+        position: absolute;
+        bottom: 0;
+        left: 50%;
+        width: 0;
+        height: 2px;
+        background: linear-gradient(90deg, #b8912a, #d4a93c);
+        transition: all 0.3s;
+        transform: translateX(-50%);
+      }
+      .nav-a:hover,
+      .nav-a.active {
+        color: #b8912a;
+      }
+      .nav-a:hover::before,
+      .nav-a.active::before {
+        width: 100%;
+      }
+      .nav-logo {
+        transition: all 0.3s;
+      }
+      .nav-logo:hover {
+        transform: scale(1.05);
+        box-shadow: 0 0 20px rgba(184, 145, 42, 0.3);
+      }
+      nav {
+        backdrop-filter: blur(10px);
+        background: rgba(15, 15, 13, 0.95);
+        position: sticky;
+        top: 0;
+        z-index: 50;
+      }
+      .work-card {
+        transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        position: relative;
+        overflow: hidden;
+      }
+      .work-card:hover {
+        transform: translateY(-8px);
+      }
+      .card-img {
+        position: relative;
+        height: 320px;
+        overflow: hidden;
+        margin-bottom: 1.25rem;
+      }
+      .card-img img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        display: block;
+        transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+      }
+      .work-card:hover .card-img img {
+        transform: scale(1.06);
+      }
+      .card-overlay {
+        position: absolute;
+        inset: 0;
+        background: linear-gradient(
+          to top,
+          rgba(15, 15, 13, 0.95),
+          transparent 60%
+        );
+        display: flex;
+        align-items: flex-end;
+        justify-content: center;
+        opacity: 0;
+        transition: opacity 0.3s;
+        padding: 2rem;
+      }
+      .work-card:hover .card-overlay {
+        opacity: 1;
+      }
+      .filter-btn {
+        transition: all 0.3s;
+        position: relative;
+      }
+      .filter-btn.active {
+        background: #b8912a;
+        color: #fff;
+        border-color: #b8912a;
+        transform: translateY(-2px);
+      }
+      .filter-btn:hover {
+        border-color: #b8912a;
+        color: #b8912a;
+      }
+      .scroll-reveal {
+        opacity: 0;
+        transform: translateY(40px);
+        transition:
+          opacity 0.8s,
+          transform 0.8s;
+      }
+      .scroll-reveal.active {
+        opacity: 1;
+        transform: translateY(0);
+      }
+      .grain {
+        position: fixed;
+        inset: 0;
+        pointer-events: none;
+        opacity: 0.02;
+        z-index: 1;
+        background: url('data:image/svg+xml,%3Csvg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg"%3E%3Cfilter id="n"%3E%3CfeTurbulence type="fractalNoise" baseFrequency=".9" numOctaves="4"/%3E%3C/filter%3E%3Crect width="100%25" height="100%25" filter="url(%23n)"/%3E%3C/svg%3E');
+        animation: grain 8s steps(10) infinite;
+      }
+      @keyframes grain {
+        0%,
+        100% {
+          transform: translate(0, 0);
+        }
+        10% {
+          transform: translate(-5%, -10%);
+        }
+        20% {
+          transform: translate(-15%, 5%);
+        }
+        30% {
+          transform: translate(7%, -25%);
+        }
+        40% {
+          transform: translate(-5%, 25%);
+        }
+        50% {
+          transform: translate(-15%, 10%);
+        }
+        60% {
+          transform: translate(15%, 0%);
+        }
+        70% {
+          transform: translate(0%, 15%);
+        }
+        80% {
+          transform: translate(3%, 35%);
+        }
+        90% {
+          transform: translate(-10%, 10%);
+        }
+      }
+      .category-badge {
+        display: inline-block;
+        padding: 0.4rem 1rem;
+        font-size: 0.65rem;
+        letter-spacing: 0.15em;
+        text-transform: uppercase;
+        border: 1px solid rgba(184, 145, 42, 0.3);
+        color: rgba(184, 145, 42, 0.9);
+        transition: all 0.3s;
+      }
+      .work-card:hover .category-badge {
+        background: rgba(184, 145, 42, 0.1);
+        border-color: rgba(184, 145, 42, 0.6);
+      }
     </style>
   </head>
   <body class="bg-[#0F0F0D] text-white">
     <div class="grain"></div>
 
     <!-- NAV -->
-    <nav class="flex items-center justify-between px-8 md:px-20 py-5 border-b border-white/10">
-      <a href="index.html" class="nav-logo px-5 py-2 border border-[#B8912A] text-[#B8912A] text-xs tracking-[0.2em] uppercase font-medium">Olamide Andrew</a>
+    <nav
+      class="flex items-center justify-between px-8 md:px-20 py-5 border-b border-white/10"
+    >
+      <a
+        href="index.html"
+        class="nav-logo px-5 py-2 border border-[#B8912A] text-[#B8912A] text-xs tracking-[0.2em] uppercase font-medium"
+        >Olamide Andrew</a
+      >
       <div class="hidden md:flex gap-10 text-sm text-white/70">
         <a href="index.html" class="nav-a">Home</a>
         <a href="about.html" class="nav-a">About</a>
@@ -50,21 +219,59 @@
         <a href="work.html" class="nav-a active">Work</a>
         <a href="contact.html" class="nav-a">Contact</a>
       </div>
-      <button type="button" class="md:hidden text-white/80 hover:text-[#B8912A] transition-colors" aria-label="Open menu" data-menu-toggle>
-        <svg xmlns="http://www.w3.org/2000/svg" class="w-7 h-7" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M4 7h16M4 12h16M4 17h16"/>
+      <button
+        type="button"
+        class="md:hidden text-white/80 hover:text-[#B8912A] transition-colors"
+        aria-label="Open menu"
+        data-menu-toggle
+      >
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          class="w-7 h-7"
+          fill="none"
+          viewBox="0 0 24 24"
+          stroke="currentColor"
+        >
+          <path
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-width="1.8"
+            d="M4 7h16M4 12h16M4 17h16"
+          />
         </svg>
       </button>
     </nav>
 
     <!-- Mobile Menu -->
-    <div id="mobile-menu-backdrop" class="md:hidden fixed inset-0 bg-black/60 opacity-0 pointer-events-none transition-opacity duration-300 z-40"></div>
-    <aside id="mobile-menu" class="md:hidden fixed top-0 right-0 h-full w-72 max-w-[85vw] bg-[#181815] border-l border-[#B8912A]/40 transform translate-x-full transition-transform duration-300 ease-out z-50 p-8">
+    <div
+      id="mobile-menu-backdrop"
+      class="md:hidden fixed inset-0 bg-black/60 opacity-0 pointer-events-none transition-opacity duration-300 z-40"
+    ></div>
+    <aside
+      id="mobile-menu"
+      class="md:hidden fixed top-0 right-0 h-full w-72 max-w-[85vw] bg-[#181815] border-l border-[#B8912A]/40 transform translate-x-full transition-transform duration-300 ease-out z-50 p-8"
+    >
       <div class="flex items-center justify-between mb-10">
         <p class="text-xs tracking-[0.2em] uppercase text-[#B8912A]">Menu</p>
-        <button type="button" class="text-white/70 hover:text-[#B8912A] transition-colors" aria-label="Close menu" data-menu-close>
-          <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M6 6l12 12M18 6L6 18"/>
+        <button
+          type="button"
+          class="text-white/70 hover:text-[#B8912A] transition-colors"
+          aria-label="Close menu"
+          data-menu-close
+        >
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            class="w-6 h-6"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke="currentColor"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="1.8"
+              d="M6 6l12 12M18 6L6 18"
+            />
           </svg>
         </button>
       </div>
@@ -78,142 +285,280 @@
     </aside>
 
     <!-- HERO -->
-    <section class="px-8 md:px-20 pt-24 pb-16 border-b border-white/10 text-center relative">
-      <div class="absolute top-0 left-1/2 w-96 h-96 bg-[#B8912A]/5 rounded-full blur-3xl -translate-x-1/2"></div>
-      <h1 class="fade-in d1 font-display text-4xl md:text-6xl font-bold leading-tight max-w-3xl mx-auto relative z-10">
-        A selection of brand systems<br/>
+    <section
+      class="px-8 md:px-20 pt-24 pb-16 border-b border-white/10 text-center relative"
+    >
+      <div
+        class="absolute top-0 left-1/2 w-96 h-96 bg-[#B8912A]/5 rounded-full blur-3xl -translate-x-1/2"
+      ></div>
+      <h1
+        class="fade-in d1 font-display text-4xl md:text-6xl font-bold leading-tight max-w-3xl mx-auto relative z-10"
+      >
+        A selection of brand systems<br />
         <span class="text-white/60">and campaigns built with intention.</span>
       </h1>
-      <p class="fade-in d2 text-white/40 text-sm mt-6 max-w-md mx-auto relative z-10">Transforming ideas into visual stories that connect, convert, and inspire action.</p>
+      <p
+        class="fade-in d2 text-white/40 text-sm mt-6 max-w-md mx-auto relative z-10"
+      >
+        Transforming ideas into visual stories that connect, convert, and
+        inspire action.
+      </p>
     </section>
 
     <!-- FILTERS -->
     <section class="px-8 md:px-20 py-8 border-b border-white/10">
       <div class="flex flex-wrap gap-3 justify-center">
-        <button onclick="filterWork('all')" class="filter-btn active px-6 py-2.5 border border-[#B8912A] text-sm rounded-sm" data-filter="all">All Projects</button>
-        <button onclick="filterWork('brand')" class="filter-btn px-6 py-2.5 border border-white/20 text-sm text-white/60 rounded-sm" data-filter="brand">Brand Identity</button>
-        <button onclick="filterWork('campaign')" class="filter-btn px-6 py-2.5 border border-white/20 text-sm text-white/60 rounded-sm" data-filter="campaign">Campaign Design</button>
-        <button onclick="filterWork('concept')" class="filter-btn px-6 py-2.5 border border-white/20 text-sm text-white/60 rounded-sm" data-filter="concept">Concept Work</button>
+        <button
+          onclick="filterWork('all')"
+          class="filter-btn active px-6 py-2.5 border border-[#B8912A] text-sm rounded-sm"
+          data-filter="all"
+        >
+          All Projects
+        </button>
+        <button
+          onclick="filterWork('brand')"
+          class="filter-btn px-6 py-2.5 border border-white/20 text-sm text-white/60 rounded-sm"
+          data-filter="brand"
+        >
+          Brand Identity
+        </button>
+        <button
+          onclick="filterWork('campaign')"
+          class="filter-btn px-6 py-2.5 border border-white/20 text-sm text-white/60 rounded-sm"
+          data-filter="campaign"
+        >
+          Campaign Design
+        </button>
+        <button
+          onclick="filterWork('concept')"
+          class="filter-btn px-6 py-2.5 border border-white/20 text-sm text-white/60 rounded-sm"
+          data-filter="concept"
+        >
+          Concept Work
+        </button>
       </div>
     </section>
 
     <!-- WORK GRID -->
     <section class="px-8 md:px-20 py-16">
       <div class="grid md:grid-cols-2 gap-x-8 gap-y-14" id="work-grid">
-
         <!-- 1. NOVA TECH -->
         <div class="work-card scroll-reveal" data-cat="brand">
           <div class="card-img">
-            <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=900&q=85&fit=crop" alt="Nova Tech Rebrand"/>
+            <img
+              src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=900&q=85&fit=crop"
+              alt="Nova Tech Rebrand"
+            />
             <div class="card-overlay">
-              <a href="#" class="border-2 border-white text-white text-sm px-8 py-3 font-medium hover:bg-white hover:text-[#0F0F0D] transition-all">View Case Study →</a>
+              <a
+                href="#"
+                class="border-2 border-white text-white text-sm px-8 py-3 font-medium hover:bg-white hover:text-[#0F0F0D] transition-all"
+                >View Case Study →</a
+              >
             </div>
           </div>
           <div class="flex items-start justify-between">
             <div class="flex-1">
               <h3 class="font-display font-bold text-2xl mb-2">Nova Tech</h3>
-              <p class="text-white/50 text-sm mb-4 leading-relaxed">Repositioning a SaaS startup for Series A growth with a bold, modern identity system.</p>
+              <p class="text-white/50 text-sm mb-4 leading-relaxed">
+                Repositioning a SaaS startup for Series A growth with a bold,
+                modern identity system.
+              </p>
               <span class="category-badge">Brand Identity</span>
             </div>
           </div>
         </div>
 
         <!-- 2. HARVEST MARKET -->
-        <div class="work-card scroll-reveal" data-cat="brand" style="transition-delay:.1s">
+        <div
+          class="work-card scroll-reveal"
+          data-cat="brand"
+          style="transition-delay: 0.1s"
+        >
           <div class="card-img">
-            <img src="https://images.unsplash.com/photo-1542838132-92c53300491e?w=900&q=85&fit=crop" alt="Harvest Market Brand"/>
+            <img
+              src="https://images.unsplash.com/photo-1542838132-92c53300491e?w=900&q=85&fit=crop"
+              alt="Harvest Market Brand"
+            />
             <div class="card-overlay">
-              <a href="#" class="border-2 border-white text-white text-sm px-8 py-3 font-medium hover:bg-white hover:text-[#0F0F0D] transition-all">View Case Study →</a>
+              <a
+                href="#"
+                class="border-2 border-white text-white text-sm px-8 py-3 font-medium hover:bg-white hover:text-[#0F0F0D] transition-all"
+                >View Case Study →</a
+              >
             </div>
           </div>
           <div class="flex items-start justify-between">
             <div class="flex-1">
-              <h3 class="font-display font-bold text-2xl mb-2">Harvest Market</h3>
-              <p class="text-white/50 text-sm mb-4 leading-relaxed">Growing an organic grocer into a neighborhood staple with warm, earthy branding.</p>
+              <h3 class="font-display font-bold text-2xl mb-2">
+                Harvest Market
+              </h3>
+              <p class="text-white/50 text-sm mb-4 leading-relaxed">
+                Growing an organic grocer into a neighborhood staple with warm,
+                earthy branding.
+              </p>
               <span class="category-badge">Brand System</span>
             </div>
           </div>
         </div>
 
         <!-- 3. LUMINA WELLNESS -->
-        <div class="work-card scroll-reveal" data-cat="brand" style="transition-delay:.2s">
+        <div
+          class="work-card scroll-reveal"
+          data-cat="brand"
+          style="transition-delay: 0.2s"
+        >
           <div class="card-img">
-            <img src="https://images.unsplash.com/photo-1512290923902-8a9f81dc236c?w=900&q=85&fit=crop" alt="Lumina Wellness"/>
+            <img
+              src="https://images.unsplash.com/photo-1512290923902-8a9f81dc236c?w=900&q=85&fit=crop"
+              alt="Lumina Wellness"
+            />
             <div class="card-overlay">
-              <a href="#" class="border-2 border-white text-white text-sm px-8 py-3 font-medium hover:bg-white hover:text-[#0F0F0D] transition-all">View Case Study →</a>
+              <a
+                href="#"
+                class="border-2 border-white text-white text-sm px-8 py-3 font-medium hover:bg-white hover:text-[#0F0F0D] transition-all"
+                >View Case Study →</a
+              >
             </div>
           </div>
           <div class="flex items-start justify-between">
             <div class="flex-1">
-              <h3 class="font-display font-bold text-2xl mb-2">Lumina Wellness</h3>
-              <p class="text-white/50 text-sm mb-4 leading-relaxed">Creating a serene brand identity for a wellness startup focused on mindful living.</p>
+              <h3 class="font-display font-bold text-2xl mb-2">
+                Lumina Wellness
+              </h3>
+              <p class="text-white/50 text-sm mb-4 leading-relaxed">
+                Creating a serene brand identity for a wellness startup focused
+                on mindful living.
+              </p>
               <span class="category-badge">Brand Identity</span>
             </div>
           </div>
         </div>
 
         <!-- 4. VELLE FINANCE -->
-        <div class="work-card scroll-reveal" data-cat="campaign" style="transition-delay:.3s">
+        <div
+          class="work-card scroll-reveal"
+          data-cat="campaign"
+          style="transition-delay: 0.3s"
+        >
           <div class="card-img">
-            <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=900&q=85&fit=crop" alt="Velle Finance Campaign"/>
+            <img
+              src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=900&q=85&fit=crop"
+              alt="Velle Finance Campaign"
+            />
             <div class="card-overlay">
-              <a href="#" class="border-2 border-white text-white text-sm px-8 py-3 font-medium hover:bg-white hover:text-[#0F0F0D] transition-all">View Case Study →</a>
+              <a
+                href="#"
+                class="border-2 border-white text-white text-sm px-8 py-3 font-medium hover:bg-white hover:text-[#0F0F0D] transition-all"
+                >View Case Study →</a
+              >
             </div>
           </div>
           <div class="flex items-start justify-between">
             <div class="flex-1">
-              <h3 class="font-display font-bold text-2xl mb-2">Velle Finance</h3>
-              <p class="text-white/50 text-sm mb-4 leading-relaxed">Launch campaign for a fintech platform making investing accessible to everyone.</p>
+              <h3 class="font-display font-bold text-2xl mb-2">
+                Velle Finance
+              </h3>
+              <p class="text-white/50 text-sm mb-4 leading-relaxed">
+                Launch campaign for a fintech platform making investing
+                accessible to everyone.
+              </p>
               <span class="category-badge">Campaign Design</span>
             </div>
           </div>
         </div>
 
         <!-- 5. AFRICAN COFFEE -->
-        <div class="work-card scroll-reveal" data-cat="concept" style="transition-delay:.4s">
+        <div
+          class="work-card scroll-reveal"
+          data-cat="concept"
+          style="transition-delay: 0.4s"
+        >
           <div class="card-img">
-            <img src="https://images.unsplash.com/photo-1559056199-641a0ac8b55e?w=900&q=85&fit=crop" alt="African Coffee"/>
+            <img
+              src="https://images.unsplash.com/photo-1559056199-641a0ac8b55e?w=900&q=85&fit=crop"
+              alt="African Coffee"
+            />
             <div class="card-overlay">
-              <a href="#" class="border-2 border-white text-white text-sm px-8 py-3 font-medium hover:bg-white hover:text-[#0F0F0D] transition-all">View Case Study →</a>
+              <a
+                href="#"
+                class="border-2 border-white text-white text-sm px-8 py-3 font-medium hover:bg-white hover:text-[#0F0F0D] transition-all"
+                >View Case Study →</a
+              >
             </div>
           </div>
           <div class="flex items-start justify-between">
             <div class="flex-1">
-              <h3 class="font-display font-bold text-2xl mb-2">African Coffee Co.</h3>
-              <p class="text-white/50 text-sm mb-4 leading-relaxed">Modern packaging design inspired by rich African heritage and coffee culture.</p>
+              <h3 class="font-display font-bold text-2xl mb-2">
+                African Coffee Co.
+              </h3>
+              <p class="text-white/50 text-sm mb-4 leading-relaxed">
+                Modern packaging design inspired by rich African heritage and
+                coffee culture.
+              </p>
               <span class="category-badge">Concept Work</span>
             </div>
           </div>
         </div>
 
         <!-- 6. URBAN THREADS -->
-        <div class="work-card scroll-reveal" data-cat="brand" style="transition-delay:.5s">
+        <div
+          class="work-card scroll-reveal"
+          data-cat="brand"
+          style="transition-delay: 0.5s"
+        >
           <div class="card-img">
-            <img src="https://images.unsplash.com/photo-1441986300917-64674bd600d8?w=900&q=85&fit=crop" alt="Urban Threads"/>
+            <img
+              src="https://images.unsplash.com/photo-1441986300917-64674bd600d8?w=900&q=85&fit=crop"
+              alt="Urban Threads"
+            />
             <div class="card-overlay">
-              <a href="#" class="border-2 border-white text-white text-sm px-8 py-3 font-medium hover:bg-white hover:text-[#0F0F0D] transition-all">View Case Study →</a>
+              <a
+                href="#"
+                class="border-2 border-white text-white text-sm px-8 py-3 font-medium hover:bg-white hover:text-[#0F0F0D] transition-all"
+                >View Case Study →</a
+              >
             </div>
           </div>
           <div class="flex items-start justify-between">
             <div class="flex-1">
-              <h3 class="font-display font-bold text-2xl mb-2">Urban Threads</h3>
-              <p class="text-white/50 text-sm mb-4 leading-relaxed">Streetwear brand identity that blends urban culture with sustainable fashion.</p>
+              <h3 class="font-display font-bold text-2xl mb-2">
+                Urban Threads
+              </h3>
+              <p class="text-white/50 text-sm mb-4 leading-relaxed">
+                Streetwear brand identity that blends urban culture with
+                sustainable fashion.
+              </p>
               <span class="category-badge">Brand Identity</span>
             </div>
           </div>
         </div>
-
       </div>
     </section>
 
     <!-- CTA -->
-    <section class="bg-[#F5F3EE] text-[#0F0F0D] py-20 px-6 text-center relative overflow-hidden">
-      <div class="absolute bottom-0 right-0 w-96 h-96 bg-[#B8912A]/5 rounded-full blur-3xl"></div>
-      <h2 class="font-display text-4xl md:text-5xl font-bold mb-4 relative z-10">Ready to build something intentional?</h2>
-      <p class="text-black/55 mb-8 max-w-md mx-auto text-sm leading-relaxed relative z-10">
-        Whether you're a business looking for a strategic design partner or a team seeking creative talent, I'd love to hear what you're building.
+    <section
+      class="bg-[#F5F3EE] text-[#0F0F0D] py-20 px-6 text-center relative overflow-hidden"
+    >
+      <div
+        class="absolute bottom-0 right-0 w-96 h-96 bg-[#B8912A]/5 rounded-full blur-3xl"
+      ></div>
+      <h2
+        class="font-display text-4xl md:text-5xl font-bold mb-4 relative z-10"
+      >
+        Ready to build something intentional?
+      </h2>
+      <p
+        class="text-black/55 mb-8 max-w-md mx-auto text-sm leading-relaxed relative z-10"
+      >
+        Whether you're a business looking for a strategic design partner or a
+        team seeking creative talent, I'd love to hear what you're building.
       </p>
-      <a href="contact.html" class="bg-[#B8912A] hover:bg-[#D4A93C] text-white inline-block px-10 py-4 text-sm font-medium transition-all hover:scale-105 relative z-10">Start a Conversation</a>
+      <a
+        href="contact.html"
+        class="bg-[#B8912A] hover:bg-[#D4A93C] text-white inline-block px-10 py-4 text-sm font-medium transition-all hover:scale-105 relative z-10"
+        >Start a Conversation</a
+      >
     </section>
 
     <!-- FOOTER -->
@@ -230,53 +575,199 @@
       >
         <!-- Column 1 - About -->
         <div>
-          <p class="text-xs tracking-[0.2em] uppercase font-medium mb-2">
-            Olamide Andrew
-          </p>
-          <p class="text-white/40 text-sm">
-            Strategic Brand Designer, based in Cancola.
+          <div class="flex justify-start">
+            <img
+              src="public/olamide-logo.png"
+              alt="Olamide Andrew Logo"
+              class="w-60 h-[110px] object-contain rounded-2xl shadow-2xl"
+            />
+          </div>
+
+          <p class="text-white/60 text-sm leading-relaxed max-w-xs">
+            Strategic Brand Designer crafting modern, minimal and impactful
+            digital experiences for growing brands worldwide.
           </p>
         </div>
-        <div class="flex gap-8 text-sm text-white/60">
-          <a href="work.html" class="hover:text-[#B8912A] transition-colors"
-            >Work</a
-          >
-          <a href="about.html" class="hover:text-[#B8912A] transition-colors"
-            >About</a
-          >
-          <a href="contact.html" class="hover:text-[#B8912A] transition-colors"
-            >Contact</a
-          >
+
+        <!-- Column 2 - Quick Links -->
+        <div>
+          <h3 class="text-sm uppercase tracking-[0.2em] mb-6 text-white/40">
+            Quick Links
+          </h3>
+
+          <ul class="space-y-4 text-white/60 text-sm">
+            <li class="group flex items-center gap-2">
+              <span
+                class="text-[#B8912A] transform group-hover:translate-x-1 transition duration-300"
+              >
+                >
+              </span>
+              <a
+                href="work.html"
+                class="group-hover:text-[#B8912A] transition duration-300"
+              >
+                Work
+              </a>
+            </li>
+
+            <li class="group flex items-center gap-2">
+              <span
+                class="text-[#B8912A] transform group-hover:translate-x-1 transition duration-300"
+              >
+                >
+              </span>
+              <a
+                href="about.html"
+                class="group-hover:text-[#B8912A] transition duration-300"
+              >
+                About
+              </a>
+            </li>
+
+            <li class="group flex items-center gap-2">
+              <span
+                class="text-[#B8912A] transform group-hover:translate-x-1 transition duration-300"
+              >
+                >
+              </span>
+              <a
+                href="contact.html"
+                class="group-hover:text-[#B8912A] transition duration-300"
+              >
+                Contact
+              </a>
+            </li>
+
+            <li class="group flex items-center gap-2">
+              <span
+                class="text-[#B8912A] transform group-hover:translate-x-1 transition duration-300"
+              >
+                >
+              </span>
+              <a
+                href="#"
+                class="group-hover:text-[#B8912A] transition duration-300"
+              >
+                Blog
+              </a>
+            </li>
+          </ul>
         </div>
-        <div class="flex gap-3">
-          <a
-            href="#"
-            class="w-9 h-9 rounded-full border border-white/20 flex items-center justify-center text-white/50 hover:border-[#B8912A] hover:text-[#B8912A] transition-all text-xs"
-            >Be</a
-          >
-          <a
-            href="#"
-            class="w-9 h-9 rounded-full border border-white/20 flex items-center justify-center text-white/50 hover:border-[#B8912A] hover:text-[#B8912A] transition-all text-xs"
-            >Ed</a
-          >
-          <a
-            href="#"
-            class="w-9 h-9 rounded-full border border-white/20 flex items-center justify-center text-white/50 hover:border-[#B8912A] hover:text-[#B8912A] transition-all text-xs"
-            >In</a
-          >
+
+        <!-- Column 3 - Services -->
+        <div>
+          <h3 class="text-sm uppercase tracking-[0.2em] mb-6 text-white/40">
+            Services
+          </h3>
+
+          <ul class="space-y-4 text-white/60 text-sm">
+            <li class="group flex items-center gap-2">
+              <span
+                class="text-[#B8912A] transform group-hover:translate-x-1 transition duration-300"
+              >
+                >
+              </span>
+              <a
+                href="#"
+                class="group-hover:text-[#B8912A] transition duration-300"
+              >
+                Brand Strategy
+              </a>
+            </li>
+
+            <li class="group flex items-center gap-2">
+              <span
+                class="text-[#B8912A] transform group-hover:translate-x-1 transition duration-300"
+              >
+                >
+              </span>
+              <a
+                href="#"
+                class="group-hover:text-[#B8912A] transition duration-300"
+              >
+                Logo Design
+              </a>
+            </li>
+
+            <li class="group flex items-center gap-2">
+              <span
+                class="text-[#B8912A] transform group-hover:translate-x-1 transition duration-300"
+              >
+                >
+              </span>
+              <a
+                href="#"
+                class="group-hover:text-[#B8912A] transition duration-300"
+              >
+                UI/UX Design
+              </a>
+            </li>
+
+            <li class="group flex items-center gap-2">
+              <span
+                class="text-[#B8912A] transform group-hover:translate-x-1 transition duration-300"
+              >
+                >
+              </span>
+              <a
+                href="#"
+                class="group-hover:text-[#B8912A] transition duration-300"
+              >
+                Website Development
+              </a>
+            </li>
+          </ul>
+        </div>
+
+        <!-- Column 4 - Social + Contact -->
+        <div>
+          <h3 class="text-sm uppercase tracking-[0.2em] mb-6 text-white/40">
+            Connect
+          </h3>
+
+          <div class="flex gap-4 mb-8">
+            <a
+              href="#"
+              class="w-10 h-10 rounded-xl bg-white/5 border border-white/10 flex items-center justify-center text-white/60 hover:bg-[#B8912A] hover:text-black transition-all duration-300"
+            >
+              Be
+            </a>
+
+            <a
+              href="#"
+              class="w-10 h-10 rounded-xl bg-white/5 border border-white/10 flex items-center justify-center text-white/60 hover:bg-[#B8912A] hover:text-black transition-all duration-300"
+            >
+              Ed
+            </a>
+
+            <a
+              href="#"
+              class="w-10 h-10 rounded-xl bg-white/5 border border-white/10 flex items-center justify-center text-white/60 hover:bg-[#B8912A] hover:text-black transition-all duration-300"
+            >
+              In
+            </a>
+          </div>
+
+          <div class="text-white/60 text-sm space-y-3">
+            <p>hello@olamideandrew.com</p>
+            <p>Cancola, Nigeria</p>
+            <p>+234 000 000 0000</p>
+          </div>
         </div>
       </div>
+
+      <!-- Bottom Section -->
       <div
-        class="flex flex-col md:flex-row justify-between items-center pt-6 border-t border-white/10 gap-3"
+        class="border-t border-white/10 mt-16 pt-8 flex flex-col md:flex-row justify-between items-center gap-4 text-white/40 text-xs"
       >
-        <p class="text-white/30 text-xs">
-          © 2023, Olamide Andrew. All rights reserved.
-        </p>
-        <a
-          href="mailto:hello@olamidrandrow.com"
-          class="text-white/40 text-sm hover:text-[#B8912A] transition-colors"
-          >✉ hello@olamidrandrow.com</a
-        >
+        <p>© <span id="year"></span> Olamide Andrew. All rights reserved.</p>
+
+        <div class="flex gap-6">
+          <a href="#" class="hover:text-[#B8912A] transition">Privacy Policy</a>
+          <a href="#" class="hover:text-[#B8912A] transition"
+            >Terms of Service</a
+          >
+        </div>
       </div>
     </footer>
 
@@ -284,33 +775,58 @@
       document.getElementById("year").textContent = new Date().getFullYear();
     </script>
     <script>
-    function filterWork(cat){
-      const cards=document.querySelectorAll("[data-cat]");
-      const btns=document.querySelectorAll(".filter-btn");
-      btns.forEach(b=>{b.classList.remove("active");if(b.dataset.filter===cat)b.classList.add("active");});
-      cards.forEach(c=>{
-        if(cat==="all"||c.dataset.cat===cat){
-          c.style.display="block";
-          setTimeout(()=>c.classList.add('active'),50);
-        }else{
-          c.style.display="none";
-        }
-      });
-    }
-
-    (function(){
-      const menu=document.getElementById("mobile-menu"),backdrop=document.getElementById("mobile-menu-backdrop"),openBtn=document.querySelector("[data-menu-toggle]"),closeBtn=document.querySelector("[data-menu-close]");
-      if(menu&&backdrop&&openBtn&&closeBtn){
-        const close=()=>{menu.classList.add("translate-x-full");backdrop.classList.add("opacity-0","pointer-events-none");document.body.style.overflow="";};
-        const open=()=>{menu.classList.remove("translate-x-full");backdrop.classList.remove("opacity-0","pointer-events-none");document.body.style.overflow="hidden";};
-        openBtn.addEventListener("click",open);closeBtn.addEventListener("click",close);backdrop.addEventListener("click",close);
-        menu.querySelectorAll("a").forEach(l=>l.addEventListener("click",close));
-        document.addEventListener("keydown",e=>{if(e.key==="Escape")close();});
+      function filterWork(cat) {
+        const cards = document.querySelectorAll("[data-cat]");
+        const btns = document.querySelectorAll(".filter-btn");
+        btns.forEach((b) => {
+          b.classList.remove("active");
+          if (b.dataset.filter === cat) b.classList.add("active");
+        });
+        cards.forEach((c) => {
+          if (cat === "all" || c.dataset.cat === cat) {
+            c.style.display = "block";
+            setTimeout(() => c.classList.add("active"), 50);
+          } else {
+            c.style.display = "none";
+          }
+        });
       }
-      const reveals=document.querySelectorAll('.scroll-reveal');
-      const onScroll=()=>reveals.forEach(el=>{if(el.getBoundingClientRect().top<window.innerHeight-80)el.classList.add('active');});
-      window.addEventListener('scroll',onScroll);onScroll();
-    })();
+
+      (function () {
+        const menu = document.getElementById("mobile-menu"),
+          backdrop = document.getElementById("mobile-menu-backdrop"),
+          openBtn = document.querySelector("[data-menu-toggle]"),
+          closeBtn = document.querySelector("[data-menu-close]");
+        if (menu && backdrop && openBtn && closeBtn) {
+          const close = () => {
+            menu.classList.add("translate-x-full");
+            backdrop.classList.add("opacity-0", "pointer-events-none");
+            document.body.style.overflow = "";
+          };
+          const open = () => {
+            menu.classList.remove("translate-x-full");
+            backdrop.classList.remove("opacity-0", "pointer-events-none");
+            document.body.style.overflow = "hidden";
+          };
+          openBtn.addEventListener("click", open);
+          closeBtn.addEventListener("click", close);
+          backdrop.addEventListener("click", close);
+          menu
+            .querySelectorAll("a")
+            .forEach((l) => l.addEventListener("click", close));
+          document.addEventListener("keydown", (e) => {
+            if (e.key === "Escape") close();
+          });
+        }
+        const reveals = document.querySelectorAll(".scroll-reveal");
+        const onScroll = () =>
+          reveals.forEach((el) => {
+            if (el.getBoundingClientRect().top < window.innerHeight - 80)
+              el.classList.add("active");
+          });
+        window.addEventListener("scroll", onScroll);
+        onScroll();
+      })();
     </script>
   </body>
 </html>
