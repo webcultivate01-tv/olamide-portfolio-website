@@ -28,6 +28,25 @@
         color: #f5f0e8;
         font-family: "DM Sans", sans-serif;
       }
+      h1,
+      h2,
+      h3,
+      h4,
+      h5,
+      h6 {
+        font-family: "Playfair Display", serif;
+      }
+      p,
+      a,
+      li,
+      span,
+      label,
+      input,
+      select,
+      textarea,
+      button {
+        font-family: "DM Sans", sans-serif;
+      }
       .gold-text {
         color: #c9a84c;
       }
@@ -150,6 +169,68 @@
         resize: none;
         min-height: 100px;
       }
+      .reveal-on-scroll {
+        opacity: 0;
+        transform: translateY(28px) scale(0.98);
+        transition:
+          opacity 0.75s ease,
+          transform 0.75s ease;
+        will-change: opacity, transform;
+      }
+      .reveal-on-scroll.reveal-left {
+        transform: translateX(-36px);
+      }
+      .reveal-on-scroll.reveal-right {
+        transform: translateX(36px);
+      }
+      .reveal-on-scroll.reveal-visible {
+        opacity: 1;
+        transform: translate(0, 0) scale(1);
+      }
+      .hero-bg-motion {
+        animation: heroZoom 16s ease-in-out infinite alternate;
+      }
+      .hero-content-animate > * {
+        opacity: 0;
+        transform: translateY(20px);
+        animation: heroFadeUp 0.8s ease forwards;
+      }
+      .hero-content-animate > *:nth-child(1) {
+        animation-delay: 0.15s;
+      }
+      .hero-content-animate > *:nth-child(2) {
+        animation-delay: 0.3s;
+      }
+      .hero-content-animate > *:nth-child(3) {
+        animation-delay: 0.45s;
+      }
+      .hero-content-animate > *:nth-child(4) {
+        animation-delay: 0.6s;
+      }
+      @keyframes heroFadeUp {
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+      @keyframes heroZoom {
+        0% {
+          transform: scale(1.05);
+        }
+        100% {
+          transform: scale(1.12);
+        }
+      }
+      @media (prefers-reduced-motion: reduce) {
+        .hero-bg-motion {
+          animation: none;
+        }
+        .hero-content-animate > * {
+          opacity: 1;
+          transform: none;
+          animation: none;
+        }
+      }
     </style>
   </head>
   <body>
@@ -239,9 +320,7 @@
         <a href="about.html" class="nav-a">About</a>
         <a href="services.html" class="nav-a">Services</a>
         <a href="work.html" class="nav-a">Work</a>
-        <a href="contact.html" class="nav-a text-[#C9A84C]"
-          >Contact</a
-        >
+        <a href="contact.html" class="nav-a text-[#C9A84C]">Contact</a>
         <a
           href="https://topmate.io/olamide_andrew"
           target="_blank"
@@ -252,213 +331,240 @@
       </nav>
     </aside>
 
-    <!-- HERO -->
-    <section class="relative pt-36 pb-12 px-8 overflow-hidden" style="background-image:url('https://images.unsplash.com/photo-1497366811353-6870744d04b2?w=1920&q=80');background-size:cover;background-position:center;">
-      <div class="absolute inset-0 bg-[#0E0E0E]/95"></div>
-      <div class="max-w-5xl mx-auto relative z-10">
-        <span class="section-label fade-up">Get In Touch</span>
-        <h1 class="font-display font-black text-5xl md:text-7xl mt-4 leading-tight fade-up delay-1">Let's build<br />something <span class="italic gold-text">great.</span></h1>
-        <p class="text-cream/50 text-sm mt-5 max-w-md leading-relaxed fade-up delay-2">Whether you have a project ready to go, an idea to explore, or just want to say hello — my inbox is always open.</p>
+    <!-- ================= HERO ================= -->
+    <section
+      class="relative min-h-[90vh] flex items-center justify-center px-8 md:px-20 overflow-hidden"
+    >
+      <!-- BACKGROUND IMAGE -->
+      <img
+        src="https://images.unsplash.com/photo-1558655146-d09347e92766?q=80&w=1920"
+        class="absolute inset-0 w-full h-full object-cover scale-105 hero-bg-motion"
+      />
+
+      <!-- DARK OVERLAY -->
+      <div class="absolute inset-0 bg-[#0E0E0E]/85"></div>
+
+      <!-- GOLD GRADIENT LIGHT -->
+      <div
+        class="absolute inset-0 bg-gradient-to-b from-[#B8912A]/20 via-transparent to-[#0E0E0E]"
+      ></div>
+
+      <!-- SOFT GLOW -->
+      <div
+        class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[700px] bg-[#B8912A]/10 blur-[160px] rounded-full"
+      ></div>
+
+      <!-- CONTENT -->
+      <div
+        class="relative z-10 text-center max-w-3xl hero-content-animate"
+        data-reveal="up"
+      >
+        <p class="section-label mb-6 tracking-[0.35em] text-[#C9A84C]/80">
+          Contact
+        </p>
+
+        <h1 class="font-display text-5xl md:text-7xl font-black leading-tight">
+          Let's build something
+          <span class="italic text-[#C9A84C] relative inline-block">
+            impactful
+
+            <!-- underline glow -->
+            <span
+              class="absolute left-0 -bottom-3 w-full h-[2px] bg-gradient-to-r from-transparent via-[#C9A84C] to-transparent"
+            >
+            </span> </span
+          >.
+        </h1>
+
+        <p class="text-white/60 mt-8 text-lg leading-relaxed max-w-xl mx-auto">
+          Whether you have a project ready, an idea forming, or simply want to
+          connect — I’m always open to meaningful conversations.
+        </p>
+
+        <!-- CTA BUTTON -->
+        <div class="mt-12">
+          <a
+            href="#contactForm"
+            class="inline-flex items-center gap-2 px-8 py-4 border border-[#C9A84C] text-[#C9A84C] hover:bg-[#C9A84C] hover:text-black transition-all duration-300 tracking-wide"
+          >
+            Start a Project →
+          </a>
+        </div>
       </div>
+
+      <!-- BOTTOM FADE -->
+      <div
+        class="absolute bottom-0 left-0 w-full h-40 bg-gradient-to-t from-[#0E0E0E] to-transparent"
+      ></div>
     </section>
 
-    <!-- MAIN CONTENT -->
-    <section class="py-16 px-8">
-      <div class="max-w-5xl mx-auto grid grid-cols-1 md:grid-cols-5 gap-16">
-        <!-- FORM (left 3) -->
-        <div class="md:col-span-3">
-          <form id="contactForm" onsubmit="handleSubmit(event)">
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-8">
-              <div>
-                <label
-                  class="text-xs tracking-widest uppercase text-cream/40 block mb-2"
-                  >Your Name</label
-                >
+    <!-- ================= CONTACT GRID ================= -->
+    <section
+      class="relative py-28 px-8 md:px-20 border-t border-white/10 overflow-hidden"
+    >
+      <!-- BACKGROUND GLOW -->
+      <div class="absolute inset-0 pointer-events-none">
+        <div
+          class="absolute -top-40 left-1/2 -translate-x-1/2 w-[700px] h-[700px] bg-[#B8912A]/10 blur-[140px] rounded-full"
+        ></div>
+      </div>
+
+      <div class="relative max-w-7xl mx-auto">
+        <!-- ===== CENTER HEADING ===== -->
+        <div class="text-center max-w-2xl mx-auto mb-20" data-reveal="up">
+          <p class="text-xs tracking-[0.35em] text-[#B8912A]/70 uppercase mb-4">
+            Contact
+          </p>
+
+          <h2 class="font-display text-4xl md:text-5xl leading-tight">
+            Start a <span class="text-[#B8912A] italic">Conversation</span>
+          </h2>
+
+          <p class="text-white/50 leading-relaxed mt-6">
+            I collaborate with founders and brands worldwide to craft strategic,
+            modern and meaningful brand experiences designed for long-term
+            impact.
+          </p>
+        </div>
+
+        <!-- ===== CONTENT GRID ===== -->
+        <div class="grid md:grid-cols-2 gap-24 items-start">
+          <!-- LEFT INFO -->
+          <div class="space-y-6" data-reveal="left">
+            <div
+              data-reveal="up"
+              data-reveal-delay="80"
+              class="group border border-white/10 rounded-2xl p-6 bg-white/[0.02] backdrop-blur-md hover:border-[#B8912A]/40 hover:-translate-y-1 transition-all duration-300"
+            >
+              <p class="text-xs uppercase tracking-widest text-white/40 mb-2">
+                Email
+              </p>
+              <p class="text-sm group-hover:text-[#B8912A] transition">
+                hello@olamideandrew.com
+              </p>
+            </div>
+
+            <div
+              data-reveal="up"
+              data-reveal-delay="160"
+              class="group border border-white/10 rounded-2xl p-6 bg-white/[0.02] backdrop-blur-md hover:border-[#B8912A]/40 hover:-translate-y-1 transition-all duration-300"
+            >
+              <p class="text-xs uppercase tracking-widest text-white/40 mb-2">
+                Location
+              </p>
+              <p class="text-sm text-white/70">Nigeria · Remote Worldwide</p>
+            </div>
+
+            <div
+              data-reveal="up"
+              data-reveal-delay="240"
+              class="group border border-white/10 rounded-2xl p-6 bg-white/[0.02] backdrop-blur-md hover:border-[#B8912A]/40 hover:-translate-y-1 transition-all duration-300"
+            >
+              <p class="text-xs uppercase tracking-widest text-white/40 mb-2">
+                Availability
+              </p>
+
+              <div class="flex items-center gap-2 text-sm text-green-400">
+                <span
+                  class="w-2 h-2 rounded-full bg-green-400 animate-pulse"
+                ></span>
+                Currently available for projects
+              </div>
+            </div>
+          </div>
+
+          <!-- FORM -->
+          <div
+            data-reveal="right"
+            data-reveal-delay="120"
+            class="relative rounded-3xl p-10 md:p-12 bg-gradient-to-b from-white/[0.04] to-white/[0.01] border border-white/10 backdrop-blur-xl shadow-[0_20px_60px_rgba(0,0,0,0.6)]"
+          >
+            <div
+              class="absolute inset-0 rounded-3xl bg-[#B8912A]/5 opacity-40 blur-2xl pointer-events-none"
+            ></div>
+
+            <form
+              id="contactForm"
+              onsubmit="handleSubmit(event)"
+              class="relative space-y-10"
+            >
+              <div class="grid md:grid-cols-2 gap-8">
                 <input
                   type="text"
                   class="form-field"
-                  placeholder="Jane Doe"
+                  placeholder="Your Name"
                   required
                 />
-              </div>
-              <div>
-                <label
-                  class="text-xs tracking-widest uppercase text-cream/40 block mb-2"
-                  >Email Address</label
-                >
                 <input
                   type="email"
                   class="form-field"
-                  placeholder="jane@company.com"
+                  placeholder="Email Address"
                   required
                 />
               </div>
-            </div>
-            <div class="mt-8">
-              <label
-                class="text-xs tracking-widest uppercase text-cream/40 block mb-2"
-                >Project Type</label
-              >
-              <select class="form-field" required>
-                <option value="" disabled selected>Select a service...</option>
-                <option value="brand">Brand Identity</option>
-                <option value="campaign">Campaign Design</option>
-                <option value="ui">UI Direction</option>
-                <option value="system">Brand System</option>
-                <option value="other">Other</option>
-              </select>
-            </div>
-            <div class="mt-8">
-              <label
-                class="text-xs tracking-widest uppercase text-cream/40 block mb-2"
-                >Budget Range</label
-              >
+
               <select class="form-field">
-                <option value="" disabled selected>
-                  Select budget range...
-                </option>
-                <option>$1,000 – $3,000</option>
-                <option>$3,000 – $7,000</option>
-                <option>$7,000 – $15,000</option>
-                <option>$15,000+</option>
+                <option>Select Service</option>
+                <option>Brand Strategy</option>
+                <option>Visual Identity</option>
+                <option>Campaign Design</option>
+                <option>Website Design</option>
               </select>
-            </div>
-            <div class="mt-8">
-              <label
-                class="text-xs tracking-widest uppercase text-cream/40 block mb-2"
-                >Tell Me About Your Project</label
-              >
+
               <textarea
                 class="form-field"
-                placeholder="Describe your project, goals, timeline..."
+                placeholder="Tell me about your project..."
                 required
               ></textarea>
-            </div>
-            <div class="mt-10">
-              <button type="submit" class="btn-gold">
-                Send Message &rarr;
+
+              <button
+                class="btn-gold w-full md:w-auto hover:shadow-[0_0_30px_rgba(184,145,42,0.35)]"
+              >
+                Send Message →
               </button>
-            </div>
-            <div class="success-msg" id="successMsg">
-              ✓ &nbsp;Message sent! I'll get back to you within 24–48 hours.
-            </div>
-          </form>
-        </div>
 
-        <!-- INFO (right 2) -->
-        <div class="md:col-span-2 space-y-5">
-          <div class="info-card">
-            <div class="text-xs tracking-widest uppercase text-cream/40 mb-2">
-              Email
-            </div>
-            <a
-              href="mailto:hello@olamidrandrew.com"
-              class="text-sm hover:text-gold transition-colors"
-              >hello@olamidrandrew.com</a
-            >
-          </div>
-
-          <div class="info-card">
-            <div class="text-xs tracking-widest uppercase text-cream/40 mb-2">
-              Location
-            </div>
-            <p class="text-sm text-cream/70">Cancela</p>
-            <p class="text-xs text-cream/40 mt-1">
-              Available for remote work worldwide
-            </p>
-          </div>
-
-          <div class="info-card">
-            <div class="text-xs tracking-widest uppercase text-cream/40 mb-2">
-              Availability
-            </div>
-            <div class="flex items-center gap-2">
-              <div
-                style="
-                  width: 8px;
-                  height: 8px;
-                  border-radius: 50%;
-                  background: #4ade80;
-                  animation: pulse 2s infinite;
-                "
-              ></div>
-              <p class="text-sm text-cream/70">Currently available</p>
-            </div>
-            <p class="text-xs text-cream/40 mt-2">
-              Typically reply within 24 hours
-            </p>
-          </div>
-
-          <div class="info-card">
-            <div class="text-xs tracking-widest uppercase text-cream/40 mb-3">
-              Social
-            </div>
-            <div class="flex flex-col gap-2">
-              <a
-                href="#"
-                class="text-sm text-cream/60 hover:text-gold transition-colors flex items-center gap-2"
-              >
-                <span
-                  style="
-                    width: 16px;
-                    height: 1px;
-                    background: #c9a84c;
-                    display: inline-block;
-                  "
-                ></span>
-                Behance
-              </a>
-              <a
-                href="#"
-                class="text-sm text-cream/60 hover:text-gold transition-colors flex items-center gap-2"
-              >
-                <span
-                  style="
-                    width: 16px;
-                    height: 1px;
-                    background: #c9a84c;
-                    display: inline-block;
-                  "
-                ></span>
-                LinkedIn
-              </a>
-              <a
-                href="#"
-                class="text-sm text-cream/60 hover:text-gold transition-colors flex items-center gap-2"
-              >
-                <span
-                  style="
-                    width: 16px;
-                    height: 1px;
-                    background: #c9a84c;
-                    display: inline-block;
-                  "
-                ></span>
-                Twitter / X
-              </a>
-            </div>
-          </div>
-
-          <!-- Quote -->
-          <div class="pt-4">
-            <div
-              style="
-                width: 28px;
-                height: 2px;
-                background: #c9a84c;
-                margin-bottom: 12px;
-              "
-            ></div>
-            <p
-              class="font-display italic text-lg text-cream/50 leading-relaxed"
-            >
-              "Good design is good business."
-            </p>
-            <p class="text-xs text-cream/30 mt-2">— Thomas Watson Jr.</p>
+              <div id="successMsg" class="success-msg">
+                ✓ Message sent successfully! I'll reply soon.
+              </div>
+            </form>
           </div>
         </div>
       </div>
     </section>
+
+    <!-- ================= PERSONAL BRAND STATEMENT ================= -->
+    <section class="py-24 px-8 md:px-20 border-t border-white/10">
+      <div class="max-w-4xl mx-auto text-center" data-reveal="up">
+        <h2 class="font-display text-4xl mb-6">Strategy meets creativity.</h2>
+
+        <p class="text-cream/50 text-lg leading-relaxed">
+          Every collaboration begins with understanding — transforming ideas
+          into thoughtful brand experiences designed for clarity, consistency,
+          and long-term impact.
+        </p>
+      </div>
+    </section>
+
+    <!-- ================= CTA ================= -->
+    <!-- <section class="py-28 px-8 md:px-20 text-center border-t border-white/10">
+      <div class="max-w-3xl mx-auto">
+        <h2 class="font-display text-4xl md:text-5xl mb-6">
+          Prefer a quick conversation?
+        </h2>
+
+        <p class="text-cream/50 mb-10">
+          Book a discovery call and let’s explore your project together.
+        </p>
+
+        <a
+          href="https://topmate.io/olamide_andrew"
+          target="_blank"
+          class="btn-gold inline-block"
+        >
+          Book Strategy Call
+        </a>
+      </div>
+    </section> -->
 
     <!-- FOOTER -->
     <footer
@@ -470,6 +576,7 @@
       ></div>
 
       <div
+        data-reveal="up"
         class="relative z-10 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-14"
       >
         <!-- Column 1 - About -->
@@ -657,6 +764,8 @@
 
       <!-- Bottom Section -->
       <div
+        data-reveal="up"
+        data-reveal-delay="120"
         class="border-t border-white/10 mt-16 pt-8 flex flex-col md:flex-row justify-between items-center gap-4 text-white/40 text-xs"
       >
         <p>© <span id="year"></span> Olamide Andrew. All rights reserved.</p>
@@ -716,6 +825,44 @@
         document.addEventListener("keydown", (e) => {
           if (e.key === "Escape") closeMenu();
         });
+      })();
+    </script>
+    <script>
+      (function () {
+        const revealEls = document.querySelectorAll("[data-reveal]");
+        if (!revealEls.length) return;
+
+        const reduceMotion = window.matchMedia(
+          "(prefers-reduced-motion: reduce)",
+        ).matches;
+
+        revealEls.forEach((el) => {
+          el.classList.add("reveal-on-scroll");
+          const direction = el.dataset.reveal;
+          if (direction === "left") el.classList.add("reveal-left");
+          if (direction === "right") el.classList.add("reveal-right");
+          if (el.dataset.revealDelay) {
+            el.style.transitionDelay = `${parseInt(el.dataset.revealDelay, 10)}ms`;
+          }
+        });
+
+        if (reduceMotion) {
+          revealEls.forEach((el) => el.classList.add("reveal-visible"));
+          return;
+        }
+
+        const observer = new IntersectionObserver(
+          (entries, obs) => {
+            entries.forEach((entry) => {
+              if (!entry.isIntersecting) return;
+              entry.target.classList.add("reveal-visible");
+              obs.unobserve(entry.target);
+            });
+          },
+          { threshold: 0.16, rootMargin: "0px 0px -10% 0px" },
+        );
+
+        revealEls.forEach((el) => observer.observe(el));
       })();
     </script>
   </body>

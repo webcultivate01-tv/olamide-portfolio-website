@@ -5,83 +5,348 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>About — Olamide Andrew</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet"/>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=DM+Sans:wght@300;400;500&display=swap"
+      rel="stylesheet"
+    />
     <style>
-      body{font-family:"DM Sans",sans-serif;}
-      .font-display{font-family:"Playfair Display",serif;}
-      .fade-in{opacity:0;transform:translateY(30px);animation:fadeUp .7s forwards;}
-      @keyframes fadeUp{to{opacity:1;transform:none;}}
-      .d1{animation-delay:.1s;}.d2{animation-delay:.25s;}.d3{animation-delay:.4s;}.d4{animation-delay:.55s;}
-      .nav-a{position:relative;transition:all .3s;padding:8px 0;}
-      .nav-a::before{content:'';position:absolute;bottom:0;left:50%;width:0;height:2px;background:linear-gradient(90deg,#b8912a,#d4a93c);transition:all .3s;transform:translateX(-50%);}
-      .nav-a:hover,.nav-a.active{color:#b8912a;}
-      .nav-a:hover::before,.nav-a.active::before{width:100%;}
-      .nav-logo{transition:all .3s;}
-      .nav-logo:hover{transform:scale(1.05);box-shadow:0 0 20px rgba(184,145,42,.3);}
-      nav{backdrop-filter:blur(10px);background:rgba(15,15,13,.95);position:sticky;top:0;z-index:50;}
-      .hero-section{display:grid;grid-template-columns:45% 55%;min-height:calc(100vh - 73px);position:relative;}
-      .photo-side{position:relative;overflow:hidden;}
-      .photo-side::before{content:'';position:absolute;bottom:0;left:0;right:0;height:25%;background:linear-gradient(to top,rgba(15,15,13,0.5),transparent);pointer-events:none;z-index:1;}
-      .photo-side::after{content:'';position:absolute;top:0;right:0;width:50%;height:100%;background:linear-gradient(to right,transparent,#0f0f0d);pointer-events:none;z-index:2;}
-      .photo-side img{width:100%;height:100%;object-fit:cover;object-position:center top;display:block;filter:brightness(0.75) contrast(1.05);animation:zoomPan 25s ease-in-out infinite alternate;}
-      @keyframes zoomPan{0%{transform:scale(1) translateX(0)}50%{transform:scale(1.15) translateX(-20px)}100%{transform:scale(1.08) translateX(10px)}}
-      .bg-shape{position:absolute;border-radius:50%;filter:blur(80px);z-index:0;}
-      .shape1{width:350px;height:350px;background:linear-gradient(135deg,#B8912A,#D4A93C);top:10%;left:5%;animation:float1 10s ease-in-out infinite;}
-      .shape2{width:250px;height:250px;background:linear-gradient(225deg,#D4A93C,#B8912A);bottom:15%;right:10%;animation:float2 12s ease-in-out infinite;}
-      .shape3{width:180px;height:180px;background:radial-gradient(circle,#B8912A,transparent);top:50%;left:15%;animation:float3 8s ease-in-out infinite;}
-      @keyframes float1{0%,100%{transform:translate(0,0) scale(1);opacity:0.15}50%{transform:translate(30px,-30px) scale(1.2);opacity:0.25}}
-      @keyframes float2{0%,100%{transform:translate(0,0) rotate(0deg);opacity:0.15}50%{transform:translate(-25px,25px) rotate(180deg);opacity:0.25}}
-      @keyframes float3{0%,100%{transform:translate(0,0) scale(1);opacity:0.1}50%{transform:translate(20px,20px) scale(1.3);opacity:0.2}}
-      .text-side{display:flex;flex-direction:column;justify-content:center;padding:5rem 4rem 5rem 2rem;}
-      .service-card{border:1px solid rgba(255,255,255,0.1);padding:1.75rem 1.5rem;transition:border-color .3s,transform .35s cubic-bezier(.4,0,.2,1);}
-      .service-card:hover{border-color:rgba(184,145,42,0.45);transform:translateY(-5px);}
-      .service-num{font-family:"Playfair Display",serif;font-size:2.2rem;font-weight:700;color:rgba(184,145,42,0.35);line-height:1;margin-bottom:0.5rem;}
-      .scroll-reveal{opacity:0;transform:translateY(40px);transition:opacity .8s,transform .8s;}
-      .scroll-reveal.active{opacity:1;transform:translateY(0);}
-      .magnetic{transition:transform .3s cubic-bezier(.4,0,.2,1);}
-      @media(max-width:768px){
-        .hero-section{grid-template-columns:1fr;min-height:auto;}
-        .photo-side{height:420px;}
-        .photo-side::after{width:100%;height:40%;top:auto;bottom:0;background:linear-gradient(to top,#0f0f0d,transparent);}
-        .text-side{padding:3rem 2rem;}
+      body {
+        font-family: "DM Sans", sans-serif;
+      }
+      .font-display {
+        font-family: "Playfair Display", serif;
+      }
+      .fade-in {
+        opacity: 0;
+        transform: translateY(30px);
+        animation: fadeUp 0.7s forwards;
+      }
+      @keyframes fadeUp {
+        to {
+          opacity: 1;
+          transform: none;
+        }
+      }
+      .d1 {
+        animation-delay: 0.1s;
+      }
+      .d2 {
+        animation-delay: 0.25s;
+      }
+      .d3 {
+        animation-delay: 0.4s;
+      }
+      .d4 {
+        animation-delay: 0.55s;
+      }
+      .nav-a {
+        position: relative;
+        transition: all 0.3s;
+        padding: 8px 0;
+      }
+      .nav-a::before {
+        content: "";
+        position: absolute;
+        bottom: 0;
+        left: 50%;
+        width: 0;
+        height: 2px;
+        background: linear-gradient(90deg, #b8912a, #d4a93c);
+        transition: all 0.3s;
+        transform: translateX(-50%);
+      }
+      .nav-a:hover,
+      .nav-a.active {
+        color: #b8912a;
+      }
+      .nav-a:hover::before,
+      .nav-a.active::before {
+        width: 100%;
+      }
+      .nav-logo {
+        transition: all 0.3s;
+      }
+      .nav-logo:hover {
+        transform: scale(1.05);
+        box-shadow: 0 0 20px rgba(184, 145, 42, 0.3);
+      }
+      nav {
+        backdrop-filter: blur(10px);
+        background: rgba(15, 15, 13, 0.95);
+        position: sticky;
+        top: 0;
+        z-index: 50;
+      }
+      .hero-section {
+        display: grid;
+        grid-template-columns: 45% 55%;
+        min-height: calc(100vh - 73px);
+        position: relative;
+      }
+      .photo-side {
+        position: relative;
+        overflow: hidden;
+      }
+      .photo-side::before {
+        content: "";
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        height: 25%;
+        background: linear-gradient(to top, rgba(15, 15, 13, 0.5), transparent);
+        pointer-events: none;
+        z-index: 1;
+      }
+      .photo-side::after {
+        content: "";
+        position: absolute;
+        top: 0;
+        right: 0;
+        width: 50%;
+        height: 100%;
+        background: linear-gradient(to right, transparent, #0f0f0d);
+        pointer-events: none;
+        z-index: 2;
+      }
+      .photo-side img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        object-position: center top;
+        display: block;
+        filter: brightness(0.75) contrast(1.05);
+        animation: zoomPan 25s ease-in-out infinite alternate;
+      }
+      @keyframes zoomPan {
+        0% {
+          transform: scale(1) translateX(0);
+        }
+        50% {
+          transform: scale(1.15) translateX(-20px);
+        }
+        100% {
+          transform: scale(1.08) translateX(10px);
+        }
+      }
+      .bg-shape {
+        position: absolute;
+        border-radius: 50%;
+        filter: blur(80px);
+        z-index: 0;
+      }
+      .shape1 {
+        width: 350px;
+        height: 350px;
+        background: linear-gradient(135deg, #b8912a, #d4a93c);
+        top: 10%;
+        left: 5%;
+        animation: float1 10s ease-in-out infinite;
+      }
+      .shape2 {
+        width: 250px;
+        height: 250px;
+        background: linear-gradient(225deg, #d4a93c, #b8912a);
+        bottom: 15%;
+        right: 10%;
+        animation: float2 12s ease-in-out infinite;
+      }
+      .shape3 {
+        width: 180px;
+        height: 180px;
+        background: radial-gradient(circle, #b8912a, transparent);
+        top: 50%;
+        left: 15%;
+        animation: float3 8s ease-in-out infinite;
+      }
+      @keyframes float1 {
+        0%,
+        100% {
+          transform: translate(0, 0) scale(1);
+          opacity: 0.15;
+        }
+        50% {
+          transform: translate(30px, -30px) scale(1.2);
+          opacity: 0.25;
+        }
+      }
+      @keyframes float2 {
+        0%,
+        100% {
+          transform: translate(0, 0) rotate(0deg);
+          opacity: 0.15;
+        }
+        50% {
+          transform: translate(-25px, 25px) rotate(180deg);
+          opacity: 0.25;
+        }
+      }
+      @keyframes float3 {
+        0%,
+        100% {
+          transform: translate(0, 0) scale(1);
+          opacity: 0.1;
+        }
+        50% {
+          transform: translate(20px, 20px) scale(1.3);
+          opacity: 0.2;
+        }
+      }
+      .text-side {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        padding: 5rem 4rem 5rem 2rem;
+      }
+      .service-card {
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        padding: 1.75rem 1.5rem;
+        transition:
+          border-color 0.3s,
+          transform 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+      }
+      .service-card:hover {
+        border-color: rgba(184, 145, 42, 0.45);
+        transform: translateY(-5px);
+      }
+      .service-num {
+        font-family: "Playfair Display", serif;
+        font-size: 2.2rem;
+        font-weight: 700;
+        color: rgba(184, 145, 42, 0.35);
+        line-height: 1;
+        margin-bottom: 0.5rem;
+      }
+      .scroll-reveal {
+        opacity: 0;
+        transform: translateY(40px);
+        transition:
+          opacity 0.8s,
+          transform 0.8s;
+      }
+      .scroll-reveal.active {
+        opacity: 1;
+        transform: translateY(0);
+      }
+      .magnetic {
+        transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+      }
+      @media (max-width: 768px) {
+        .hero-section {
+          grid-template-columns: 1fr;
+          min-height: auto;
+        }
+        .photo-side {
+          height: 420px;
+        }
+        .photo-side::after {
+          width: 100%;
+          height: 40%;
+          top: auto;
+          bottom: 0;
+          background: linear-gradient(to top, #0f0f0d, transparent);
+        }
+        .text-side {
+          padding: 3rem 2rem;
+        }
       }
     </style>
   </head>
   <body class="bg-[#0F0F0D] text-white">
     <!-- NAV -->
-    <nav class="flex items-center justify-between px-8 md:px-20 py-5 border-b border-white/10">
-      <a href="index.html" class="nav-logo px-5 py-2 border border-[#B8912A] text-[#B8912A] text-xs tracking-[0.2em] uppercase font-medium magnetic">Olamide Andrew</a>
-      <div class="hidden md:flex gap-8 text-sm text-white/70">
-        <a href="index.html" class="nav-a">Home</a>
-        <a href="about.html" class="nav-a active">About</a>
-        <a href="services.html" class="nav-a">Services</a>
-        <a href="work.html" class="nav-a">Work</a>
-        <a href="contact.html" class="nav-a">Contact</a>
+    <nav
+      class="relative flex items-center justify-between px-8 md:px-20 py-5 border-b border-white/10"
+    >
+      <a
+        href="index.html"
+        class="px-5 py-2 border border-[#B8912A] text-[#B8912A] text-xs tracking-[0.2em] uppercase font-medium"
+        >Olamide Andrew</a
+      >
+      <div
+        class="hidden md:flex items-center gap-8 text-sm text-white/70 absolute left-1/2 -translate-x-1/2"
+      >
+        <a href="index.html" class="nav-a transition-colors text-[#B8912A]"
+          >Home</a
+        >
+        <a href="about.html" class="nav-a transition-colors">About</a>
+        <a href="services.html" class="nav-a transition-colors">Services</a>
+        <a href="work.html" class="nav-a transition-colors">Work</a>
+        <a href="contact.html" class="nav-a transition-colors">Contact</a>
       </div>
-      <button type="button" class="md:hidden text-white/80 hover:text-[#B8912A] transition-colors" aria-label="Open menu" data-menu-toggle>
-        <svg xmlns="http://www.w3.org/2000/svg" class="w-7 h-7" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M4 7h16M4 12h16M4 17h16"/>
+      <a
+        href="https://topmate.io/olamide_andrew"
+        target="_blank"
+        rel="noopener noreferrer"
+        class="hidden md:inline-flex px-4 py-2 border border-[#B8912A] text-[#B8912A] hover:bg-[#B8912A] hover:text-white transition-all rounded-sm"
+        >Book Meeting</a
+      >
+      <button
+        type="button"
+        class="md:hidden text-white/80 hover:text-[#B8912A] transition-colors"
+        aria-label="Open menu"
+        data-menu-toggle
+      >
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          class="w-7 h-7"
+          fill="none"
+          viewBox="0 0 24 24"
+          stroke="currentColor"
+        >
+          <path
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-width="1.8"
+            d="M4 7h16M4 12h16M4 17h16"
+          />
         </svg>
       </button>
     </nav>
-
-    <!-- Mobile Menu -->
-    <div id="mobile-menu-backdrop" class="md:hidden fixed inset-0 bg-black/60 opacity-0 pointer-events-none transition-opacity duration-300 z-40"></div>
-    <aside id="mobile-menu" class="md:hidden fixed top-0 right-0 h-full w-72 max-w-[85vw] bg-[#181815] border-l border-[#B8912A]/40 transform translate-x-full transition-transform duration-300 ease-out z-50 p-8">
+    <div
+      id="mobile-menu-backdrop"
+      class="md:hidden fixed inset-0 bg-black/60 opacity-0 pointer-events-none transition-opacity duration-300 z-40"
+    ></div>
+    <aside
+      id="mobile-menu"
+      class="md:hidden fixed top-0 right-0 h-full w-72 max-w-[85vw] bg-[#181815] border-l border-[#B8912A]/40 transform translate-x-full transition-transform duration-300 ease-out z-50 p-8"
+    >
       <div class="flex items-center justify-between mb-10">
         <p class="text-xs tracking-[0.2em] uppercase text-[#B8912A]">Menu</p>
-        <button type="button" class="text-white/70 hover:text-[#B8912A] transition-colors" aria-label="Close menu" data-menu-close>
-          <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M6 6l12 12M18 6L6 18"/>
+        <button
+          type="button"
+          class="text-white/70 hover:text-[#B8912A] transition-colors"
+          aria-label="Close menu"
+          data-menu-close
+        >
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            class="w-6 h-6"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke="currentColor"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="1.8"
+              d="M6 6l12 12M18 6L6 18"
+            />
           </svg>
         </button>
       </div>
       <nav class="flex flex-col gap-6 text-base text-white/85">
-        <a href="index.html" class="nav-a">Home</a>
-        <a href="about.html" class="nav-a text-[#B8912A]">About</a>
+        <a href="index.html" class="nav-a text-[#B8912A]">Home</a>
+        <a href="about.html" class="nav-a">About</a>
         <a href="services.html" class="nav-a">Services</a>
         <a href="work.html" class="nav-a">Work</a>
         <a href="contact.html" class="nav-a">Contact</a>
+        <a
+          href="https://topmate.io/olamide_andrew"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="mt-2 px-4 py-2 border border-[#B8912A] text-[#B8912A] text-center rounded-sm"
+          >Book Meeting</a
+        >
       </nav>
     </aside>
 
@@ -91,43 +356,87 @@
         <div class="bg-shape shape1"></div>
         <div class="bg-shape shape2"></div>
         <div class="bg-shape shape3"></div>
-        <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=800&q=85&fit=crop&crop=faces,top" alt="Olamide Andrew"/>
+        <img
+          src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=800&q=85&fit=crop&crop=faces,top"
+          alt="Olamide Andrew"
+        />
       </div>
       <div class="text-side">
-        <p class="fade-in d1 text-[10px] tracking-[0.35em] text-[#B8912A] uppercase mb-5">I'm Olamide Andrew</p>
-        <h1 class="fade-in d2 font-display text-4xl md:text-5xl lg:text-[3.2rem] font-bold leading-[1.15] mb-8">
-          Design is the invisible<br/>architecture of human experience.
+        <p
+          class="fade-in d1 text-[10px] tracking-[0.35em] text-[#B8912A] uppercase mb-5"
+        >
+          I'm Olamide Andrew
+        </p>
+        <h1
+          class="fade-in d2 font-display text-4xl md:text-5xl lg:text-[3.2rem] font-bold leading-[1.15] mb-8"
+        >
+          Design is the invisible<br />architecture of human experience.
         </h1>
         <p class="fade-in d3 text-white/60 leading-relaxed mb-5 max-w-lg">
-          I'm <strong class="text-white font-medium">Olamide Andrew</strong> – a strategic brand designer who believes imagination, when directed with intention, becomes one of the most powerful tools a business can wield.
+          I'm <strong class="text-white font-medium">Olamide Andrew</strong> – a
+          strategic brand designer who believes imagination, when directed with
+          intention, becomes one of the most powerful tools a business can
+          wield.
         </p>
         <p class="fade-in d3 text-white/60 leading-relaxed mb-8 max-w-lg">
-          My name means <span class="text-[#B8912A] italic">"my wealth has come"</span> and I approach every project with that same spirit of intent.
+          My name means
+          <span class="text-[#B8912A] italic">"my wealth has come"</span> and I
+          approach every project with that same spirit of intent.
         </p>
         <div class="fade-in d4 flex flex-wrap gap-4 mb-8">
-          <a href="#" class="bg-[#B8912A] hover:bg-[#D4A93C] text-white px-8 py-3 text-sm font-medium transition-all hover:scale-105 magnetic">Download Resume</a>
-          <a href="work.html" class="border border-white/40 hover:border-[#B8912A] hover:text-[#B8912A] text-white px-8 py-3 text-sm font-medium transition-all hover:scale-105 magnetic">View My Work</a>
+          <a
+            href="#"
+            class="bg-[#B8912A] hover:bg-[#D4A93C] text-white px-8 py-3 text-sm font-medium transition-all hover:scale-105 magnetic"
+            >Download Resume</a
+          >
+          <a
+            href="work.html"
+            class="border border-white/40 hover:border-[#B8912A] hover:text-[#B8912A] text-white px-8 py-3 text-sm font-medium transition-all hover:scale-105 magnetic"
+            >View My Work</a
+          >
         </div>
       </div>
     </section>
 
     <!-- STATS -->
     <section class="bg-[#181815] py-16 px-8 md:px-20">
-      <div class="grid grid-cols-2 md:grid-cols-4 gap-8 text-center max-w-5xl mx-auto">
+      <div
+        class="grid grid-cols-2 md:grid-cols-4 gap-8 text-center max-w-5xl mx-auto"
+      >
         <div class="scroll-reveal">
-          <p class="font-display text-5xl font-bold text-[#B8912A] mb-2" data-count="6">0</p>
+          <p
+            class="font-display text-5xl font-bold text-[#B8912A] mb-2"
+            data-count="6"
+          >
+            0
+          </p>
           <p class="text-sm text-white/50">Years Experience</p>
         </div>
-        <div class="scroll-reveal" style="transition-delay:.1s">
-          <p class="font-display text-5xl font-bold text-[#B8912A] mb-2" data-count="50">0</p>
+        <div class="scroll-reveal" style="transition-delay: 0.1s">
+          <p
+            class="font-display text-5xl font-bold text-[#B8912A] mb-2"
+            data-count="50"
+          >
+            0
+          </p>
           <p class="text-sm text-white/50">Projects Completed</p>
         </div>
-        <div class="scroll-reveal" style="transition-delay:.2s">
-          <p class="font-display text-5xl font-bold text-[#B8912A] mb-2" data-count="30">0</p>
+        <div class="scroll-reveal" style="transition-delay: 0.2s">
+          <p
+            class="font-display text-5xl font-bold text-[#B8912A] mb-2"
+            data-count="30"
+          >
+            0
+          </p>
           <p class="text-sm text-white/50">Happy Clients</p>
         </div>
-        <div class="scroll-reveal" style="transition-delay:.3s">
-          <p class="font-display text-5xl font-bold text-[#B8912A] mb-2" data-count="12">0</p>
+        <div class="scroll-reveal" style="transition-delay: 0.3s">
+          <p
+            class="font-display text-5xl font-bold text-[#B8912A] mb-2"
+            data-count="12"
+          >
+            0
+          </p>
           <p class="text-sm text-white/50">Industries Served</p>
         </div>
       </div>
@@ -135,12 +444,22 @@
 
     <!-- HOW I CAN HELP -->
     <section class="bg-[#0F0F0D] py-16 px-8 md:px-20">
-      <p class="text-[10px] tracking-[0.35em] text-[#B8912A] uppercase mb-10 text-center scroll-reveal">How I Can Help</p>
+      <p
+        class="text-[10px] tracking-[0.35em] text-[#B8912A] uppercase mb-10 text-center scroll-reveal"
+      >
+        How I Can Help
+      </p>
       <div class="grid md:grid-cols-3 gap-6 max-w-6xl mx-auto">
         <div class="service-card scroll-reveal">
-          <div class="flex items-center gap-4 mb-4 border-b border-white/10 pb-4">
+          <div
+            class="flex items-center gap-4 mb-4 border-b border-white/10 pb-4"
+          >
             <span class="service-num">01</span>
-            <h3 class="text-xs tracking-[0.2em] uppercase font-semibold text-white">Brand Strategy</h3>
+            <h3
+              class="text-xs tracking-[0.2em] uppercase font-semibold text-white"
+            >
+              Brand Strategy
+            </h3>
           </div>
           <ul class="space-y-2 text-white/50 text-sm">
             <li>Positioning</li>
@@ -148,10 +467,16 @@
             <li>Growth Roadmap</li>
           </ul>
         </div>
-        <div class="service-card scroll-reveal" style="transition-delay:.1s">
-          <div class="flex items-center gap-4 mb-4 border-b border-white/10 pb-4">
+        <div class="service-card scroll-reveal" style="transition-delay: 0.1s">
+          <div
+            class="flex items-center gap-4 mb-4 border-b border-white/10 pb-4"
+          >
             <span class="service-num">02</span>
-            <h3 class="text-xs tracking-[0.2em] uppercase font-semibold text-white">Visual Identity</h3>
+            <h3
+              class="text-xs tracking-[0.2em] uppercase font-semibold text-white"
+            >
+              Visual Identity
+            </h3>
           </div>
           <ul class="space-y-2 text-white/50 text-sm">
             <li>Logo Design</li>
@@ -159,10 +484,16 @@
             <li>Typography</li>
           </ul>
         </div>
-        <div class="service-card scroll-reveal" style="transition-delay:.2s">
-          <div class="flex items-center gap-4 mb-4 border-b border-white/10 pb-4">
+        <div class="service-card scroll-reveal" style="transition-delay: 0.2s">
+          <div
+            class="flex items-center gap-4 mb-4 border-b border-white/10 pb-4"
+          >
             <span class="service-num">03</span>
-            <h3 class="text-xs tracking-[0.2em] uppercase font-semibold text-white">Campaign Design</h3>
+            <h3
+              class="text-xs tracking-[0.2em] uppercase font-semibold text-white"
+            >
+              Campaign Design
+            </h3>
           </div>
           <ul class="space-y-2 text-white/50 text-sm">
             <li>Marketing Materials</li>
@@ -175,22 +506,45 @@
 
     <!-- TESTIMONIALS -->
     <section class="bg-[#181815] py-16 px-8 md:px-20">
-      <p class="text-[10px] tracking-[0.35em] text-[#B8912A] uppercase mb-10 text-center scroll-reveal">What Clients Say</p>
+      <p
+        class="text-[10px] tracking-[0.35em] text-[#B8912A] uppercase mb-10 text-center scroll-reveal"
+      >
+        What Clients Say
+      </p>
       <div class="grid md:grid-cols-2 gap-8 max-w-5xl mx-auto">
-        <div class="border border-white/10 p-8 scroll-reveal hover:border-[#B8912A]/30 transition-all">
-          <p class="text-white/60 italic mb-6 leading-relaxed">"Olamide transformed our brand identity completely. His strategic approach and attention to detail exceeded our expectations."</p>
+        <div
+          class="border border-white/10 p-8 scroll-reveal hover:border-[#B8912A]/30 transition-all"
+        >
+          <p class="text-white/60 italic mb-6 leading-relaxed">
+            "Olamide transformed our brand identity completely. His strategic
+            approach and attention to detail exceeded our expectations."
+          </p>
           <div class="flex items-center gap-4">
-            <div class="w-12 h-12 rounded-full bg-[#B8912A]/20 flex items-center justify-center text-[#B8912A] font-bold">JD</div>
+            <div
+              class="w-12 h-12 rounded-full bg-[#B8912A]/20 flex items-center justify-center text-[#B8912A] font-bold"
+            >
+              JD
+            </div>
             <div>
               <p class="font-semibold text-sm">John Doe</p>
               <p class="text-xs text-white/40">CEO, Tech Startup</p>
             </div>
           </div>
         </div>
-        <div class="border border-white/10 p-8 scroll-reveal hover:border-[#B8912A]/30 transition-all" style="transition-delay:.1s">
-          <p class="text-white/60 italic mb-6 leading-relaxed">"Working with Olamide was a game-changer. He brought our vision to life with creativity and professionalism."</p>
+        <div
+          class="border border-white/10 p-8 scroll-reveal hover:border-[#B8912A]/30 transition-all"
+          style="transition-delay: 0.1s"
+        >
+          <p class="text-white/60 italic mb-6 leading-relaxed">
+            "Working with Olamide was a game-changer. He brought our vision to
+            life with creativity and professionalism."
+          </p>
           <div class="flex items-center gap-4">
-            <div class="w-12 h-12 rounded-full bg-[#B8912A]/20 flex items-center justify-center text-[#B8912A] font-bold">SM</div>
+            <div
+              class="w-12 h-12 rounded-full bg-[#B8912A]/20 flex items-center justify-center text-[#B8912A] font-bold"
+            >
+              SM
+            </div>
             <div>
               <p class="font-semibold text-sm">Sarah Miller</p>
               <p class="text-xs text-white/40">Founder, Wellness Brand</p>
@@ -202,79 +556,158 @@
 
     <!-- CTA -->
     <section class="bg-[#F5F3EE] text-[#0F0F0D] py-16 px-6 text-center">
-      <h2 class="font-display text-4xl md:text-5xl font-bold mb-4">Have a project in mind?</h2>
-      <p class="text-black/55 mb-8 max-w-md mx-auto text-sm leading-relaxed">Available for full-time and contract roles with ambitious brands and forward-thinking teams.</p>
-      <a href="contact.html" class="bg-[#B8912A] hover:bg-[#D4A93C] text-white inline-block px-10 py-4 text-sm font-medium transition-all hover:scale-105 magnetic">Get In Touch</a>
+      <h2 class="font-display text-4xl md:text-5xl font-bold mb-4">
+        Have a project in mind?
+      </h2>
+      <p class="text-black/55 mb-8 max-w-md mx-auto text-sm leading-relaxed">
+        Available for full-time and contract roles with ambitious brands and
+        forward-thinking teams.
+      </p>
+      <a
+        href="contact.html"
+        class="bg-[#B8912A] hover:bg-[#D4A93C] text-white inline-block px-10 py-4 text-sm font-medium transition-all hover:scale-105 magnetic"
+        >Get In Touch</a
+      >
     </section>
 
     <!-- FOOTER -->
     <footer class="bg-[#0F0F0D] border-t border-white/10 px-8 md:px-20 py-12">
       <div class="flex flex-col md:flex-row justify-between gap-8 mb-8">
         <div>
-          <p class="text-xs tracking-[0.2em] uppercase font-medium mb-2">Olamide Andrew</p>
-          <p class="text-white/40 text-sm">Strategic Brand Designer based in Cancola.</p>
+          <p class="text-xs tracking-[0.2em] uppercase font-medium mb-2">
+            Olamide Andrew
+          </p>
+          <p class="text-white/40 text-sm">
+            Strategic Brand Designer based in Cancola.
+          </p>
         </div>
         <div class="flex gap-8 text-sm text-white/60">
-          <a href="work.html" class="hover:text-[#B8912A] transition-colors">Work</a>
-          <a href="about.html" class="hover:text-[#B8912A] transition-colors">About</a>
-          <a href="contact.html" class="hover:text-[#B8912A] transition-colors">Contact</a>
+          <a href="work.html" class="hover:text-[#B8912A] transition-colors"
+            >Work</a
+          >
+          <a href="about.html" class="hover:text-[#B8912A] transition-colors"
+            >About</a
+          >
+          <a href="contact.html" class="hover:text-[#B8912A] transition-colors"
+            >Contact</a
+          >
         </div>
         <div class="flex gap-3 items-center">
-          <a href="#" class="w-9 h-9 rounded-full border border-white/20 flex items-center justify-center text-white/50 hover:border-[#B8912A] hover:text-[#B8912A] transition-all text-xs">Be</a>
-          <a href="#" class="w-9 h-9 rounded-full border border-white/20 flex items-center justify-center text-white/50 hover:border-[#B8912A] hover:text-[#B8912A] transition-all text-xs">In</a>
-          <a href="#" class="w-9 h-9 rounded-full border border-white/20 flex items-center justify-center text-white/50 hover:border-[#B8912A] hover:text-[#B8912A] transition-all text-xs">Tw</a>
+          <a
+            href="#"
+            class="w-9 h-9 rounded-full border border-white/20 flex items-center justify-center text-white/50 hover:border-[#B8912A] hover:text-[#B8912A] transition-all text-xs"
+            >Be</a
+          >
+          <a
+            href="#"
+            class="w-9 h-9 rounded-full border border-white/20 flex items-center justify-center text-white/50 hover:border-[#B8912A] hover:text-[#B8912A] transition-all text-xs"
+            >In</a
+          >
+          <a
+            href="#"
+            class="w-9 h-9 rounded-full border border-white/20 flex items-center justify-center text-white/50 hover:border-[#B8912A] hover:text-[#B8912A] transition-all text-xs"
+            >Tw</a
+          >
         </div>
       </div>
-      <div class="flex flex-col md:flex-row justify-between items-center pt-6 border-t border-white/10 gap-3">
-        <p class="text-white/30 text-xs">© 2025, Olamide Andrew. All rights reserved.</p>
-        <a href="mailto:hello@olamideandrew.com" class="text-white/40 text-sm hover:text-[#B8912A] transition-colors">hello@olamideandrew.com</a>
+      <div
+        class="flex flex-col md:flex-row justify-between items-center pt-6 border-t border-white/10 gap-3"
+      >
+        <p class="text-white/30 text-xs">
+          © 2025, Olamide Andrew. All rights reserved.
+        </p>
+        <a
+          href="mailto:hello@olamideandrew.com"
+          class="text-white/40 text-sm hover:text-[#B8912A] transition-colors"
+          >hello@olamideandrew.com</a
+        >
       </div>
     </footer>
 
     <script>
-    (function(){
-      const menu=document.getElementById("mobile-menu"),backdrop=document.getElementById("mobile-menu-backdrop"),openBtn=document.querySelector("[data-menu-toggle]"),closeBtn=document.querySelector("[data-menu-close]");
-      if(menu&&backdrop&&openBtn&&closeBtn){
-        const close=()=>{menu.classList.add("translate-x-full");backdrop.classList.add("opacity-0","pointer-events-none");document.body.style.overflow="";};
-        const open=()=>{menu.classList.remove("translate-x-full");backdrop.classList.remove("opacity-0","pointer-events-none");document.body.style.overflow="hidden";};
-        openBtn.addEventListener("click",open);closeBtn.addEventListener("click",close);backdrop.addEventListener("click",close);
-        menu.querySelectorAll("a").forEach(l=>l.addEventListener("click",close));
-        document.addEventListener("keydown",e=>{if(e.key==="Escape")close();});
-      }
-      const reveals=document.querySelectorAll('.scroll-reveal');
-      const onScroll=()=>reveals.forEach(el=>{if(el.getBoundingClientRect().top<window.innerHeight-80)el.classList.add('active');});
-      window.addEventListener('scroll',onScroll);onScroll();
-      document.querySelectorAll('.magnetic').forEach(el=>{
-        el.addEventListener('mousemove',e=>{const r=el.getBoundingClientRect();el.style.transform=`translate(${(e.clientX-r.left-r.width/2)/10}px,${(e.clientY-r.top-r.height/2)/10}px)`;});
-        el.addEventListener('mouseleave',()=>el.style.transform='translate(0,0)');
-      });
-      // Counter Animation
-      const counters=document.querySelectorAll('[data-count]');
-      const animateCounter=(el)=>{
-        const target=parseInt(el.dataset.count);
-        const duration=2000;
-        const step=target/60;
-        let current=0;
-        const timer=setInterval(()=>{
-          current+=step;
-          if(current>=target){
-            el.textContent=target+(target===6?'+':target===50||target===30?'+':'');
-            clearInterval(timer);
-          }else{
-            el.textContent=Math.floor(current);
-          }
-        },duration/60);
-      };
-      const observer=new IntersectionObserver(entries=>{
-        entries.forEach(entry=>{
-          if(entry.isIntersecting){
-            const counter=entry.target.querySelector('[data-count]');
-            if(counter&&counter.textContent==='0')animateCounter(counter);
-          }
+      (function () {
+        const menu = document.getElementById("mobile-menu"),
+          backdrop = document.getElementById("mobile-menu-backdrop"),
+          openBtn = document.querySelector("[data-menu-toggle]"),
+          closeBtn = document.querySelector("[data-menu-close]");
+        if (menu && backdrop && openBtn && closeBtn) {
+          const close = () => {
+            menu.classList.add("translate-x-full");
+            backdrop.classList.add("opacity-0", "pointer-events-none");
+            document.body.style.overflow = "";
+          };
+          const open = () => {
+            menu.classList.remove("translate-x-full");
+            backdrop.classList.remove("opacity-0", "pointer-events-none");
+            document.body.style.overflow = "hidden";
+          };
+          openBtn.addEventListener("click", open);
+          closeBtn.addEventListener("click", close);
+          backdrop.addEventListener("click", close);
+          menu
+            .querySelectorAll("a")
+            .forEach((l) => l.addEventListener("click", close));
+          document.addEventListener("keydown", (e) => {
+            if (e.key === "Escape") close();
+          });
+        }
+        const reveals = document.querySelectorAll(".scroll-reveal");
+        const onScroll = () =>
+          reveals.forEach((el) => {
+            if (el.getBoundingClientRect().top < window.innerHeight - 80)
+              el.classList.add("active");
+          });
+        window.addEventListener("scroll", onScroll);
+        onScroll();
+        document.querySelectorAll(".magnetic").forEach((el) => {
+          el.addEventListener("mousemove", (e) => {
+            const r = el.getBoundingClientRect();
+            el.style.transform = `translate(${(e.clientX - r.left - r.width / 2) / 10}px,${(e.clientY - r.top - r.height / 2) / 10}px)`;
+          });
+          el.addEventListener(
+            "mouseleave",
+            () => (el.style.transform = "translate(0,0)"),
+          );
         });
-      },{threshold:0.5});
-      document.querySelectorAll('.scroll-reveal').forEach(el=>observer.observe(el));
-    })();
+        // Counter Animation
+        const counters = document.querySelectorAll("[data-count]");
+        const animateCounter = (el) => {
+          const target = parseInt(el.dataset.count);
+          const duration = 2000;
+          const step = target / 60;
+          let current = 0;
+          const timer = setInterval(() => {
+            current += step;
+            if (current >= target) {
+              el.textContent =
+                target +
+                (target === 6
+                  ? "+"
+                  : target === 50 || target === 30
+                    ? "+"
+                    : "");
+              clearInterval(timer);
+            } else {
+              el.textContent = Math.floor(current);
+            }
+          }, duration / 60);
+        };
+        const observer = new IntersectionObserver(
+          (entries) => {
+            entries.forEach((entry) => {
+              if (entry.isIntersecting) {
+                const counter = entry.target.querySelector("[data-count]");
+                if (counter && counter.textContent === "0")
+                  animateCounter(counter);
+              }
+            });
+          },
+          { threshold: 0.5 },
+        );
+        document
+          .querySelectorAll(".scroll-reveal")
+          .forEach((el) => observer.observe(el));
+      })();
     </script>
   </body>
 </html>
