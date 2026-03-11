@@ -5,82 +5,348 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>About — Olamide Andrew</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet"/>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=DM+Sans:wght@300;400;500&display=swap"
+      rel="stylesheet"
+    />
     <style>
-      body { font-family: "DM Sans", sans-serif; }
-      .font-display { font-family: "Playfair Display", serif; }
-      .fade-in { opacity: 0; transform: translateY(30px); animation: fadeUp 0.7s forwards; }
-      @keyframes fadeUp { to { opacity: 1; transform: none; } }
-      .d1{animation-delay:0.1s}.d2{animation-delay:0.25s}.d3{animation-delay:0.4s}.d4{animation-delay:0.55s}
-      .nav-a { position:relative; transition:all 0.3s; padding:8px 0; }
-      .nav-a::before { content:""; position:absolute; bottom:0; left:50%; width:0; height:2px; background:linear-gradient(90deg,#b8912a,#d4a93c); transition:all 0.3s; transform:translateX(-50%); }
-      .nav-a:hover,.nav-a.active { color:#b8912a; }
-      .nav-a:hover::before,.nav-a.active::before { width:100%; }
-      nav { backdrop-filter:blur(10px); background:rgba(15,15,13,0.95); position:sticky; top:0; z-index:50; }
-      .hero-section { position:relative; display:flex; align-items:center; justify-content:center; gap:4rem; padding:4rem 2rem; max-width:1200px; margin:0 auto; }
-      .hero-img { width:380px; height:450px; object-fit:cover; border:2px solid rgba(184,145,42,0.2); box-shadow:0 25px 70px rgba(0,0,0,0.4); flex-shrink:0; }
-      .hero-content { flex:1; max-width:600px; }
-      .bg-shape { position:absolute; border-radius:50%; filter:blur(80px); z-index:0; pointer-events:none; }
-      .shape1 { width:350px; height:350px; background:linear-gradient(135deg,#b8912a,#d4a93c); top:10%; left:5%; opacity:0.15; }
-      .shape2 { width:250px; height:250px; background:linear-gradient(225deg,#d4a93c,#b8912a); bottom:15%; right:10%; opacity:0.15; }
-      .shape3 { width:180px; height:180px; background:radial-gradient(circle,#b8912a,transparent); top:50%; left:15%; opacity:0.1; }
-      .text-side { display:flex; flex-direction:column; justify-content:center; padding:5rem 4rem 5rem 2rem; }
-      .stat-box { border-left:2px solid rgba(184,145,42,0.4); padding-left:1.5rem; }
-      .skill-bar-bg { background:rgba(255,255,255,0.08); height:3px; border-radius:2px; overflow:hidden; }
-      .skill-bar-fill { height:100%; border-radius:2px; background:linear-gradient(90deg,#B8912A,#D4A93C); transform:scaleX(0); transform-origin:left; transition:transform 1.2s cubic-bezier(0.4,0,0.2,1); }
-      .skill-bar-fill.animated { transform:scaleX(1); }
-      .timeline-line { position:absolute; left:0; top:8px; bottom:0; width:1px; background:rgba(184,145,42,0.2); }
-      .timeline-dot { position:absolute; left:-5px; top:6px; width:11px; height:11px; border-radius:50%; background:#B8912A; box-shadow:0 0 12px rgba(184,145,42,0.6); }
-      .service-card { border:1px solid rgba(255,255,255,0.1); padding:1.75rem 1.5rem; transition:border-color 0.3s,transform 0.35s cubic-bezier(0.4,0,0.2,1); }
-      .service-card:hover { border-color:rgba(184,145,42,0.45); transform:translateY(-5px); }
-      .service-num { font-family:"Playfair Display",serif; font-size:2.2rem; font-weight:700; color:rgba(184,145,42,0.35); line-height:1; margin-bottom:0.5rem; }
-      .scroll-reveal { opacity:0; transform:translateY(40px); transition:opacity 0.8s,transform 0.8s; }
-      .scroll-reveal.active { opacity:1; transform:translateY(0); }
-      .magnetic { transition:transform 0.3s cubic-bezier(0.4,0,0.2,1); }
-      .testimonial-card { border:1px solid rgba(255,255,255,0.08); padding:2rem; position:relative; overflow:hidden; transition:all 0.4s; }
-      .testimonial-card::before { content:'"'; position:absolute; top:-10px; left:20px; font-size:8rem; font-family:"Playfair Display",serif; color:rgba(184,145,42,0.08); line-height:1; pointer-events:none; }
-      .testimonial-card:hover { border-color:rgba(184,145,42,0.3); transform:translateY(-4px); }
-      .process-step { display:flex; align-items:flex-start; gap:1.5rem; padding:1.5rem 0; border-bottom:1px solid rgba(255,255,255,0.06); }
-      .process-step:last-child { border-bottom:none; }
-      .process-num { font-family:"Playfair Display",serif; font-size:3rem; font-weight:900; color:rgba(184,145,42,0.15); line-height:1; min-width:60px; transition:color 0.3s; }
-      .process-step:hover .process-num { color:rgba(184,145,42,0.5); }
-      @media(max-width:768px){
-        .hero-section{flex-direction:column;padding:3rem 2rem;text-align:center}
-        .hero-img{width:100%;max-width:320px;height:380px;margin:0 auto;order:1}
-        .hero-content{max-width:100%;order:2}
-        .text-side{padding:3rem 2rem}
+      body {
+        font-family: "DM Sans", sans-serif;
+      }
+      .font-display {
+        font-family: "Playfair Display", serif;
+      }
+      .fade-in {
+        opacity: 0;
+        transform: translateY(30px);
+        animation: fadeUp 0.7s forwards;
+      }
+      @keyframes fadeUp {
+        to {
+          opacity: 1;
+          transform: none;
+        }
+      }
+      .d1 {
+        animation-delay: 0.1s;
+      }
+      .d2 {
+        animation-delay: 0.25s;
+      }
+      .d3 {
+        animation-delay: 0.4s;
+      }
+      .d4 {
+        animation-delay: 0.55s;
+      }
+      .nav-a {
+        position: relative;
+        transition: all 0.3s;
+        padding: 8px 0;
+      }
+      .nav-a::before {
+        content: "";
+        position: absolute;
+        bottom: 0;
+        left: 50%;
+        width: 0;
+        height: 2px;
+        background: linear-gradient(90deg, #b8912a, #d4a93c);
+        transition: all 0.3s;
+        transform: translateX(-50%);
+      }
+      .nav-a:hover,
+      .nav-a.active {
+        color: #b8912a;
+      }
+      .nav-a:hover::before,
+      .nav-a.active::before {
+        width: 100%;
+      }
+      nav {
+        backdrop-filter: blur(10px);
+        background: rgba(15, 15, 13, 0.95);
+        position: sticky;
+        top: 0;
+        z-index: 50;
+      }
+      .hero-section {
+        position: relative;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 4rem;
+        padding: 4rem 2rem;
+        max-width: 1200px;
+        margin: 0 auto;
+      }
+      .hero-img {
+        width: 380px;
+        height: 450px;
+        object-fit: cover;
+        border: 2px solid rgba(184, 145, 42, 0.2);
+        box-shadow: 0 25px 70px rgba(0, 0, 0, 0.4);
+        flex-shrink: 0;
+      }
+      .hero-content {
+        flex: 1;
+        max-width: 600px;
+      }
+      .bg-shape {
+        position: absolute;
+        border-radius: 50%;
+        filter: blur(80px);
+        z-index: 0;
+        pointer-events: none;
+      }
+      .shape1 {
+        width: 350px;
+        height: 350px;
+        background: linear-gradient(135deg, #b8912a, #d4a93c);
+        top: 10%;
+        left: 5%;
+        opacity: 0.15;
+      }
+      .shape2 {
+        width: 250px;
+        height: 250px;
+        background: linear-gradient(225deg, #d4a93c, #b8912a);
+        bottom: 15%;
+        right: 10%;
+        opacity: 0.15;
+      }
+      .shape3 {
+        width: 180px;
+        height: 180px;
+        background: radial-gradient(circle, #b8912a, transparent);
+        top: 50%;
+        left: 15%;
+        opacity: 0.1;
+      }
+      .text-side {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        padding: 5rem 4rem 5rem 2rem;
+      }
+      .stat-box {
+        border-left: 2px solid rgba(184, 145, 42, 0.4);
+        padding-left: 1.5rem;
+      }
+      .skill-bar-bg {
+        background: rgba(255, 255, 255, 0.08);
+        height: 3px;
+        border-radius: 2px;
+        overflow: hidden;
+      }
+      .skill-bar-fill {
+        height: 100%;
+        border-radius: 2px;
+        background: linear-gradient(90deg, #b8912a, #d4a93c);
+        transform: scaleX(0);
+        transform-origin: left;
+        transition: transform 1.2s cubic-bezier(0.4, 0, 0.2, 1);
+      }
+      .skill-bar-fill.animated {
+        transform: scaleX(1);
+      }
+      .timeline-line {
+        position: absolute;
+        left: 0;
+        top: 8px;
+        bottom: 0;
+        width: 1px;
+        background: rgba(184, 145, 42, 0.2);
+      }
+      .timeline-dot {
+        position: absolute;
+        left: -5px;
+        top: 6px;
+        width: 11px;
+        height: 11px;
+        border-radius: 50%;
+        background: #b8912a;
+        box-shadow: 0 0 12px rgba(184, 145, 42, 0.6);
+      }
+      .service-card {
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        padding: 1.75rem 1.5rem;
+        transition:
+          border-color 0.3s,
+          transform 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+      }
+      .service-card:hover {
+        border-color: rgba(184, 145, 42, 0.45);
+        transform: translateY(-5px);
+      }
+      .service-num {
+        font-family: "Playfair Display", serif;
+        font-size: 2.2rem;
+        font-weight: 700;
+        color: rgba(184, 145, 42, 0.35);
+        line-height: 1;
+        margin-bottom: 0.5rem;
+      }
+      .scroll-reveal {
+        opacity: 0;
+        transform: translateY(40px);
+        transition:
+          opacity 0.8s,
+          transform 0.8s;
+      }
+      .scroll-reveal.active {
+        opacity: 1;
+        transform: translateY(0);
+      }
+      .magnetic {
+        transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+      }
+      .testimonial-card {
+        border: 1px solid rgba(255, 255, 255, 0.08);
+        padding: 2rem;
+        position: relative;
+        overflow: hidden;
+        transition: all 0.4s;
+      }
+      .testimonial-card::before {
+        content: '"';
+        position: absolute;
+        top: -10px;
+        left: 20px;
+        font-size: 8rem;
+        font-family: "Playfair Display", serif;
+        color: rgba(184, 145, 42, 0.08);
+        line-height: 1;
+        pointer-events: none;
+      }
+      .testimonial-card:hover {
+        border-color: rgba(184, 145, 42, 0.3);
+        transform: translateY(-4px);
+      }
+      .process-step {
+        display: flex;
+        align-items: flex-start;
+        gap: 1.5rem;
+        padding: 1.5rem 0;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+      }
+      .process-step:last-child {
+        border-bottom: none;
+      }
+      .process-num {
+        font-family: "Playfair Display", serif;
+        font-size: 3rem;
+        font-weight: 900;
+        color: rgba(184, 145, 42, 0.15);
+        line-height: 1;
+        min-width: 60px;
+        transition: color 0.3s;
+      }
+      .process-step:hover .process-num {
+        color: rgba(184, 145, 42, 0.5);
+      }
+      @media (max-width: 768px) {
+        .hero-section {
+          flex-direction: column;
+          padding: 3rem 2rem;
+          text-align: center;
+        }
+        .hero-img {
+          width: 100%;
+          max-width: 320px;
+          height: 380px;
+          margin: 0 auto;
+          order: 1;
+        }
+        .hero-content {
+          max-width: 100%;
+          order: 2;
+        }
+        .text-side {
+          padding: 3rem 2rem;
+        }
       }
     </style>
   </head>
   <body class="bg-[#0F0F0D] text-white">
-
     <!-- NAV -->
-    <nav class="relative flex items-center justify-between px-8 md:px-20 py-5 border-b border-white/10">
-      <a href="index.html" class="px-5 py-2 border border-[#B8912A] text-[#B8912A] text-xs tracking-[0.2em] uppercase font-medium">Olamide Andrew</a>
-      <div class="hidden md:flex items-center gap-8 text-sm text-white/70 absolute left-1/2 -translate-x-1/2">
+    <nav
+      class="relative flex items-center justify-between px-8 md:px-20 py-5 border-b border-white/10"
+    >
+      <a
+        href="index.html"
+        class="px-5 py-2 border border-[#B8912A] text-[#B8912A] text-xs tracking-[0.2em] uppercase font-medium"
+        >Olamide Andrew</a
+      >
+      <div
+        class="hidden md:flex items-center gap-8 text-sm text-white/70 absolute left-1/2 -translate-x-1/2"
+      >
         <a href="index.html" class="nav-a transition-colors">Home</a>
         <a href="about.html" class="nav-a transition-colors active">About</a>
-        <a href="services.html" class="nav-a transition-colors">Services</a>
+        <!-- <a href="services.html" class="nav-a transition-colors">Services</a> -->
         <a href="work.html" class="nav-a transition-colors">Work</a>
         <a href="contact.html" class="nav-a transition-colors">Contact</a>
       </div>
-      <a href="https://topmate.io/olamide_andrew" target="_blank" rel="noopener noreferrer"
-        class="hidden md:inline-flex px-4 py-2 border border-[#B8912A] text-[#B8912A] hover:bg-[#B8912A] hover:text-white transition-all rounded-sm">Book Meeting</a>
-      <button type="button" class="md:hidden text-white/80 hover:text-[#B8912A] transition-colors" aria-label="Open menu" data-menu-toggle>
-        <svg xmlns="http://www.w3.org/2000/svg" class="w-7 h-7" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M4 7h16M4 12h16M4 17h16"/>
+      <a
+        href="https://topmate.io/olamide_andrew"
+        target="_blank"
+        rel="noopener noreferrer"
+        class="hidden md:inline-flex px-4 py-2 border border-[#B8912A] text-[#B8912A] hover:bg-[#B8912A] hover:text-white transition-all rounded-sm"
+        >Book Meeting</a
+      >
+      <button
+        type="button"
+        class="md:hidden text-white/80 hover:text-[#B8912A] transition-colors"
+        aria-label="Open menu"
+        data-menu-toggle
+      >
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          class="w-7 h-7"
+          fill="none"
+          viewBox="0 0 24 24"
+          stroke="currentColor"
+        >
+          <path
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-width="1.8"
+            d="M4 7h16M4 12h16M4 17h16"
+          />
         </svg>
       </button>
     </nav>
 
     <!-- Mobile Menu -->
-    <div id="mobile-menu-backdrop" class="md:hidden fixed inset-0 bg-black/60 opacity-0 pointer-events-none transition-opacity duration-300 z-40"></div>
-    <aside id="mobile-menu" class="md:hidden fixed top-0 right-0 h-full w-72 max-w-[85vw] bg-[#181815] border-l border-[#B8912A]/40 transform translate-x-full transition-transform duration-300 ease-out z-50 p-8">
+    <div
+      id="mobile-menu-backdrop"
+      class="md:hidden fixed inset-0 bg-black/60 opacity-0 pointer-events-none transition-opacity duration-300 z-40"
+    ></div>
+    <aside
+      id="mobile-menu"
+      class="md:hidden fixed top-0 right-0 h-full w-72 max-w-[85vw] bg-[#181815] border-l border-[#B8912A]/40 transform translate-x-full transition-transform duration-300 ease-out z-50 p-8"
+    >
       <div class="flex items-center justify-between mb-10">
         <p class="text-xs tracking-[0.2em] uppercase text-[#B8912A]">Menu</p>
-        <button type="button" class="text-white/70 hover:text-[#B8912A] transition-colors" aria-label="Close menu" data-menu-close>
-          <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M6 6l12 12M18 6L6 18"/>
+        <button
+          type="button"
+          class="text-white/70 hover:text-[#B8912A] transition-colors"
+          aria-label="Close menu"
+          data-menu-close
+        >
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            class="w-6 h-6"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke="currentColor"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="1.8"
+              d="M6 6l12 12M18 6L6 18"
+            />
           </svg>
         </button>
       </div>
@@ -90,8 +356,13 @@
         <a href="services.html" class="nav-a">Services</a>
         <a href="work.html" class="nav-a">Work</a>
         <a href="contact.html" class="nav-a">Contact</a>
-        <a href="https://topmate.io/olamide_andrew" target="_blank" rel="noopener noreferrer"
-          class="mt-2 px-4 py-2 border border-[#B8912A] text-[#B8912A] text-center rounded-sm">Book Meeting</a>
+        <a
+          href="https://topmate.io/olamide_andrew"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="mt-2 px-4 py-2 border border-[#B8912A] text-[#B8912A] text-center rounded-sm"
+          >Book Meeting</a
+        >
       </nav>
     </aside>
 
@@ -101,158 +372,1471 @@
       <div class="bg-shape shape2"></div>
       <div class="bg-shape shape3"></div>
       <div class="hero-content">
-        <p class="fade-in d1 text-[10px] tracking-[0.35em] text-[#B8912A] uppercase mb-5">I'm Olamide Andrew</p>
-        <h1 class="fade-in d2 font-display text-4xl md:text-5xl lg:text-[3.2rem] font-bold leading-[1.15] mb-8">
-          Design is the invisible<br/>architecture of human experience.
+        <p
+          class="fade-in d1 text-[10px] tracking-[0.35em] text-[#B8912A] uppercase mb-5"
+        >
+          I'm Olamide Andrew
+        </p>
+        <h1
+          class="fade-in d2 font-display text-4xl md:text-5xl lg:text-[3.2rem] font-bold leading-[1.15] mb-8"
+        >
+          Design is the invisible<br />
+          <span
+            class="block mt-2 text-transparent bg-clip-text bg-gradient-to-r from-[#F7E4AE] via-[#D4A93C] to-[#B8912A] animate-gradient"
+          >
+            architecture of human</span
+          >
+          experience.
         </h1>
         <p class="fade-in d3 text-white/60 leading-relaxed mb-5">
-          I'm <strong class="text-white font-medium">Olamide Andrew</strong> — a strategic brand designer who believes imagination, when directed with intention, becomes one of the most powerful tools a business can wield.
+          I'm <strong class="text-white font-medium">Olamide Andrew</strong> — a
+          strategic brand designer who believes imagination, when directed with
+          intention, becomes one of the most powerful tools a business can
+          wield.
         </p>
         <p class="fade-in d3 text-white/60 leading-relaxed mb-10">
-          My name means <span class="text-[#B8912A] italic">"my wealth has come"</span> and I approach every project with that same spirit of intent.
+          My name means
+          <span class="text-[#B8912A] italic">"my wealth has come"</span> and I
+          approach every project with that same spirit of intent.
         </p>
         <div class="fade-in d4 flex flex-wrap gap-4">
-          <a href="#" class="bg-[#B8912A] hover:bg-[#D4A93C] text-white px-8 py-3 text-sm font-medium transition-all hover:scale-105 magnetic">Download Resume</a>
-          <a href="work.html" class="border border-white/40 hover:border-[#B8912A] hover:text-[#B8912A] text-white px-8 py-3 text-sm font-medium transition-all hover:scale-105 magnetic">View My Work</a>
+          <a
+            href="work.html"
+            class="bg-[#B8912A] hover:bg-[#D4A93C] text-white px-8 py-3 text-sm font-medium transition-all hover:scale-105 magnetic"
+            >View My Work</a
+          >
+          <a
+            href="contact.html"
+            class="border border-white/40 hover:border-[#B8912A] hover:text-[#B8912A] text-white px-8 py-3 text-sm font-medium transition-all hover:scale-105 magnetic"
+            >Contact</a
+          >
         </div>
       </div>
-      <img src="https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?w=500&h=600&fit=crop&crop=faces" alt="Professional Designer" class="hero-img fade-in d2"/>
+      <img
+        src="public/olamind.jpeg"
+        alt="Olamide Andrew"
+        class="hero-img fade-in d2"
+      />
     </section>
+
+    <!-- STATS SECTION -->
+    <section class="relative bg-[#0F0F0D] py-24 px-8 md:px-20 overflow-hidden">
+      <!-- Ambient background glow -->
+      <div
+        class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[200px] bg-[#B8912A]/8 blur-[100px] rounded-full pointer-events-none"
+      ></div>
+
+      <!-- Top & bottom border lines with fade -->
+      <div
+        class="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-[#B8912A]/40 to-transparent"
+      ></div>
+      <div
+        class="absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-[#B8912A]/40 to-transparent"
+      ></div>
+
+      <div class="max-w-6xl mx-auto">
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-6 md:gap-4">
+          <!-- Stat 1 -->
+          <div
+            class="stat-card group relative text-center px-6 py-10 rounded-xl border border-white/5 bg-white/[0.02] hover:bg-[#B8912A]/5 hover:border-[#B8912A]/30 transition-all duration-500 cursor-default overflow-hidden"
+          >
+            <div
+              class="absolute inset-0 bg-gradient-to-b from-[#B8912A]/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 rounded-xl"
+            ></div>
+            <p
+              class="font-display text-5xl md:text-6xl font-bold text-[#B8912A] mb-3 relative z-10"
+            >
+              <span class="counter" data-target="50" data-suffix="+">0</span>
+            </p>
+            <div
+              class="w-8 h-px bg-gradient-to-r from-transparent via-[#B8912A]/60 to-transparent mx-auto mb-3"
+            ></div>
+            <p
+              class="text-white/50 text-xs tracking-widest uppercase relative z-10"
+            >
+              Projects Completed
+            </p>
+          </div>
+
+          <!-- Stat 2 -->
+          <div
+            class="stat-card group relative text-center px-6 py-10 rounded-xl border border-white/5 bg-white/[0.02] hover:bg-[#B8912A]/5 hover:border-[#B8912A]/30 transition-all duration-500 cursor-default overflow-hidden"
+          >
+            <div
+              class="absolute inset-0 bg-gradient-to-b from-[#B8912A]/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 rounded-xl"
+            ></div>
+            <p
+              class="font-display text-5xl md:text-6xl font-bold text-[#B8912A] mb-3 relative z-10"
+            >
+              <span class="counter" data-target="30" data-suffix="+">0</span>
+            </p>
+            <div
+              class="w-8 h-px bg-gradient-to-r from-transparent via-[#B8912A]/60 to-transparent mx-auto mb-3"
+            ></div>
+            <p
+              class="text-white/50 text-xs tracking-widest uppercase relative z-10"
+            >
+              Happy Clients
+            </p>
+          </div>
+
+          <!-- Stat 3 -->
+          <div
+            class="stat-card group relative text-center px-6 py-10 rounded-xl border border-white/5 bg-white/[0.02] hover:bg-[#B8912A]/5 hover:border-[#B8912A]/30 transition-all duration-500 cursor-default overflow-hidden"
+          >
+            <div
+              class="absolute inset-0 bg-gradient-to-b from-[#B8912A]/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 rounded-xl"
+            ></div>
+            <p
+              class="font-display text-5xl md:text-6xl font-bold text-[#B8912A] mb-3 relative z-10"
+            >
+              <span class="counter" data-target="7" data-suffix="+">0</span>
+            </p>
+            <div
+              class="w-8 h-px bg-gradient-to-r from-transparent via-[#B8912A]/60 to-transparent mx-auto mb-3"
+            ></div>
+            <p
+              class="text-white/50 text-xs tracking-widest uppercase relative z-10"
+            >
+              Years Experience
+            </p>
+          </div>
+
+          <!-- Stat 4 -->
+          <div
+            class="stat-card group relative text-center px-6 py-10 rounded-xl border border-white/5 bg-white/[0.02] hover:bg-[#B8912A]/5 hover:border-[#B8912A]/30 transition-all duration-500 cursor-default overflow-hidden"
+          >
+            <div
+              class="absolute inset-0 bg-gradient-to-b from-[#B8912A]/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 rounded-xl"
+            ></div>
+            <p
+              class="font-display text-5xl md:text-6xl font-bold text-[#B8912A] mb-3 relative z-10"
+            >
+              <span class="counter" data-target="100" data-suffix="%">0</span>
+            </p>
+            <div
+              class="w-8 h-px bg-gradient-to-r from-transparent via-[#B8912A]/60 to-transparent mx-auto mb-3"
+            ></div>
+            <p
+              class="text-white/50 text-xs tracking-widest uppercase relative z-10"
+            >
+              Satisfaction Rate
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <style>
+      .stat-card {
+        animation: fadeSlideUp 0.6s ease forwards;
+        opacity: 0;
+        transform: translateY(20px);
+      }
+      .stat-card:nth-child(1) {
+        animation-delay: 0.1s;
+      }
+      .stat-card:nth-child(2) {
+        animation-delay: 0.2s;
+      }
+      .stat-card:nth-child(3) {
+        animation-delay: 0.3s;
+      }
+      .stat-card:nth-child(4) {
+        animation-delay: 0.4s;
+      }
+
+      @keyframes fadeSlideUp {
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+    </style>
+
+    <script>
+      function animateCounters() {
+        const counters = document.querySelectorAll(".counter");
+        counters.forEach((counter) => {
+          const target = +counter.getAttribute("data-target");
+          const suffix = counter.getAttribute("data-suffix") || "";
+          const duration = 2000;
+          const steps = 60;
+          const stepTime = duration / steps;
+          let current = 0;
+
+          const timer = setInterval(() => {
+            current += target / steps;
+            if (current >= target) {
+              current = target;
+              clearInterval(timer);
+            }
+            counter.textContent = Math.floor(current) + suffix;
+          }, stepTime);
+        });
+      }
+
+      // Trigger when section enters viewport
+      const statsSection = document.querySelector(".stat-card");
+      const observer = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              animateCounters();
+              observer.disconnect();
+            }
+          });
+        },
+        { threshold: 0.3 },
+      );
+
+      if (statsSection) observer.observe(statsSection);
+    </script>
+
+    <!-- WHY WORK WITH ME -->
+    <section class="relative bg-[#181815] py-28 px-8 md:px-20 overflow-hidden">
+      <!-- Background atmosphere -->
+      <div
+        class="absolute top-0 right-0 w-[500px] h-[500px] bg-[#B8912A]/5 blur-[120px] rounded-full pointer-events-none"
+      ></div>
+      <div
+        class="absolute bottom-0 left-0 w-[400px] h-[400px] bg-[#B8912A]/4 blur-[100px] rounded-full pointer-events-none"
+      ></div>
+      <div
+        class="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-[#B8912A]/30 to-transparent"
+      ></div>
+      <div
+        class="absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-[#B8912A]/30 to-transparent"
+      ></div>
+
+      <div class="max-w-6xl mx-auto relative z-10">
+        <!-- Header -->
+        <div class="max-w-2xl mb-20 scroll-reveal">
+          <p
+            class="text-[10px] tracking-[0.35em] text-[#B8912A] uppercase mb-4"
+          >
+            Why Choose Me
+          </p>
+          <h2
+            class="font-display text-4xl md:text-5xl font-bold leading-[1.1] mb-6"
+          >
+            Most designers make things look good.<br />
+            <span
+              class="text-transparent bg-clip-text bg-gradient-to-r from-[#F7E4AE] via-[#D4A93C] to-[#B8912A]"
+            >
+              I make them work.
+            </span>
+          </h2>
+          <p class="text-white/50 text-base leading-relaxed">
+            Every brand I build is rooted in strategy, shaped by intention, and
+            designed to move people — from awareness to action.
+          </p>
+        </div>
+
+        <!-- Value Cards -->
+        <div class="grid md:grid-cols-3 gap-6 mb-20">
+          <!-- Card 1 -->
+          <div
+            class="why-card group relative p-8 rounded-2xl border border-white/5 bg-white/[0.02] hover:border-[#B8912A]/40 hover:bg-[#B8912A]/5 transition-all duration-500 overflow-hidden"
+          >
+            <div
+              class="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-[#B8912A] to-[#D4A93C] scale-x-0 group-hover:scale-x-100 transition-transform duration-500 origin-left rounded-t-2xl"
+            ></div>
+            <div
+              class="w-12 h-12 rounded-xl bg-[#B8912A]/10 border border-[#B8912A]/20 flex items-center justify-center mb-6 group-hover:bg-[#B8912A]/20 transition-all duration-300"
+            >
+              <svg
+                class="w-5 h-5 text-[#B8912A]"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="1.5"
+                  d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"
+                />
+              </svg>
+            </div>
+            <h3
+              class="font-semibold text-lg mb-3 group-hover:text-[#D4A93C] transition-colors duration-300"
+            >
+              Strategy Before Aesthetics
+            </h3>
+            <p class="text-white/50 text-sm leading-relaxed">
+              Every colour, font, and layout decision has a reason. I build
+              brands from the inside out — starting with meaning, then making it
+              beautiful.
+            </p>
+          </div>
+
+          <!-- Card 2 -->
+          <div
+            class="why-card group relative p-8 rounded-2xl border border-white/5 bg-white/[0.02] hover:border-[#B8912A]/40 hover:bg-[#B8912A]/5 transition-all duration-500 overflow-hidden"
+          >
+            <div
+              class="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-[#B8912A] to-[#D4A93C] scale-x-0 group-hover:scale-x-100 transition-transform duration-500 origin-left rounded-t-2xl"
+            ></div>
+            <div
+              class="w-12 h-12 rounded-xl bg-[#B8912A]/10 border border-[#B8912A]/20 flex items-center justify-center mb-6 group-hover:bg-[#B8912A]/20 transition-all duration-300"
+            >
+              <svg
+                class="w-5 h-5 text-[#B8912A]"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="1.5"
+                  d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0z"
+                />
+              </svg>
+            </div>
+            <h3
+              class="font-semibold text-lg mb-3 group-hover:text-[#D4A93C] transition-colors duration-300"
+            >
+              You're a Partner, Not a Client
+            </h3>
+            <p class="text-white/50 text-sm leading-relaxed">
+              I invest in understanding your business, audience, and goals — so
+              the work I deliver feels like it came from within your team, not
+              outside it.
+            </p>
+          </div>
+
+          <!-- Card 3 -->
+          <div
+            class="why-card group relative p-8 rounded-2xl border border-white/5 bg-white/[0.02] hover:border-[#B8912A]/40 hover:bg-[#B8912A]/5 transition-all duration-500 overflow-hidden"
+          >
+            <div
+              class="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-[#B8912A] to-[#D4A93C] scale-x-0 group-hover:scale-x-100 transition-transform duration-500 origin-left rounded-t-2xl"
+            ></div>
+            <div
+              class="w-12 h-12 rounded-xl bg-[#B8912A]/10 border border-[#B8912A]/20 flex items-center justify-center mb-6 group-hover:bg-[#B8912A]/20 transition-all duration-300"
+            >
+              <svg
+                class="w-5 h-5 text-[#B8912A]"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="1.5"
+                  d="M13 10V3L4 14h7v7l9-11h-7z"
+                />
+              </svg>
+            </div>
+            <h3
+              class="font-semibold text-lg mb-3 group-hover:text-[#D4A93C] transition-colors duration-300"
+            >
+              Design That Drives Results
+            </h3>
+            <p class="text-white/50 text-sm leading-relaxed">
+              Good design isn't decoration — it's a business tool. My work is
+              built to attract the right audience, build trust, and convert
+              attention into revenue.
+            </p>
+          </div>
+        </div>
+
+        <!-- Bottom CTA Banner -->
+        <div
+          class="relative rounded-2xl border border-[#B8912A]/20 bg-gradient-to-r from-[#B8912A]/8 via-[#D4A93C]/5 to-[#B8912A]/8 p-10 md:p-14 overflow-hidden"
+        >
+          <div
+            class="absolute inset-0 bg-[radial-gradient(ellipse_at_center,rgba(184,145,42,0.08)_0%,transparent_70%)]"
+          ></div>
+
+          <div
+            class="relative z-10 flex flex-col md:flex-row items-center justify-between gap-8"
+          >
+            <div>
+              <p
+                class="text-[10px] tracking-[0.35em] text-[#B8912A] uppercase mb-3"
+              >
+                Ready to build something real?
+              </p>
+              <h3
+                class="font-display text-3xl md:text-4xl font-bold leading-tight"
+              >
+                Let's turn your brand into<br />
+                <span
+                  class="text-transparent bg-clip-text bg-gradient-to-r from-[#F7E4AE] to-[#D4A93C]"
+                  >your greatest asset.</span
+                >
+              </h3>
+            </div>
+            <div class="flex flex-col sm:flex-row gap-4 shrink-0">
+              <a
+                href="work.html"
+                class="px-8 py-4 border border-white/20 hover:border-[#B8912A]/60 text-white hover:text-[#D4A93C] text-sm font-medium transition-all duration-300 rounded-lg hover:-translate-y-0.5 text-center"
+              >
+                See My Work
+              </a>
+              <a
+                href="contact.html"
+                class="px-8 py-4 bg-gradient-to-r from-[#B8912A] to-[#D4A93C] hover:from-[#D4A93C] hover:to-[#B8912A] text-white text-sm font-semibold transition-all duration-500 shadow-[0_8px_30px_rgba(184,145,42,0.3)] hover:shadow-[0_15px_40px_rgba(184,145,42,0.5)] hover:-translate-y-0.5 rounded-lg text-center"
+              >
+                Start a Project
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <style>
+      .why-card {
+        opacity: 0;
+        transform: translateY(24px);
+        animation: cardReveal 0.6s ease forwards;
+      }
+      .why-card:nth-child(1) {
+        animation-delay: 0.1s;
+      }
+      .why-card:nth-child(2) {
+        animation-delay: 0.25s;
+      }
+      .why-card:nth-child(3) {
+        animation-delay: 0.4s;
+      }
+
+      @keyframes cardReveal {
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+    </style>
 
     <!-- SKILLS + EXPERIENCE -->
-    <section class="bg-[#181815] py-20 px-8 md:px-20">
-      <div class="max-w-6xl mx-auto grid md:grid-cols-2 gap-16">
-        <!-- Skills -->
-        <div class="scroll-reveal">
-          <p class="text-[10px] tracking-[0.35em] text-[#B8912A] uppercase mb-3">My Expertise</p>
-          <h2 class="font-display text-3xl font-bold mb-10">Skills & Tools</h2>
-          <div class="space-y-7">
-            <div>
-              <div class="flex justify-between mb-2"><span class="text-sm text-white/80">Brand Identity Design</span><span class="text-xs text-[#B8912A]">95%</span></div>
-              <div class="skill-bar-bg"><div class="skill-bar-fill" style="--w:0.95"></div></div>
-            </div>
-            <div>
-              <div class="flex justify-between mb-2"><span class="text-sm text-white/80">Logo Design</span><span class="text-xs text-[#B8912A]">92%</span></div>
-              <div class="skill-bar-bg"><div class="skill-bar-fill" style="--w:0.92"></div></div>
-            </div>
-            <div>
-              <div class="flex justify-between mb-2"><span class="text-sm text-white/80">Typography & Layout</span><span class="text-xs text-[#B8912A]">88%</span></div>
-              <div class="skill-bar-bg"><div class="skill-bar-fill" style="--w:0.88"></div></div>
-            </div>
-            <div>
-              <div class="flex justify-between mb-2"><span class="text-sm text-white/80">Campaign Design</span><span class="text-xs text-[#B8912A]">85%</span></div>
-              <div class="skill-bar-bg"><div class="skill-bar-fill" style="--w:0.85"></div></div>
-            </div>
-            <div>
-              <div class="flex justify-between mb-2"><span class="text-sm text-white/80">Adobe Illustrator / Photoshop</span><span class="text-xs text-[#B8912A]">90%</span></div>
-              <div class="skill-bar-bg"><div class="skill-bar-fill" style="--w:0.90"></div></div>
-            </div>
-            <div>
-              <div class="flex justify-between mb-2"><span class="text-sm text-white/80">Figma / UI Design</span><span class="text-xs text-[#B8912A]">80%</span></div>
-              <div class="skill-bar-bg"><div class="skill-bar-fill" style="--w:0.80"></div></div>
-            </div>
-          </div>
+    <section class="relative bg-[#181815] py-28 px-8 md:px-20 overflow-hidden">
+      <!-- Atmosphere -->
+      <div
+        class="absolute top-0 right-0 w-[600px] h-[600px] bg-[#B8912A]/4 blur-[140px] rounded-full pointer-events-none"
+      ></div>
+      <div
+        class="absolute bottom-0 left-0 w-[400px] h-[400px] bg-[#B8912A]/3 blur-[120px] rounded-full pointer-events-none"
+      ></div>
+      <div
+        class="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-[#B8912A]/25 to-transparent"
+      ></div>
+      <div
+        class="absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-[#B8912A]/25 to-transparent"
+      ></div>
+
+      <!-- Subtle grid -->
+      <div
+        class="absolute inset-0 bg-[linear-gradient(rgba(184,145,42,0.015)_1px,transparent_1px),linear-gradient(90deg,rgba(184,145,42,0.015)_1px,transparent_1px)] bg-[size:80px_80px] [mask-image:radial-gradient(ellipse_at_center,black_20%,transparent_75%)]"
+      ></div>
+
+      <div class="max-w-6xl mx-auto relative z-10">
+        <!-- Section label -->
+        <div class="flex items-center gap-4 mb-20">
+          <div class="w-8 h-px bg-[#B8912A]/60"></div>
+          <p class="text-[10px] tracking-[0.4em] text-[#B8912A] uppercase">
+            Expertise & Journey
+          </p>
+          <div
+            class="flex-1 h-px bg-gradient-to-r from-[#B8912A]/20 to-transparent"
+          ></div>
         </div>
 
-        <!-- Timeline -->
-        <div class="scroll-reveal" style="transition-delay:0.15s">
-          <p class="text-[10px] tracking-[0.35em] text-[#B8912A] uppercase mb-3">My Journey</p>
-          <h2 class="font-display text-3xl font-bold mb-10">Experience</h2>
-          <div class="relative pl-8">
-            <div class="timeline-line"></div>
-            <div class="relative pb-10">
-              <div class="timeline-dot"></div>
-              <p class="text-[10px] tracking-[0.2em] text-[#B8912A] uppercase mb-1">2022 — Present</p>
-              <h3 class="font-semibold text-white mb-1">Senior Brand Designer</h3>
-              <p class="text-xs text-white/40 mb-2">Freelance / Remote</p>
-              <p class="text-sm text-white/55 leading-relaxed">Crafting brand identities and visual systems for startups and growing brands across Africa and globally.</p>
+        <div class="grid md:grid-cols-2 gap-20">
+          <!-- ═══ SKILLS SIDE ═══ -->
+          <div class="skills-panel">
+            <h2
+              class="font-display text-3xl md:text-4xl font-bold mb-3 leading-tight"
+            >
+              Skills &<br />
+              <span
+                class="text-transparent bg-clip-text bg-gradient-to-r from-[#F7E4AE] to-[#B8912A]"
+                >Tools</span
+              >
+            </h2>
+            <p class="text-white/40 text-sm mb-12 leading-relaxed">
+              The disciplines I've refined over years of purposeful practice.
+            </p>
+
+            <div class="space-y-8" id="skills-container">
+              <!-- Skill item -->
+              <div class="skill-item group">
+                <div class="flex justify-between items-end mb-3">
+                  <div class="flex items-center gap-3">
+                    <div class="w-1.5 h-1.5 rounded-full bg-[#B8912A]"></div>
+                    <span
+                      class="text-sm text-white/80 font-medium group-hover:text-white transition-colors duration-300"
+                      >Brand Identity Design</span
+                    >
+                  </div>
+                  <div class="flex items-center gap-2">
+                    <span
+                      class="text-[10px] tracking-widest text-[#B8912A]/60 uppercase"
+                      >Expert</span
+                    >
+                    <span class="text-sm font-bold text-[#B8912A]">95%</span>
+                  </div>
+                </div>
+                <div
+                  class="relative h-[3px] bg-white/5 rounded-full overflow-hidden"
+                >
+                  <div
+                    class="skill-fill absolute top-0 left-0 h-full rounded-full bg-gradient-to-r from-[#B8912A] to-[#F7E4AE]"
+                    data-width="95"
+                    style="width: 0%"
+                  ></div>
+                  <div
+                    class="skill-glow absolute top-0 left-0 h-full rounded-full bg-gradient-to-r from-[#B8912A] to-[#F7E4AE] blur-sm opacity-50"
+                    data-width="95"
+                    style="width: 0%"
+                  ></div>
+                </div>
+              </div>
+
+              <div class="skill-item group">
+                <div class="flex justify-between items-end mb-3">
+                  <div class="flex items-center gap-3">
+                    <div class="w-1.5 h-1.5 rounded-full bg-[#B8912A]"></div>
+                    <span
+                      class="text-sm text-white/80 font-medium group-hover:text-white transition-colors duration-300"
+                      >Logo Design</span
+                    >
+                  </div>
+                  <div class="flex items-center gap-2">
+                    <span
+                      class="text-[10px] tracking-widest text-[#B8912A]/60 uppercase"
+                      >Expert</span
+                    >
+                    <span class="text-sm font-bold text-[#B8912A]">92%</span>
+                  </div>
+                </div>
+                <div
+                  class="relative h-[3px] bg-white/5 rounded-full overflow-hidden"
+                >
+                  <div
+                    class="skill-fill absolute top-0 left-0 h-full rounded-full bg-gradient-to-r from-[#B8912A] to-[#F7E4AE]"
+                    data-width="92"
+                    style="width: 0%"
+                  ></div>
+                  <div
+                    class="skill-glow absolute top-0 left-0 h-full rounded-full bg-gradient-to-r from-[#B8912A] to-[#F7E4AE] blur-sm opacity-50"
+                    data-width="92"
+                    style="width: 0%"
+                  ></div>
+                </div>
+              </div>
+
+              <div class="skill-item group">
+                <div class="flex justify-between items-end mb-3">
+                  <div class="flex items-center gap-3">
+                    <div class="w-1.5 h-1.5 rounded-full bg-[#B8912A]"></div>
+                    <span
+                      class="text-sm text-white/80 font-medium group-hover:text-white transition-colors duration-300"
+                      >Typography & Layout</span
+                    >
+                  </div>
+                  <div class="flex items-center gap-2">
+                    <span
+                      class="text-[10px] tracking-widest text-[#B8912A]/60 uppercase"
+                      >Advanced</span
+                    >
+                    <span class="text-sm font-bold text-[#B8912A]">88%</span>
+                  </div>
+                </div>
+                <div
+                  class="relative h-[3px] bg-white/5 rounded-full overflow-hidden"
+                >
+                  <div
+                    class="skill-fill absolute top-0 left-0 h-full rounded-full bg-gradient-to-r from-[#B8912A] to-[#F7E4AE]"
+                    data-width="88"
+                    style="width: 0%"
+                  ></div>
+                  <div
+                    class="skill-glow absolute top-0 left-0 h-full rounded-full bg-gradient-to-r from-[#B8912A] to-[#F7E4AE] blur-sm opacity-50"
+                    data-width="88"
+                    style="width: 0%"
+                  ></div>
+                </div>
+              </div>
+
+              <div class="skill-item group">
+                <div class="flex justify-between items-end mb-3">
+                  <div class="flex items-center gap-3">
+                    <div class="w-1.5 h-1.5 rounded-full bg-[#B8912A]"></div>
+                    <span
+                      class="text-sm text-white/80 font-medium group-hover:text-white transition-colors duration-300"
+                      >Campaign Design</span
+                    >
+                  </div>
+                  <div class="flex items-center gap-2">
+                    <span
+                      class="text-[10px] tracking-widest text-[#B8912A]/60 uppercase"
+                      >Advanced</span
+                    >
+                    <span class="text-sm font-bold text-[#B8912A]">85%</span>
+                  </div>
+                </div>
+                <div
+                  class="relative h-[3px] bg-white/5 rounded-full overflow-hidden"
+                >
+                  <div
+                    class="skill-fill absolute top-0 left-0 h-full rounded-full bg-gradient-to-r from-[#B8912A] to-[#F7E4AE]"
+                    data-width="85"
+                    style="width: 0%"
+                  ></div>
+                  <div
+                    class="skill-glow absolute top-0 left-0 h-full rounded-full bg-gradient-to-r from-[#B8912A] to-[#F7E4AE] blur-sm opacity-50"
+                    data-width="85"
+                    style="width: 0%"
+                  ></div>
+                </div>
+              </div>
+
+              <div class="skill-item group">
+                <div class="flex justify-between items-end mb-3">
+                  <div class="flex items-center gap-3">
+                    <div class="w-1.5 h-1.5 rounded-full bg-[#B8912A]"></div>
+                    <span
+                      class="text-sm text-white/80 font-medium group-hover:text-white transition-colors duration-300"
+                      >Adobe Illustrator / Photoshop</span
+                    >
+                  </div>
+                  <div class="flex items-center gap-2">
+                    <span
+                      class="text-[10px] tracking-widest text-[#B8912A]/60 uppercase"
+                      >Expert</span
+                    >
+                    <span class="text-sm font-bold text-[#B8912A]">90%</span>
+                  </div>
+                </div>
+                <div
+                  class="relative h-[3px] bg-white/5 rounded-full overflow-hidden"
+                >
+                  <div
+                    class="skill-fill absolute top-0 left-0 h-full rounded-full bg-gradient-to-r from-[#B8912A] to-[#F7E4AE]"
+                    data-width="90"
+                    style="width: 0%"
+                  ></div>
+                  <div
+                    class="skill-glow absolute top-0 left-0 h-full rounded-full bg-gradient-to-r from-[#B8912A] to-[#F7E4AE] blur-sm opacity-50"
+                    data-width="90"
+                    style="width: 0%"
+                  ></div>
+                </div>
+              </div>
+
+              <div class="skill-item group">
+                <div class="flex justify-between items-end mb-3">
+                  <div class="flex items-center gap-3">
+                    <div class="w-1.5 h-1.5 rounded-full bg-[#B8912A]"></div>
+                    <span
+                      class="text-sm text-white/80 font-medium group-hover:text-white transition-colors duration-300"
+                      >Figma / UI Design</span
+                    >
+                  </div>
+                  <div class="flex items-center gap-2">
+                    <span
+                      class="text-[10px] tracking-widest text-[#B8912A]/60 uppercase"
+                      >Advanced</span
+                    >
+                    <span class="text-sm font-bold text-[#B8912A]">80%</span>
+                  </div>
+                </div>
+                <div
+                  class="relative h-[3px] bg-white/5 rounded-full overflow-hidden"
+                >
+                  <div
+                    class="skill-fill absolute top-0 left-0 h-full rounded-full bg-gradient-to-r from-[#B8912A] to-[#F7E4AE]"
+                    data-width="80"
+                    style="width: 0%"
+                  ></div>
+                  <div
+                    class="skill-glow absolute top-0 left-0 h-full rounded-full bg-gradient-to-r from-[#B8912A] to-[#F7E4AE] blur-sm opacity-50"
+                    data-width="80"
+                    style="width: 0%"
+                  ></div>
+                </div>
+              </div>
             </div>
-            <div class="relative pb-10">
-              <div class="timeline-dot" style="background:rgba(184,145,42,0.5);box-shadow:none"></div>
-              <p class="text-[10px] tracking-[0.2em] text-[#B8912A] uppercase mb-1">2020 — 2022</p>
-              <h3 class="font-semibold text-white mb-1">Brand & Visual Designer</h3>
-              <p class="text-xs text-white/40 mb-2">Creative Studio, Lagos</p>
-              <p class="text-sm text-white/55 leading-relaxed">Led visual identity projects for consumer brands, managing end-to-end creative direction and delivery.</p>
-            </div>
-            <div class="relative pb-2">
-              <div class="timeline-dot" style="background:rgba(184,145,42,0.3);box-shadow:none"></div>
-              <p class="text-[10px] tracking-[0.2em] text-[#B8912A] uppercase mb-1">2018 — 2020</p>
-              <h3 class="font-semibold text-white mb-1">Junior Graphic Designer</h3>
-              <p class="text-xs text-white/40 mb-2">Marketing Agency</p>
-              <p class="text-sm text-white/55 leading-relaxed">Designed print and digital materials, building a strong foundation in visual communication.</p>
+          </div>
+
+          <!-- ═══ EXPERIENCE SIDE ═══ -->
+          <div class="exp-panel">
+            <h2
+              class="font-display text-3xl md:text-4xl font-bold mb-3 leading-tight"
+            >
+              My<br />
+              <span
+                class="text-transparent bg-clip-text bg-gradient-to-r from-[#F7E4AE] to-[#B8912A]"
+                >Journey</span
+              >
+            </h2>
+            <p class="text-white/40 text-sm mb-12 leading-relaxed">
+              Seven years of intentional growth across continents and
+              industries.
+            </p>
+
+            <div class="relative">
+              <!-- Vertical line -->
+              <div
+                class="absolute left-[7px] top-2 bottom-2 w-px bg-gradient-to-b from-[#B8912A] via-[#B8912A]/40 to-transparent"
+              ></div>
+
+              <!-- Entry 1 — Active -->
+              <div class="exp-entry relative pl-12 pb-12 group">
+                <!-- Active dot -->
+                <div
+                  class="absolute left-0 top-1 w-[15px] h-[15px] rounded-full bg-[#B8912A] shadow-[0_0_20px_rgba(184,145,42,0.8)] flex items-center justify-center"
+                >
+                  <div
+                    class="w-[5px] h-[5px] rounded-full bg-[#0F0F0D] animate-pulse"
+                  ></div>
+                </div>
+
+                <div
+                  class="relative p-6 rounded-xl border border-[#B8912A]/20 bg-[#B8912A]/5 hover:border-[#B8912A]/40 hover:bg-[#B8912A]/8 transition-all duration-500 group-hover:-translate-y-0.5"
+                >
+                  <!-- Shimmer line -->
+                  <div
+                    class="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-[#B8912A]/60 to-transparent rounded-t-xl"
+                  ></div>
+
+                  <div
+                    class="flex items-start justify-between mb-3 flex-wrap gap-2"
+                  >
+                    <div>
+                      <p
+                        class="text-[9px] tracking-[0.3em] text-[#B8912A] uppercase mb-1.5"
+                      >
+                        2022 — Present
+                      </p>
+                      <h3 class="font-bold text-white text-base">
+                        Senior Brand Designer
+                      </h3>
+                    </div>
+                    <span
+                      class="px-3 py-1 text-[9px] tracking-widest text-[#B8912A] uppercase border border-[#B8912A]/30 rounded-full bg-[#B8912A]/5"
+                      >Current</span
+                    >
+                  </div>
+                  <p
+                    class="text-xs text-white/35 mb-3 flex items-center gap-1.5"
+                  >
+                    <svg
+                      class="w-3 h-3"
+                      fill="none"
+                      stroke="currentColor"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        stroke-width="2"
+                        d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"
+                      />
+                      <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        stroke-width="2"
+                        d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"
+                      />
+                    </svg>
+                    Freelance / Remote
+                  </p>
+                  <p class="text-sm text-white/50 leading-relaxed">
+                    Crafting brand identities and visual systems for startups
+                    and growing brands across Africa and globally.
+                  </p>
+                </div>
+              </div>
+
+              <!-- Entry 2 -->
+              <div class="exp-entry relative pl-12 pb-12 group">
+                <div
+                  class="absolute left-0 top-1 w-[15px] h-[15px] rounded-full bg-[#B8912A]/50 border border-[#B8912A]/30 flex items-center justify-center"
+                >
+                  <div
+                    class="w-[5px] h-[5px] rounded-full bg-[#B8912A]/70"
+                  ></div>
+                </div>
+
+                <div
+                  class="relative p-6 rounded-xl border border-white/5 bg-white/[0.02] hover:border-[#B8912A]/25 hover:bg-[#B8912A]/4 transition-all duration-500 group-hover:-translate-y-0.5"
+                >
+                  <div
+                    class="flex items-start justify-between mb-3 flex-wrap gap-2"
+                  >
+                    <div>
+                      <p
+                        class="text-[9px] tracking-[0.3em] text-[#B8912A]/70 uppercase mb-1.5"
+                      >
+                        2020 — 2022
+                      </p>
+                      <h3 class="font-bold text-white text-base">
+                        Brand & Visual Designer
+                      </h3>
+                    </div>
+                    <span
+                      class="px-3 py-1 text-[9px] tracking-widest text-white/30 uppercase border border-white/10 rounded-full"
+                      >2 yrs</span
+                    >
+                  </div>
+                  <p
+                    class="text-xs text-white/35 mb-3 flex items-center gap-1.5"
+                  >
+                    <svg
+                      class="w-3 h-3"
+                      fill="none"
+                      stroke="currentColor"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        stroke-width="2"
+                        d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"
+                      />
+                      <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        stroke-width="2"
+                        d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"
+                      />
+                    </svg>
+                    Creative Studio, Lagos
+                  </p>
+                  <p class="text-sm text-white/50 leading-relaxed">
+                    Led visual identity projects for consumer brands, managing
+                    end-to-end creative direction and delivery.
+                  </p>
+                </div>
+              </div>
+
+              <!-- Entry 3 -->
+              <div class="exp-entry relative pl-12 group">
+                <div
+                  class="absolute left-0 top-1 w-[15px] h-[15px] rounded-full bg-[#B8912A]/25 border border-[#B8912A]/15 flex items-center justify-center"
+                >
+                  <div
+                    class="w-[5px] h-[5px] rounded-full bg-[#B8912A]/40"
+                  ></div>
+                </div>
+
+                <div
+                  class="relative p-6 rounded-xl border border-white/5 bg-white/[0.015] hover:border-[#B8912A]/20 hover:bg-[#B8912A]/3 transition-all duration-500 group-hover:-translate-y-0.5"
+                >
+                  <div
+                    class="flex items-start justify-between mb-3 flex-wrap gap-2"
+                  >
+                    <div>
+                      <p
+                        class="text-[9px] tracking-[0.3em] text-[#B8912A]/50 uppercase mb-1.5"
+                      >
+                        2018 — 2020
+                      </p>
+                      <h3 class="font-bold text-white/70 text-base">
+                        Junior Graphic Designer
+                      </h3>
+                    </div>
+                    <span
+                      class="px-3 py-1 text-[9px] tracking-widest text-white/20 uppercase border border-white/8 rounded-full"
+                      >2 yrs</span
+                    >
+                  </div>
+                  <p
+                    class="text-xs text-white/25 mb-3 flex items-center gap-1.5"
+                  >
+                    <svg
+                      class="w-3 h-3"
+                      fill="none"
+                      stroke="currentColor"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        stroke-width="2"
+                        d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"
+                      />
+                      <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        stroke-width="2"
+                        d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"
+                      />
+                    </svg>
+                    Marketing Agency
+                  </p>
+                  <p class="text-sm text-white/35 leading-relaxed">
+                    Designed print and digital materials, building a strong
+                    foundation in visual communication.
+                  </p>
+                </div>
+              </div>
             </div>
           </div>
         </div>
       </div>
     </section>
+
+    <style>
+      /* Panel entrance animations */
+      .skills-panel {
+        opacity: 0;
+        transform: translateX(-30px);
+        animation: slideInLeft 0.8s cubic-bezier(0.16, 1, 0.3, 1) 0.2s forwards;
+      }
+      .exp-panel {
+        opacity: 0;
+        transform: translateX(30px);
+        animation: slideInRight 0.8s cubic-bezier(0.16, 1, 0.3, 1) 0.35s
+          forwards;
+      }
+      @keyframes slideInLeft {
+        to {
+          opacity: 1;
+          transform: translateX(0);
+        }
+      }
+      @keyframes slideInRight {
+        to {
+          opacity: 1;
+          transform: translateX(0);
+        }
+      }
+
+      /* Skill item stagger */
+      .skill-item {
+        opacity: 0;
+        transform: translateY(12px);
+        animation: skillReveal 0.5s ease forwards;
+      }
+      .skill-item:nth-child(1) {
+        animation-delay: 0.4s;
+      }
+      .skill-item:nth-child(2) {
+        animation-delay: 0.5s;
+      }
+      .skill-item:nth-child(3) {
+        animation-delay: 0.6s;
+      }
+      .skill-item:nth-child(4) {
+        animation-delay: 0.7s;
+      }
+      .skill-item:nth-child(5) {
+        animation-delay: 0.8s;
+      }
+      .skill-item:nth-child(6) {
+        animation-delay: 0.9s;
+      }
+
+      @keyframes skillReveal {
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      /* Experience entry stagger */
+      .exp-entry {
+        opacity: 0;
+        transform: translateY(16px);
+        animation: expReveal 0.6s ease forwards;
+      }
+      .exp-entry:nth-child(1) {
+        animation-delay: 0.5s;
+      }
+      .exp-entry:nth-child(2) {
+        animation-delay: 0.7s;
+      }
+      .exp-entry:nth-child(3) {
+        animation-delay: 0.9s;
+      }
+
+      @keyframes expReveal {
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+    </style>
+
+    <script>
+      // Animate skill bars when section enters viewport
+      function animateSkillBars() {
+        const fills = document.querySelectorAll(".skill-fill, .skill-glow");
+        fills.forEach((bar, i) => {
+          const targetWidth = bar.getAttribute("data-width") + "%";
+          setTimeout(
+            () => {
+              bar.style.transition = "width 1.2s cubic-bezier(0.16, 1, 0.3, 1)";
+              bar.style.width = targetWidth;
+            },
+            400 + Math.floor(i / 2) * 120,
+          );
+        });
+      }
+
+      const skillsSection = document.querySelector(".skills-panel");
+      if (skillsSection) {
+        const observer = new IntersectionObserver(
+          (entries) => {
+            entries.forEach((entry) => {
+              if (entry.isIntersecting) {
+                animateSkillBars();
+                observer.disconnect();
+              }
+            });
+          },
+          { threshold: 0.2 },
+        );
+        observer.observe(skillsSection);
+      }
+    </script>
 
     <!-- MY PROCESS -->
-    <section class="bg-[#0F0F0D] py-20 px-8 md:px-20">
-      <div class="max-w-5xl mx-auto">
-        <p class="text-[10px] tracking-[0.35em] text-[#B8912A] uppercase mb-3 scroll-reveal">How I Work</p>
-        <h2 class="font-display text-4xl font-bold mb-14 scroll-reveal">My Design Process</h2>
-        <div>
-          <div class="process-step scroll-reveal">
-            <div class="process-num">01</div>
-            <div class="pt-2">
-              <h3 class="font-semibold text-white text-lg mb-2">Discovery & Research</h3>
-              <p class="text-white/50 text-sm leading-relaxed max-w-xl">I begin by deeply understanding your brand, audience, competitors, and goals. Every great design starts with the right questions.</p>
+    <section class="relative bg-[#0F0F0D] py-28 px-8 md:px-20 overflow-hidden">
+      <!-- Atmosphere -->
+      <div
+        class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[400px] bg-[#B8912A]/4 blur-[150px] rounded-full pointer-events-none"
+      ></div>
+      <div
+        class="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-[#B8912A]/25 to-transparent"
+      ></div>
+      <div
+        class="absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-[#B8912A]/25 to-transparent"
+      ></div>
+      <div
+        class="absolute inset-0 bg-[linear-gradient(rgba(184,145,42,0.012)_1px,transparent_1px),linear-gradient(90deg,rgba(184,145,42,0.012)_1px,transparent_1px)] bg-[size:90px_90px] [mask-image:radial-gradient(ellipse_at_center,black_10%,transparent_70%)]"
+      ></div>
+
+      <div class="max-w-6xl mx-auto relative z-10">
+        <!-- Header -->
+        <div
+          class="flex flex-col md:flex-row md:items-end justify-between gap-8 mb-20"
+        >
+          <div>
+            <div class="flex items-center gap-3 mb-5">
+              <div class="w-6 h-px bg-[#B8912A]"></div>
+              <p class="text-[10px] tracking-[0.4em] text-[#B8912A] uppercase">
+                How I Work
+              </p>
+            </div>
+            <h2
+              class="font-display text-4xl md:text-5xl font-bold leading-[1.1]"
+            >
+              My Design<br />
+              <span
+                class="text-transparent bg-clip-text bg-gradient-to-r from-[#F7E4AE] via-[#D4A93C] to-[#B8912A]"
+                >Process</span
+              >
+            </h2>
+          </div>
+          <p
+            class="text-white/40 text-sm leading-relaxed max-w-xs md:text-right"
+          >
+            A proven framework refined over 7+ years — turning ambiguity into
+            clarity, and clarity into impact.
+          </p>
+        </div>
+
+        <!-- Process Steps — Horizontal scroll on mobile, grid on desktop -->
+        <div class="grid md:grid-cols-4 gap-0 relative">
+          <!-- Connector line desktop -->
+          <div
+            class="hidden md:block absolute top-[52px] left-[12.5%] right-[12.5%] h-px"
+          >
+            <div
+              class="h-full bg-gradient-to-r from-[#B8912A]/60 via-[#B8912A]/30 to-[#B8912A]/10"
+            ></div>
+            <!-- Animated pulse dot -->
+            <div
+              class="absolute top-1/2 -translate-y-1/2 left-0 w-2 h-2 rounded-full bg-[#B8912A] shadow-[0_0_12px_rgba(184,145,42,0.8)] process-pulse-dot"
+            ></div>
+          </div>
+
+          <!-- Step 01 -->
+          <div
+            class="process-card group relative p-7 md:p-8 rounded-2xl border border-white/5 bg-white/[0.02] hover:border-[#B8912A]/40 hover:bg-[#B8912A]/5 transition-all duration-500 hover:-translate-y-2 mx-1"
+          >
+            <div
+              class="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-[#B8912A]/0 to-transparent group-hover:via-[#B8912A]/60 transition-all duration-500 rounded-t-2xl"
+            ></div>
+
+            <!-- Number badge -->
+            <div class="relative mb-8">
+              <div
+                class="w-14 h-14 rounded-xl bg-[#B8912A]/10 border border-[#B8912A]/20 flex items-center justify-center group-hover:bg-[#B8912A]/20 group-hover:border-[#B8912A]/50 transition-all duration-500"
+              >
+                <span class="font-display text-lg font-bold text-[#B8912A]"
+                  >01</span
+                >
+              </div>
+              <div
+                class="absolute -top-1 -right-1 w-3 h-3 rounded-full bg-[#B8912A] opacity-0 group-hover:opacity-100 transition-opacity duration-300 shadow-[0_0_8px_rgba(184,145,42,0.8)]"
+              ></div>
+            </div>
+
+            <!-- Icon -->
+            <div class="mb-5">
+              <svg
+                class="w-6 h-6 text-[#B8912A]/50 group-hover:text-[#B8912A] transition-colors duration-300"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="1.5"
+                  d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"
+                />
+              </svg>
+            </div>
+
+            <h3
+              class="font-bold text-white text-base mb-3 group-hover:text-[#D4A93C] transition-colors duration-300"
+            >
+              Discovery & Research
+            </h3>
+            <p
+              class="text-white/40 text-sm leading-relaxed group-hover:text-white/60 transition-colors duration-300"
+            >
+              Deep-diving into your brand, audience, and competitive landscape.
+              Great design starts with the right questions.
+            </p>
+
+            <!-- Bottom tag -->
+            <div
+              class="mt-6 pt-5 border-t border-white/5 group-hover:border-[#B8912A]/15 transition-colors duration-300"
+            >
+              <span
+                class="text-[9px] tracking-[0.3em] text-white/20 uppercase group-hover:text-[#B8912A]/50 transition-colors duration-300"
+                >Week 1</span
+              >
             </div>
           </div>
-          <div class="process-step scroll-reveal" style="transition-delay:0.1s">
-            <div class="process-num">02</div>
-            <div class="pt-2">
-              <h3 class="font-semibold text-white text-lg mb-2">Strategy & Concept</h3>
-              <p class="text-white/50 text-sm leading-relaxed max-w-xl">Using insights from research, I define the visual direction, mood, and messaging — building a strategic foundation before a single pixel is placed.</p>
+
+          <!-- Step 02 -->
+          <div
+            class="process-card group relative p-7 md:p-8 rounded-2xl border border-white/5 bg-white/[0.02] hover:border-[#B8912A]/40 hover:bg-[#B8912A]/5 transition-all duration-500 hover:-translate-y-2 mx-1"
+          >
+            <div
+              class="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-[#B8912A]/0 to-transparent group-hover:via-[#B8912A]/60 transition-all duration-500 rounded-t-2xl"
+            ></div>
+
+            <div class="relative mb-8">
+              <div
+                class="w-14 h-14 rounded-xl bg-[#B8912A]/10 border border-[#B8912A]/20 flex items-center justify-center group-hover:bg-[#B8912A]/20 group-hover:border-[#B8912A]/50 transition-all duration-500"
+              >
+                <span class="font-display text-lg font-bold text-[#B8912A]"
+                  >02</span
+                >
+              </div>
+              <div
+                class="absolute -top-1 -right-1 w-3 h-3 rounded-full bg-[#B8912A] opacity-0 group-hover:opacity-100 transition-opacity duration-300 shadow-[0_0_8px_rgba(184,145,42,0.8)]"
+              ></div>
+            </div>
+
+            <div class="mb-5">
+              <svg
+                class="w-6 h-6 text-[#B8912A]/50 group-hover:text-[#B8912A] transition-colors duration-300"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="1.5"
+                  d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"
+                />
+              </svg>
+            </div>
+
+            <h3
+              class="font-bold text-white text-base mb-3 group-hover:text-[#D4A93C] transition-colors duration-300"
+            >
+              Strategy & Concept
+            </h3>
+            <p
+              class="text-white/40 text-sm leading-relaxed group-hover:text-white/60 transition-colors duration-300"
+            >
+              Defining visual direction, mood, and messaging — a strategic
+              foundation before a single pixel is placed.
+            </p>
+
+            <div
+              class="mt-6 pt-5 border-t border-white/5 group-hover:border-[#B8912A]/15 transition-colors duration-300"
+            >
+              <span
+                class="text-[9px] tracking-[0.3em] text-white/20 uppercase group-hover:text-[#B8912A]/50 transition-colors duration-300"
+                >Week 1–2</span
+              >
             </div>
           </div>
-          <div class="process-step scroll-reveal" style="transition-delay:0.2s">
-            <div class="process-num">03</div>
-            <div class="pt-2">
-              <h3 class="font-semibold text-white text-lg mb-2">Design & Refinement</h3>
-              <p class="text-white/50 text-sm leading-relaxed max-w-xl">I craft multiple concepts and refine collaboratively through structured feedback rounds until the work feels exactly right.</p>
+
+          <!-- Step 03 -->
+          <div
+            class="process-card group relative p-7 md:p-8 rounded-2xl border border-white/5 bg-white/[0.02] hover:border-[#B8912A]/40 hover:bg-[#B8912A]/5 transition-all duration-500 hover:-translate-y-2 mx-1"
+          >
+            <div
+              class="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-[#B8912A]/0 to-transparent group-hover:via-[#B8912A]/60 transition-all duration-500 rounded-t-2xl"
+            ></div>
+
+            <div class="relative mb-8">
+              <div
+                class="w-14 h-14 rounded-xl bg-[#B8912A]/10 border border-[#B8912A]/20 flex items-center justify-center group-hover:bg-[#B8912A]/20 group-hover:border-[#B8912A]/50 transition-all duration-500"
+              >
+                <span class="font-display text-lg font-bold text-[#B8912A]"
+                  >03</span
+                >
+              </div>
+              <div
+                class="absolute -top-1 -right-1 w-3 h-3 rounded-full bg-[#B8912A] opacity-0 group-hover:opacity-100 transition-opacity duration-300 shadow-[0_0_8px_rgba(184,145,42,0.8)]"
+              ></div>
+            </div>
+
+            <div class="mb-5">
+              <svg
+                class="w-6 h-6 text-[#B8912A]/50 group-hover:text-[#B8912A] transition-colors duration-300"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="1.5"
+                  d="M15.232 5.232l3.536 3.536m-2.036-5.036a2.5 2.5 0 113.536 3.536L6.5 21.036H3v-3.572L16.732 3.732z"
+                />
+              </svg>
+            </div>
+
+            <h3
+              class="font-bold text-white text-base mb-3 group-hover:text-[#D4A93C] transition-colors duration-300"
+            >
+              Design & Refinement
+            </h3>
+            <p
+              class="text-white/40 text-sm leading-relaxed group-hover:text-white/60 transition-colors duration-300"
+            >
+              Multiple concepts, structured feedback rounds, and meticulous
+              refinement until every detail feels exactly right.
+            </p>
+
+            <div
+              class="mt-6 pt-5 border-t border-white/5 group-hover:border-[#B8912A]/15 transition-colors duration-300"
+            >
+              <span
+                class="text-[9px] tracking-[0.3em] text-white/20 uppercase group-hover:text-[#B8912A]/50 transition-colors duration-300"
+                >Week 2–3</span
+              >
             </div>
           </div>
-          <div class="process-step scroll-reveal" style="transition-delay:0.3s">
-            <div class="process-num">04</div>
-            <div class="pt-2">
-              <h3 class="font-semibold text-white text-lg mb-2">Deliver & Support</h3>
-              <p class="text-white/50 text-sm leading-relaxed max-w-xl">Final files, brand guidelines, and all assets — neatly packaged and ready to use across every touchpoint.</p>
+
+          <!-- Step 04 -->
+          <div
+            class="process-card group relative p-7 md:p-8 rounded-2xl border border-white/5 bg-white/[0.02] hover:border-[#B8912A]/40 hover:bg-[#B8912A]/5 transition-all duration-500 hover:-translate-y-2 mx-1"
+          >
+            <div
+              class="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-[#B8912A]/0 to-transparent group-hover:via-[#B8912A]/60 transition-all duration-500 rounded-t-2xl"
+            ></div>
+
+            <div class="relative mb-8">
+              <div
+                class="w-14 h-14 rounded-xl bg-gradient-to-br from-[#B8912A] to-[#D4A93C] flex items-center justify-center shadow-[0_8px_24px_rgba(184,145,42,0.4)] group-hover:shadow-[0_12px_32px_rgba(184,145,42,0.6)] transition-all duration-500"
+              >
+                <span class="font-display text-lg font-bold text-[#0F0F0D]"
+                  >04</span
+                >
+              </div>
+              <div
+                class="absolute -top-1 -right-1 w-3 h-3 rounded-full bg-[#F7E4AE] shadow-[0_0_10px_rgba(247,228,174,0.8)] animate-pulse"
+              ></div>
+            </div>
+
+            <div class="mb-5">
+              <svg
+                class="w-6 h-6 text-[#B8912A] group-hover:scale-110 transition-transform duration-300"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="1.5"
+                  d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4"
+                />
+              </svg>
+            </div>
+
+            <h3
+              class="font-bold text-white text-base mb-3 group-hover:text-[#D4A93C] transition-colors duration-300"
+            >
+              Deliver & Support
+            </h3>
+            <p
+              class="text-white/40 text-sm leading-relaxed group-hover:text-white/60 transition-colors duration-300"
+            >
+              Final files, brand guidelines, and all assets — neatly packaged
+              and ready to deploy across every touchpoint.
+            </p>
+
+            <div
+              class="mt-6 pt-5 border-t border-white/5 group-hover:border-[#B8912A]/15 transition-colors duration-300"
+            >
+              <span
+                class="text-[9px] tracking-[0.3em] text-white/20 uppercase group-hover:text-[#B8912A]/50 transition-colors duration-300"
+                >Week 4</span
+              >
             </div>
           </div>
         </div>
+
+        <!-- Bottom note -->
+        <div
+          class="mt-14 flex flex-col md:flex-row items-center justify-between gap-6 px-2"
+        >
+          <div
+            class="flex items-center gap-6 flex-wrap justify-center md:justify-start"
+          >
+            <div class="flex items-center gap-2">
+              <div class="w-2 h-2 rounded-full bg-[#B8912A]"></div>
+              <span class="text-xs text-white/30">Fully collaborative</span>
+            </div>
+            <div class="flex items-center gap-2">
+              <div class="w-2 h-2 rounded-full bg-[#B8912A]"></div>
+              <span class="text-xs text-white/30"
+                >Transparent communication</span
+              >
+            </div>
+            <div class="flex items-center gap-2">
+              <div class="w-2 h-2 rounded-full bg-[#B8912A]"></div>
+              <span class="text-xs text-white/30"
+                >Unlimited revisions in scope</span
+              >
+            </div>
+          </div>
+          <a
+            href="contact.html"
+            class="shrink-0 flex items-center gap-2 text-sm text-[#B8912A] hover:text-[#F7E4AE] transition-colors duration-300 group"
+          >
+            Start your project
+            <span
+              class="group-hover:translate-x-1 transition-transform duration-300"
+              >→</span
+            >
+          </a>
+        </div>
       </div>
     </section>
+
+    <style>
+      .process-card {
+        opacity: 0;
+        transform: translateY(28px);
+        animation: processReveal 0.65s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+      }
+      .process-card:nth-child(2) {
+        animation-delay: 0.15s;
+      }
+      .process-card:nth-child(3) {
+        animation-delay: 0.3s;
+      }
+      .process-card:nth-child(4) {
+        animation-delay: 0.45s;
+      }
+      .process-card:nth-child(5) {
+        animation-delay: 0.6s;
+      }
+
+      @keyframes processReveal {
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      @keyframes pulseDot {
+        0%,
+        100% {
+          transform: translateX(0) translateY(-50%);
+          opacity: 1;
+        }
+        50% {
+          transform: translateX(calc(100% * 6)) translateY(-50%);
+          opacity: 0.6;
+        }
+      }
+      .process-pulse-dot {
+        animation: pulseDot 4s ease-in-out infinite;
+      }
+    </style>
 
     <!-- HOW I CAN HELP -->
     <section class="bg-[#181815] py-16 px-8 md:px-20">
-      <p class="text-[10px] tracking-[0.35em] text-[#B8912A] uppercase mb-10 text-center scroll-reveal">How I Can Help</p>
+      <p
+        class="text-[10px] tracking-[0.35em] text-[#B8912A] uppercase mb-10 text-center scroll-reveal"
+      >
+        How I Can Help
+      </p>
       <div class="grid md:grid-cols-3 gap-6 max-w-6xl mx-auto">
         <div class="service-card scroll-reveal">
-          <div class="flex items-center gap-4 mb-4 border-b border-white/10 pb-4">
+          <div
+            class="flex items-center gap-4 mb-4 border-b border-white/10 pb-4"
+          >
             <span class="service-num">01</span>
-            <h3 class="text-xs tracking-[0.2em] uppercase font-semibold text-white">Brand Strategy</h3>
+            <h3
+              class="text-xs tracking-[0.2em] uppercase font-semibold text-white"
+            >
+              Brand Strategy
+            </h3>
           </div>
           <ul class="space-y-2 text-white/50 text-sm">
-            <li>Positioning</li><li>Audience Research</li><li>Growth Roadmap</li>
+            <li>Positioning</li>
+            <li>Audience Research</li>
+            <li>Growth Roadmap</li>
           </ul>
         </div>
-        <div class="service-card scroll-reveal" style="transition-delay:0.1s">
-          <div class="flex items-center gap-4 mb-4 border-b border-white/10 pb-4">
+        <div class="service-card scroll-reveal" style="transition-delay: 0.1s">
+          <div
+            class="flex items-center gap-4 mb-4 border-b border-white/10 pb-4"
+          >
             <span class="service-num">02</span>
-            <h3 class="text-xs tracking-[0.2em] uppercase font-semibold text-white">Visual Identity</h3>
+            <h3
+              class="text-xs tracking-[0.2em] uppercase font-semibold text-white"
+            >
+              Visual Identity
+            </h3>
           </div>
           <ul class="space-y-2 text-white/50 text-sm">
-            <li>Logo Design</li><li>Style Guides</li><li>Typography</li>
+            <li>Logo Design</li>
+            <li>Style Guides</li>
+            <li>Typography</li>
           </ul>
         </div>
-        <div class="service-card scroll-reveal" style="transition-delay:0.2s">
-          <div class="flex items-center gap-4 mb-4 border-b border-white/10 pb-4">
+        <div class="service-card scroll-reveal" style="transition-delay: 0.2s">
+          <div
+            class="flex items-center gap-4 mb-4 border-b border-white/10 pb-4"
+          >
             <span class="service-num">03</span>
-            <h3 class="text-xs tracking-[0.2em] uppercase font-semibold text-white">Campaign Design</h3>
+            <h3
+              class="text-xs tracking-[0.2em] uppercase font-semibold text-white"
+            >
+              Campaign Design
+            </h3>
           </div>
           <ul class="space-y-2 text-white/50 text-sm">
-            <li>Marketing Materials</li><li>Web Design</li><li>Print & Digital</li>
+            <li>Marketing Materials</li>
+            <li>Web Design</li>
+            <li>Print & Digital</li>
           </ul>
         </div>
       </div>
@@ -260,35 +1844,94 @@
 
     <!-- TESTIMONIALS -->
     <section class="bg-[#0F0F0D] py-20 px-8 md:px-20">
-      <p class="text-[10px] tracking-[0.35em] text-[#B8912A] uppercase mb-4 text-center scroll-reveal">What Clients Say</p>
-      <h2 class="font-display text-3xl font-bold text-center mb-12 scroll-reveal">Trusted by Brands</h2>
+      <p
+        class="text-[10px] tracking-[0.35em] text-[#B8912A] uppercase mb-4 text-center scroll-reveal"
+      >
+        What Clients Say
+      </p>
+      <h2
+        class="font-display text-3xl font-bold text-center mb-12 scroll-reveal"
+      >
+        Trusted by Brands
+      </h2>
       <div class="grid md:grid-cols-2 gap-8 max-w-5xl mx-auto">
         <div class="testimonial-card scroll-reveal">
-          <p class="text-white/65 italic mb-6 leading-relaxed text-sm pt-4">"Olamide transformed our brand identity completely. His strategic approach and attention to detail exceeded our expectations."</p>
+          <p class="text-white/65 italic mb-6 leading-relaxed text-sm pt-4">
+            "Olamide transformed our brand identity completely. His strategic
+            approach and attention to detail exceeded our expectations."
+          </p>
           <div class="flex items-center gap-4">
-            <div class="w-12 h-12 rounded-full bg-[#B8912A]/20 flex items-center justify-center text-[#B8912A] font-bold text-sm">JD</div>
-            <div><p class="font-semibold text-sm">John Doe</p><p class="text-xs text-white/40">CEO, Tech Startup</p></div>
+            <div
+              class="w-12 h-12 rounded-full bg-[#B8912A]/20 flex items-center justify-center text-[#B8912A] font-bold text-sm"
+            >
+              JD
+            </div>
+            <div>
+              <p class="font-semibold text-sm">John Doe</p>
+              <p class="text-xs text-white/40">CEO, Tech Startup</p>
+            </div>
           </div>
         </div>
-        <div class="testimonial-card scroll-reveal" style="transition-delay:0.1s">
-          <p class="text-white/65 italic mb-6 leading-relaxed text-sm pt-4">"Working with Olamide was a game-changer. He brought our vision to life with creativity and professionalism."</p>
+        <div
+          class="testimonial-card scroll-reveal"
+          style="transition-delay: 0.1s"
+        >
+          <p class="text-white/65 italic mb-6 leading-relaxed text-sm pt-4">
+            "Working with Olamide was a game-changer. He brought our vision to
+            life with creativity and professionalism."
+          </p>
           <div class="flex items-center gap-4">
-            <div class="w-12 h-12 rounded-full bg-[#B8912A]/20 flex items-center justify-center text-[#B8912A] font-bold text-sm">SM</div>
-            <div><p class="font-semibold text-sm">Sarah Miller</p><p class="text-xs text-white/40">Founder, Wellness Brand</p></div>
+            <div
+              class="w-12 h-12 rounded-full bg-[#B8912A]/20 flex items-center justify-center text-[#B8912A] font-bold text-sm"
+            >
+              SM
+            </div>
+            <div>
+              <p class="font-semibold text-sm">Sarah Miller</p>
+              <p class="text-xs text-white/40">Founder, Wellness Brand</p>
+            </div>
           </div>
         </div>
-        <div class="testimonial-card scroll-reveal" style="transition-delay:0.2s">
-          <p class="text-white/65 italic mb-6 leading-relaxed text-sm pt-4">"The brand he built for us speaks volumes without saying a word. Truly exceptional work."</p>
+        <div
+          class="testimonial-card scroll-reveal"
+          style="transition-delay: 0.2s"
+        >
+          <p class="text-white/65 italic mb-6 leading-relaxed text-sm pt-4">
+            "The brand he built for us speaks volumes without saying a word.
+            Truly exceptional work."
+          </p>
           <div class="flex items-center gap-4">
-            <div class="w-12 h-12 rounded-full bg-[#B8912A]/20 flex items-center justify-center text-[#B8912A] font-bold text-sm">AK</div>
-            <div><p class="font-semibold text-sm">Ade Kolade</p><p class="text-xs text-white/40">Co-founder, Fashion Label</p></div>
+            <div
+              class="w-12 h-12 rounded-full bg-[#B8912A]/20 flex items-center justify-center text-[#B8912A] font-bold text-sm"
+            >
+              AK
+            </div>
+            <div>
+              <p class="font-semibold text-sm">Ade Kolade</p>
+              <p class="text-xs text-white/40">Co-founder, Fashion Label</p>
+            </div>
           </div>
         </div>
-        <div class="testimonial-card scroll-reveal" style="transition-delay:0.3s">
-          <p class="text-white/65 italic mb-6 leading-relaxed text-sm pt-4">"Olamide doesn't just design — he thinks strategically. He understood our market better than we expected."</p>
+        <div
+          class="testimonial-card scroll-reveal"
+          style="transition-delay: 0.3s"
+        >
+          <p class="text-white/65 italic mb-6 leading-relaxed text-sm pt-4">
+            "Olamide doesn't just design — he thinks strategically. He
+            understood our market better than we expected."
+          </p>
           <div class="flex items-center gap-4">
-            <div class="w-12 h-12 rounded-full bg-[#B8912A]/20 flex items-center justify-center text-[#B8912A] font-bold text-sm">TN</div>
-            <div><p class="font-semibold text-sm">Tolu Nwosu</p><p class="text-xs text-white/40">Marketing Director, Retail Brand</p></div>
+            <div
+              class="w-12 h-12 rounded-full bg-[#B8912A]/20 flex items-center justify-center text-[#B8912A] font-bold text-sm"
+            >
+              TN
+            </div>
+            <div>
+              <p class="font-semibold text-sm">Tolu Nwosu</p>
+              <p class="text-xs text-white/40">
+                Marketing Director, Retail Brand
+              </p>
+            </div>
           </div>
         </div>
       </div>
@@ -296,33 +1939,74 @@
 
     <!-- CTA -->
     <section class="bg-[#F5F3EE] text-[#0F0F0D] py-20 px-6 text-center">
-      <p class="text-[10px] tracking-[0.35em] text-[#B8912A] uppercase mb-4">Let's Create Together</p>
-      <h2 class="font-display text-4xl md:text-5xl font-bold mb-4">Have a project in mind?</h2>
-      <p class="text-black/55 mb-8 max-w-md mx-auto text-sm leading-relaxed">Available for full-time and contract roles with ambitious brands and forward-thinking teams.</p>
-      <a href="contact.html" class="bg-[#B8912A] hover:bg-[#D4A93C] text-white inline-block px-10 py-4 text-sm font-medium transition-all hover:scale-105 magnetic">Get In Touch</a>
+      <p class="text-[10px] tracking-[0.35em] text-[#B8912A] uppercase mb-4">
+        Let's Create Together
+      </p>
+      <h2 class="font-display text-4xl md:text-5xl font-bold mb-4">
+        Have a project in mind?
+      </h2>
+      <p class="text-black/55 mb-8 max-w-md mx-auto text-sm leading-relaxed">
+        Available for full-time and contract roles with ambitious brands and
+        forward-thinking teams.
+      </p>
+      <a
+        href="contact.html"
+        class="bg-[#B8912A] hover:bg-[#D4A93C] text-white inline-block px-10 py-4 text-sm font-medium transition-all hover:scale-105 magnetic"
+        >Get In Touch</a
+      >
     </section>
 
     <!-- FOOTER -->
     <footer class="bg-[#0F0F0D] border-t border-white/10 px-8 md:px-20 py-12">
       <div class="flex flex-col md:flex-row justify-between gap-8 mb-8">
         <div>
-          <p class="text-xs tracking-[0.2em] uppercase font-medium mb-2">Olamide Andrew</p>
-          <p class="text-white/40 text-sm">Strategic Brand Designer based in Cancola.</p>
+          <p class="text-xs tracking-[0.2em] uppercase font-medium mb-2">
+            Olamide Andrew
+          </p>
+          <p class="text-white/40 text-sm">
+            Strategic Brand Designer based in Cancola.
+          </p>
         </div>
         <div class="flex gap-8 text-sm text-white/60">
-          <a href="work.html" class="hover:text-[#B8912A] transition-colors">Work</a>
-          <a href="about.html" class="hover:text-[#B8912A] transition-colors">About</a>
-          <a href="contact.html" class="hover:text-[#B8912A] transition-colors">Contact</a>
+          <a href="work.html" class="hover:text-[#B8912A] transition-colors"
+            >Work</a
+          >
+          <a href="about.html" class="hover:text-[#B8912A] transition-colors"
+            >About</a
+          >
+          <a href="contact.html" class="hover:text-[#B8912A] transition-colors"
+            >Contact</a
+          >
         </div>
         <div class="flex gap-3 items-center">
-          <a href="#" class="w-9 h-9 rounded-full border border-white/20 flex items-center justify-center text-white/50 hover:border-[#B8912A] hover:text-[#B8912A] transition-all text-xs">Be</a>
-          <a href="#" class="w-9 h-9 rounded-full border border-white/20 flex items-center justify-center text-white/50 hover:border-[#B8912A] hover:text-[#B8912A] transition-all text-xs">In</a>
-          <a href="#" class="w-9 h-9 rounded-full border border-white/20 flex items-center justify-center text-white/50 hover:border-[#B8912A] hover:text-[#B8912A] transition-all text-xs">Tw</a>
+          <a
+            href="#"
+            class="w-9 h-9 rounded-full border border-white/20 flex items-center justify-center text-white/50 hover:border-[#B8912A] hover:text-[#B8912A] transition-all text-xs"
+            >Be</a
+          >
+          <a
+            href="#"
+            class="w-9 h-9 rounded-full border border-white/20 flex items-center justify-center text-white/50 hover:border-[#B8912A] hover:text-[#B8912A] transition-all text-xs"
+            >In</a
+          >
+          <a
+            href="#"
+            class="w-9 h-9 rounded-full border border-white/20 flex items-center justify-center text-white/50 hover:border-[#B8912A] hover:text-[#B8912A] transition-all text-xs"
+            >Tw</a
+          >
         </div>
       </div>
-      <div class="flex flex-col md:flex-row justify-between items-center pt-6 border-t border-white/10 gap-3">
-        <p class="text-white/30 text-xs">© 2025, Olamide Andrew. All rights reserved.</p>
-        <a href="mailto:hello@olamideandrew.com" class="text-white/40 text-sm hover:text-[#B8912A] transition-colors">hello@olamideandrew.com</a>
+      <div
+        class="flex flex-col md:flex-row justify-between items-center pt-6 border-t border-white/10 gap-3"
+      >
+        <p class="text-white/30 text-xs">
+          © 2025, Olamide Andrew. All rights reserved.
+        </p>
+        <a
+          href="mailto:hello@olamideandrew.com"
+          class="text-white/40 text-sm hover:text-[#B8912A] transition-colors"
+          >hello@olamideandrew.com</a
+        >
       </div>
     </footer>
 
@@ -333,26 +2017,51 @@
           openBtn = document.querySelector("[data-menu-toggle]"),
           closeBtn = document.querySelector("[data-menu-close]");
         if (menu && backdrop && openBtn && closeBtn) {
-          const close = () => { menu.classList.add("translate-x-full"); backdrop.classList.add("opacity-0","pointer-events-none"); document.body.style.overflow = ""; };
-          const open = () => { menu.classList.remove("translate-x-full"); backdrop.classList.remove("opacity-0","pointer-events-none"); document.body.style.overflow = "hidden"; };
+          const close = () => {
+            menu.classList.add("translate-x-full");
+            backdrop.classList.add("opacity-0", "pointer-events-none");
+            document.body.style.overflow = "";
+          };
+          const open = () => {
+            menu.classList.remove("translate-x-full");
+            backdrop.classList.remove("opacity-0", "pointer-events-none");
+            document.body.style.overflow = "hidden";
+          };
           openBtn.addEventListener("click", open);
           closeBtn.addEventListener("click", close);
           backdrop.addEventListener("click", close);
-          menu.querySelectorAll("a").forEach(l => l.addEventListener("click", close));
-          document.addEventListener("keydown", e => { if (e.key === "Escape") close(); });
-        }
-        const observer = new IntersectionObserver((entries) => {
-          entries.forEach(entry => {
-            if (entry.isIntersecting) {
-              entry.target.classList.add("active");
-              entry.target.querySelectorAll(".skill-bar-fill").forEach(bar => bar.classList.add("animated"));
-            }
+          menu
+            .querySelectorAll("a")
+            .forEach((l) => l.addEventListener("click", close));
+          document.addEventListener("keydown", (e) => {
+            if (e.key === "Escape") close();
           });
-        }, { threshold: 0.12 });
-        document.querySelectorAll(".scroll-reveal").forEach(el => observer.observe(el));
-        document.querySelectorAll(".magnetic").forEach(el => {
-          el.addEventListener("mousemove", e => { const r = el.getBoundingClientRect(); el.style.transform = `translate(${(e.clientX-r.left-r.width/2)/10}px,${(e.clientY-r.top-r.height/2)/10}px)`; });
-          el.addEventListener("mouseleave", () => el.style.transform = "translate(0,0)");
+        }
+        const observer = new IntersectionObserver(
+          (entries) => {
+            entries.forEach((entry) => {
+              if (entry.isIntersecting) {
+                entry.target.classList.add("active");
+                entry.target
+                  .querySelectorAll(".skill-bar-fill")
+                  .forEach((bar) => bar.classList.add("animated"));
+              }
+            });
+          },
+          { threshold: 0.12 },
+        );
+        document
+          .querySelectorAll(".scroll-reveal")
+          .forEach((el) => observer.observe(el));
+        document.querySelectorAll(".magnetic").forEach((el) => {
+          el.addEventListener("mousemove", (e) => {
+            const r = el.getBoundingClientRect();
+            el.style.transform = `translate(${(e.clientX - r.left - r.width / 2) / 10}px,${(e.clientY - r.top - r.height / 2) / 10}px)`;
+          });
+          el.addEventListener(
+            "mouseleave",
+            () => (el.style.transform = "translate(0,0)"),
+          );
         });
       })();
     </script>

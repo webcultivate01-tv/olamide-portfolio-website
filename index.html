@@ -253,6 +253,30 @@
         transform: scale(1.5);
         border-color: #b8912a;
       }
+      @keyframes gradient {
+        0%,
+        100% {
+          background-position: 0% 50%;
+        }
+        50% {
+          background-position: 100% 50%;
+        }
+      }
+      .animate-gradient {
+        background-size: 200% 200%;
+        animation: gradient 8s ease infinite;
+      }
+      .scroll-reveal {
+        opacity: 0;
+        transform: translateY(40px);
+        transition:
+          opacity 0.8s ease,
+          transform 0.8s ease;
+      }
+      .scroll-reveal.visible {
+        opacity: 1;
+        transform: translateY(0);
+      }
     </style>
   </head>
   <body class="bg-[#0F0F0D] text-white">
@@ -272,7 +296,7 @@
           >Home</a
         >
         <a href="about.html" class="nav-a transition-colors">About</a>
-        <a href="services.html" class="nav-a transition-colors">Services</a>
+        <!-- <a href="services.html" class="nav-a transition-colors">Services</a> -->
         <a href="work.html" class="nav-a transition-colors">Work</a>
         <a href="contact.html" class="nav-a transition-colors">Contact</a>
       </div>
@@ -355,27 +379,28 @@
 
     <!-- HERO -->
     <section
-      class="hero-section relative overflow-hidden px-6 md:px-10 py-20 md:py-15 min-h-[88vh] flex items-center justify-center"
-      style="
-        background-image: url(&quot;https://images.unsplash.com/photo-1557804506-669a67965ba0?w=1920&q=80&quot;);
-        background-size: cover;
-        background-position: center;
-        background-attachment: fixed;
-      "
+      class="hero-section relative overflow-hidden px-6 md:px-10 pt-10 pb-32 md:pt-20 md:pb-40 min-h-[92vh] flex items-start justify-center bg-[#0F0F0D]"
     >
+      <!-- Animated Background Elements -->
+      <div class="absolute inset-0 overflow-hidden">
+        <div
+          class="absolute top-0 left-1/4 w-[500px] h-[500px] bg-[#B8912A]/10 rounded-full blur-[120px] animate-pulse"
+        ></div>
+        <div
+          class="absolute bottom-0 right-1/4 w-[600px] h-[600px] bg-[#D4A93C]/8 rounded-full blur-[140px]"
+          style="animation: float 12s ease-in-out infinite"
+        ></div>
+        <div
+          class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full h-full bg-[radial-gradient(ellipse_at_center,rgba(184,145,42,0.08)_0%,transparent_70%)] pointer-events-none"
+        ></div>
+      </div>
+
+      <!-- Grid Pattern Overlay -->
       <div
-        class="absolute inset-0 bg-gradient-to-br from-[#0F0F0D]/90 via-[#0F0F0D]/85 to-[#0F0F0D]/80"
+        class="absolute inset-0 bg-[linear-gradient(rgba(184,145,42,0.03)_1px,transparent_1px),linear-gradient(90deg,rgba(184,145,42,0.03)_1px,transparent_1px)] bg-[size:100px_100px] [mask-image:radial-gradient(ellipse_at_center,black_20%,transparent_80%)]"
       ></div>
-      <div
-        class="absolute -top-24 -left-20 w-96 h-96 rounded-full bg-[#B8912A]/25 blur-3xl animate-pulse"
-      ></div>
-      <div
-        class="absolute -bottom-24 -right-16 w-96 h-96 rounded-full bg-[#D4A93C]/15 blur-3xl"
-        style="animation: float 8s ease-in-out infinite"
-      ></div>
-      <div
-        class="absolute inset-0 bg-[radial-gradient(circle_at_50%_20%,rgba(184,145,42,0.15),transparent_50%)]"
-      ></div>
+
+      <!-- Floating Lines -->
       <div
         class="hero-line line-left line-delay-1 hidden md:block w-56 top-[24%]"
       ></div>
@@ -389,84 +414,83 @@
         class="hero-line line-right line-delay-2 hidden md:block w-40 top-[74%]"
       ></div>
 
-      <div class="relative w-full max-w-5xl text-center">
+      <div class="relative w-full max-w-6xl text-center z-10">
         <p
-          class="fade-in d1 inline-flex items-center gap-2 px-4 py-2 border border-[#B8912A]/40 rounded-full text-[10px] tracking-[0.35em] text-[#D4A93C] uppercase mb-8 bg-white/[0.02]"
+          class="fade-in d1 inline-flex items-center gap-2 px-5 py-2.5 border border-[#B8912A]/30 rounded-full text-[10px] tracking-[0.35em] text-[#D4A93C] uppercase mb-10 bg-[#B8912A]/5 backdrop-blur-sm"
         >
-          <span class="w-1.5 h-1.5 rounded-full bg-[#B8912A]"></span>
+          <span class="w-2 h-2 rounded-full bg-[#B8912A] animate-pulse"></span>
           Strategic Brand Designer
         </p>
+
         <h1
-          class="fade-in d2 font-display text-5xl sm:text-6xl md:text-7xl font-bold leading-[1.05] mb-7 max-w-4xl mx-auto"
+          class="fade-in d2 font-display text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-bold leading-[1.05] mb-8 max-w-5xl mx-auto"
         >
           Building brands that
           <span
-            class="block text-transparent bg-clip-text bg-gradient-to-r from-[#F7E4AE] via-[#D4A93C] to-[#B8912A]"
+            class="block mt-2 text-transparent bg-clip-text bg-gradient-to-r from-[#F7E4AE] via-[#D4A93C] to-[#B8912A] animate-gradient"
             >connect and convert.</span
           >
         </h1>
+
         <p
-          class="fade-in d3 text-white/65 max-w-2xl mx-auto mb-12 leading-relaxed text-base md:text-lg"
+          class="fade-in d3 text-white/60 max-w-2xl mx-auto mb-14 leading-relaxed text-base md:text-lg"
         >
           Strategic brand systems and campaign design for businesses that
           believe every visual decision should serve a purpose.
         </p>
 
         <div
-          class="fade-in d4 flex flex-col sm:flex-row gap-4 justify-center items-center"
+          class="fade-in d4 flex flex-col sm:flex-row gap-5 justify-center items-center mb-16"
         >
           <a
             href="work.html"
-            class="group w-full sm:w-auto bg-gradient-to-r from-[#B8912A] to-[#D4A93C] hover:from-[#D4A93C] hover:to-[#B8912A] text-white px-8 py-3.5 text-sm font-medium transition-all duration-500 shadow-[0_10px_30px_rgba(184,145,42,0.4)] hover:translate-y-[-3px] hover:shadow-[0_20px_50px_rgba(184,145,42,0.6)] flex items-center justify-center gap-2 rounded-sm relative overflow-hidden"
-            ><span class="relative z-10">View Selected Work</span>
+            class="group w-full sm:w-auto bg-gradient-to-r from-[#B8912A] to-[#D4A93C] hover:from-[#D4A93C] hover:to-[#B8912A] text-white px-10 py-4 text-sm font-semibold transition-all duration-500 shadow-[0_10px_40px_rgba(184,145,42,0.3)] hover:shadow-[0_20px_60px_rgba(184,145,42,0.5)] hover:-translate-y-1 flex items-center justify-center gap-2 rounded-sm relative overflow-hidden"
+          >
+            <span class="relative z-10">View Selected Work</span>
             <span
               class="relative z-10 group-hover:translate-x-1 transition-transform"
-              >›</span
+              >→</span
             >
-            <div
-              class="absolute inset-0 bg-white/20 transform scale-x-0 group-hover:scale-x-100 transition-transform origin-left"
-            ></div>
           </a>
           <a
             href="contact.html"
-            class="group w-full sm:w-auto border-2 border-white/40 text-white hover:bg-white hover:text-[#0F0F0D] hover:border-white hover:shadow-[0_10px_40px_rgba(255,255,255,0.4)] hover:scale-105 px-8 py-3.5 text-sm font-medium transition-all duration-300 rounded-sm backdrop-blur-sm relative overflow-hidden"
-            ><span class="relative z-10">Let's Talk</span>
-            <div
-              class="absolute inset-0 bg-gradient-to-r from-[#B8912A] to-[#D4A93C] opacity-0 group-hover:opacity-20 transition-opacity"
-            ></div>
+            class="group w-full sm:w-auto border-2 border-white/30 text-white hover:bg-white hover:text-[#0F0F0D] hover:border-white px-10 py-4 text-sm font-semibold transition-all duration-300 rounded-sm backdrop-blur-sm hover:-translate-y-1 hover:shadow-[0_10px_40px_rgba(255,255,255,0.2)]"
+          >
+            <span class="relative z-10">Let's Talk</span>
           </a>
         </div>
 
-        <div class="fade-in d4 mt-12 flex flex-wrap justify-center gap-3">
+        <div class="fade-in d4 flex flex-wrap justify-center gap-3 mb-12">
           <span
-            class="group px-4 py-2 text-xs border border-white/10 bg-white/[0.03] text-white/70 rounded-full hover:border-[#B8912A] hover:bg-gradient-to-r hover:from-[#B8912A]/20 hover:to-[#D4A93C]/20 hover:text-[#B8912A] hover:scale-110 hover:shadow-[0_0_25px_rgba(184,145,42,0.5)] transition-all duration-300 cursor-pointer relative overflow-hidden"
+            class="group px-5 py-2.5 text-xs border border-white/10 bg-white/[0.02] text-white/60 rounded-full hover:border-[#B8912A]/60 hover:bg-[#B8912A]/10 hover:text-[#B8912A] hover:scale-105 transition-all duration-300 cursor-pointer backdrop-blur-sm"
           >
-            <span class="relative z-10">Brand Strategy</span>
-            <div
-              class="absolute inset-0 bg-gradient-to-r from-[#B8912A] to-[#D4A93C] opacity-0 group-hover:opacity-10 transition-opacity"
-            ></div>
+            Brand Strategy
           </span>
           <span
-            class="group px-4 py-2 text-xs border border-white/10 bg-white/[0.03] text-white/70 rounded-full hover:border-[#B8912A] hover:bg-gradient-to-r hover:from-[#B8912A]/20 hover:to-[#D4A93C]/20 hover:text-[#B8912A] hover:scale-110 hover:shadow-[0_0_25px_rgba(184,145,42,0.5)] transition-all duration-300 cursor-pointer relative overflow-hidden"
+            class="group px-5 py-2.5 text-xs border border-white/10 bg-white/[0.02] text-white/60 rounded-full hover:border-[#B8912A]/60 hover:bg-[#B8912A]/10 hover:text-[#B8912A] hover:scale-105 transition-all duration-300 cursor-pointer backdrop-blur-sm"
           >
-            <span class="relative z-10">Visual Identity</span>
-            <div
-              class="absolute inset-0 bg-gradient-to-r from-[#B8912A] to-[#D4A93C] opacity-0 group-hover:opacity-10 transition-opacity"
-            ></div>
+            Visual Identity
           </span>
           <span
-            class="group px-4 py-2 text-xs border border-white/10 bg-white/[0.03] text-white/70 rounded-full hover:border-[#B8912A] hover:bg-gradient-to-r hover:from-[#B8912A]/20 hover:to-[#D4A93C]/20 hover:text-[#B8912A] hover:scale-110 hover:shadow-[0_0_25px_rgba(184,145,42,0.5)] transition-all duration-300 cursor-pointer relative overflow-hidden"
+            class="group px-5 py-2.5 text-xs border border-white/10 bg-white/[0.02] text-white/60 rounded-full hover:border-[#B8912A]/60 hover:bg-[#B8912A]/10 hover:text-[#B8912A] hover:scale-105 transition-all duration-300 cursor-pointer backdrop-blur-sm"
           >
-            <span class="relative z-10">Campaign Design</span>
-            <div
-              class="absolute inset-0 bg-gradient-to-r from-[#B8912A] to-[#D4A93C] opacity-0 group-hover:opacity-10 transition-opacity"
-            ></div>
+            Campaign Design
           </span>
         </div>
 
-        <div class="fade-in d4 mt-8 flex flex-col items-center gap-4">
-          <span class="w-2 h-2 rounded-full bg-[#B8912A]"></span>
-          <p class="text-white/55 text-sm">
+        <div class="fade-in d4 flex flex-col items-center gap-5">
+          <div class="flex items-center gap-2">
+            <div
+              class="w-12 h-[1px] bg-gradient-to-r from-transparent to-[#B8912A]/40"
+            ></div>
+            <span
+              class="w-1.5 h-1.5 rounded-full bg-[#B8912A] animate-pulse"
+            ></span>
+            <div
+              class="w-12 h-[1px] bg-gradient-to-l from-transparent to-[#B8912A]/40"
+            ></div>
+          </div>
+          <p class="text-white/50 text-sm max-w-md">
             Helping ambitious brands turn
             <span class="text-[#B8912A] italic font-medium"
               >strategy into tangible results.</span
@@ -481,54 +505,489 @@
       id="services"
       class="bg-[#F5F3EE] text-[#0F0F0D] py-20 px-8 md:px-20"
     >
-      <p
-        class="approach-title text-[15px] tracking-[0.3em] text-[#B8912A] uppercase font-medium mb-12"
-      >
+      <div class="max-w-6xl mx-auto">
+        <p
+          class="text-[15px] tracking-[0.3em] text-[#B8912A] uppercase font-medium mb-12 text-center"
+        >
+          My Approach
+        </p>
+        <div class="grid md:grid-cols-3 gap-10">
+          <div
+            class="border-l-2 border-[#B8912A] pl-6 hover:border-[#D4A93C] transition-colors"
+          >
+            <p class="text-5xl font-display font-bold text-[#B8912A]/80 mb-3">
+              01
+            </p>
+            <h3 class="font-display text-xl font-bold mb-3">Strategy First</h3>
+            <p class="text-sm text-black/60 leading-relaxed">
+              Define goals, there's purpose. I start with your audience, your
+              goals, and the story you need to tell.
+            </p>
+          </div>
+          <div
+            class="border-l-2 border-[#B8912A] pl-6 hover:border-[#D4A93C] transition-colors"
+          >
+            <p class="text-5xl font-display font-bold text-[#B8912A]/80 mb-3">
+              02
+            </p>
+            <h3 class="font-display text-xl font-bold mb-3">
+              Systems That Scale
+            </h3>
+            <p class="text-sm text-black/60 leading-relaxed">
+              A logo is just the beginning. I build cohesive brand systems that
+              grow with you and scale across every touchpoint.
+            </p>
+          </div>
+          <div
+            class="border-l-2 border-[#B8912A] pl-6 hover:border-[#D4A93C] transition-colors"
+          >
+            <p class="text-5xl font-display font-bold text-[#B8912A]/80 mb-3">
+              03
+            </p>
+            <h3 class="font-display text-xl font-bold mb-3">
+              Stories That Stick
+            </h3>
+            <p class="text-sm text-black/60 leading-relaxed">
+              Design should make people feel something. I craft narratives that
+              resonate and drive action.
+            </p>
+          </div>
+        </div>
+        <!-- Bottom Divider -->
+        <div class="mt-20 flex items-center justify-center gap-4">
+          <div class="w-20 h-[1px] bg-[#B8912A]/40"></div>
+          <div class="w-4 h-4 rounded-full bg-[#B8912A] animate-pulse"></div>
+          <div class="w-20 h-[1px] bg-[#B8912A]/40"></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- HOW I CAN HELP -->
+    <!-- <section class="relative bg-[#0F0F0D] text-white py-20 px-8 md:px-20 scroll-reveal">
+      <p class="approach-title text-[15px] tracking-[0.3em] text-[#B8912A] uppercase font-medium mb-12 text-center">
         My Approach
       </p>
-      <div class="approach-grid grid md:grid-cols-3 gap-10">
-        <div class="border-l-2 border-[#B8912A] pl-6">
-          <p class="text-5xl font-display font-bold text-[#B8912A]/80 mb-3">
-            01
-          </p>
-          <h3 class="font-display text-xl font-bold mb-3">Strategy First</h3>
-          <p class="text-sm text-black/60 leading-relaxed">
-            Define goals, there's purpose. I start with your audience, your
-            goals, and the story you need to tell.
+      <div class="approach-grid grid md:grid-cols-3 gap-10 max-w-6xl mx-auto">
+        <div class="border-l-2 border-[#B8912A] pl-6 scroll-reveal hover:border-[#D4A93C] transition-colors">
+          <p class="text-5xl font-display font-bold text-[#B8912A]/80 mb-3">01</p>
+          <h3 class="font-display text-xl font-bold mb-3 text-white">Strategy First</h3>
+          <p class="text-sm text-white/60 leading-relaxed">
+            Define goals, there's purpose. I start with your audience, your goals, and the story you need to tell.
           </p>
         </div>
-        <div class="border-l-2 border-[#B8912A] pl-6">
-          <p class="text-5xl font-display font-bold text-[#B8912A]/80 mb-3">
-            02
-          </p>
-          <h3 class="font-display text-xl font-bold mb-3">
-            Systems That Scale
-          </h3>
-          <p class="text-sm text-black/60 leading-relaxed">
-            A logo is just the beginning. I build cohesive brand systems that
-            grow with you and scale across every touchpoint.
+        <div class="border-l-2 border-[#B8912A] pl-6 scroll-reveal hover:border-[#D4A93C] transition-colors">
+          <p class="text-5xl font-display font-bold text-[#B8912A]/80 mb-3">02</p>
+          <h3 class="font-display text-xl font-bold mb-3 text-white">Systems That Scale</h3>
+          <p class="text-sm text-white/60 leading-relaxed">
+            A logo is just the beginning. I build cohesive brand systems that grow with you and scale across every touchpoint.
           </p>
         </div>
-        <div class="border-l-2 border-[#B8912A] pl-6">
-          <p class="text-5xl font-display font-bold text-[#B8912A]/80 mb-3">
-            03
-          </p>
-          <h3 class="font-display text-xl font-bold mb-3">
-            Stories That Stick
-          </h3>
-          <p class="text-sm text-black/60 leading-relaxed">
-            Design should make people feel something. I craft narratives that
-            resonate and drive action.
+        <div class="border-l-2 border-[#B8912A] pl-6 scroll-reveal hover:border-[#D4A93C] transition-colors">
+          <p class="text-5xl font-display font-bold text-[#B8912A]/80 mb-3">03</p>
+          <h3 class="font-display text-xl font-bold mb-3 text-white">Stories That Stick</h3>
+          <p class="text-sm text-white/60 leading-relaxed">
+            Design should make people feel something. I craft narratives that resonate and drive action.
           </p>
         </div>
       </div>
-      <!-- Bottom Divider -->
       <div class="mt-20 flex items-center justify-center gap-4">
         <div class="w-20 h-[1px] bg-[#B8912A]/40"></div>
         <div class="w-4 h-4 rounded-full bg-[#B8912A] animate-pulse"></div>
         <div class="w-20 h-[1px] bg-[#B8912A]/40"></div>
       </div>
+    </section> -->
+
+    <!-- HOW I CAN HELP -->
+    <section class="relative bg-[#181815] py-28 px-8 md:px-20 overflow-hidden">
+      <!-- Atmosphere -->
+      <div
+        class="absolute top-0 right-0 w-[500px] h-[500px] bg-[#B8912A]/5 blur-[130px] rounded-full pointer-events-none"
+      ></div>
+      <div
+        class="absolute bottom-0 left-0 w-[400px] h-[400px] bg-[#B8912A]/4 blur-[110px] rounded-full pointer-events-none"
+      ></div>
+      <div
+        class="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-[#B8912A]/25 to-transparent"
+      ></div>
+      <div
+        class="absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-[#B8912A]/25 to-transparent"
+      ></div>
+      <div
+        class="absolute inset-0 bg-[linear-gradient(rgba(184,145,42,0.012)_1px,transparent_1px),linear-gradient(90deg,rgba(184,145,42,0.012)_1px,transparent_1px)] bg-[size:80px_80px] [mask-image:radial-gradient(ellipse_at_center,black_10%,transparent_70%)]"
+      ></div>
+
+      <div class="max-w-6xl mx-auto relative z-10">
+        <!-- Header -->
+        <div class="text-center mb-20">
+          <div class="flex items-center justify-center gap-3 mb-5">
+            <div
+              class="w-8 h-px bg-gradient-to-r from-transparent to-[#B8912A]"
+            ></div>
+            <p class="text-[10px] tracking-[0.4em] text-[#B8912A] uppercase">
+              How I Can Help
+            </p>
+            <div
+              class="w-8 h-px bg-gradient-to-l from-transparent to-[#B8912A]"
+            ></div>
+          </div>
+          <h2
+            class="font-display text-4xl md:text-5xl font-bold leading-[1.1] mb-5"
+          >
+            Services Built for<br />
+            <span
+              class="text-transparent bg-clip-text bg-gradient-to-r from-[#F7E4AE] via-[#D4A93C] to-[#B8912A]"
+              >Ambitious Brands</span
+            >
+          </h2>
+          <p class="text-white/40 text-sm max-w-md mx-auto leading-relaxed">
+            Every engagement is tailored — strategic, intentional, and designed
+            to move your business forward.
+          </p>
+        </div>
+
+        <!-- Service Cards -->
+        <div class="grid md:grid-cols-3 gap-6">
+          <!-- Card 01 — Brand Strategy -->
+          <div
+            class="service-card-adv group relative rounded-2xl overflow-hidden border border-white/5 hover:border-[#B8912A]/40 transition-all duration-700 hover:-translate-y-2 cursor-pointer"
+          >
+            <!-- Background image -->
+            <div class="relative h-52 overflow-hidden">
+              <img
+                src="https://images.unsplash.com/photo-1552664730-d307ca884978?w=600&q=80"
+                alt="Brand Strategy"
+                class="w-full h-full object-cover scale-105 group-hover:scale-110 transition-transform duration-700 brightness-[0.35] group-hover:brightness-[0.45]"
+              />
+              <!-- Gradient overlay -->
+              <div
+                class="absolute inset-0 bg-gradient-to-t from-[#181815] via-[#181815]/60 to-transparent"
+              ></div>
+              <!-- Number -->
+              <div
+                class="absolute top-5 right-5 w-10 h-10 rounded-lg bg-[#B8912A]/15 border border-[#B8912A]/30 flex items-center justify-center backdrop-blur-sm group-hover:bg-[#B8912A]/30 transition-all duration-300"
+              >
+                <span class="font-display text-sm font-bold text-[#B8912A]"
+                  >01</span
+                >
+              </div>
+              <!-- Icon in image -->
+              <div class="absolute bottom-5 left-6">
+                <svg
+                  class="w-8 h-8 text-[#B8912A] opacity-80"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="1.5"
+                    d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"
+                  />
+                </svg>
+              </div>
+            </div>
+
+            <!-- Content -->
+            <div class="relative bg-[#181815] p-7 pt-0">
+              <!-- Shimmer top -->
+              <div
+                class="absolute top-0 left-6 right-6 h-px bg-gradient-to-r from-transparent via-[#B8912A]/0 group-hover:via-[#B8912A]/50 to-transparent transition-all duration-500"
+              ></div>
+
+              <h3
+                class="text-xs tracking-[0.25em] uppercase font-bold text-white mb-1 pt-6 group-hover:text-[#D4A93C] transition-colors duration-300"
+              >
+                Brand Strategy
+              </h3>
+              <p class="text-white/40 text-xs leading-relaxed mb-6">
+                Position your brand with precision. Build a foundation your
+                entire identity rests on.
+              </p>
+
+              <ul class="space-y-3">
+                <li
+                  class="flex items-center gap-3 text-sm text-white/50 group-hover:text-white/70 transition-colors duration-300"
+                >
+                  <div
+                    class="w-1 h-1 rounded-full bg-[#B8912A]/60 shrink-0"
+                  ></div>
+                  Positioning & Messaging
+                </li>
+                <li
+                  class="flex items-center gap-3 text-sm text-white/50 group-hover:text-white/70 transition-colors duration-300"
+                >
+                  <div
+                    class="w-1 h-1 rounded-full bg-[#B8912A]/60 shrink-0"
+                  ></div>
+                  Audience Research
+                </li>
+                <li
+                  class="flex items-center gap-3 text-sm text-white/50 group-hover:text-white/70 transition-colors duration-300"
+                >
+                  <div
+                    class="w-1 h-1 rounded-full bg-[#B8912A]/60 shrink-0"
+                  ></div>
+                  Growth Roadmap
+                </li>
+              </ul>
+
+              <div
+                class="mt-7 pt-5 border-t border-white/5 group-hover:border-[#B8912A]/15 transition-colors duration-300 flex items-center justify-between"
+              >
+                <span
+                  class="text-[9px] tracking-[0.3em] text-white/20 uppercase group-hover:text-[#B8912A]/50 transition-colors duration-300"
+                  >Starting from</span
+                >
+                <span
+                  class="text-xs text-white/30 group-hover:text-[#B8912A] transition-colors duration-300 flex items-center gap-1"
+                >
+                  Learn more
+                  <span
+                    class="group-hover:translate-x-1 transition-transform duration-300 inline-block"
+                    >→</span
+                  >
+                </span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Card 02 — Visual Identity (Featured) -->
+          <div
+            class="service-card-adv group relative rounded-2xl overflow-hidden border border-[#B8912A]/25 hover:border-[#B8912A]/60 transition-all duration-700 hover:-translate-y-2 cursor-pointer shadow-[0_0_40px_rgba(184,145,42,0.08)]"
+          >
+            <!-- Featured badge -->
+            <div
+              class="absolute top-5 left-6 z-10 px-3 py-1 bg-gradient-to-r from-[#B8912A] to-[#D4A93C] rounded-full"
+            >
+              <span
+                class="text-[8px] tracking-[0.3em] text-[#0F0F0D] uppercase font-bold"
+                >Most Popular</span
+              >
+            </div>
+
+            <div class="relative h-52 overflow-hidden">
+              <img
+                src="https://images.unsplash.com/photo-1634942537034-2531766767d1?w=600&q=80"
+                alt="Visual Identity"
+                class="w-full h-full object-cover scale-105 group-hover:scale-110 transition-transform duration-700 brightness-[0.35] group-hover:brightness-[0.45]"
+              />
+              <div
+                class="absolute inset-0 bg-gradient-to-t from-[#181815] via-[#181815]/60 to-transparent"
+              ></div>
+              <div
+                class="absolute top-5 right-5 w-10 h-10 rounded-lg bg-gradient-to-br from-[#B8912A] to-[#D4A93C] flex items-center justify-center shadow-[0_4px_16px_rgba(184,145,42,0.4)]"
+              >
+                <span class="font-display text-sm font-bold text-[#0F0F0D]"
+                  >02</span
+                >
+              </div>
+              <div class="absolute bottom-5 left-6">
+                <svg
+                  class="w-8 h-8 text-[#B8912A]"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="1.5"
+                    d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"
+                  />
+                </svg>
+              </div>
+            </div>
+
+            <div class="relative bg-[#181815] p-7 pt-0">
+              <div
+                class="absolute top-0 left-6 right-6 h-px bg-gradient-to-r from-transparent via-[#B8912A]/60 to-transparent"
+              ></div>
+
+              <h3
+                class="text-xs tracking-[0.25em] uppercase font-bold text-[#D4A93C] mb-1 pt-6"
+              >
+                Visual Identity
+              </h3>
+              <p class="text-white/40 text-xs leading-relaxed mb-6">
+                Create a visual language that's unmistakably yours — from first
+                impression to every touchpoint.
+              </p>
+
+              <ul class="space-y-3">
+                <li class="flex items-center gap-3 text-sm text-white/60">
+                  <div class="w-1 h-1 rounded-full bg-[#B8912A] shrink-0"></div>
+                  Logo Design & Variations
+                </li>
+                <li class="flex items-center gap-3 text-sm text-white/60">
+                  <div class="w-1 h-1 rounded-full bg-[#B8912A] shrink-0"></div>
+                  Brand Style Guides
+                </li>
+                <li class="flex items-center gap-3 text-sm text-white/60">
+                  <div class="w-1 h-1 rounded-full bg-[#B8912A] shrink-0"></div>
+                  Typography & Colour Systems
+                </li>
+              </ul>
+
+              <div
+                class="mt-7 pt-5 border-t border-[#B8912A]/15 transition-colors duration-300 flex items-center justify-between"
+              >
+                <span
+                  class="text-[9px] tracking-[0.3em] text-[#B8912A]/40 uppercase"
+                  >Most requested</span
+                >
+                <span
+                  class="text-xs text-[#B8912A] flex items-center gap-1 group-hover:text-[#F7E4AE] transition-colors duration-300"
+                >
+                  Learn more
+                  <span
+                    class="group-hover:translate-x-1 transition-transform duration-300 inline-block"
+                    >→</span
+                  >
+                </span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Card 03 — Campaign Design -->
+          <div
+            class="service-card-adv group relative rounded-2xl overflow-hidden border border-white/5 hover:border-[#B8912A]/40 transition-all duration-700 hover:-translate-y-2 cursor-pointer"
+          >
+            <div class="relative h-52 overflow-hidden">
+              <img
+                src="https://images.unsplash.com/photo-1542744173-8e7e53415bb0?w=600&q=80"
+                alt="Campaign Design"
+                class="w-full h-full object-cover scale-105 group-hover:scale-110 transition-transform duration-700 brightness-[0.35] group-hover:brightness-[0.45]"
+              />
+              <div
+                class="absolute inset-0 bg-gradient-to-t from-[#181815] via-[#181815]/60 to-transparent"
+              ></div>
+              <div
+                class="absolute top-5 right-5 w-10 h-10 rounded-lg bg-[#B8912A]/15 border border-[#B8912A]/30 flex items-center justify-center backdrop-blur-sm group-hover:bg-[#B8912A]/30 transition-all duration-300"
+              >
+                <span class="font-display text-sm font-bold text-[#B8912A]"
+                  >03</span
+                >
+              </div>
+              <div class="absolute bottom-5 left-6">
+                <svg
+                  class="w-8 h-8 text-[#B8912A] opacity-80"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="1.5"
+                    d="M11 5.882V19.24a1.76 1.76 0 01-3.417.592l-2.147-6.15M18 13a3 3 0 100-6M5.436 13.683A4.001 4.001 0 017 6h1.832c4.1 0 7.625-1.234 9.168-3v14c-1.543-1.766-5.067-3-9.168-3H7a3.988 3.988 0 01-1.564-.317z"
+                  />
+                </svg>
+              </div>
+            </div>
+
+            <div class="relative bg-[#181815] p-7 pt-0">
+              <div
+                class="absolute top-0 left-6 right-6 h-px bg-gradient-to-r from-transparent via-[#B8912A]/0 group-hover:via-[#B8912A]/50 to-transparent transition-all duration-500"
+              ></div>
+
+              <h3
+                class="text-xs tracking-[0.25em] uppercase font-bold text-white mb-1 pt-6 group-hover:text-[#D4A93C] transition-colors duration-300"
+              >
+                Campaign Design
+              </h3>
+              <p class="text-white/40 text-xs leading-relaxed mb-6">
+                Turn strategy into compelling visuals that stop scrolls, drive
+                clicks, and move people to act.
+              </p>
+
+              <ul class="space-y-3">
+                <li
+                  class="flex items-center gap-3 text-sm text-white/50 group-hover:text-white/70 transition-colors duration-300"
+                >
+                  <div
+                    class="w-1 h-1 rounded-full bg-[#B8912A]/60 shrink-0"
+                  ></div>
+                  Marketing Materials
+                </li>
+                <li
+                  class="flex items-center gap-3 text-sm text-white/50 group-hover:text-white/70 transition-colors duration-300"
+                >
+                  <div
+                    class="w-1 h-1 rounded-full bg-[#B8912A]/60 shrink-0"
+                  ></div>
+                  Web Design
+                </li>
+                <li
+                  class="flex items-center gap-3 text-sm text-white/50 group-hover:text-white/70 transition-colors duration-300"
+                >
+                  <div
+                    class="w-1 h-1 rounded-full bg-[#B8912A]/60 shrink-0"
+                  ></div>
+                  Print & Digital Assets
+                </li>
+              </ul>
+
+              <div
+                class="mt-7 pt-5 border-t border-white/5 group-hover:border-[#B8912A]/15 transition-colors duration-300 flex items-center justify-between"
+              >
+                <span
+                  class="text-[9px] tracking-[0.3em] text-white/20 uppercase group-hover:text-[#B8912A]/50 transition-colors duration-300"
+                  >Starting from</span
+                >
+                <span
+                  class="text-xs text-white/30 group-hover:text-[#B8912A] transition-colors duration-300 flex items-center gap-1"
+                >
+                  Learn more
+                  <span
+                    class="group-hover:translate-x-1 transition-transform duration-300 inline-block"
+                    >→</span
+                  >
+                </span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Bottom CTA -->
+        <div class="mt-14 text-center">
+          <p class="text-white/30 text-sm mb-5">
+            Not sure which service fits your needs?
+          </p>
+          <a
+            href="contact.html"
+            class="inline-flex items-center gap-2 px-8 py-3.5 border border-[#B8912A]/30 hover:border-[#B8912A] text-[#B8912A] hover:text-[#F7E4AE] text-sm font-medium rounded-full transition-all duration-300 hover:bg-[#B8912A]/10 hover:shadow-[0_0_30px_rgba(184,145,42,0.15)]"
+          >
+            Let's talk it through
+            <span class="text-base">→</span>
+          </a>
+        </div>
+      </div>
     </section>
+
+    <style>
+      .service-card-adv {
+        opacity: 0;
+        transform: translateY(30px);
+        animation: svcReveal 0.7s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+      }
+      .service-card-adv:nth-child(1) {
+        animation-delay: 0.1s;
+      }
+      .service-card-adv:nth-child(2) {
+        animation-delay: 0.25s;
+      }
+      .service-card-adv:nth-child(3) {
+        animation-delay: 0.4s;
+      }
+
+      @keyframes svcReveal {
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+    </style>
 
     <!-- SELECTED WORK -->
     <section class="bg-[#181815] py-24 px-8 md:px-20">
@@ -559,69 +1018,51 @@
       <!-- GRID -->
       <div class="grid md:grid-cols-2 gap-10">
         <!-- BRAND STRATEGY -->
-        <div class="group cursor-pointer">
-          <div
-            class="relative overflow-hidden rounded-2xl"
-            onclick="
-              openLightbox(
-                'https://images.unsplash.com/photo-1558655146-d09347e92766?q=80&w=1600',
-              )
-            "
-          >
+        <a href="project-nova-tech.html" class="group cursor-pointer">
+          <div class="relative overflow-hidden rounded-2xl">
             <img
               src="https://images.unsplash.com/photo-1558655146-d09347e92766?q=80&w=800"
               class="w-full h-64 object-cover transition duration-700 group-hover:scale-110"
               alt="Brand Strategy"
             />
-
             <div
               class="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition flex items-center justify-center"
             >
               <p class="text-white tracking-widest text-sm">VIEW PROJECT</p>
             </div>
           </div>
-
           <div class="mt-5">
-            <h4 class="font-display text-xl font-semibold">Brand Strategy</h4>
+            <h4 class="font-display text-xl font-semibold">Nova Tech</h4>
             <p class="text-white/50 text-sm mt-1">
-              Market positioning, messaging and strategic brand direction.
+              SaaS brand repositioning for Series A growth.
             </p>
           </div>
-        </div>
+        </a>
 
         <!-- VISUAL IDENTITY -->
-        <div class="group cursor-pointer">
-          <div
-            class="relative overflow-hidden rounded-2xl"
-            onclick="
-              openLightbox(
-                'https://images.unsplash.com/photo-1609921212029-bb5a28e60960?q=80&w=1600',
-              )
-            "
-          >
+        <a href="project-harvest-market.html" class="group cursor-pointer">
+          <div class="relative overflow-hidden rounded-2xl">
             <img
               src="https://images.unsplash.com/photo-1609921212029-bb5a28e60960?q=80&w=800"
               class="w-full h-64 object-cover transition duration-700 group-hover:scale-110"
               alt="Visual Identity"
             />
-
             <div
               class="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition flex items-center justify-center"
             >
               <p class="text-white tracking-widest text-sm">VIEW PROJECT</p>
             </div>
           </div>
-
           <div class="mt-5">
-            <h4 class="font-display text-xl font-semibold">Visual Identity</h4>
+            <h4 class="font-display text-xl font-semibold">Harvest Market</h4>
             <p class="text-white/50 text-sm mt-1">
-              Logo systems, typography and cohesive visual language.
+              Organic grocer brand with warm, earthy identity.
             </p>
           </div>
-        </div>
+        </a>
 
         <!-- CAMPAIGN DESIGN -->
-        <div class="group cursor-pointer">
+        <!-- <div class="group cursor-pointer">
           <div
             class="relative overflow-hidden rounded-2xl"
             onclick="
@@ -649,10 +1090,10 @@
               Creative campaigns across digital and print platforms.
             </p>
           </div>
-        </div>
+        </div> -->
 
         <!-- BRAND APPLICATION -->
-        <div class="group cursor-pointer">
+        <!-- <div class="group cursor-pointer">
           <div
             class="relative overflow-hidden rounded-2xl"
             onclick="
@@ -682,7 +1123,7 @@
               Real-world brand implementation and product visuals.
             </p>
           </div>
-        </div>
+        </div> -->
       </div>
 
       <!-- VIEW MORE -->
@@ -1047,6 +1488,197 @@
       </script>
     </section>
 
+    <!-- FAQ SECTION -->
+    <section class="bg-gradient-to-b from-[#181815] to-[#0F0F0D] py-32 px-8 md:px-20 relative overflow-hidden">
+      <!-- Background Elements -->
+      <div class="absolute top-0 left-0 w-96 h-96 bg-[#B8912A]/5 rounded-full blur-3xl"></div>
+      <div class="absolute bottom-0 right-0 w-96 h-96 bg-[#B8912A]/5 rounded-full blur-3xl"></div>
+      <div class="absolute inset-0 bg-[linear-gradient(rgba(184,145,42,0.03)_1px,transparent_1px),linear-gradient(90deg,rgba(184,145,42,0.03)_1px,transparent_1px)] bg-[size:100px_100px] [mask-image:radial-gradient(ellipse_at_center,black_20%,transparent_80%)]"></div>
+
+      <div class="max-w-5xl mx-auto relative z-10">
+        <!-- Header -->
+        <div class="text-center mb-20">
+          <div class="flex items-center justify-center gap-3 mb-6">
+            <div class="w-8 h-px bg-gradient-to-r from-transparent to-[#B8912A]"></div>
+            <p class="text-xs tracking-[0.4em] text-[#B8912A] uppercase font-semibold">FAQ</p>
+            <div class="w-8 h-px bg-gradient-to-l from-transparent to-[#B8912A]"></div>
+          </div>
+          <h2 class="font-display text-4xl md:text-5xl font-bold mb-4">
+            Frequently Asked <span class="text-transparent bg-clip-text bg-gradient-to-r from-[#F7E4AE] via-[#D4A93C] to-[#B8912A]">Questions</span>
+          </h2>
+          <p class="text-white/50 max-w-2xl mx-auto text-base leading-relaxed">
+            Everything you need to know about working with me and my design process. Can't find your answer? <a href="contact.html" class="text-[#B8912A] hover:text-[#D4A93C] transition">Get in touch</a>.
+          </p>
+        </div>
+
+        <!-- FAQ Items -->
+        <div class="space-y-4">
+          <!-- FAQ 1 -->
+          <div class="faq-item group border border-white/10 rounded-xl overflow-hidden transition-all duration-300 hover:border-[#B8912A]/40 hover:shadow-[0_0_30px_rgba(184,145,42,0.1)]">
+            <button class="faq-toggle w-full px-8 py-6 flex items-center justify-between bg-gradient-to-r from-[#0F0F0D] to-[#181815] hover:from-[#181815] hover:to-[#1F1F1B] transition-all" onclick="toggleFAQ(this)">
+              <span class="font-semibold text-lg text-left text-white group-hover:text-[#D4A93C] transition">What's your design process?</span>
+              <span class="text-[#B8912A] text-2xl transition-transform duration-300 group-hover:scale-125">+</span>
+            </button>
+            <div class="faq-content max-h-0 overflow-hidden transition-all duration-300">
+              <div class="px-8 py-8 bg-gradient-to-b from-[#0F0F0D] to-[#181815] border-t border-[#B8912A]/20 text-white/70 leading-relaxed space-y-4">
+                <p>I follow a strategic, collaborative approach broken into four key phases:</p>
+                <div class="space-y-3 text-sm">
+                  <div class="flex gap-3">
+                    <span class="text-[#B8912A] font-bold min-w-fit">1. Discovery:</span>
+                    <p>Deep dive into your business, audience, competitors, and goals. I ask the right questions to understand your vision.</p>
+                  </div>
+                  <div class="flex gap-3">
+                    <span class="text-[#B8912A] font-bold min-w-fit">2. Strategy:</span>
+                    <p>Define positioning, messaging, and visual direction. This foundation ensures every design decision serves your goals.</p>
+                  </div>
+                  <div class="flex gap-3">
+                    <span class="text-[#B8912A] font-bold min-w-fit">3. Design:</span>
+                    <p>Create concepts, refine through feedback, and build comprehensive brand systems ready to scale.</p>
+                  </div>
+                  <div class="flex gap-3">
+                    <span class="text-[#B8912A] font-bold min-w-fit">4. Launch:</span>
+                    <p>Deliver all assets, brand guidelines, and support to ensure smooth implementation across touchpoints.</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- FAQ 2 -->
+          <div class="faq-item group border border-white/10 rounded-xl overflow-hidden transition-all duration-300 hover:border-[#B8912A]/40 hover:shadow-[0_0_30px_rgba(184,145,42,0.1)]">
+            <button class="faq-toggle w-full px-8 py-6 flex items-center justify-between bg-gradient-to-r from-[#0F0F0D] to-[#181815] hover:from-[#181815] hover:to-[#1F1F1B] transition-all" onclick="toggleFAQ(this)">
+              <span class="font-semibold text-lg text-left text-white group-hover:text-[#D4A93C] transition">How long does a project typically take?</span>
+              <span class="text-[#B8912A] text-2xl transition-transform duration-300 group-hover:scale-125">+</span>
+            </button>
+            <div class="faq-content max-h-0 overflow-hidden transition-all duration-300">
+              <div class="px-8 py-8 bg-gradient-to-b from-[#0F0F0D] to-[#181815] border-t border-[#B8912A]/20 text-white/70 leading-relaxed space-y-4">
+                <p>Timeline varies based on scope and complexity:</p>
+                <div class="space-y-3 text-sm">
+                  <div class="flex items-center gap-3 p-3 bg-[#B8912A]/5 rounded-lg border border-[#B8912A]/10">
+                    <span class="text-[#B8912A] font-bold">Logo Design:</span>
+                    <span>3-4 weeks</span>
+                  </div>
+                  <div class="flex items-center gap-3 p-3 bg-[#B8912A]/5 rounded-lg border border-[#B8912A]/10">
+                    <span class="text-[#B8912A] font-bold">Brand Identity:</span>
+                    <span>4-6 weeks</span>
+                  </div>
+                  <div class="flex items-center gap-3 p-3 bg-[#B8912A]/5 rounded-lg border border-[#B8912A]/10">
+                    <span class="text-[#B8912A] font-bold">Complete System:</span>
+                    <span>6-10 weeks</span>
+                  </div>
+                  <div class="flex items-center gap-3 p-3 bg-[#B8912A]/5 rounded-lg border border-[#B8912A]/10">
+                    <span class="text-[#B8912A] font-bold">Campaign Design:</span>
+                    <span>2-4 weeks</span>
+                  </div>
+                </div>
+                <p class="text-xs text-white/50 pt-2">I'll provide a detailed timeline during our initial consultation based on your specific needs and requirements.</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- FAQ 3 -->
+          <div class="faq-item group border border-white/10 rounded-xl overflow-hidden transition-all duration-300 hover:border-[#B8912A]/40 hover:shadow-[0_0_30px_rgba(184,145,42,0.1)]">
+            <button class="faq-toggle w-full px-8 py-6 flex items-center justify-between bg-gradient-to-r from-[#0F0F0D] to-[#181815] hover:from-[#181815] hover:to-[#1F1F1B] transition-all" onclick="toggleFAQ(this)">
+              <span class="font-semibold text-lg text-left text-white group-hover:text-[#D4A93C] transition">Do you offer revisions?</span>
+              <span class="text-[#B8912A] text-2xl transition-transform duration-300 group-hover:scale-125">+</span>
+            </button>
+            <div class="faq-content max-h-0 overflow-hidden transition-all duration-300">
+              <div class="px-8 py-8 bg-gradient-to-b from-[#0F0F0D] to-[#181815] border-t border-[#B8912A]/20 text-white/70 leading-relaxed space-y-4">
+                <p class="text-[#D4A93C] font-semibold">Absolutely! Revisions are included in every project.</p>
+                <p>I believe in true collaboration. Your satisfaction is my priority, and I'm committed to getting the design exactly right.</p>
+                <div class="bg-[#B8912A]/5 border border-[#B8912A]/20 rounded-lg p-4 space-y-2">
+                  <p class="text-sm font-semibold text-white">Revision rounds included:</p>
+                  <ul class="text-sm space-y-2">
+                    <li class="flex items-center gap-2"><span class="text-[#B8912A]">✓</span> Unlimited revisions on initial concepts</li>
+                    <li class="flex items-center gap-2"><span class="text-[#B8912A]">✓</span> Refinement rounds based on feedback</li>
+                    <li class="flex items-center gap-2"><span class="text-[#B8912A]">✓</span> Minor adjustments after delivery</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- FAQ 4 -->
+          <div class="faq-item group border border-white/10 rounded-xl overflow-hidden transition-all duration-300 hover:border-[#B8912A]/40 hover:shadow-[0_0_30px_rgba(184,145,42,0.1)]">
+            <button class="faq-toggle w-full px-8 py-6 flex items-center justify-between bg-gradient-to-r from-[#0F0F0D] to-[#181815] hover:from-[#181815] hover:to-[#1F1F1B] transition-all" onclick="toggleFAQ(this)">
+              <span class="font-semibold text-lg text-left text-white group-hover:text-[#D4A93C] transition">What's your pricing structure?</span>
+              <span class="text-[#B8912A] text-2xl transition-transform duration-300 group-hover:scale-125">+</span>
+            </button>
+            <div class="faq-content max-h-0 overflow-hidden transition-all duration-300">
+              <div class="px-8 py-8 bg-gradient-to-b from-[#0F0F0D] to-[#181815] border-t border-[#B8912A]/20 text-white/70 leading-relaxed space-y-4">
+                <p>Pricing is custom based on your project scope, complexity, and timeline. I don't believe in one-size-fits-all pricing.</p>
+                <div class="space-y-3 text-sm">
+                  <div class="p-4 bg-[#B8912A]/5 rounded-lg border border-[#B8912A]/20">
+                    <p class="font-semibold text-white mb-2">What I consider:</p>
+                    <ul class="space-y-1 text-xs">
+                      <li>• Project scope and deliverables</li>
+                      <li>• Timeline and urgency</li>
+                      <li>• Revision rounds needed</li>
+                      <li>• Industry and market positioning</li>
+                      <li>• Long-term partnership potential</li>
+                    </ul>
+                  </div>
+                </div>
+                <p class="text-[#D4A93C] font-semibold">Let's schedule a consultation to discuss your project and I'll provide a detailed, transparent quote.</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- FAQ 5 -->
+          <div class="faq-item group border border-white/10 rounded-xl overflow-hidden transition-all duration-300 hover:border-[#B8912A]/40 hover:shadow-[0_0_30px_rgba(184,145,42,0.1)]">
+            <button class="faq-toggle w-full px-8 py-6 flex items-center justify-between bg-gradient-to-r from-[#0F0F0D] to-[#181815] hover:from-[#181815] hover:to-[#1F1F1B] transition-all" onclick="toggleFAQ(this)">
+              <span class="font-semibold text-lg text-left text-white group-hover:text-[#D4A93C] transition">Do you work with startups and established brands?</span>
+              <span class="text-[#B8912A] text-2xl transition-transform duration-300 group-hover:scale-125">+</span>
+            </button>
+            <div class="faq-content max-h-0 overflow-hidden transition-all duration-300">
+              <div class="px-8 py-8 bg-gradient-to-b from-[#0F0F0D] to-[#181815] border-t border-[#B8912A]/20 text-white/70 leading-relaxed space-y-4">
+                <p class="text-[#D4A93C] font-semibold">Yes! I work with both early-stage startups and established brands.</p>
+                <div class="space-y-4 text-sm">
+                  <div>
+                    <p class="font-semibold text-white mb-2">For Startups:</p>
+                    <p>I help you establish a strong brand foundation from day one. Whether you're pre-launch or scaling, I create systems that grow with you.</p>
+                  </div>
+                  <div>
+                    <p class="font-semibold text-white mb-2">For Established Brands:</p>
+                    <p>I specialize in strategic rebranding, modernization, and evolution. Refreshing your identity while maintaining brand equity.</p>
+                  </div>
+                </div>
+                <p>Every project gets my full strategic attention and creative excellence, regardless of size.</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- FAQ 6 -->
+          <div class="faq-item group border border-white/10 rounded-xl overflow-hidden transition-all duration-300 hover:border-[#B8912A]/40 hover:shadow-[0_0_30px_rgba(184,145,42,0.1)]">
+            <button class="faq-toggle w-full px-8 py-6 flex items-center justify-between bg-gradient-to-r from-[#0F0F0D] to-[#181815] hover:from-[#181815] hover:to-[#1F1F1B] transition-all" onclick="toggleFAQ(this)">
+              <span class="font-semibold text-lg text-left text-white group-hover:text-[#D4A93C] transition">How do I get started?</span>
+              <span class="text-[#B8912A] text-2xl transition-transform duration-300 group-hover:scale-125">+</span>
+            </button>
+            <div class="faq-content max-h-0 overflow-hidden transition-all duration-300">
+              <div class="px-8 py-8 bg-gradient-to-b from-[#0F0F0D] to-[#181815] border-t border-[#B8912A]/20 text-white/70 leading-relaxed space-y-4">
+                <p>Getting started is simple. Choose the option that works best for you:</p>
+                <div class="space-y-3 text-sm">
+                  <div class="p-4 bg-[#B8912A]/5 rounded-lg border border-[#B8912A]/20 hover:border-[#B8912A]/40 transition cursor-pointer">
+                    <p class="font-semibold text-white mb-1">📅 Book a Free Consultation</p>
+                    <p class="text-xs">Schedule a 30-min call on <a href="https://topmate.io/olamide_andrew" target="_blank" class="text-[#B8912A] hover:text-[#D4A93C]">Topmate</a> to discuss your project</p>
+                  </div>
+                  <div class="p-4 bg-[#B8912A]/5 rounded-lg border border-[#B8912A]/20 hover:border-[#B8912A]/40 transition cursor-pointer">
+                    <p class="font-semibold text-white mb-1">✉️ Send an Email</p>
+                    <p class="text-xs">Reach out to <a href="mailto:hello@olamideandrew.com" class="text-[#B8912A] hover:text-[#D4A93C]">hello@olamideandrew.com</a> with your project details</p>
+                  </div>
+                  <div class="p-4 bg-[#B8912A]/5 rounded-lg border border-[#B8912A]/20 hover:border-[#B8912A]/40 transition cursor-pointer">
+                    <p class="font-semibold text-white mb-1">💬 Contact Form</p>
+                    <p class="text-xs">Fill out the <a href="contact.html" class="text-[#B8912A] hover:text-[#D4A93C]">contact form</a> and I'll get back to you within 24 hours</p>
+                  </div>
+                </div>
+                <p class="text-xs text-white/50 pt-2">I typically respond within 24 hours. Let's discuss your vision and see if we're a great fit!</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
     <!-- CTA -->
     <section
       class="relative py-32 px-6 text-center overflow-hidden"
@@ -1306,135 +1938,151 @@
     </script>
 
     <script>
-      (function () {
-        const menu = document.getElementById("mobile-menu");
-        const backdrop = document.getElementById("mobile-menu-backdrop");
-        const openBtn = document.querySelector("[data-menu-toggle]");
-        const closeBtn = document.querySelector("[data-menu-close]");
-        if (!menu || !backdrop || !openBtn || !closeBtn) return;
+        (function () {
+          const menu = document.getElementById("mobile-menu");
+          const backdrop = document.getElementById("mobile-menu-backdrop");
+          const openBtn = document.querySelector("[data-menu-toggle]");
+          const closeBtn = document.querySelector("[data-menu-close]");
+          if (!menu || !backdrop || !openBtn || !closeBtn) return;
 
-        const closeMenu = () => {
-          menu.classList.add("translate-x-full");
-          backdrop.classList.add("opacity-0", "pointer-events-none");
-          document.body.style.overflow = "";
-        };
+          const closeMenu = () => {
+            menu.classList.add("translate-x-full");
+            backdrop.classList.add("opacity-0", "pointer-events-none");
+            document.body.style.overflow = "";
+          };
 
-        const openMenu = () => {
-          menu.classList.remove("translate-x-full");
-          backdrop.classList.remove("opacity-0", "pointer-events-none");
-          document.body.style.overflow = "hidden";
-        };
+          const openMenu = () => {
+            menu.classList.remove("translate-x-full");
+            backdrop.classList.remove("opacity-0", "pointer-events-none");
+            document.body.style.overflow = "hidden";
+          };
 
-        openBtn.addEventListener("click", openMenu);
-        closeBtn.addEventListener("click", closeMenu);
-        backdrop.addEventListener("click", closeMenu);
-        menu
-          .querySelectorAll("a")
-          .forEach((link) => link.addEventListener("click", closeMenu));
-        document.addEventListener("keydown", (e) => {
-          if (e.key === "Escape") closeMenu();
-        });
-      })();
+          openBtn.addEventListener("click", openMenu);
+          closeBtn.addEventListener("click", closeMenu);
+          backdrop.addEventListener("click", closeMenu);
+          menu
+            .querySelectorAll("a")
+            .forEach((link) => link.addEventListener("click", closeMenu));
+          document.addEventListener("keydown", (e) => {
+            if (e.key === "Escape") closeMenu();
+          });
+        })();
 
-      (function () {
-        const section = document.getElementById("services");
-        if (!section) return;
+        (function () {
+          const section = document.getElementById("services");
+          if (!section) return;
 
-        if (!("IntersectionObserver" in window)) {
-          section.classList.add("in-view");
-          return;
-        }
+          if (!("IntersectionObserver" in window)) {
+            section.classList.add("in-view");
+            return;
+          }
 
-        const observer = new IntersectionObserver(
-          (entries) => {
-            entries.forEach((entry) => {
-              if (entry.isIntersecting) {
-                section.classList.add("in-view");
-                observer.unobserve(section);
-              }
+          const observer = new IntersectionObserver(
+            (entries) => {
+              entries.forEach((entry) => {
+                if (entry.isIntersecting) {
+                  section.classList.add("in-view");
+                  observer.unobserve(section);
+                }
+              });
+            },
+            { threshold: 0.25 },
+          );
+
+          observer.observe(section);
+        })();
+        (function () {
+          const dot = document.createElement("div");
+          const outline = document.createElement("div");
+          dot.className = "cursor-dot";
+          outline.className = "cursor-outline";
+          document.body.appendChild(dot);
+          document.body.appendChild(outline);
+
+          let mouseX = 0,
+            mouseY = 0;
+          let dotX = 0,
+            dotY = 0;
+          let outlineX = 0,
+            outlineY = 0;
+
+          document.addEventListener("mousemove", (e) => {
+            mouseX = e.clientX;
+            mouseY = e.clientY;
+          });
+
+          function animate() {
+            dotX += (mouseX - dotX) * 0.9;
+            dotY += (mouseY - dotY) * 0.9;
+            outlineX += (mouseX - outlineX) * 0.15;
+            outlineY += (mouseY - outlineY) * 0.15;
+
+            dot.style.left = dotX + "px";
+            dot.style.top = dotY + "px";
+            outline.style.left = outlineX - 20 + "px";
+            outline.style.top = outlineY - 20 + "px";
+
+            requestAnimationFrame(animate);
+          }
+          animate();
+
+          document.querySelectorAll("a, button").forEach((el) => {
+            el.addEventListener("mouseenter", () => {
+              outline.style.transform = "scale(1.5)";
+              outline.style.borderColor = "#B8912A";
             });
-          },
-          { threshold: 0.25 },
-        );
+            el.addEventListener("mouseleave", () => {
+              outline.style.transform = "scale(1)";
+              outline.style.borderColor = "rgba(184, 145, 42, 0.5)";
+            });
+          });
+        })();
 
-        observer.observe(section);
-      })();
+        function toggleFAQ(button) {
+          const item = button.parentElement;
+          const content = item.querySelector('.faq-content');
+          const toggle = button.querySelector('span:last-child');
+          const isOpen = content.style.maxHeight && content.style.maxHeight !== '0px';
 
-      // Custom Cursor
-      (function () {
-        const dot = document.createElement("div");
-        const outline = document.createElement("div");
-        dot.className = "cursor-dot";
-        outline.className = "cursor-outline";
-        document.body.appendChild(dot);
-        document.body.appendChild(outline);
+          document.querySelectorAll('.faq-item').forEach(faq => {
+            const faqContent = faq.querySelector('.faq-content');
+            const faqToggle = faq.querySelector('.faq-toggle span:last-child');
+            faqContent.style.maxHeight = '0px';
+            faqToggle.textContent = '+';
+          });
 
-        let mouseX = 0,
-          mouseY = 0;
-        let dotX = 0,
-          dotY = 0;
-        let outlineX = 0,
-          outlineY = 0;
-
-        document.addEventListener("mousemove", (e) => {
-          mouseX = e.clientX;
-          mouseY = e.clientY;
-        });
-
-        function animate() {
-          dotX += (mouseX - dotX) * 0.9;
-          dotY += (mouseY - dotY) * 0.9;
-          outlineX += (mouseX - outlineX) * 0.15;
-          outlineY += (mouseY - outlineY) * 0.15;
-
-          dot.style.left = dotX + "px";
-          dot.style.top = dotY + "px";
-          outline.style.left = outlineX - 20 + "px";
-          outline.style.top = outlineY - 20 + "px";
-
-          requestAnimationFrame(animate);
+          if (!isOpen) {
+            content.style.maxHeight = content.scrollHeight + 'px';
+            toggle.textContent = '−';
+          }
         }
-        animate();
-
-        document.querySelectorAll("a, button").forEach((el) => {
-          el.addEventListener("mouseenter", () => {
-            outline.style.transform = "scale(1.5)";
-            outline.style.borderColor = "#B8912A";
-          });
-          el.addEventListener("mouseleave", () => {
-            outline.style.transform = "scale(1)";
-            outline.style.borderColor = "rgba(184, 145, 42, 0.5)";
-          });
-        });
-      })();
-    </script>
-    <!-- LIGHTBOX -->
-    <div
-      id="lightbox"
-      class="fixed inset-0 bg-black/90 hidden items-center justify-center z-50"
-    >
-      <span
-        onclick="closeLightbox()"
-        class="absolute top-8 right-10 text-white text-3xl cursor-pointer"
+      <!-- LIGHTBOX -->
+      <div
+        id="lightbox"
+        class="fixed inset-0 bg-black/90 hidden items-center justify-center z-50"
       >
-        ✕
-      </span>
+        <span
+          onclick="closeLightbox()"
+          class="absolute top-8 right-10 text-white text-3xl cursor-pointer"
+        >
+          ✕
+        </span>
 
-      <img
-        id="lightbox-img"
-        class="max-w-[90%] max-h-[85%] rounded-xl shadow-2xl"
-      />
-    </div>
-    <script>
-      function openLightbox(src) {
-        document.getElementById("lightbox").classList.remove("hidden");
-        document.getElementById("lightbox").classList.add("flex");
-        document.getElementById("lightbox-img").src = src;
-      }
+        <img
+          id="lightbox-img"
+          class="max-w-[90%] max-h-[85%] rounded-xl shadow-2xl"
+        />
+      </div>
+      <script>
+        function openLightbox(src) {
+          document.getElementById("lightbox").classList.remove("hidden");
+          document.getElementById("lightbox").classList.add("flex");
+          document.getElementById("lightbox-img").src = src;
+        }
 
-      function closeLightbox() {
-        document.getElementById("lightbox").classList.add("hidden");
-      }
+        function closeLightbox() {
+          document.getElementById("lightbox").classList.add("hidden");
+        }
     </script>
     <!-- SWIPER -->
     <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
