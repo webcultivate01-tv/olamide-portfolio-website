@@ -13,6 +13,83 @@
       body {
         font-family: "DM Sans", sans-serif;
         overflow-x: hidden;
+        transition:
+          background-color 0.6s ease,
+          color 0.6s ease;
+      }
+
+      /* Light Theme */
+      body.light-theme {
+        background-color: #f5f3ee;
+        color: #0f0f0d;
+      }
+
+      body.light-theme nav {
+        background-color: rgba(245, 243, 238, 0.95);
+        border-bottom-color: rgba(15, 15, 13, 0.1);
+      }
+
+      body.light-theme .nav-a {
+        color: rgba(15, 15, 13, 0.7);
+      }
+
+      body.light-theme .nav-a:hover,
+      body.light-theme .nav-a.active {
+        color: #b8912a;
+      }
+
+      body.light-theme #mobile-menu {
+        background-color: #ffffff;
+        border-left-color: rgba(184, 145, 42, 0.4);
+      }
+
+      body.light-theme .grain {
+        opacity: 0.01;
+      }
+
+      body.light-theme .bg-\[\#0F0F0D\] {
+        background-color: #ffffff !important;
+      }
+
+      body.light-theme .bg-\[\#181815\] {
+        background-color: #f8f6f1 !important;
+      }
+
+      body.light-theme .text-white {
+        color: #0f0f0d !important;
+      }
+
+      body.light-theme .text-white\/70,
+      body.light-theme .text-white\/60,
+      body.light-theme .text-white\/50,
+      body.light-theme .text-white\/40,
+      body.light-theme .text-white\/30 {
+        color: rgba(15, 15, 13, 0.6) !important;
+      }
+
+      body.light-theme .border-white\/10,
+      body.light-theme .border-white\/5,
+      body.light-theme .border-white\/8 {
+        border-color: rgba(15, 15, 13, 0.1) !important;
+      }
+
+      body.light-theme .bg-white\/\[0\.02\],
+      body.light-theme .bg-white\/\[0\.04\],
+      body.light-theme .bg-white\/5 {
+        background-color: rgba(184, 145, 42, 0.05) !important;
+      }
+
+      /* Hero section specific text styling */
+      body.light-theme section[style*="background-image"] .text-white\/55 {
+        color: rgba(255, 255, 255, 0.9) !important;
+      }
+
+      body.light-theme footer {
+        background-color: #0f0f0d !important;
+      }
+
+      body.light-theme footer * {
+        color: #f5f3ee !important;
       }
       .font-display {
         font-family: "Playfair Display", serif;
@@ -335,7 +412,7 @@
         justify-content: center;
       }
       .lightbox-close:hover {
-        background: #B8912A;
+        background: #b8912a;
         transform: rotate(90deg);
       }
       .lightbox-nav {
@@ -358,7 +435,7 @@
         z-index: 10;
       }
       .lightbox-nav:hover {
-        background: #B8912A;
+        background: #b8912a;
         transform: translateY(-50%) scale(1.1);
       }
       .lightbox-prev {
@@ -471,42 +548,73 @@
 
     <!-- NAV -->
     <nav
-      class="relative flex items-center justify-between px-8 md:px-20 py-5 border-b border-white/10"
+      class="relative flex items-center justify-between px-8 md:px-20 py-5 border-b border-white/10 transition-colors duration-300"
     >
       <a
         href="index.html"
-        class="px-5 py-2 border border-[#B8912A] text-[#B8912A] text-xs tracking-[0.2em] uppercase font-medium"
+        class="px-5 py-2 border border-[#B8912A] text-[#B8912A] text-xs tracking-[0.2em] uppercase font-medium transition-colors duration-300"
         >Olamide Andrew</a
       >
-      <div
-        class="hidden md:flex items-center gap-8 text-sm text-white/70"
-      >
+      <div class="hidden md:flex items-center gap-8 text-sm text-white/70">
         <a href="index.html" class="nav-a transition-colors">Home</a>
         <a href="about.html" class="nav-a transition-colors">About</a>
         <a href="work.html" class="nav-a transition-colors active">Work</a>
         <a href="contact.html" class="nav-a transition-colors">Contact</a>
       </div>
-      <button
-        type="button"
-        class="md:hidden text-white/80 hover:text-[#B8912A] transition-colors"
-        aria-label="Open menu"
-        data-menu-toggle
-      >
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          class="w-7 h-7"
-          fill="none"
-          viewBox="0 0 24 24"
-          stroke="currentColor"
+      <div class="flex items-center gap-4">
+        <!-- Theme Toggle Button -->
+        <button
+          id="theme-toggle"
+          class="hidden md:flex items-center justify-center w-10 h-10 rounded-full bg-white/5 border border-white/10 hover:border-[#B8912A]/50 hover:bg-[#B8912A]/10 transition-all duration-300 group"
+          aria-label="Toggle theme"
         >
-          <path
-            stroke-linecap="round"
-            stroke-linejoin="round"
-            stroke-width="1.8"
-            d="M4 7h16M4 12h16M4 17h16"
-          />
-        </svg>
-      </button>
+          <svg
+            id="theme-toggle-dark-icon"
+            class="w-5 h-5 text-white/70 group-hover:text-[#B8912A] transition-colors duration-300"
+            fill="currentColor"
+            viewBox="0 0 20 20"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"
+            ></path>
+          </svg>
+          <svg
+            id="theme-toggle-light-icon"
+            class="hidden w-5 h-5 text-gray-800 group-hover:text-[#B8912A] transition-colors duration-300"
+            fill="currentColor"
+            viewBox="0 0 20 20"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z"
+              fill-rule="evenodd"
+              clip-rule="evenodd"
+            ></path>
+          </svg>
+        </button>
+        <button
+          type="button"
+          class="md:hidden text-white/80 hover:text-[#B8912A] transition-colors"
+          aria-label="Open menu"
+          data-menu-toggle
+        >
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            class="w-7 h-7"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke="currentColor"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="1.8"
+              d="M4 7h16M4 12h16M4 17h16"
+            />
+          </svg>
+        </button>
+      </div>
     </nav>
 
     <!-- Mobile Menu -->
@@ -547,13 +655,39 @@
         <a href="about.html" class="nav-a">About</a>
         <a href="work.html" class="nav-a text-[#B8912A]">Work</a>
         <a href="contact.html" class="nav-a">Contact</a>
-        <a
-          href="https://topmate.io/olamide_andrew"
-          target="_blank"
-          rel="noopener noreferrer"
-          class="mt-2 px-4 py-2 border border-[#B8912A] text-[#B8912A] text-center rounded-sm"
-          >Book Meeting</a
+        
+        <!-- Theme Toggle in Mobile Menu -->
+        <button
+          id="mobile-theme-toggle"
+          class="mt-4 flex items-center justify-center w-full py-3 rounded-lg bg-white/5 border border-white/10 hover:border-[#B8912A]/50 hover:bg-[#B8912A]/10 transition-all duration-300 group"
+          aria-label="Toggle theme"
         >
+          <svg
+            id="mobile-theme-toggle-dark-icon"
+            class="w-5 h-5 text-white/70 group-hover:text-[#B8912A] transition-colors duration-300 mr-2"
+            fill="currentColor"
+            viewBox="0 0 20 20"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M17.293 13.293A8 8 0 716.707 2.707a8.001 8.001 0 1010.586 10.586z"
+            ></path>
+          </svg>
+          <svg
+            id="mobile-theme-toggle-light-icon"
+            class="hidden w-5 h-5 text-gray-800 group-hover:text-[#B8912A] transition-colors duration-300 mr-2"
+            fill="currentColor"
+            viewBox="0 0 20 20"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z"
+              fill-rule="evenodd"
+              clip-rule="evenodd"
+            ></path>
+          </svg>
+          <span id="mobile-theme-text" class="text-sm text-white/70 group-hover:text-[#B8912A] transition-colors duration-300">Light Theme</span>
+        </button>
       </div>
     </aside>
 
@@ -584,7 +718,10 @@
           class="slide-in-left font-display text-5xl md:text-7xl font-bold mb-8 leading-tight"
           style="animation-delay: 0.2s"
         >
-          A selection of <span class="animated-text">brand systems</span><br />
+          <span class="text-white/55">
+            A selection of
+            <span class="animated-text">brand systems</span> </span
+          ><br />
           <span class="text-white/55">and campaigns built with</span>
           <span class="animated-text">intention</span>.
         </h1>
@@ -1404,6 +1541,7 @@
               class="w-60 h-[110px] object-contain rounded-2xl shadow-2xl"
             />
           </div>
+
           <p class="text-white/60 text-sm leading-relaxed max-w-xs">
             Strategic Brand Designer crafting modern, minimal and impactful
             digital experiences for growing brands worldwide.
@@ -1415,50 +1553,62 @@
           <h3 class="text-sm uppercase tracking-[0.2em] mb-6 text-white/40">
             Quick Links
           </h3>
+
           <ul class="space-y-4 text-white/60 text-sm">
             <li class="group flex items-center gap-2">
               <span
                 class="text-[#B8912A] transform group-hover:translate-x-1 transition duration-300"
-                >></span
               >
+                >
+              </span>
               <a
                 href="work.html"
                 class="group-hover:text-[#B8912A] transition duration-300"
-                >Work</a
               >
+                Work
+              </a>
             </li>
+
             <li class="group flex items-center gap-2">
               <span
                 class="text-[#B8912A] transform group-hover:translate-x-1 transition duration-300"
-                >></span
               >
+                >
+              </span>
               <a
                 href="about.html"
                 class="group-hover:text-[#B8912A] transition duration-300"
-                >About</a
               >
+                About
+              </a>
             </li>
+
             <li class="group flex items-center gap-2">
               <span
                 class="text-[#B8912A] transform group-hover:translate-x-1 transition duration-300"
-                >></span
               >
+                >
+              </span>
               <a
                 href="contact.html"
                 class="group-hover:text-[#B8912A] transition duration-300"
-                >Contact</a
               >
+                Contact
+              </a>
             </li>
+
             <li class="group flex items-center gap-2">
               <span
                 class="text-[#B8912A] transform group-hover:translate-x-1 transition duration-300"
-                >></span
               >
+                >
+              </span>
               <a
                 href="#"
                 class="group-hover:text-[#B8912A] transition duration-300"
-                >Blog</a
               >
+                Blog
+              </a>
             </li>
           </ul>
         </div>
@@ -1468,50 +1618,62 @@
           <h3 class="text-sm uppercase tracking-[0.2em] mb-6 text-white/40">
             Services
           </h3>
+
           <ul class="space-y-4 text-white/60 text-sm">
             <li class="group flex items-center gap-2">
               <span
                 class="text-[#B8912A] transform group-hover:translate-x-1 transition duration-300"
-                >></span
               >
+                >
+              </span>
               <a
                 href="#"
                 class="group-hover:text-[#B8912A] transition duration-300"
-                >Brand Strategy</a
               >
+                Brand Strategy
+              </a>
             </li>
+
             <li class="group flex items-center gap-2">
               <span
                 class="text-[#B8912A] transform group-hover:translate-x-1 transition duration-300"
-                >></span
               >
+                >
+              </span>
               <a
                 href="#"
                 class="group-hover:text-[#B8912A] transition duration-300"
-                >Logo Design</a
               >
+                Logo Design
+              </a>
             </li>
+
             <li class="group flex items-center gap-2">
               <span
                 class="text-[#B8912A] transform group-hover:translate-x-1 transition duration-300"
-                >></span
               >
+                >
+              </span>
               <a
                 href="#"
                 class="group-hover:text-[#B8912A] transition duration-300"
-                >UI/UX Design</a
               >
+                UI/UX Design
+              </a>
             </li>
+
             <li class="group flex items-center gap-2">
               <span
                 class="text-[#B8912A] transform group-hover:translate-x-1 transition duration-300"
-                >></span
               >
+                >
+              </span>
               <a
                 href="#"
                 class="group-hover:text-[#B8912A] transition duration-300"
-                >Website Development</a
               >
+                Website Development
+              </a>
             </li>
           </ul>
         </div>
@@ -1521,27 +1683,34 @@
           <h3 class="text-sm uppercase tracking-[0.2em] mb-6 text-white/40">
             Connect
           </h3>
+
           <div class="flex gap-4 mb-8">
             <a
               href="#"
               class="w-10 h-10 rounded-xl bg-white/5 border border-white/10 flex items-center justify-center text-white/60 hover:bg-[#B8912A] hover:text-black transition-all duration-300"
-              >Be</a
             >
+              Be
+            </a>
+
             <a
               href="#"
               class="w-10 h-10 rounded-xl bg-white/5 border border-white/10 flex items-center justify-center text-white/60 hover:bg-[#B8912A] hover:text-black transition-all duration-300"
-              >Ed</a
             >
+              Ed
+            </a>
+
             <a
               href="#"
               class="w-10 h-10 rounded-xl bg-white/5 border border-white/10 flex items-center justify-center text-white/60 hover:bg-[#B8912A] hover:text-black transition-all duration-300"
-              >In</a
             >
+              In
+            </a>
           </div>
+
           <div class="text-white/60 text-sm space-y-3">
-            <p>hello@olamideandrew.com</p>
-            <p>Cancola, Nigeria</p>
-            <p>+234 000 000 0000</p>
+            <p>ishola826@gmail.com</p>
+            <p>canada</p>
+            <p>+1204 730 7396</p>
           </div>
         </div>
       </div>
@@ -1551,6 +1720,7 @@
         class="border-t border-white/10 mt-16 pt-8 flex flex-col md:flex-row justify-between items-center gap-4 text-white/40 text-xs"
       >
         <p>© <span id="year"></span> Olamide Andrew. All rights reserved.</p>
+
         <div class="flex gap-6">
           <a href="#" class="hover:text-[#B8912A] transition">Privacy Policy</a>
           <a href="#" class="hover:text-[#B8912A] transition"
@@ -1733,7 +1903,10 @@
             () => (el.style.transform = "translate(0,0)"),
           );
         });
+
+
       })();
     </script>
+    <script src="theme.js"></script>
   </body>
 </html>

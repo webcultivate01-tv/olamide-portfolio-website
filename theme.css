@@ -1,0 +1,273 @@
+/* ===== THEME SYSTEM ===== */
+
+/* Base transitions for smooth theme switching */
+body {
+  transition: background-color 0.6s ease, color 0.6s ease;
+}
+
+nav {
+  transition: background-color 0.6s ease, border-color 0.6s ease;
+}
+
+/* ===== LIGHT THEME STYLES ===== */
+
+/* Body and base colors */
+body.light-theme {
+  background-color: #F5F3EE;
+  color: #0F0F0D;
+}
+
+/* Navigation */
+body.light-theme nav {
+  background-color: rgba(245, 243, 238, 0.95);
+  border-bottom-color: rgba(15, 15, 13, 0.1);
+  backdrop-filter: blur(10px);
+}
+
+body.light-theme .nav-a {
+  color: rgba(15, 15, 13, 0.7);
+}
+
+body.light-theme .nav-a:hover,
+body.light-theme .nav-a.active {
+  color: #B8912A;
+}
+
+/* Mobile menu */
+body.light-theme #mobile-menu {
+  background-color: #FFFFFF;
+  border-left-color: rgba(184, 145, 42, 0.4);
+}
+
+body.light-theme #mobile-menu-backdrop {
+  background-color: rgba(0, 0, 0, 0.4);
+}
+
+/* Background colors */
+body.light-theme .bg-\[#0F0F0D\] {
+  background-color: #FFFFFF !important;
+}
+
+body.light-theme .bg-\[#181815\] {
+  background-color: #F8F6F1 !important;
+}
+
+body.light-theme .bg-\[#11110F\] {
+  background-color: #F5F3EE !important;
+}
+
+body.light-theme .bg-\[#F5F3EE\] {
+  background-color: #FFFFFF !important;
+}
+
+/* Text colors */
+body.light-theme .text-white {
+  color: #0F0F0D !important;
+}
+
+body.light-theme .text-white\/85 {
+  color: rgba(15, 15, 13, 0.85) !important;
+}
+
+body.light-theme .text-white\/80 {
+  color: rgba(15, 15, 13, 0.8) !important;
+}
+
+body.light-theme .text-white\/70 {
+  color: rgba(15, 15, 13, 0.7) !important;
+}
+
+body.light-theme .text-white\/65 {
+  color: rgba(15, 15, 13, 0.65) !important;
+}
+
+body.light-theme .text-white\/60 {
+  color: rgba(15, 15, 13, 0.6) !important;
+}
+
+body.light-theme .text-white\/55 {
+  color: rgba(15, 15, 13, 0.55) !important;
+}
+
+body.light-theme .text-white\/50 {
+  color: rgba(15, 15, 13, 0.5) !important;
+}
+
+body.light-theme .text-white\/40 {
+  color: rgba(15, 15, 13, 0.4) !important;
+}
+
+body.light-theme .text-white\/35 {
+  color: rgba(15, 15, 13, 0.35) !important;
+}
+
+body.light-theme .text-white\/30 {
+  color: rgba(15, 15, 13, 0.3) !important;
+}
+
+body.light-theme .text-white\/25 {
+  color: rgba(15, 15, 13, 0.25) !important;
+}
+
+body.light-theme .text-white\/20 {
+  color: rgba(15, 15, 13, 0.2) !important;
+}
+
+/* Borders */
+body.light-theme .border-white\/10 {
+  border-color: rgba(15, 15, 13, 0.15) !important;
+}
+
+body.light-theme .border-white\/5 {
+  border-color: rgba(15, 15, 13, 0.1) !important;
+}
+
+body.light-theme .border-white\/8 {
+  border-color: rgba(15, 15, 13, 0.12) !important;
+}
+
+body.light-theme .border-white\/20 {
+  border-color: rgba(15, 15, 13, 0.2) !important;
+}
+
+body.light-theme .border-white\/30 {
+  border-color: rgba(15, 15, 13, 0.25) !important;
+}
+
+body.light-theme .border-white\/40 {
+  border-color: rgba(15, 15, 13, 0.3) !important;
+}
+
+/* Background overlays */
+body.light-theme .bg-white\/\[0\.02\] {
+  background-color: rgba(184, 145, 42, 0.08) !important;
+}
+
+body.light-theme .bg-white\/\[0\.04\] {
+  background-color: rgba(184, 145, 42, 0.1) !important;
+}
+
+body.light-theme .bg-white\/\[0\.015\] {
+  background-color: rgba(184, 145, 42, 0.06) !important;
+}
+
+body.light-theme .bg-white\/5 {
+  background-color: rgba(184, 145, 42, 0.1) !important;
+}
+
+body.light-theme .bg-white\/10 {
+  background-color: rgba(184, 145, 42, 0.12) !important;
+}
+
+/* Contact form specific styling */
+body.light-theme .form-field {
+  color: #0F0F0D !important;
+  border-bottom-color: rgba(15, 15, 13, 0.2) !important;
+}
+
+body.light-theme .form-field::placeholder {
+  color: rgba(15, 15, 13, 0.4) !important;
+}
+
+body.light-theme .form-field:focus {
+  border-color: #B8912A !important;
+}
+
+/* Hero sections with background images */
+body.light-theme section[style*="background-image"] .text-white\/55 {
+  color: rgba(255, 255, 255, 0.9) !important;
+}
+
+/* Grain effect */
+body.light-theme .grain {
+  opacity: 0.01;
+}
+
+/* Keep gold/accent colors visible */
+body.light-theme .text-\[#B8912A\],
+body.light-theme .text-\[#D4A93C\],
+body.light-theme .text-\[#F7E4AE\] {
+  color: #B8912A !important;
+}
+
+body.light-theme .border-\[#B8912A\] {
+  border-color: #B8912A !important;
+}
+
+body.light-theme .bg-\[#B8912A\] {
+  background-color: #B8912A !important;
+}
+
+/* Gradient text support */
+body.light-theme .text-transparent {
+  -webkit-text-fill-color: transparent !important;
+}
+
+body.light-theme .bg-clip-text {
+  -webkit-background-clip: text !important;
+  background-clip: text !important;
+}
+
+/* Footer - Keep dark in light theme */
+body.light-theme footer {
+  background-color: #0F0F0D !important;
+}
+
+body.light-theme footer * {
+  color: #F5F3EE !important;
+}
+
+body.light-theme footer .text-white,
+body.light-theme footer h1,
+body.light-theme footer h2,
+body.light-theme footer h3,
+body.light-theme footer h4,
+body.light-theme footer h5,
+body.light-theme footer h6,
+body.light-theme footer p,
+body.light-theme footer a,
+body.light-theme footer span,
+body.light-theme footer li {
+  color: #F5F3EE !important;
+}
+
+body.light-theme footer .text-white\/60 {
+  color: rgba(245, 243, 238, 0.6) !important;
+}
+
+body.light-theme footer .text-white\/50 {
+  color: rgba(245, 243, 238, 0.5) !important;
+}
+
+body.light-theme footer .text-white\/40 {
+  color: rgba(245, 243, 238, 0.4) !important;
+}
+
+/* ===== THEME TOGGLE BUTTON ===== */
+#theme-toggle {
+  position: relative;
+  overflow: hidden;
+}
+
+#theme-toggle-dark-icon,
+#theme-toggle-light-icon {
+  transition: all 0.3s ease;
+}
+
+/* Ensure proper icon visibility */
+body.light-theme #theme-toggle-dark-icon {
+  display: none;
+}
+
+body.light-theme #theme-toggle-light-icon {
+  display: block;
+  color: #0F0F0D;
+}
+
+body:not(.light-theme) #theme-toggle-dark-icon {
+  display: block;
+}
+
+body:not(.light-theme) #theme-toggle-light-icon {
+  display: none;
+}
