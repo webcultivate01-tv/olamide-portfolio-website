@@ -1479,7 +1479,7 @@
 
     <!-- FAQ SECTION -->
     <section
-      class="bg-gradient-to-b from-[#181815] to-[#0F0F0D] py-32 px-8 md:px-20 relative overflow-hidden"
+      class="bg-gradient-to-b from-[#181815] to-[#0F0F0D] py-20 px-8 md:px-20 relative overflow-hidden"
     >
       <!-- Background Elements -->
       <div
@@ -1912,52 +1912,244 @@
       </div>
     </section>
 
-    <!-- CTA -->
+    <!-- CTA SECTION -->
     <section
-      class="relative py-32 px-6 text-center overflow-hidden"
-      style="
-        background-image: url(&quot;https://images.unsplash.com/photo-1557804506-669a67965ba0?w=1920&q=80&quot;);
-        background-size: cover;
-        background-position: center;
-        background-attachment: fixed;
-      "
+      id="cta-section"
+      class="relative py-20 px-6 text-center overflow-hidden bg-gradient-to-br from-[#0F0F0D] via-[#181815] to-[#0F0F0D]"
     >
-      <div class="absolute inset-0 bg-[#0F0F0D]/85"></div>
-      <div class="relative z-10">
-        <h2 class="font-display text-4xl md:text-5xl font-bold mb-5 text-white">
-          Clarity. Strategy. Design that converts.
+      <!-- Animated Background Elements -->
+      <div class="absolute inset-0 overflow-hidden">
+        <!-- Floating Orbs -->
+        <div
+          class="absolute top-20 left-10 w-32 h-32 bg-[#B8912A]/20 rounded-full blur-2xl animate-pulse"
+        ></div>
+        <div
+          class="absolute bottom-20 right-10 w-40 h-40 bg-[#D4A93C]/15 rounded-full blur-3xl"
+          style="animation: float 8s ease-in-out infinite"
+        ></div>
+        <div
+          class="absolute top-1/2 left-1/4 w-24 h-24 bg-[#B8912A]/10 rounded-full blur-xl"
+          style="animation: float 6s ease-in-out infinite reverse"
+        ></div>
+
+        <!-- Grid Pattern -->
+        <div
+          class="absolute inset-0 bg-[linear-gradient(rgba(184,145,42,0.03)_1px,transparent_1px),linear-gradient(90deg,rgba(184,145,42,0.03)_1px,transparent_1px)] bg-[size:60px_60px] [mask-image:radial-gradient(ellipse_at_center,black_30%,transparent_80%)]"
+        ></div>
+
+        <!-- Gradient Overlay -->
+        <div
+          class="absolute inset-0 bg-gradient-to-t from-[#0F0F0D]/90 via-transparent to-[#0F0F0D]/90"
+        ></div>
+      </div>
+
+      <!-- Content -->
+      <div class="relative z-10 max-w-4xl mx-auto">
+        <!-- Badge -->
+        <div
+          class="cta-badge inline-flex items-center gap-2 px-6 py-3 border border-[#B8912A]/30 rounded-full text-xs tracking-[0.3em] text-[#D4A93C] uppercase mb-8 bg-[#B8912A]/5 backdrop-blur-sm opacity-0 translate-y-8"
+        >
+          <span class="w-2 h-2 rounded-full bg-[#B8912A] animate-pulse"></span>
+          Ready to Transform Your Brand?
+        </div>
+
+        <!-- Main Heading -->
+        <h2
+          class="cta-heading font-display text-4xl md:text-6xl lg:text-7xl font-bold mb-8 text-white leading-[1.1] opacity-0 translate-y-12"
+        >
+          <span class="block">Clarity.</span>
+          <span
+            class="block text-transparent bg-clip-text bg-gradient-to-r from-[#F7E4AE] via-[#D4A93C] to-[#B8912A] animate-gradient"
+            >Strategy.</span
+          >
+          <span class="block"
+            >Design that
+            <em class="text-[#B8912A] not-italic">converts</em>.</span
+          >
         </h2>
+
+        <!-- Description -->
         <p
-          class="text-white/70 mb-10 max-w-md mx-auto text-base leading-relaxed"
+          class="cta-description text-white/60 mb-12 max-w-2xl mx-auto text-lg md:text-xl leading-relaxed opacity-0 translate-y-8"
         >
           Let's build a brand that works as hard as you do. Whatever you're
-          building, I'd love to hear about it.
+          building,
+          <span class="text-[#D4A93C] font-medium"
+            >I'd love to hear about it</span
+          >.
         </p>
-        <a
-          href="contact.html"
-          class="bg-[#B8912A] hover:bg-[#D4A93C] text-white inline-block px-12 py-4 text-sm font-medium transition-all hover:scale-105"
-          >Start a Conversation</a
+
+        <!-- CTA Buttons -->
+        <div
+          class="cta-buttons flex flex-col sm:flex-row gap-6 justify-center items-center mb-16 opacity-0 translate-y-8"
         >
+          <a
+            href="contact.html"
+            class="group relative bg-gradient-to-r from-[#B8912A] to-[#D4A93C] hover:from-[#D4A93C] hover:to-[#F7E4AE] text-white px-10 py-4 text-base font-semibold transition-all duration-500 shadow-[0_10px_40px_rgba(184,145,42,0.3)] hover:shadow-[0_20px_60px_rgba(184,145,42,0.5)] hover:-translate-y-2 flex items-center gap-3 rounded-full overflow-hidden"
+          >
+            <span class="relative z-10">Start a Conversation</span>
+            <span
+              class="relative z-10 group-hover:translate-x-1 transition-transform text-lg"
+              >→</span
+            >
+            <div
+              class="absolute inset-0 bg-gradient-to-r from-[#F7E4AE] to-[#B8912A] opacity-0 group-hover:opacity-100 transition-opacity duration-500"
+            ></div>
+          </a>
+
+          <a
+            href="work.html"
+            class="group border-2 border-white/20 text-white hover:bg-white hover:text-[#0F0F0D] hover:border-white px-10 py-4 text-base font-semibold transition-all duration-300 rounded-full backdrop-blur-sm hover:-translate-y-1 hover:shadow-[0_10px_40px_rgba(255,255,255,0.2)] flex items-center gap-3"
+          >
+            <span class="relative z-10">View My Work</span>
+            <span
+              class="relative z-10 group-hover:translate-x-1 transition-transform text-lg"
+              >↗</span
+            >
+          </a>
+        </div>
+
+        <!-- Stats/Social Proof -->
+        <div
+          class="cta-stats grid grid-cols-1 md:grid-cols-3 gap-8 max-w-2xl mx-auto opacity-0 translate-y-8"
+        >
+          <div class="text-center">
+            <div class="text-2xl md:text-3xl font-bold text-[#B8912A] mb-2">
+              5+
+            </div>
+            <div class="text-white/50 text-sm uppercase tracking-wider">
+              Happy Clients
+            </div>
+          </div>
+          <div class="text-center">
+            <div class="text-2xl md:text-3xl font-bold text-[#B8912A] mb-2">
+              98%
+            </div>
+            <div class="text-white/50 text-sm uppercase tracking-wider">
+              Client Satisfaction
+            </div>
+          </div>
+          <div class="text-center">
+            <div class="text-2xl md:text-3xl font-bold text-[#B8912A] mb-2">
+              4.9★
+            </div>
+            <div class="text-white/50 text-sm uppercase tracking-wider">
+              Average Rating
+            </div>
+          </div>
+        </div>
       </div>
+
+      <!-- Decorative Elements -->
+      <div
+        class="absolute bottom-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-[#B8912A]/50 to-transparent"
+      ></div>
     </section>
+
+    <!-- CTA Animation Script -->
     <script>
-      const path = document.getElementById("snakePath");
+      // CTA Section Animation
+      const ctaSection = document.getElementById("cta-section");
+      const ctaElements = {
+        badge: ctaSection.querySelector(".cta-badge"),
+        heading: ctaSection.querySelector(".cta-heading"),
+        description: ctaSection.querySelector(".cta-description"),
+        buttons: ctaSection.querySelector(".cta-buttons"),
+        stats: ctaSection.querySelector(".cta-stats"),
+      };
 
-      function animateSnake() {
-        const rect = path.getBoundingClientRect();
+      const ctaObserver = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              // Animate elements with staggered delays
+              setTimeout(() => {
+                ctaElements.badge.classList.remove(
+                  "opacity-0",
+                  "translate-y-8",
+                );
+                ctaElements.badge.classList.add("animate-fadeInUp");
+              }, 100);
 
-        if (rect.top < window.innerHeight - 120) {
-          path.style.transition = "stroke-dashoffset 2.5s ease";
-          path.style.strokeDashoffset = "0";
-          window.removeEventListener("scroll", animateSnake);
+              setTimeout(() => {
+                ctaElements.heading.classList.remove(
+                  "opacity-0",
+                  "translate-y-12",
+                );
+                ctaElements.heading.classList.add("animate-fadeInUp");
+              }, 300);
+
+              setTimeout(() => {
+                ctaElements.description.classList.remove(
+                  "opacity-0",
+                  "translate-y-8",
+                );
+                ctaElements.description.classList.add("animate-fadeInUp");
+              }, 500);
+
+              setTimeout(() => {
+                ctaElements.buttons.classList.remove(
+                  "opacity-0",
+                  "translate-y-8",
+                );
+                ctaElements.buttons.classList.add("animate-fadeInUp");
+              }, 700);
+
+              setTimeout(() => {
+                ctaElements.stats.classList.remove(
+                  "opacity-0",
+                  "translate-y-8",
+                );
+                ctaElements.stats.classList.add("animate-fadeInUp");
+              }, 900);
+
+              ctaObserver.disconnect();
+            }
+          });
+        },
+        { threshold: 0.3 },
+      );
+
+      ctaObserver.observe(ctaSection);
+
+      // Add CSS animations
+      const ctaStyles = document.createElement("style");
+      ctaStyles.textContent = `
+        @keyframes fadeInUp {
+          from {
+            opacity: 0;
+            transform: translateY(30px);
+          }
+          to {
+            opacity: 1;
+            transform: translateY(0);
+          }
         }
-      }
-
-      window.addEventListener("scroll", animateSnake);
+        
+        .animate-fadeInUp {
+          animation: fadeInUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+        }
+        
+        @keyframes float {
+          0%, 100% { transform: translateY(0px) rotate(0deg); }
+          50% { transform: translateY(-20px) rotate(180deg); }
+        }
+        
+        .animate-gradient {
+          background-size: 200% 200%;
+          animation: gradient 4s ease infinite;
+        }
+        
+        @keyframes gradient {
+          0%, 100% { background-position: 0% 50%; }
+          50% { background-position: 100% 50%; }
+        }
+      `;
+      document.head.appendChild(ctaStyles);
     </script>
 
     <!-- FOOTER -->
-  <footer
+    <footer
       class="relative bg-[#0F0F0D] text-white px-8 md:px-20 py-20 rounded-t-[60px] overflow-hidden"
     >
       <!-- Subtle Top Glow -->
@@ -2056,7 +2248,7 @@
           </h3>
 
           <ul class="space-y-4 text-white/60 text-sm">
-            <!-- <li class="group flex items-center gap-2">
+            <li class="group flex items-center gap-2">
               <span
                 class="text-[#B8912A] transform group-hover:translate-x-1 transition duration-300"
               >
@@ -2068,7 +2260,7 @@
               >
                 Brand Strategy
               </a>
-            </li> -->
+            </li>
 
             <li class="group flex items-center gap-2">
               <span
@@ -2080,7 +2272,7 @@
                 href="#"
                 class="group-hover:text-[#B8912A] transition duration-300"
               >
-                Brand Identity
+                Visual Identity
               </a>
             </li>
 
@@ -2098,7 +2290,7 @@
               </a>
             </li>
 
-            <li class="group flex items-center gap-2">
+            <!-- <li class="group flex items-center gap-2">
               <span
                 class="text-[#B8912A] transform group-hover:translate-x-1 transition duration-300"
               >
@@ -2110,7 +2302,7 @@
               >
                 Concept Work
               </a>
-            </li>
+            </li> -->
 
             <li class="group flex items-center gap-2">
               <span
@@ -2122,7 +2314,7 @@
                 href="#"
                 class="group-hover:text-[#B8912A] transition duration-300"
               >
-                Mockups
+                Website Design
               </a>
             </li>
           </ul>
@@ -2136,24 +2328,42 @@
 
           <div class="flex gap-4 mb-8">
             <a
-              href="#"
+              href="https://www.behance.net/olamideandrew"
+              target="_blank"
               class="w-10 h-10 rounded-xl bg-white/5 border border-white/10 flex items-center justify-center text-white/60 hover:bg-[#B8912A] hover:text-black transition-all duration-300"
+              title="Behance"
             >
-              Be
+              <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                <path
+                  d="M22 7h-7v-2h7v2zm1.726 10c-.442 1.297-2.029 3-5.101 3-3.074 0-5.564-1.729-5.564-5.675 0-3.91 2.325-5.92 5.466-5.92 3.082 0 4.964 1.782 5.375 4.426.078.506.109 1.188.095 2.14H15.97c.13 3.211 3.483 3.312 4.588 2.029h3.168zm-7.686-4h4.965c-.105-1.547-1.136-2.219-2.477-2.219-1.466 0-2.277.768-2.488 2.219zm-9.574 6.988h-6.466v-14.967h6.953c5.476.081 5.58 5.444 2.72 6.906 3.461 1.26 3.577 8.061-3.207 8.061zm-3.466-8.988h3.584c2.508 0 2.906-3-.312-3h-3.272v3zm3.391 3h-3.391v3.016h3.341c3.055 0 2.868-3.016.05-3.016z"
+                />
+              </svg>
             </a>
 
             <a
-              href="#"
+              href="https://www.instagram.com/olamideandrew"
+              target="_blank"
               class="w-10 h-10 rounded-xl bg-white/5 border border-white/10 flex items-center justify-center text-white/60 hover:bg-[#B8912A] hover:text-black transition-all duration-300"
+              title="Instagram"
             >
-              Ed
+              <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                <path
+                  d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"
+                />
+              </svg>
             </a>
 
             <a
-              href="#"
+              href="https://www.linkedin.com/in/olamideandrew"
+              target="_blank"
               class="w-10 h-10 rounded-xl bg-white/5 border border-white/10 flex items-center justify-center text-white/60 hover:bg-[#B8912A] hover:text-black transition-all duration-300"
+              title="LinkedIn"
             >
-              In
+              <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                <path
+                  d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"
+                />
+              </svg>
             </a>
           </div>
 
@@ -2170,6 +2380,13 @@
       >
         <p>© <span id="year"></span> Olamide Andrew. All rights reserved.</p>
 
+        <p class="text-white/30">
+          Design and developed by
+          <span class="text-[#B8912A] hover:text-[#D4A93C] transition"
+            >Tejas Mehar</span
+          >
+        </p>
+
         <div class="flex gap-6">
           <a href="#" class="hover:text-[#B8912A] transition">Privacy Policy</a>
           <a href="#" class="hover:text-[#B8912A] transition"
@@ -2177,7 +2394,7 @@
           >
         </div>
       </div>
-  </footer>
+    </footer>
 
     <script>
       document.getElementById("year").textContent = new Date().getFullYear();
