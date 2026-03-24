@@ -289,9 +289,7 @@
         class="px-5 py-2 border border-[#B8912A] text-[#B8912A] text-xs tracking-[0.2em] uppercase font-medium"
         >Olamide Andrew</a
       >
-      <div
-        class="hidden md:flex items-center gap-8 text-sm text-white/70"
-      >
+      <div class="hidden md:flex items-center gap-8 text-sm text-white/70">
         <a href="index.html" class="nav-a transition-colors text-[#B8912A]"
           >Home</a
         >
@@ -1666,7 +1664,7 @@
           </div>
 
           <!-- FAQ 3 -->
-          <div
+          <!-- <div
             class="faq-item group border border-white/10 rounded-xl overflow-hidden transition-all duration-300 hover:border-[#B8912A]/40 hover:shadow-[0_0_30px_rgba(184,145,42,0.1)]"
           >
             <button
@@ -1719,7 +1717,7 @@
                 </div>
               </div>
             </div>
-          </div>
+          </div> -->
 
           <!-- FAQ 4 -->
           <div
@@ -1773,7 +1771,7 @@
           </div>
 
           <!-- FAQ 5 -->
-          <div
+          <!-- <div
             class="faq-item group border border-white/10 rounded-xl overflow-hidden transition-all duration-300 hover:border-[#B8912A]/40 hover:shadow-[0_0_30px_rgba(184,145,42,0.1)]"
           >
             <button
@@ -1825,7 +1823,7 @@
                 </p>
               </div>
             </div>
-          </div>
+          </div> -->
 
           <!-- FAQ 6 -->
           <div
@@ -1959,7 +1957,7 @@
     </script>
 
     <!-- FOOTER -->
-    <footer
+  <footer
       class="relative bg-[#0F0F0D] text-white px-8 md:px-20 py-20 rounded-t-[60px] overflow-hidden"
     >
       <!-- Subtle Top Glow -->
@@ -2058,7 +2056,7 @@
           </h3>
 
           <ul class="space-y-4 text-white/60 text-sm">
-            <li class="group flex items-center gap-2">
+            <!-- <li class="group flex items-center gap-2">
               <span
                 class="text-[#B8912A] transform group-hover:translate-x-1 transition duration-300"
               >
@@ -2070,7 +2068,7 @@
               >
                 Brand Strategy
               </a>
-            </li>
+            </li> -->
 
             <li class="group flex items-center gap-2">
               <span
@@ -2082,7 +2080,7 @@
                 href="#"
                 class="group-hover:text-[#B8912A] transition duration-300"
               >
-                Logo Design
+                Brand Identity
               </a>
             </li>
 
@@ -2096,7 +2094,7 @@
                 href="#"
                 class="group-hover:text-[#B8912A] transition duration-300"
               >
-                UI/UX Design
+                Campaingn Design
               </a>
             </li>
 
@@ -2110,7 +2108,21 @@
                 href="#"
                 class="group-hover:text-[#B8912A] transition duration-300"
               >
-                Website Development
+                Concept Work
+              </a>
+            </li>
+
+            <li class="group flex items-center gap-2">
+              <span
+                class="text-[#B8912A] transform group-hover:translate-x-1 transition duration-300"
+              >
+                >
+              </span>
+              <a
+                href="#"
+                class="group-hover:text-[#B8912A] transition duration-300"
+              >
+                Mockups
               </a>
             </li>
           </ul>
@@ -2146,8 +2158,7 @@
           </div>
 
           <div class="text-white/60 text-sm space-y-3">
-            <p>ishola826@gmail.com</p>
-            <p>canada</p>
+            <p>andrewolamide@gmail.com</p>
             <p>+1204 730 7396</p>
           </div>
         </div>
@@ -2166,159 +2177,160 @@
           >
         </div>
       </div>
-    </footer>
+  </footer>
 
     <script>
       document.getElementById("year").textContent = new Date().getFullYear();
     </script>
 
     <script>
-        (function () {
-          const menu = document.getElementById("mobile-menu");
-          const backdrop = document.getElementById("mobile-menu-backdrop");
-          const openBtn = document.querySelector("[data-menu-toggle]");
-          const closeBtn = document.querySelector("[data-menu-close]");
-          if (!menu || !backdrop || !openBtn || !closeBtn) return;
+      (function () {
+        const menu = document.getElementById("mobile-menu");
+        const backdrop = document.getElementById("mobile-menu-backdrop");
+        const openBtn = document.querySelector("[data-menu-toggle]");
+        const closeBtn = document.querySelector("[data-menu-close]");
+        if (!menu || !backdrop || !openBtn || !closeBtn) return;
 
-          const closeMenu = () => {
-            menu.classList.add("translate-x-full");
-            backdrop.classList.add("opacity-0", "pointer-events-none");
-            document.body.style.overflow = "";
-          };
+        const closeMenu = () => {
+          menu.classList.add("translate-x-full");
+          backdrop.classList.add("opacity-0", "pointer-events-none");
+          document.body.style.overflow = "";
+        };
 
-          const openMenu = () => {
-            menu.classList.remove("translate-x-full");
-            backdrop.classList.remove("opacity-0", "pointer-events-none");
-            document.body.style.overflow = "hidden";
-          };
+        const openMenu = () => {
+          menu.classList.remove("translate-x-full");
+          backdrop.classList.remove("opacity-0", "pointer-events-none");
+          document.body.style.overflow = "hidden";
+        };
 
-          openBtn.addEventListener("click", openMenu);
-          closeBtn.addEventListener("click", closeMenu);
-          backdrop.addEventListener("click", closeMenu);
-          menu
-            .querySelectorAll("a")
-            .forEach((link) => link.addEventListener("click", closeMenu));
-          document.addEventListener("keydown", (e) => {
-            if (e.key === "Escape") closeMenu();
-          });
-        })();
+        openBtn.addEventListener("click", openMenu);
+        closeBtn.addEventListener("click", closeMenu);
+        backdrop.addEventListener("click", closeMenu);
+        menu
+          .querySelectorAll("a")
+          .forEach((link) => link.addEventListener("click", closeMenu));
+        document.addEventListener("keydown", (e) => {
+          if (e.key === "Escape") closeMenu();
+        });
+      })();
 
-        (function () {
-          const section = document.getElementById("services");
-          if (!section) return;
+      (function () {
+        const section = document.getElementById("services");
+        if (!section) return;
 
-          if (!("IntersectionObserver" in window)) {
-            section.classList.add("in-view");
-            return;
-          }
-
-          const observer = new IntersectionObserver(
-            (entries) => {
-              entries.forEach((entry) => {
-                if (entry.isIntersecting) {
-                  section.classList.add("in-view");
-                  observer.unobserve(section);
-                }
-              });
-            },
-            { threshold: 0.25 },
-          );
-
-          observer.observe(section);
-        })();
-        (function () {
-          const dot = document.createElement("div");
-          const outline = document.createElement("div");
-          dot.className = "cursor-dot";
-          outline.className = "cursor-outline";
-          document.body.appendChild(dot);
-          document.body.appendChild(outline);
-
-          let mouseX = 0,
-            mouseY = 0;
-          let dotX = 0,
-            dotY = 0;
-          let outlineX = 0,
-            outlineY = 0;
-
-          document.addEventListener("mousemove", (e) => {
-            mouseX = e.clientX;
-            mouseY = e.clientY;
-          });
-
-          function animate() {
-            dotX += (mouseX - dotX) * 0.9;
-            dotY += (mouseY - dotY) * 0.9;
-            outlineX += (mouseX - outlineX) * 0.15;
-            outlineY += (mouseY - outlineY) * 0.15;
-
-            dot.style.left = dotX + "px";
-            dot.style.top = dotY + "px";
-            outline.style.left = outlineX - 20 + "px";
-            outline.style.top = outlineY - 20 + "px";
-
-            requestAnimationFrame(animate);
-          }
-          animate();
-
-          document.querySelectorAll("a, button").forEach((el) => {
-            el.addEventListener("mouseenter", () => {
-              outline.style.transform = "scale(1.5)";
-              outline.style.borderColor = "#B8912A";
-            });
-            el.addEventListener("mouseleave", () => {
-              outline.style.transform = "scale(1)";
-              outline.style.borderColor = "rgba(184, 145, 42, 0.5)";
-            });
-          });
-        })();
-
-        function toggleFAQ(button) {
-          const item = button.parentElement;
-          const content = item.querySelector('.faq-content');
-          const toggle = button.querySelector('span:last-child');
-          const isOpen = content.style.maxHeight && content.style.maxHeight !== '0px';
-
-          document.querySelectorAll('.faq-item').forEach(faq => {
-            const faqContent = faq.querySelector('.faq-content');
-            const faqToggle = faq.querySelector('.faq-toggle span:last-child');
-            faqContent.style.maxHeight = '0px';
-            faqToggle.textContent = '+';
-          });
-
-          if (!isOpen) {
-            content.style.maxHeight = content.scrollHeight + 'px';
-            toggle.textContent = '−';
-          }
+        if (!("IntersectionObserver" in window)) {
+          section.classList.add("in-view");
+          return;
         }
-      </script>
-      <!-- LIGHTBOX -->
-      <div
-        id="lightbox"
-        class="fixed inset-0 bg-black/90 hidden items-center justify-center z-50"
+
+        const observer = new IntersectionObserver(
+          (entries) => {
+            entries.forEach((entry) => {
+              if (entry.isIntersecting) {
+                section.classList.add("in-view");
+                observer.unobserve(section);
+              }
+            });
+          },
+          { threshold: 0.25 },
+        );
+
+        observer.observe(section);
+      })();
+      (function () {
+        const dot = document.createElement("div");
+        const outline = document.createElement("div");
+        dot.className = "cursor-dot";
+        outline.className = "cursor-outline";
+        document.body.appendChild(dot);
+        document.body.appendChild(outline);
+
+        let mouseX = 0,
+          mouseY = 0;
+        let dotX = 0,
+          dotY = 0;
+        let outlineX = 0,
+          outlineY = 0;
+
+        document.addEventListener("mousemove", (e) => {
+          mouseX = e.clientX;
+          mouseY = e.clientY;
+        });
+
+        function animate() {
+          dotX += (mouseX - dotX) * 0.9;
+          dotY += (mouseY - dotY) * 0.9;
+          outlineX += (mouseX - outlineX) * 0.15;
+          outlineY += (mouseY - outlineY) * 0.15;
+
+          dot.style.left = dotX + "px";
+          dot.style.top = dotY + "px";
+          outline.style.left = outlineX - 20 + "px";
+          outline.style.top = outlineY - 20 + "px";
+
+          requestAnimationFrame(animate);
+        }
+        animate();
+
+        document.querySelectorAll("a, button").forEach((el) => {
+          el.addEventListener("mouseenter", () => {
+            outline.style.transform = "scale(1.5)";
+            outline.style.borderColor = "#B8912A";
+          });
+          el.addEventListener("mouseleave", () => {
+            outline.style.transform = "scale(1)";
+            outline.style.borderColor = "rgba(184, 145, 42, 0.5)";
+          });
+        });
+      })();
+
+      function toggleFAQ(button) {
+        const item = button.parentElement;
+        const content = item.querySelector(".faq-content");
+        const toggle = button.querySelector("span:last-child");
+        const isOpen =
+          content.style.maxHeight && content.style.maxHeight !== "0px";
+
+        document.querySelectorAll(".faq-item").forEach((faq) => {
+          const faqContent = faq.querySelector(".faq-content");
+          const faqToggle = faq.querySelector(".faq-toggle span:last-child");
+          faqContent.style.maxHeight = "0px";
+          faqToggle.textContent = "+";
+        });
+
+        if (!isOpen) {
+          content.style.maxHeight = content.scrollHeight + "px";
+          toggle.textContent = "−";
+        }
+      }
+    </script>
+    <!-- LIGHTBOX -->
+    <div
+      id="lightbox"
+      class="fixed inset-0 bg-black/90 hidden items-center justify-center z-50"
+    >
+      <span
+        onclick="closeLightbox()"
+        class="absolute top-8 right-10 text-white text-3xl cursor-pointer"
       >
-        <span
-          onclick="closeLightbox()"
-          class="absolute top-8 right-10 text-white text-3xl cursor-pointer"
-        >
-          ✕
-        </span>
+        ✕
+      </span>
 
-        <img
-          id="lightbox-img"
-          class="max-w-[90%] max-h-[85%] rounded-xl shadow-2xl"
-        />
-      </div>
-      <script>
-        function openLightbox(src) {
-          document.getElementById("lightbox").classList.remove("hidden");
-          document.getElementById("lightbox").classList.add("flex");
-          document.getElementById("lightbox-img").src = src;
-        }
+      <img
+        id="lightbox-img"
+        class="max-w-[90%] max-h-[85%] rounded-xl shadow-2xl"
+      />
+    </div>
+    <script>
+      function openLightbox(src) {
+        document.getElementById("lightbox").classList.remove("hidden");
+        document.getElementById("lightbox").classList.add("flex");
+        document.getElementById("lightbox-img").src = src;
+      }
 
-        function closeLightbox() {
-          document.getElementById("lightbox").classList.add("hidden");
-        }
+      function closeLightbox() {
+        document.getElementById("lightbox").classList.add("hidden");
+      }
     </script>
     <!-- SWIPER -->
     <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
