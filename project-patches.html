@@ -1,0 +1,1514 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Patches — Olamide Andrew</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=DM+Sans:wght@300;400;500&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      body {
+        font-family: "DM Sans", sans-serif;
+      }
+      .font-display {
+        font-family: "Playfair Display", serif;
+      }
+
+      .nav-a {
+        position: relative;
+        transition: color 0.3s;
+      }
+      .nav-a::after {
+        content: "";
+        position: absolute;
+        bottom: -4px;
+        left: 0;
+        width: 0;
+        height: 2px;
+        background: #b8912a;
+        transition: width 0.3s;
+      }
+      .nav-a:hover {
+        color: #b8912a;
+      }
+      .nav-a:hover::after {
+        width: 100%;
+      }
+
+      /* ── GALLERY GRID ── */
+      .gallery-grid {
+        display: grid;
+        grid-template-columns: repeat(12, 1fr);
+        gap: 16px;
+      }
+      .g-item {
+        position: relative;
+        overflow: hidden;
+        border-radius: 12px;
+        cursor: pointer;
+      }
+      .g-item img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        display: block;
+        transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+      }
+      .g-item:hover img {
+        transform: scale(1.06);
+      }
+
+      /* overlay */
+      .g-overlay {
+        position: absolute;
+        inset: 0;
+        background: linear-gradient(
+          to top,
+          rgba(15, 15, 13, 0.92) 0%,
+          rgba(15, 15, 13, 0.1) 55%,
+          transparent 100%
+        );
+        opacity: 0;
+        transition: opacity 0.4s ease;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-end;
+        padding: 20px;
+      }
+      .g-item:hover .g-overlay {
+        opacity: 1;
+      }
+      .g-overlay-label {
+        font-size: 11px;
+        letter-spacing: 0.25em;
+        text-transform: uppercase;
+        color: #b8912a;
+        margin-bottom: 4px;
+        transform: translateY(8px);
+        transition: transform 0.35s ease;
+      }
+      .g-overlay-title {
+        font-family: "Playfair Display", serif;
+        font-size: 1.1rem;
+        font-weight: 700;
+        color: #fff;
+        transform: translateY(8px);
+        transition: transform 0.35s ease 0.04s;
+      }
+      .g-item:hover .g-overlay-label,
+      .g-item:hover .g-overlay-title {
+        transform: translateY(0);
+      }
+
+      /* zoom icon */
+      .g-zoom {
+        position: absolute;
+        top: 14px;
+        right: 14px;
+        width: 36px;
+        height: 36px;
+        border-radius: 50%;
+        border: 1px solid rgba(184, 145, 42, 0.5);
+        background: rgba(15, 15, 13, 0.7);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        opacity: 0;
+        transform: scale(0.7);
+        transition:
+          opacity 0.3s ease,
+          transform 0.3s ease;
+        backdrop-filter: blur(4px);
+      }
+      .g-item:hover .g-zoom {
+        opacity: 1;
+        transform: scale(1);
+      }
+
+      /* grid spanning */
+      .span-8 {
+        grid-column: span 8;
+      }
+      .span-4 {
+        grid-column: span 4;
+      }
+      .span-6 {
+        grid-column: span 6;
+      }
+      .span-5 {
+        grid-column: span 5;
+      }
+      .span-7 {
+        grid-column: span 7;
+      }
+      .span-12 {
+        grid-column: span 12;
+      }
+      .h-340 {
+        height: 340px;
+      }
+      .h-280 {
+        height: 280px;
+      }
+      .h-420 {
+        height: 420px;
+      }
+      .h-220 {
+        height: 220px;
+      }
+
+      @media (max-width: 768px) {
+        .gallery-grid {
+          grid-template-columns: 1fr 1fr;
+          gap: 10px;
+        }
+        .span-8,
+        .span-4,
+        .span-6,
+        .span-5,
+        .span-7,
+        .span-12 {
+          grid-column: span 2;
+        }
+        .h-340,
+        .h-420 {
+          height: 220px;
+        }
+        .h-280,
+        .h-220 {
+          height: 180px;
+        }
+      }
+
+      /* ── LIGHTBOX ── */
+      #lightbox {
+        position: fixed;
+        inset: 0;
+        z-index: 9999;
+        background: rgba(10, 10, 9, 0.97);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        opacity: 0;
+        pointer-events: none;
+        transition: opacity 0.35s ease;
+        backdrop-filter: blur(12px);
+      }
+      #lightbox.active {
+        opacity: 1;
+        pointer-events: all;
+      }
+
+      #lightbox-img {
+        max-width: min(90vw, 1100px);
+        max-height: 85vh;
+        object-fit: contain;
+        border-radius: 8px;
+        box-shadow: 0 40px 120px rgba(0, 0, 0, 0.8);
+        transform: scale(0.92);
+        transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+      }
+      #lightbox.active #lightbox-img {
+        transform: scale(1);
+      }
+
+      /* meta panel */
+      #lb-meta {
+        position: absolute;
+        bottom: 32px;
+        left: 50%;
+        transform: translateX(-50%);
+        text-align: center;
+      }
+      #lb-label {
+        font-size: 10px;
+        letter-spacing: 0.35em;
+        text-transform: uppercase;
+        color: #b8912a;
+        margin-bottom: 4px;
+      }
+      #lb-title {
+        font-family: "Playfair Display", serif;
+        font-size: 1.15rem;
+        color: #fff;
+        font-weight: 700;
+      }
+
+      /* close */
+      #lb-close {
+        position: absolute;
+        top: 20px;
+        right: 24px;
+        width: 44px;
+        height: 44px;
+        border-radius: 50%;
+        border: 1px solid rgba(255, 255, 255, 0.12);
+        background: rgba(15, 15, 13, 0.7);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+        transition: all 0.25s ease;
+      }
+      #lb-close:hover {
+        border-color: #b8912a;
+        background: rgba(184, 145, 42, 0.12);
+      }
+
+      /* counter */
+      #lb-counter {
+        position: absolute;
+        top: 28px;
+        left: 50%;
+        transform: translateX(-50%);
+        font-size: 10px;
+        letter-spacing: 0.3em;
+        color: rgba(255, 255, 255, 0.35);
+        text-transform: uppercase;
+      }
+
+      /* ── ENTRANCE ANIMATIONS ── */
+      .cs-label {
+        opacity: 0;
+        transform: translateY(20px);
+        animation: csFadeUp 0.7s cubic-bezier(0.16, 1, 0.3, 1) 0.1s forwards;
+      }
+      .cs-title-text {
+        opacity: 0;
+        transform: translateY(60px);
+        animation: csFadeUp 0.9s cubic-bezier(0.16, 1, 0.3, 1) 0.25s forwards;
+      }
+      .cs-subtitle-text {
+        opacity: 0;
+        transform: translateY(30px);
+        animation: csFadeUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) 0.4s forwards;
+      }
+      .cs-meta {
+        opacity: 0;
+        transform: translateY(24px);
+        animation: csFadeUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) 0.55s forwards;
+      }
+      .cs-kpi {
+        opacity: 0;
+        transform: translateY(20px);
+        animation: csFadeUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) 0.7s forwards;
+      }
+      @keyframes csFadeUp {
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      .meta-pill:nth-child(1) {
+        animation: csFadeUp 0.6s cubic-bezier(0.16, 1, 0.3, 1) 0.6s both;
+        opacity: 0;
+      }
+      .meta-pill:nth-child(2) {
+        animation: csFadeUp 0.6s cubic-bezier(0.16, 1, 0.3, 1) 0.72s both;
+        opacity: 0;
+      }
+      .meta-pill:nth-child(3) {
+        animation: csFadeUp 0.6s cubic-bezier(0.16, 1, 0.3, 1) 0.84s both;
+        opacity: 0;
+      }
+
+      @keyframes floatOrb {
+        0%,
+        100% {
+          transform: translateY(0) scale(1);
+        }
+        50% {
+          transform: translateY(-30px) scale(1.04);
+        }
+      }
+      .cs-streak {
+        animation: streakFade 6s ease-in-out infinite;
+      }
+      .cs-streak2 {
+        animation: streakFade 9s ease-in-out 2s infinite;
+      }
+      @keyframes streakFade {
+        0%,
+        100% {
+          opacity: 0;
+          transform: scaleX(0) rotate(25deg);
+        }
+        40%,
+        60% {
+          opacity: 1;
+          transform: scaleX(1) rotate(25deg);
+        }
+      }
+      @keyframes bounce-slow {
+        0%,
+        100% {
+          transform: translateY(0);
+        }
+        50% {
+          transform: translateY(5px);
+        }
+      }
+      .animate-bounce-slow {
+        animation: bounce-slow 2s ease-in-out infinite;
+      }
+
+      /* gallery section reveal */
+      .gallery-reveal {
+        opacity: 0;
+        transform: translateY(30px);
+        transition:
+          opacity 0.7s ease,
+          transform 0.7s ease;
+      }
+      .gallery-reveal.visible {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    </style>
+  </head>
+  <body class="bg-[#0F0F0D] text-white">
+    <!-- NAV -->
+    <nav
+      class="relative flex items-center justify-between px-8 md:px-20 py-5 border-b border-white/10"
+    >
+      <a
+        href="index.html"
+        class="px-5 py-2 border border-[#B8912A] text-[#B8912A] text-xs tracking-[0.2em] uppercase font-medium"
+        >Olamide Andrew</a
+      >
+      <div class="hidden md:flex items-center gap-8 text-sm text-white/70">
+        <a href="index.html" class="nav-a transition-colors text-[#B8912A]"
+          >Home</a
+        >
+        <a href="about.html" class="nav-a transition-colors">About</a>
+        <a href="work.html" class="nav-a transition-colors">Work</a>
+        <a href="contact.html" class="nav-a transition-colors">Contact</a>
+      </div>
+      <button
+        type="button"
+        class="md:hidden text-white/80 hover:text-[#B8912A] transition-colors"
+        aria-label="Open menu"
+        data-menu-toggle
+      >
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          class="w-7 h-7"
+          fill="none"
+          viewBox="0 0 24 24"
+          stroke="currentColor"
+        >
+          <path
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-width="1.8"
+            d="M4 7h16M4 12h16M4 17h16"
+          />
+        </svg>
+      </button>
+    </nav>
+
+    <!-- HERO -->
+    <section
+      class="relative overflow-hidden min-h-[100vh] flex items-center bg-[#0F0F0D] px-6 md:px-20"
+    >
+      <div class="absolute inset-0 pointer-events-none">
+        <div
+          class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[1000px] h-[600px] bg-[#B8912A]/7 blur-[180px] rounded-full"
+        ></div>
+        <div
+          class="absolute -top-20 left-1/4 w-[500px] h-[500px] bg-[#B8912A]/10 rounded-full blur-[120px] animate-pulse"
+        ></div>
+        <div
+          class="absolute -bottom-20 right-1/4 w-[600px] h-[600px] bg-[#D4A93C]/6 rounded-full blur-[140px]"
+          style="animation: floatOrb 14s ease-in-out infinite"
+        ></div>
+        <div
+          class="absolute inset-0"
+          style="
+            background-image: radial-gradient(
+              circle,
+              rgba(184, 145, 42, 0.18) 1px,
+              transparent 1px
+            );
+            background-size: 44px 44px;
+            mask-image: radial-gradient(
+              ellipse 80% 70% at 50% 50%,
+              black 20%,
+              transparent 80%
+            );
+          "
+        ></div>
+        <div
+          class="absolute top-0 left-0 w-full h-full overflow-hidden opacity-20"
+        >
+          <div
+            class="absolute top-[-10%] left-[-10%] w-[60%] h-[2px] bg-gradient-to-r from-transparent via-[#B8912A]/60 to-transparent rotate-[25deg] origin-left cs-streak"
+          ></div>
+          <div
+            class="absolute top-[30%] right-[-10%] w-[40%] h-[1px] bg-gradient-to-r from-transparent via-[#D4A93C]/40 to-transparent -rotate-[20deg] origin-right cs-streak2"
+          ></div>
+        </div>
+      </div>
+      <div
+        class="absolute inset-0 opacity-[0.03] pointer-events-none"
+        style="
+          background-image: url(&quot;data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E&quot;);
+          background-size: 180px;
+        "
+      ></div>
+      <div
+        class="absolute bottom-0 left-0 right-0 h-40 bg-gradient-to-t from-[#0F0F0D] to-transparent pointer-events-none"
+      ></div>
+      <div
+        class="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-[#B8912A]/40 to-transparent"
+      ></div>
+
+      <div class="relative z-10 w-full max-w-6xl mx-auto pt-28 pb-20">
+        <div class="cs-label flex items-center gap-4 mb-10">
+          <div
+            class="flex items-center gap-2 px-4 py-2 rounded-full border border-[#B8912A]/25 bg-[#B8912A]/5 backdrop-blur-sm"
+          >
+            <span
+              class="w-1.5 h-1.5 rounded-full bg-[#B8912A] animate-pulse"
+            ></span>
+            <span
+              class="text-[9px] tracking-[0.45em] text-[#B8912A] uppercase font-semibold"
+              >Case Study</span
+            >
+          </div>
+          <div
+            class="flex-1 h-px bg-gradient-to-r from-[#B8912A]/30 to-transparent"
+          ></div>
+          <span class="text-[9px] tracking-[0.3em] text-white/20 uppercase"
+            >2024</span
+          >
+        </div>
+
+        <div class="cs-title overflow-hidden mb-3">
+          <h1
+            class="font-display text-[clamp(3.5rem,10vw,7.5rem)] font-black leading-[0.95] tracking-tight text-white cs-title-text"
+          >
+            Patches
+          </h1>
+        </div>
+        <div class="cs-subtitle overflow-hidden mb-12">
+          <p
+            class="text-white/50 text-lg md:text-xl leading-relaxed max-w-2xl cs-subtitle-text"
+          >
+            Crafting a warm, inviting brand identity for a beloved family
+            restaurant in Canada — from logo to full graphic system.
+          </p>
+        </div>
+
+        <div
+          class="cs-meta flex flex-col md:flex-row md:items-end justify-between gap-10"
+        >
+          <div class="flex flex-wrap gap-4">
+            <div
+              class="meta-pill group flex items-center gap-4 px-6 py-4 rounded-xl border border-white/[0.06] bg-white/[0.02] hover:border-[#B8912A]/35 hover:bg-[#B8912A]/5 transition-all duration-500 cursor-default"
+            >
+              <div
+                class="w-px h-8 bg-gradient-to-b from-[#B8912A]/60 to-transparent"
+              ></div>
+              <div>
+                <p
+                  class="text-[9px] tracking-[0.3em] text-[#B8912A]/60 uppercase mb-1 group-hover:text-[#B8912A] transition-colors duration-300"
+                >
+                  Year
+                </p>
+                <p class="text-white font-semibold text-base">2024</p>
+              </div>
+            </div>
+            <div
+              class="meta-pill group flex items-center gap-4 px-6 py-4 rounded-xl border border-white/[0.06] bg-white/[0.02] hover:border-[#B8912A]/35 hover:bg-[#B8912A]/5 transition-all duration-500 cursor-default"
+            >
+              <div
+                class="w-px h-8 bg-gradient-to-b from-[#B8912A]/60 to-transparent"
+              ></div>
+              <div>
+                <p
+                  class="text-[9px] tracking-[0.3em] text-[#B8912A]/60 uppercase mb-1 group-hover:text-[#B8912A] transition-colors duration-300"
+                >
+                  Location
+                </p>
+                <p class="text-white font-semibold text-base">Canada</p>
+              </div>
+            </div>
+            <div
+              class="meta-pill group flex items-center gap-4 px-6 py-4 rounded-xl border border-white/[0.06] bg-white/[0.02] hover:border-[#B8912A]/35 hover:bg-[#B8912A]/5 transition-all duration-500 cursor-default"
+            >
+              <div
+                class="w-px h-8 bg-gradient-to-b from-[#B8912A]/60 to-transparent"
+              ></div>
+              <div>
+                <p
+                  class="text-[9px] tracking-[0.3em] text-[#B8912A]/60 uppercase mb-1 group-hover:text-[#B8912A] transition-colors duration-300"
+                >
+                  Category
+                </p>
+                <p class="text-white font-semibold text-base">Brand Identity</p>
+              </div>
+            </div>
+          </div>
+          <div
+            class="cs-scroll flex items-center gap-3 text-white/30 hover:text-[#B8912A] transition-colors duration-400 cursor-pointer group"
+            onclick="
+              document
+                .getElementById('gallery')
+                .scrollIntoView({ behavior: 'smooth' })
+            "
+          >
+            <span class="text-[10px] tracking-[0.35em] uppercase"
+              >Scroll to explore</span
+            >
+            <div
+              class="w-8 h-8 rounded-full border border-white/10 group-hover:border-[#B8912A]/50 flex items-center justify-center transition-all duration-300 group-hover:bg-[#B8912A]/10"
+            >
+              <svg
+                class="w-3.5 h-3.5 animate-bounce-slow"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M19 9l-7 7-7-7"
+                />
+              </svg>
+            </div>
+          </div>
+        </div>
+
+        <div
+          class="cs-kpi mt-16 grid grid-cols-3 gap-px overflow-hidden rounded-2xl border border-white/[0.05]"
+        >
+          <div
+            class="group relative bg-white/[0.02] hover:bg-[#B8912A]/6 px-7 py-5 transition-all duration-500 cursor-default overflow-hidden"
+          >
+            <div
+              class="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-[#B8912A]/0 group-hover:via-[#B8912A]/50 to-transparent transition-all duration-500"
+            ></div>
+            <p
+              class="font-display text-2xl md:text-3xl font-bold text-[#B8912A] mb-1"
+            >
+              Logo
+            </p>
+            <p
+              class="text-[9px] tracking-[0.3em] text-white/30 uppercase group-hover:text-white/50 transition-colors duration-300"
+            >
+              Mark & Wordmark
+            </p>
+          </div>
+          <div
+            class="group relative bg-white/[0.02] hover:bg-[#B8912A]/6 px-7 py-5 transition-all duration-500 cursor-default overflow-hidden border-x border-white/[0.05]"
+          >
+            <div
+              class="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-[#B8912A]/0 group-hover:via-[#B8912A]/50 to-transparent transition-all duration-500"
+            ></div>
+            <p
+              class="font-display text-2xl md:text-3xl font-bold text-[#B8912A] mb-1"
+            >
+              Menu
+            </p>
+            <p
+              class="text-[9px] tracking-[0.3em] text-white/30 uppercase group-hover:text-white/50 transition-colors duration-300"
+            >
+              Print & Digital
+            </p>
+          </div>
+          <div
+            class="group relative bg-white/[0.02] hover:bg-[#B8912A]/6 px-7 py-5 transition-all duration-500 cursor-default overflow-hidden"
+          >
+            <div
+              class="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-[#B8912A]/0 group-hover:via-[#B8912A]/50 to-transparent transition-all duration-500"
+            ></div>
+            <p
+              class="font-display text-2xl md:text-3xl font-bold text-[#B8912A] mb-1"
+            >
+              Full
+            </p>
+            <p
+              class="text-[9px] tracking-[0.3em] text-white/30 uppercase group-hover:text-white/50 transition-colors duration-300"
+            >
+              Brand System
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- PROJECT OVERVIEW -->
+    <!-- <section class="px-6 md:px-20 py-20">
+      <div class="max-w-4xl mx-auto">
+        <div class="mb-16">
+          <h2 class="font-display text-4xl font-bold mb-6">Project Overview</h2>
+          <p class="text-white/70 leading-relaxed mb-4">
+            Patches is a warm, family-run restaurant based in Canada with a
+            passion for comfort food and community. The client needed a complete
+            graphic identity — from brand logo to menus, packaging, social
+            assets, and signage — that captured their welcoming personality and
+            stood out in a competitive local dining scene.
+          </p>
+          <p class="text-white/70 leading-relaxed">
+            The brief called for something that felt timeless yet approachable:
+            earthy tones, hand-crafted touches, and a visual language that says
+            "this is your neighbourhood spot." Every deliverable was designed
+            with that warmth at its core.
+          </p>
+        </div>
+
+        <div class="mb-16 border-l-4 border-[#B8912A] pl-8">
+          <h3 class="font-display text-3xl font-bold mb-4">The Challenge</h3>
+          <ul class="space-y-3 text-white/70">
+            <li>• Build a brand that feels handcrafted without looking DIY</li>
+            <li>
+              • Create a visual system flexible enough for print, digital &
+              signage
+            </li>
+            <li>• Convey warmth, family, and quality in every touchpoint</li>
+            <li>
+              • Differentiate Patches in Canada's crowded restaurant market
+            </li>
+          </ul>
+        </div>
+      </div>
+    </section> -->
+
+    <!-- ░░ GRAPHIC WORK GALLERY ░░ -->
+    <section id="gallery" class="px-6 md:px-20 py-4 pb-24">
+      <div class="max-w-7xl mx-auto">
+        <!-- Section header -->
+        <div class="gallery-reveal flex items-end justify-between mb-12">
+          <div>
+            <p
+              class="text-[10px] tracking-[0.45em] text-[#B8912A] uppercase mb-3"
+            >
+              Creative Output
+            </p>
+            <h2 class="font-display text-4xl md:text-5xl font-bold">
+              Graphic Work
+            </h2>
+          </div>
+          <p
+            class="hidden md:block text-white/35 text-sm max-w-xs text-right leading-relaxed"
+          >
+            Click any piece to view it full-screen. Navigate with arrows or
+            keyboard.
+          </p>
+        </div>
+
+        <!-- ── ROW 1 ── -->
+        <div class="gallery-reveal gallery-grid mb-4">
+          <!-- Large feature -->
+          <div
+            class="g-item span-8 h-420"
+            data-index="0"
+            data-label="Logo Design"
+            data-title="Primary Brand Mark"
+          >
+            <img
+              src="https://res.cloudinary.com/duw0fnlqe/image/upload/v1773831562/Burger_Box_Mockup_1_copy.jpg_hp2jar.jpg"
+              alt="Patches logo design"
+            />
+            <!-- <div class="g-overlay">
+              <p class="g-overlay-label">Logo Design</p>
+              <p class="g-overlay-title">Primary Brand Mark</p>
+            </div> -->
+            <!-- <div class="g-zoom">
+              <svg
+                class="w-4 h-4 text-[#B8912A]"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0zM10 7v3m0 0v3m0-3h3m-3 0H7"
+                />
+              </svg>
+            </div> -->
+          </div>
+          <!-- Stack right -->
+          <div class="span-4 flex flex-col gap-4">
+            <div
+              class="g-item h-[200px]"
+              data-index="1"
+              data-label="Colour Palette"
+              data-title="Brand Colour System"
+            >
+              <img
+                src="https://res.cloudinary.com/duw0fnlqe/image/upload/v1773831562/2_copy.jpg_dffimc.jpg"
+                alt="Colour palette"
+              />
+              <!-- <div class="g-overlay">
+                <p class="g-overlay-label">Colour Palette</p>
+                <p class="g-overlay-title">Brand Colour System</p>
+              </div>
+              <div class="g-zoom">
+                <svg
+                  class="w-4 h-4 text-[#B8912A]"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0zM10 7v3m0 0v3m0-3h3m-3 0H7"
+                  />
+                </svg>
+              </div> -->
+            </div>
+            <div
+              class="g-item flex-1"
+              data-index="2"
+              data-label="Typography"
+              data-title="Type Hierarchy"
+            >
+              <img
+                src="https://res.cloudinary.com/duw0fnlqe/image/upload/v1773831562/807_copy.jpg_ylaydz.jpg"
+                alt="Typography"
+              />
+              <!-- <div class="g-overlay">
+                <p class="g-overlay-label">Typography</p>
+                <p class="g-overlay-title">Type Hierarchy</p>
+              </div>
+              <div class="g-zoom">
+                <svg
+                  class="w-4 h-4 text-[#B8912A]"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0zM10 7v3m0 0v3m0-3h3m-3 0H7"
+                  />
+                </svg>
+              </div> -->
+            </div>
+          </div>
+        </div>
+
+        <!-- ── ROW 2 ── -->
+        <div
+          class="gallery-reveal gallery-grid mb-4"
+          style="transition-delay: 0.1s"
+        >
+          <div
+            class="g-item span-4 h-280"
+            data-index="3"
+            data-label="Menu Design"
+            data-title="Dine-In Menu Cover"
+          >
+            <img
+              src="https://res.cloudinary.com/duw0fnlqe/image/upload/v1773831565/Free_Restaurant_Menu_Card_PSD_Mockup_copy.jpg_mpl96i.jpg"
+              alt="Menu design"
+            />
+            <!-- <div class="g-overlay">
+              <p class="g-overlay-label">Menu Design</p>
+              <p class="g-overlay-title">Dine-In Menu Cover</p>
+            </div>
+            <div class="g-zoom">
+              <svg
+                class="w-4 h-4 text-[#B8912A]"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0zM10 7v3m0 0v3m0-3h3m-3 0H7"
+                />
+              </svg>
+            </div> -->
+          </div>
+          <div
+            class="g-item span-4 h-280"
+            data-index="4"
+            data-label="Menu Spread"
+            data-title="Interior Menu Layout"
+          >
+            <img
+              src="https://res.cloudinary.com/duw0fnlqe/image/upload/v1773831563/Free_Business_Card_Mockup_3_copy.jpg_rntxwt.jpg"
+              alt="Menu spread"
+            />
+            <!-- <div class="g-overlay">
+              <p class="g-overlay-label">Menu Spread</p>
+              <p class="g-overlay-title">Interior Menu Layout</p>
+            </div>
+            <div class="g-zoom">
+              <svg
+                class="w-4 h-4 text-[#B8912A]"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0zM10 7v3m0 0v3m0-3h3m-3 0H7"
+                />
+              </svg>
+            </div> -->
+          </div>
+          <div
+            class="g-item span-4 h-280"
+            data-index="5"
+            data-label="Packaging"
+            data-title="Takeout Bag & Box"
+          >
+            <img
+              src="https://res.cloudinary.com/duw0fnlqe/image/upload/v1773831561/Burger_Box_Mockup_4_copy.jpg_yxp4ps.jpg"
+              alt="Packaging"
+            />
+            <!-- <div class="g-overlay">
+              <p class="g-overlay-label">Packaging</p>
+              <p class="g-overlay-title">Takeout Bag & Box</p>
+            </div>
+            <div class="g-zoom">
+              <svg
+                class="w-4 h-4 text-[#B8912A]"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0zM10 7v3m0 0v3m0-3h3m-3 0H7"
+                />
+              </svg>
+            </div> -->
+          </div>
+        </div>
+
+        <!-- ── ROW 3 ── -->
+        <div
+          class="gallery-reveal gallery-grid mb-4"
+          style="transition-delay: 0.2s"
+        >
+          <div
+            class="g-item span-7 h-340"
+            data-index="6"
+            data-label="Social Media"
+            data-title="Instagram Post Series"
+          >
+            <img
+              src="https://res.cloudinary.com/duw0fnlqe/image/upload/v1773831562/Cropped_T-Shirt_Mockup_PATCHES.jpg_zvldtb.jpg"
+              alt="Social media"
+            />
+            <!-- <div class="g-overlay">
+              <p class="g-overlay-label">Social Media</p>
+              <p class="g-overlay-title">Instagram Post Series</p>
+            </div>
+            <div class="g-zoom">
+              <svg
+                class="w-4 h-4 text-[#B8912A]"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0zM10 7v3m0 0v3m0-3h3m-3 0H7"
+                />
+              </svg>
+            </div> -->
+          </div>
+          <div
+            class="g-item span-5 h-340"
+            data-index="7"
+            data-label="Brand Stationery"
+            data-title="Business Card Design"
+          >
+            <img
+              src="https://res.cloudinary.com/duw0fnlqe/image/upload/v1773831561/Free_Hanging_Tote_Bag_Mockup_1_copy.jpg_esvua1.jpg"
+              alt="Business cards"
+            />
+            <!-- <div class="g-overlay">
+              <p class="g-overlay-label">Brand Stationery</p>
+              <p class="g-overlay-title">Business Card Design</p>
+            </div>
+            <div class="g-zoom">
+              <svg
+                class="w-4 h-4 text-[#B8912A]"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0zM10 7v3m0 0v3m0-3h3m-3 0H7"
+                />
+              </svg>
+            </div> -->
+          </div>
+        </div>
+
+        <!-- ── ROW 4 ── -->
+        <div
+          class="gallery-reveal gallery-grid mb-4"
+          style="transition-delay: 0.3s"
+        >
+          <div
+            class="g-item span-4 h-280"
+            data-index="8"
+            data-label="Signage"
+            data-title="Exterior Fascia Sign"
+          >
+            <img
+              src="https://res.cloudinary.com/duw0fnlqe/image/upload/v1773831560/Screenshot_2024-06-14_at_11.47.54_PM_ogxemm.png"
+              alt="Signage"
+            />
+            <!-- <div class="g-overlay">
+              <p class="g-overlay-label">Signage</p>
+              <p class="g-overlay-title">Exterior Fascia Sign</p>
+            </div>
+            <div class="g-zoom">
+              <svg
+                class="w-4 h-4 text-[#B8912A]"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0zM10 7v3m0 0v3m0-3h3m-3 0H7"
+                />
+              </svg>
+            </div> -->
+          </div>
+          <div
+            class="g-item span-4 h-280"
+            data-index="9"
+            data-label="Merch"
+            data-title="Branded Apron & Cap"
+          >
+            <img
+              src="https://res.cloudinary.com/duw0fnlqe/image/upload/v1773831561/Free_Hanging_Tote_Bag_Mockup_3_copy.jpg_offnbq.jpg"
+              alt="Merchandise"
+            />
+            <!-- <div class="g-overlay">
+              <p class="g-overlay-label">Merch</p>
+              <p class="g-overlay-title">Branded Apron & Cap</p>
+            </div>
+            <div class="g-zoom">
+              <svg
+                class="w-4 h-4 text-[#B8912A]"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0zM10 7v3m0 0v3m0-3h3m-3 0H7"
+                />
+              </svg>
+            </div> -->
+          </div>
+          <div
+            class="g-item span-4 h-280"
+            data-index="10"
+            data-label="Brand Guidelines"
+            data-title="Style Guide Cover"
+          >
+            <img
+              src="https://res.cloudinary.com/duw0fnlqe/image/upload/v1773831560/shop_facade_1_copy.jpg_vvyixc.jpg"
+              alt="Brand guidelines"
+            />
+            <!-- <div class="g-overlay">
+              <p class="g-overlay-label">Brand Guidelines</p>
+              <p class="g-overlay-title">Style Guide Cover</p>
+            </div>
+            <div class="g-zoom">
+              <svg
+                class="w-4 h-4 text-[#B8912A]"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0zM10 7v3m0 0v3m0-3h3m-3 0H7"
+                />
+              </svg>
+            </div> -->
+          </div>
+        </div>
+
+        <!-- ── ROW 5 — Full-width finisher ── -->
+        <div class="gallery-reveal" style="transition-delay: 0.4s">
+          <div
+            class="g-item span-12 h-420"
+            data-index="11"
+            data-label="Brand Mockup"
+            data-title="Full Brand in Context"
+          >
+            <img
+              src="https://res.cloudinary.com/duw0fnlqe/image/upload/v1773831561/Free_PSD_Modern_Workstation_iMac_Mockup_copy.jpg_ffcroh.jpg"
+              alt="Brand mockup"
+              style="height: 420px"
+            />
+            <!-- <div class="g-overlay">
+              <p class="g-overlay-label">Brand Mockup</p>
+              <p class="g-overlay-title">Full Brand in Context</p>
+            </div>
+            <div class="g-zoom">
+              <svg
+                class="w-4 h-4 text-[#B8912A]"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0zM10 7v3m0 0v3m0-3h3m-3 0H7"
+                />
+              </svg>
+            </div> -->
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ░░ LIGHTBOX ░░ -->
+    <div
+      id="lightbox"
+      role="dialog"
+      aria-modal="true"
+      aria-label="Image viewer"
+    >
+      <!-- Close -->
+      <button id="lb-close" aria-label="Close lightbox">
+        <svg
+          class="w-5 h-5 text-white/80"
+          fill="none"
+          stroke="currentColor"
+          viewBox="0 0 24 24"
+        >
+          <path
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-width="1.8"
+            d="M6 6l12 12M18 6L6 18"
+          />
+        </svg>
+      </button>
+
+      <!-- Counter -->
+      <div id="lb-counter"></div>
+
+      <!-- Image -->
+      <img id="lightbox-img" src="" alt="" />
+
+      <!-- Meta -->
+      <div id="lb-meta">
+        <p id="lb-label"></p>
+        <p id="lb-title"></p>
+      </div>
+    </div>
+
+    <!-- NEXT PROJECT -->
+    <section class="px-6 md:px-20 py-20 border-t border-white/10">
+      <div class="max-w-4xl mx-auto">
+        <p class="text-[#B8912A] text-sm uppercase tracking-[0.2em] mb-4">
+          Next Project
+        </p>
+        <a
+          href="project-harvest-market.html"
+          class="group flex items-center justify-between p-8 bg-[#181815] rounded-lg hover:bg-[#1F1F1B] transition-all"
+        >
+          <h3
+            class="font-display text-2xl font-bold group-hover:text-[#B8912A] transition"
+          >
+            Harvest Market
+          </h3>
+          <span
+            class="text-[#B8912A] text-2xl group-hover:translate-x-2 transition"
+            >→</span
+          >
+        </a>
+      </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer
+      class="relative bg-[#0F0F0D] text-white px-8 md:px-20 py-20 rounded-t-[60px] overflow-hidden"
+    >
+      <!-- Subtle Top Glow -->
+      <div
+        class="absolute top-0 left-0 w-full h-24 bg-gradient-to-b from-[#B8912A]/10 to-transparent pointer-events-none"
+      ></div>
+
+      <div
+        class="relative z-10 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-14"
+      >
+        <!-- Column 1 - About -->
+        <div>
+          <div class="flex justify-start">
+            <img
+              src="public/olamide-logo.png"
+              alt="Olamide Andrew Logo"
+              class="w-60 h-[110px] object-contain rounded-2xl shadow-2xl"
+            />
+          </div>
+
+          <p class="text-white/60 text-sm leading-relaxed max-w-xs">
+            Strategic Brand Designer crafting modern, minimal and impactful
+            digital experiences for growing brands worldwide.
+          </p>
+        </div>
+
+        <!-- Column 2 - Quick Links -->
+        <div>
+          <h3 class="text-sm uppercase tracking-[0.2em] mb-6 text-white/40">
+            Quick Links
+          </h3>
+
+          <ul class="space-y-4 text-white/60 text-sm">
+            <li class="group flex items-center gap-2">
+              <span
+                class="text-[#B8912A] transform group-hover:translate-x-1 transition duration-300"
+              >
+                >
+              </span>
+              <a
+                href="work.html"
+                class="group-hover:text-[#B8912A] transition duration-300"
+              >
+                Work
+              </a>
+            </li>
+
+            <li class="group flex items-center gap-2">
+              <span
+                class="text-[#B8912A] transform group-hover:translate-x-1 transition duration-300"
+              >
+                >
+              </span>
+              <a
+                href="about.html"
+                class="group-hover:text-[#B8912A] transition duration-300"
+              >
+                About
+              </a>
+            </li>
+
+            <li class="group flex items-center gap-2">
+              <span
+                class="text-[#B8912A] transform group-hover:translate-x-1 transition duration-300"
+              >
+                >
+              </span>
+              <a
+                href="contact.html"
+                class="group-hover:text-[#B8912A] transition duration-300"
+              >
+                Contact
+              </a>
+            </li>
+
+            <li class="group flex items-center gap-2">
+              <span
+                class="text-[#B8912A] transform group-hover:translate-x-1 transition duration-300"
+              >
+                >
+              </span>
+              <a
+                href="#"
+                class="group-hover:text-[#B8912A] transition duration-300"
+              >
+                Blog
+              </a>
+            </li>
+          </ul>
+        </div>
+
+        <!-- Column 3 - Services -->
+        <div>
+          <h3 class="text-sm uppercase tracking-[0.2em] mb-6 text-white/40">
+            Services
+          </h3>
+
+          <ul class="space-y-4 text-white/60 text-sm">
+            <li class="group flex items-center gap-2">
+              <span
+                class="text-[#B8912A] transform group-hover:translate-x-1 transition duration-300"
+              >
+                >
+              </span>
+              <a
+                href="#"
+                class="group-hover:text-[#B8912A] transition duration-300"
+              >
+                Brand Strategy
+              </a>
+            </li>
+
+            <li class="group flex items-center gap-2">
+              <span
+                class="text-[#B8912A] transform group-hover:translate-x-1 transition duration-300"
+              >
+                >
+              </span>
+              <a
+                href="#"
+                class="group-hover:text-[#B8912A] transition duration-300"
+              >
+                Visual Identity
+              </a>
+            </li>
+
+            <li class="group flex items-center gap-2">
+              <span
+                class="text-[#B8912A] transform group-hover:translate-x-1 transition duration-300"
+              >
+                >
+              </span>
+              <a
+                href="#"
+                class="group-hover:text-[#B8912A] transition duration-300"
+              >
+                Campaingn Design
+              </a>
+            </li>
+
+            <!-- <li class="group flex items-center gap-2">
+              <span
+                class="text-[#B8912A] transform group-hover:translate-x-1 transition duration-300"
+              >
+                >
+              </span>
+              <a
+                href="#"
+                class="group-hover:text-[#B8912A] transition duration-300"
+              >
+                Concept Work
+              </a>
+            </li> -->
+
+            <li class="group flex items-center gap-2">
+              <span
+                class="text-[#B8912A] transform group-hover:translate-x-1 transition duration-300"
+              >
+                >
+              </span>
+              <a
+                href="#"
+                class="group-hover:text-[#B8912A] transition duration-300"
+              >
+                Website Design
+              </a>
+            </li>
+          </ul>
+        </div>
+
+        <!-- Column 4 - Social + Contact -->
+        <div>
+          <h3 class="text-sm uppercase tracking-[0.2em] mb-6 text-white/40">
+            Connect
+          </h3>
+
+          <div class="flex gap-4 mb-8">
+            <a
+              href="https://www.behance.net/olamideandrew"
+              target="_blank"
+              class="w-10 h-10 rounded-xl bg-white/5 border border-white/10 flex items-center justify-center text-white/60 hover:bg-[#B8912A] hover:text-black transition-all duration-300"
+              title="Behance"
+            >
+              <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                <path
+                  d="M22 7h-7v-2h7v2zm1.726 10c-.442 1.297-2.029 3-5.101 3-3.074 0-5.564-1.729-5.564-5.675 0-3.91 2.325-5.92 5.466-5.92 3.082 0 4.964 1.782 5.375 4.426.078.506.109 1.188.095 2.14H15.97c.13 3.211 3.483 3.312 4.588 2.029h3.168zm-7.686-4h4.965c-.105-1.547-1.136-2.219-2.477-2.219-1.466 0-2.277.768-2.488 2.219zm-9.574 6.988h-6.466v-14.967h6.953c5.476.081 5.58 5.444 2.72 6.906 3.461 1.26 3.577 8.061-3.207 8.061zm-3.466-8.988h3.584c2.508 0 2.906-3-.312-3h-3.272v3zm3.391 3h-3.391v3.016h3.341c3.055 0 2.868-3.016.05-3.016z"
+                />
+              </svg>
+            </a>
+
+            <a
+              href="https://www.instagram.com/olamideandrew"
+              target="_blank"
+              class="w-10 h-10 rounded-xl bg-white/5 border border-white/10 flex items-center justify-center text-white/60 hover:bg-[#B8912A] hover:text-black transition-all duration-300"
+              title="Instagram"
+            >
+              <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                <path
+                  d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"
+                />
+              </svg>
+            </a>
+
+            <a
+              href="https://www.linkedin.com/in/olamideandrew"
+              target="_blank"
+              class="w-10 h-10 rounded-xl bg-white/5 border border-white/10 flex items-center justify-center text-white/60 hover:bg-[#B8912A] hover:text-black transition-all duration-300"
+              title="LinkedIn"
+            >
+              <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                <path
+                  d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"
+                />
+              </svg>
+            </a>
+          </div>
+
+          <div class="text-white/60 text-sm space-y-3">
+            <p>andrewolamide@gmail.com</p>
+            <p>+1204 730 7396</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Bottom Section -->
+      <div
+        class="border-t border-white/10 mt-16 pt-8 flex flex-col md:flex-row justify-between items-center gap-4 text-white/40 text-xs"
+      >
+        <p>© <span id="year"></span> Olamide Andrew. All rights reserved.</p>
+
+        <p class="text-white/30">
+          Design and developed by
+          <span class="text-[#B8912A] hover:text-[#D4A93C] transition"
+            >Tejas Mehar</span
+          >
+        </p>
+
+        <div class="flex gap-6">
+          <a href="#" class="hover:text-[#B8912A] transition">Privacy Policy</a>
+          <a href="#" class="hover:text-[#B8912A] transition"
+            >Terms of Service</a
+          >
+        </div>
+      </div>
+    </footer>
+
+    <script>
+      document.getElementById("year").textContent = new Date().getFullYear();
+
+      /* ── GALLERY DATA ── */
+      const items = Array.from(document.querySelectorAll(".g-item"));
+      const galleryData = items.map((el) => ({
+        src: el.querySelector("img").src,
+        label: el.dataset.label || "",
+        title: el.dataset.title || "",
+      }));
+      let currentIndex = 0;
+
+      /* ── LIGHTBOX ELEMENTS ── */
+      const lb = document.getElementById("lightbox");
+      const lbImg = document.getElementById("lightbox-img");
+      const lbLabel = document.getElementById("lb-label");
+      const lbTitle = document.getElementById("lb-title");
+      const lbCounter = document.getElementById("lb-counter");
+      const lbClose = document.getElementById("lb-close");
+
+      function openLightbox(index) {
+        currentIndex = index;
+        showSlide(index);
+        lb.classList.add("active");
+        document.body.style.overflow = "hidden";
+      }
+
+      function closeLightbox() {
+        lb.classList.remove("active");
+        document.body.style.overflow = "";
+      }
+
+      function showSlide(index) {
+        const d = galleryData[index];
+        lbImg.src = d.src;
+        lbLabel.textContent = d.label;
+        lbTitle.textContent = d.title;
+        lbCounter.textContent = index + 1 + " / " + galleryData.length;
+      }
+
+      function prevSlide() {
+        currentIndex =
+          (currentIndex - 1 + galleryData.length) % galleryData.length;
+        showSlide(currentIndex);
+      }
+
+      function nextSlide() {
+        currentIndex = (currentIndex + 1) % galleryData.length;
+        showSlide(currentIndex);
+      }
+
+      /* ── BIND GALLERY ITEMS ── */
+      items.forEach((el, i) => {
+        el.addEventListener("click", () =>
+          openLightbox(parseInt(el.dataset.index)),
+        );
+      });
+
+      /* ── CONTROLS ── */
+      lbClose.addEventListener("click", closeLightbox);
+
+      /* Close on backdrop click */
+      lb.addEventListener("click", (e) => {
+        if (e.target === lb) closeLightbox();
+      });
+
+      /* Keyboard */
+      document.addEventListener("keydown", (e) => {
+        if (!lb.classList.contains("active")) return;
+        if (e.key === "Escape") closeLightbox();
+        if (e.key === "ArrowLeft") prevSlide();
+        if (e.key === "ArrowRight") nextSlide();
+      });
+
+      /* Touch swipe */
+      let touchStartX = 0;
+      lb.addEventListener(
+        "touchstart",
+        (e) => {
+          touchStartX = e.touches[0].clientX;
+        },
+        { passive: true },
+      );
+      lb.addEventListener("touchend", (e) => {
+        const diff = touchStartX - e.changedTouches[0].clientX;
+        if (Math.abs(diff) > 50) diff > 0 ? nextSlide() : prevSlide();
+      });
+
+      /* ── SCROLL REVEAL ── */
+      const revealEls = document.querySelectorAll(".gallery-reveal");
+      const observer = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              entry.target.classList.add("visible");
+              observer.unobserve(entry.target);
+            }
+          });
+        },
+        { threshold: 0.08 },
+      );
+      revealEls.forEach((el) => observer.observe(el));
+    </script>
+  </body>
+</html>
